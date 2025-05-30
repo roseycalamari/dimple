@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula 1 - HSR 1700 High Speed Roller | Dimple</title>
+    <link rel="icon" type="image/png" href="images/logo-wit@2x.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Formula 1 Page Styles */
+        :root {
+            --f1-red: #dc143c;
+            --f1-black: #1a1a1a;
+            --f1-white: #ffffff;
+            --f1-gold: #ffd700;
+            --speed-gradient: linear-gradient(135deg, #dc143c 0%, #ff6b6b 50%, #ffd700 100%);
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+        }
+
+        /* Hero Section */
+        .formula1-hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: 130px 0 80px;
+        }
+
+        .formula1-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(220, 20, 60, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+            animation: subtleGlow 6s ease-in-out infinite alternate;
+            z-index: 1;
+        }
+
+        @keyframes subtleGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 0.8; }
+        }
+
+        .formula1-hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text-content {
+            max-width: 600px;
+        }
+
+        .f1-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(220, 20, 60, 0.15);
+            color: #dc143c;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            border: 2px solid rgba(220, 20, 60, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .f1-badge:hover {
+            background: rgba(220, 20, 60, 0.2);
+            border-color: rgba(220, 20, 60, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .formula1-hero-title {
+            font-family: var(--font-primary);
+            font-size: clamp(3.5rem, 8vw, 5rem);
+            font-weight: 900;
+            color: var(--primary-white);
+            margin-bottom: 20px;
+            text-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+            letter-spacing: -2px;
+            line-height: 0.9;
+        }
+
+        .formula1-hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: #ffd700;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            line-height: 1.4;
+        }
+
+        .formula1-hero-description {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            line-height: 1.7;
+            color: var(--primary-white);
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .hero-video-container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-video-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .hero-video-container iframe {
+            width: 100%;
+            height: 360px;
+            border: none;
+            display: block;
+            border-radius: 16px;
+        }
+
+        /* Video container loading state */
+        .hero-video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 95, 63, 0.02) 0%, rgba(26, 95, 63, 0.01) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-family: var(--font-primary);
+            font-size: clamp(2.2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            background: #f8f9fa;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-modal.show {
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            margin: 50px auto;
+            text-align: center;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.2s ease;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            border: 2px solid var(--primary-green);
+            color: #fff;
+            font-size: 2.2rem;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 18px rgba(26, 95, 63, 0.18);
+            transition: box-shadow 0.2s, transform 0.15s, background 0.2s, border 0.2s, opacity 0.2s;
+            opacity: 0.92;
+            z-index: 2;
+        }
+        .modal-nav:hover {
+            box-shadow: 0 8px 32px rgba(26, 95, 63, 0.28);
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
+            border-color: var(--accent-green);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.08);
+        }
+        .modal-nav:active {
+            transform: translateY(-50%) scale(0.96);
+            opacity: 0.85;
+        }
+        .modal-prev {
+            left: 32px;
+        }
+        .modal-next {
+            right: 32px;
+        }
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            font-size: 2rem;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(26, 95, 63, 0.10);
+            transition: box-shadow 0.2s, transform 0.15s, background 0.2s, border 0.2s, color 0.2s;
+            z-index: 3;
+        }
+        .modal-close:hover {
+            background: linear-gradient(135deg, #fff, #e9ecef);
+            color: #dc143c;
+            border-color: #dc143c;
+            box-shadow: 0 6px 18px rgba(220, 20, 60, 0.18);
+            transform: scale(1.08);
+        }
+        .modal-close:active {
+            transform: scale(0.95);
+            opacity: 0.85;
+        }
+        .modal-counter {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            color: var(--primary-green);
+            padding: 8px 22px;
+            border-radius: 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid var(--primary-green);
+            box-shadow: 0 2px 10px rgba(26, 95, 63, 0.08);
+            letter-spacing: 0.04em;
+            opacity: 0.97;
+        }
+        @media (max-width: 768px) {
+            .modal-nav {
+                width: 44px;
+                height: 44px;
+                font-size: 1.5rem;
+            }
+            .modal-prev {
+                left: 10px;
+            }
+            .modal-next {
+                right: 10px;
+            }
+            .modal-close {
+                top: 10px;
+                right: 10px;
+                width: 38px;
+                height: 38px;
+                font-size: 1.3rem;
+            }
+            .modal-counter {
+                bottom: 10px;
+                padding: 6px 14px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* HSR 1700 Section */
+        .hsr-section {
+            padding: 100px 0;
+            background: var(--primary-white);
+            position: relative;
+        }
+
+        .hsr-content {
+            display: block;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hsr-text {
+            padding-right: 0;
+        }
+
+        .hsr-title {
+            font-family: var(--font-primary);
+            font-size: clamp(2.2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .hsr-description {
+            font-size: clamp(1.1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+            color: var(--text-gray);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+
+        .advantages-subtitle {
+            font-family: var(--font-primary);
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            font-weight: 700;
+            color: var(--text-dark);
+            text-align: center;
+            margin: 40px auto 40px;
+            max-width: 600px;
+        }
+
+        .advantages-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .advantage-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(26, 95, 63, 0.05) 0%, rgba(26, 95, 63, 0.02) 100%);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(26, 95, 63, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .advantage-item:hover {
+            background: linear-gradient(135deg, rgba(26, 95, 63, 0.1) 0%, rgba(26, 95, 63, 0.05) 100%);
+            transform: translateY(-3px);
+            border-color: rgba(26, 95, 63, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .check-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(26, 95, 63, 0.3);
+        }
+
+        .advantage-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .formula1-hero {
+                padding: 100px 0 60px;
+            }
+
+            .formula1-hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-video-container iframe {
+                height: 250px;
+            }
+
+            .hero-video-container {
+                border-radius: 12px;
+            }
+
+            .hero-video-container iframe {
+                border-radius: 12px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .modal-nav {
+                font-size: 1.5rem;
+                padding: 12px 15px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .modal-prev {
+                left: 15px;
+            }
+
+            .modal-next {
+                right: 15px;
+            }
+
+            .modal-close {
+                top: 15px;
+                right: 20px;
+                font-size: 1.5rem;
+                width: 45px;
+                height: 45px;
+            }
+
+            .advantage-item:hover {
+                transform: translateX(5px);
+            }
+
+            .advantages-list {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+
+            .hero-video-container iframe {
+                height: 200px;
+                border-radius: 10px;
+            }
+
+            .hero-video-container {
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                    <span class="logo-tagline">Est. 1991</span>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Dimple</a>
+                    <div class="nav-dropdown">
+                        <a href="graphical-cleaning.html" class="nav-link">Graphical Cleaning</a>
+                        <div class="dropdown-content">
+                            <a href="wash-cloth.html" class="dropdown-link">Wash Cloth</a>
+                            <a href="cassette-rolls.html" class="dropdown-link">Cassette Rolls</a>
+                            <a href="winding-device.html" class="dropdown-link">Winding Device</a>
+                            <a href="manual-wiping.html" class="dropdown-link">Manual Wiping</a>
+                        </div>
+                    </div>
+                    <a href="formula1.html" class="nav-link active">Formula 1</a>
+                    <a href="index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="index.html#customer-service" class="nav-link">Customer Service</a>
+                    <a href="index.html#brochures" class="nav-link">Brochures</a>
+                    <a href="index.html#contact" class="nav-contact-button">Contact</a>
+                </nav>
+                
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Off-Canvas Menu -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                <span class="logo-tagline">Est. 1991</span>
+            </div>
+            <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Dimple</a>
+            <div class="mobile-nav-dropdown">
+                <div class="mobile-nav-parent" id="graphicalCleaningToggle">
+                    <a href="graphical-cleaning.html" class="mobile-nav-link">Graphical Cleaning</a>
+                    <span class="mobile-dropdown-arrow">▼</span>
+                </div>
+                <div class="mobile-nav-submenu" id="graphicalCleaningSubmenu">
+                    <a href="wash-cloth.html" class="mobile-nav-sublink">— Wash Cloth</a>
+                    <a href="cassette-rolls.html" class="mobile-nav-sublink">— Cassette Rolls</a>
+                    <a href="winding-device.html" class="mobile-nav-sublink">— Winding Device</a>
+                    <a href="manual-wiping.html" class="mobile-nav-sublink">— Manual Wiping</a>
+                </div>
+            </div>
+            <a href="formula1.html" class="mobile-nav-link active">Formula 1</a>
+            <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+            <a href="index.html#customer-service" class="mobile-nav-link">Customer Service</a>
+            <a href="index.html#brochures" class="mobile-nav-link">Brochures</a>
+            <a href="index.html#contact" class="mobile-nav-link nav-contact-button">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Formula 1 Hero Section -->
+    <section class="formula1-hero">
+        <div class="container">
+            <div class="formula1-hero-content">
+                <div class="hero-text-content">
+                    <div class="f1-badge">
+                        🏎️ HIGH SPEED INNOVATION
+                    </div>
+                    <h1 class="formula1-hero-title">Formula 1</h1>
+                    <p class="formula1-hero-subtitle">
+                        Dimple introduces the new winding machine HSR 1700 along with a unique purchase deal: Formula 1
+                    </p>
+                    <p class="formula1-hero-description">
+                        Since 1992, Dimple has been active in the field of the graphic printing industry. The company's wide range of experience has led to an ongoing search for innovative solutions in this fast developing market. The focus of Dimple is to continuously optimize efficiency in every possible way. Therefore Dimple is proud to present the launch of a new fabric winding machine, the High Speed Roller (HSR) 1700. This machine comes along with a unique purchase deal called: Formula 1. A formula designed to place your company in pole position.
+                    </p>
+                </div>
+                <div class="hero-video-container">
+                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/92327196?h=a66ca933ba" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="gallery-title">An impression of our HSR 1700</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal" id="galleryModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <button class="modal-nav modal-prev" id="modalPrev">‹</button>
+            <img class="modal-image" id="modalImage" src="" alt="">
+            <button class="modal-nav modal-next" id="modalNext">›</button>
+            <div class="modal-counter" id="modalCounter">1 / 8</div>
+        </div>
+    </div>
+
+    <!-- HSR 1700 Section -->
+    <section class="hsr-section">
+        <div class="container">
+            <div class="hsr-content">
+                <div class="hsr-text">
+                    <h2 class="hsr-title">The HSR 1700: one of a kind</h2>
+                    <p class="hsr-description">
+                        It took Dimple three years to design the High Speed Roller 1700. The aim was to speed up the production process of the winding of washcloth for the graphic printing industry and increase the efficiency of this process. All expectations were met when the first HSR 1700 became operational in October 2013. High speed says it all, but there is more to this machine.
+                    </p>
+                    <h3 class="advantages-subtitle">
+                        Below is a list of the most competitive advantages:
+                    </h3>
+                    <ul class="advantages-list">
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">Winding two to six rolls at the same time, on two axes</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">No waste and therefore serious cost reduction</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">Automatic extraction of slit edges</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">Handles both dry rolls and impregnated rolls</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">Able to satisfy demands of client's faster, tailor-made and with increased reliability</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">Production progress can be monitored real time</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">The HSR 1700 takes up little space</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">Provides new incentives for the sales department</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">Extremely low energy consumption, CO2 neutral due to use of solar panels</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">Able to handle materials for various other branches too (e.g. filter, paper, foil)</span>
+                        </li>
+                        <li class="advantage-item">
+                            <span class="check-icon">✓</span>
+                            <span class="advantage-text">Integrated option for inkjet printing on washcloth and perforation unit</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Machines Section -->
+    <section class="machines-section" id="machines">
+        <div class="machines-background">
+            <div class="machines-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="machines-header">
+                <h2 class="machines-title">
+                    <span class="title-line">Trusted By</span>
+                    <span class="title-main">Our Machines</span>
+                    <span class="title-subtitle">Industry Leaders Worldwide</span>
+                </h2>
+                <p class="machines-description">
+                    Our products are used on heatset, coldset, sheetfed and digital printers.
+                </p>
+            </div>
+            
+            <div class="machines-content">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- First set of company logos -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                        
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="machines-cta-section">
+                    <div class="cta-content">
+                        <h3 class="cta-heading">A new concept, designed for you</h3>
+                        <p class="cta-description">
+                            Discover how our innovative machinery solutions can transform your production process and elevate your business to new heights.
+                        </p>
+                    </div>
+                    <div class="cta-button-wrapper">
+                        <button class="machines-cta-button">
+                            <span class="cta-text">Get More Information</span>
+                            <span class="cta-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                            <span class="logo-tagline">Est. 1991</span>
+                        </div>
+                        <p class="footer-description">
+                            Specialists in non-woven fabrics, delivering industrial excellence since 1991.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>Get In Touch</h4>
+                        <div class="contact-info">
+                            <a href="mailto:info@dimple.com" class="contact-link">info@dimple.com</a>
+                            <a href="tel:+31123456789" class="contact-link">+31 12 345 6789</a>
+                            <span class="contact-location">Netherlands</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 Dimple BV. All rights reserved.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/dimple-bv" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="index.html#contact" class="social-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Gallery functionality
+        const galleryImages = [
+            'images/HSR1700/hsr-1700-01.jpg',
+            'images/HSR1700/hsr-1700-02.jpg',
+            'images/HSR1700/hsr-1700-03.jpg',
+            'images/HSR1700/hsr-1700-04.jpg',
+            'images/HSR1700/hsr-1700-05.jpg',
+            'images/HSR1700/hsr-1700-06.jpg',
+            'images/HSR1700/hsr-1700-07.jpg',
+            'images/HSR1700/hsr-1700-08.jpg'
+        ];
+
+        let currentImageIndex = 0;
+
+        // Populate gallery
+        function initializeGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            
+            galleryImages.forEach((imageSrc, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.onclick = () => openModal(index);
+                
+                const img = document.createElement('img');
+                img.src = imageSrc;
+                img.alt = `HSR 1700 Image ${index + 1}`;
+                img.loading = 'lazy';
+                img.onerror = () => {
+                    // Fallback to a placeholder or hide the item if image doesn't exist
+                    galleryItem.style.display = 'none';
+                };
+                
+                galleryItem.appendChild(img);
+                galleryGrid.appendChild(galleryItem);
+            });
+        }
+
+        // Modal functionality with smooth animations
+        function openModal(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('galleryModal');
+            const modalImage = document.getElementById('modalImage');
+            const modalCounter = document.getElementById('modalCounter');
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            
+            // Trigger animation
+            requestAnimationFrame(() => {
+                modal.classList.add('show');
+                modalImage.src = galleryImages[currentImageIndex];
+                updateCounter();
+            });
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('galleryModal');
+            modal.classList.remove('show');
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateModalImage();
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            const modalImage = document.getElementById('modalImage');
+            modalImage.style.opacity = '0';
+            
+            setTimeout(() => {
+                modalImage.src = galleryImages[currentImageIndex];
+                modalImage.style.opacity = '1';
+                updateCounter();
+            }, 150);
+        }
+
+        function updateCounter() {
+            const modalCounter = document.getElementById('modalCounter');
+            modalCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+
+        // Event listeners
+        document.getElementById('modalClose').onclick = closeModal;
+        document.getElementById('modalNext').onclick = nextImage;
+        document.getElementById('modalPrev').onclick = prevImage;
+
+        // Close modal when clicking outside the image
+        document.getElementById('galleryModal').onclick = function(event) {
+            if (event.target === this) {
+                closeModal();
+            }
+        };
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById('galleryModal');
+            if (modal.classList.contains('show')) {
+                if (event.key === 'Escape') closeModal();
+                if (event.key === 'ArrowLeft') prevImage();
+                if (event.key === 'ArrowRight') nextImage();
+            }
+        });
+
+        // Initialize gallery when page loads
+        document.addEventListener('DOMContentLoaded', initializeGallery);
+
+        // Add smooth scrolling for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

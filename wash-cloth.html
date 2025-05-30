@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wash Cloth Solutions - Premium Cleaning Technology | Dimple</title>
+    <link rel="icon" type="image/png" href="images/logo-wit@2x.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Enhanced Wash Cloth Page Styles */
+        :root {
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+        }
+        
+        .washcloth-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            overflow: hidden;
+            padding: 130px 0 60px;
+        }
+
+        .washcloth-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .washcloth-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .washcloth-hero-title {
+            font-family: var(--font-primary);
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: var(--primary-white);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+        }
+
+        .washcloth-hero-subtitle {
+            font-family: var(--font-secondary);
+            font-size: 1.3rem;
+            color: var(--text-lighter);
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .washcloth-hero-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .washcloth-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-description {
+            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+            line-height: 1.7;
+            color: var(--light-green);
+            margin-bottom: 60px;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Features Grid Section */
+        .features-section {
+            padding: 100px 0;
+            background: var(--primary-white);
+            position: relative;
+        }
+
+        .features-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(26, 95, 63, 0.02) 0%, transparent 50%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-card {
+            background: var(--primary-white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(26, 95, 63, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 95, 63, 0.05), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .feature-card:hover::before {
+            left: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-green);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--primary-white);
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-title {
+            font-family: var(--font-primary);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Technical Specifications Section */
+        .specifications-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .spec-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .spec-content h2 {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(26, 95, 63, 0.1);
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-white);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .spec-text {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .spec-visual {
+            background: var(--primary-white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .spec-chart {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-white);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Applications Section */
+        .applications-section {
+            padding: 100px 0;
+            background: var(--primary-white);
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .application-card {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
+            border-radius: 20px;
+            padding: 40px 25px;
+            text-align: center;
+            color: var(--primary-white);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .application-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .application-card:hover::before {
+            opacity: 1;
+        }
+
+        .application-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 80px rgba(26, 95, 63, 0.3);
+        }
+
+        .application-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .application-title {
+            font-family: var(--font-primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .application-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .washcloth-cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .washcloth-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-white);
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-description {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+            color: var(--primary-green);
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .spec-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .applications-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .washcloth-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Products Section Styles */
+        .products-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+
+        .products-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(26, 95, 63, 0.02) 0%, transparent 50%);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .product-card {
+            background: var(--primary-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(26, 95, 63, 0.1);
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-family: var(--font-primary);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        .product-description {
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            color: var(--primary-white);
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-button::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url("images/pdf-document-svgrepo-com.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: brightness(0) invert(1);
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
+            opacity: 0;
+            transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 1;
+        }
+
+        .download-button span {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(26, 95, 63, 0.2);
+        }
+
+        .download-button:hover::before {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .download-button:hover::after {
+            opacity: 1;
+        }
+
+        .download-button:hover span {
+            transform: translateX(3px);
+        }
+
+        .button-icon {
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .download-button:hover .button-icon {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .product-image {
+                height: 220px;
+            }
+        }
+
+        /* Distribution Center Section Styles */
+        .distribution-section {
+            padding: 70px 0 60px;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .distribution-overlay {
+            background: linear-gradient(135deg, rgba(26, 95, 63, 0.92) 0%, rgba(26, 95, 63, 0.85) 100%);
+        }
+
+        .distribution-content {
+            background: rgba(0,0,0,0.13);
+            border-radius: 22px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+            padding: 38px 32px 30px;
+            max-width: 650px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .distribution-title {
+            color: #fff;
+            font-size: 2.3rem;
+            font-weight: 800;
+            text-shadow: 0 4px 24px rgba(0,0,0,0.25);
+            margin-bottom: 18px;
+        }
+
+        .distribution-description {
+            color: #fff;
+            font-size: 1.08rem;
+            line-height: 1.7;
+            opacity: 0.97;
+            max-width: 540px;
+            margin: 0 auto;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+        }
+
+        @media (max-width: 768px) {
+            .distribution-section {
+                padding: 80px 0;
+                background-attachment: scroll;
+            }
+
+            .distribution-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                    <span class="logo-tagline">Est. 1991</span>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Dimple</a>
+                    <div class="nav-dropdown">
+                        <a href="graphical-cleaning.html" class="nav-link active">Graphical Cleaning</a>
+                        <div class="dropdown-content">
+                            <a href="wash-cloth.html" class="dropdown-link active">Wash Cloth</a>
+                            <a href="cassette-rolls.html" class="dropdown-link">Cassette Rolls</a>
+                            <a href="winding-device.html" class="dropdown-link">Winding Device</a>
+                            <a href="manual-wiping.html" class="dropdown-link">Manual Wiping</a>
+                        </div>
+                    </div>
+                    <a href="index.html#formula1" class="nav-link">Formula 1</a>
+                    <a href="index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="index.html#customer-service" class="nav-link">Customer Service</a>
+                    <a href="index.html#brochures" class="nav-link">Brochures</a>
+                    <a href="index.html#contact" class="nav-contact-button">Contact</a>
+                </nav>
+                
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Off-Canvas Menu -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                <span class="logo-tagline">Est. 1991</span>
+            </div>
+            <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Dimple</a>
+            <div class="mobile-nav-dropdown">
+                <div class="mobile-nav-parent" id="graphicalCleaningToggle">
+                    <a href="graphical-cleaning.html" class="mobile-nav-link">Graphical Cleaning</a>
+                    <span class="mobile-dropdown-arrow">▼</span>
+                </div>
+                <div class="mobile-nav-submenu active" id="graphicalCleaningSubmenu">
+                    <a href="wash-cloth.html" class="mobile-nav-sublink active">— Wash Cloth</a>
+                    <a href="cassette-rolls.html" class="mobile-nav-sublink">— Cassette Rolls</a>
+                    <a href="winding-device.html" class="mobile-nav-sublink">— Winding Device</a>
+                    <a href="manual-wiping.html" class="mobile-nav-sublink">— Manual Wiping</a>
+                </div>
+            </div>
+            <a href="index.html#formula1" class="mobile-nav-link">Formula 1</a>
+            <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+            <a href="index.html#customer-service" class="mobile-nav-link">Customer Service</a>
+            <a href="index.html#brochures" class="mobile-nav-link">Brochures</a>
+            <a href="index.html#contact" class="mobile-nav-link nav-contact-button">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Wash Cloth Hero Section -->
+    <section class="washcloth-hero">
+        <div class="container">
+            <div class="washcloth-hero-content">
+                <h1 class="washcloth-hero-title">Wash Cloth</h1>
+                <p class="washcloth-hero-subtitle">Specialists in the field of washcloth for the international print industry</p>
+                <p class="washcloth-hero-description">
+                    Over the years, Dimple BV has grown into the role of specialists in the field of washcloth for the international Print Industry. In offset, we offer excellent cleaning cloths for automatic blanket cleaning systems. Additionally, we have the ideal material for automatic impression cylinder cleaning. For web presses, Dimple has developed a product for the systems, using wet material.
+                </p>
+                <div class="washcloth-cta">
+                    <a href="#features" class="cta-primary">
+                        <span class="cta-text">Explore Features</span>
+                        <span class="cta-icon">↓</span>
+                    </a>
+                    <a href="index.html#contact" class="cta-secondary">
+                        <span class="cta-text">Get Quote</span>
+                        <span class="cta-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Wash Cloth Solutions</h2>
+                <p class="section-description">
+                    Comprehensive range of specialized washcloths for every printing application, 
+                    from offset to direct image printing and hand wiping solutions.
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🖨️</div>
+                    <h3 class="feature-title">Offset Printing</h3>
+                    <p class="feature-description">
+                        Three premium washcloths for Automatic Blanket Cleaning systems: HeavyDuty®, Cum Laude®, and MultiSorb®. 
+                        Available in ready-made mini rolls and 500-metre master rolls up to 2.50 metres wide. 
+                        Plus CylinderClean® for perfect impression cylinder cleaning without wear.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3 class="feature-title">Direct Image Printing</h3>
+                    <p class="feature-description">
+                        Ultimo® cloth for optimal plate cleaning with minimal scratching. 
+                        MultiClean® washcloth with ImpregBox® or ImpregWinder® for web-printing, 
+                        offering excellent cleaning at competitive rates with flexible wash product options.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🧤</div>
+                    <h3 class="feature-title">Hand Wipes</h3>
+                    <p class="feature-description">
+                        BioCleaner® pre-saturated wipes for Press, Degrease, Glass, and Hand applications. 
+                        Dry wipes available in plain and perforated rolls. 
+                        In-house converting ensures short lead-times and reliable delivery.
+                    </p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3 class="feature-title">Production Excellence</h3>
+                    <p class="feature-description">
+                        State-of-the-art converting technology since Q4 2007, 
+                        enabling high flexibility in production and optimal output. 
+                        Custom solutions available for specific requirements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Products</h2>
+                <p class="section-description">
+                    Premium washcloth solutions designed for excellence in every printing application
+                </p>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/heavy duty.jpg" alt="HeavyDuty® Washcloth">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">HeavyDuty®</h3>
+                        <p class="product-description">
+                            Dimple's classic washcloth is used in thousands of print presses around the world. 
+                            Tried and tested over many years. Excellent lint characteristics and absorption make 
+                            this the ideal all-round washcloth.
+                        </p>
+                        <a href="#" class="download-button">
+                            <span class="button-text">Download Brochure</span>
+                            <span class="button-icon">↓</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/cumlaude.jpg" alt="CumLaude® Washcloth">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">CumLaude®</h3>
+                        <p class="product-description">
+                            Dimple's answer to those demanding printers looking to achieve top performance. 
+                            Offering low lint, balanced absorption and smoothness beyond expectation, 
+                            CumLaude® will protect your rollers and rubber blankets in the best possible way.
+                        </p>
+                        <a href="#" class="download-button">
+                            <span class="button-text">Download Brochure</span>
+                            <span class="button-icon">↓</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/multisorb.jpg" alt="Multisorb® Washcloth">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Multisorb®</h3>
+                        <p class="product-description">
+                            Developed for demanding situations, especially when it comes to absorption and tear strength, 
+                            this white washcloth offers solutions where other washcloths stop.
+                        </p>
+                        <a href="#" class="download-button">
+                            <span class="button-text">Download Brochure</span>
+                            <span class="button-icon">↓</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/ultimo.jpg" alt="Ultimo® Washcloth">
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Ultimo®</h3>
+                        <p class="product-description">
+                            The Ultimo® non-woven fabric was especially developed for the cleaning of highly sensitive 
+                            and critical digital print plates. Ultimo®'s state of the art composition actually improves 
+                            the very level of performance of your digital print plates in QM Di 46 presses.
+                        </p>
+                        <a href="#" class="download-button">
+                            <span class="button-text">Download Brochure</span>
+                            <span class="button-icon">↓</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Machines Section (copied from index.html) -->
+    <section class="machines-section" id="machines">
+        <div class="machines-background">
+            <div class="machines-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="machines-header">
+                <h2 class="machines-title">
+                    <span class="title-line">Trusted By</span>
+                    <span class="title-main">Our Machines</span>
+                    <span class="title-subtitle">Industry Leaders Worldwide</span>
+                </h2>
+                <p class="machines-description">
+                    Our products are used on heatset, coldset, sheetfed and digital printers.
+                </p>
+            </div>
+            
+            <div class="machines-content">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- First set of company logos -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                        
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="machines-cta-section">
+                    <div class="cta-content">
+                        <h3 class="cta-heading">A new concept, designed for you</h3>
+                        <p class="cta-description">
+                            Discover how our innovative machinery solutions can transform your production process and elevate your business to new heights.
+                        </p>
+                    </div>
+                    <div class="cta-button-wrapper">
+                        <button class="machines-cta-button">
+                            <span class="cta-text">Get More Information</span>
+                            <span class="cta-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (copied from index.html) -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                            <span class="logo-tagline">Est. 1991</span>
+                        </div>
+                        <p class="footer-description">
+                            Specialists in non-woven fabrics, delivering industrial excellence since 1991.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>Get In Touch</h4>
+                        <div class="contact-info">
+                            <a href="mailto:info@dimple.com" class="contact-link">info@dimple.com</a>
+                            <a href="tel:+31123456789" class="contact-link">+31 12 345 6789</a>
+                            <span class="contact-location">Netherlands</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 Dimple BV. All rights reserved.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/dimple-bv" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="index.html#contact" class="social-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphical Cleaning Solutions | Dimple - Non-Woven Wiping Solutions</title>
+    <link rel="icon" type="image/png" href="images/logo-wit@2x.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Graphical Cleaning page specific styles */
+        
+        /* Hero Section with Background Image */
+        .graphical-cleaning-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            overflow: hidden;
+            padding: 130px 0 60px;
+        }
+
+        .graphical-hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .graphical-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/hsr-1700-06.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            filter: brightness(0.8) contrast(1.1);
+        }
+
+        .graphical-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg, 
+                rgba(26, 95, 63, 0.95) 0%, 
+                rgba(36, 132, 87, 0.9) 50%, 
+                rgba(46, 167, 106, 0.95) 100%
+            );
+            z-index: 2;
+        }
+
+        .graphical-hero-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .graphical-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            animation: heroFadeIn 1s ease-out forwards;
+            opacity: 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .graphical-hero-title {
+            font-family: var(--font-primary);
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--primary-white);
+            line-height: 0.9;
+            margin-bottom: 30px;
+            position: relative;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .graphical-hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bright-green), transparent);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        .graphical-hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-lighter);
+            margin-bottom: 40px;
+            font-weight: 500;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .graphical-hero-description {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+            color: var(--text-lighter);
+            margin-bottom: 50px;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .graphical-hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-family: var(--font-primary);
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-bouncy);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            min-width: 220px;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--primary-white);
+            color: var(--primary-green);
+            border: 2px solid var(--primary-white);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .graphical-hero-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 95, 63, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .graphical-hero-cta:hover::before {
+            left: 100%;
+        }
+
+        .graphical-hero-cta:hover {
+            background: var(--bright-green);
+            color: var(--primary-white);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .graphical-hero-cta:hover .cta-icon {
+            transform: translateX(5px);
+        }
+
+        /* Solutions Section */
+        .solutions-section {
+            background: var(--off-white);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solutions-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(26, 95, 63, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 95, 63, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.3;
+            animation: gridMove 35s linear infinite;
+            transform: translate(-10%, -10%);
+        }
+
+        .solutions-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .solutions-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .solutions-title {
+            font-family: var(--font-primary);
+            margin-bottom: 30px;
+        }
+
+        .solutions-title .title-line {
+            display: block;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            color: var(--accent-green);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .solutions-title .title-main {
+            display: block;
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--primary-green);
+            line-height: 0.9;
+            margin-bottom: 15px;
+            position: relative;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(26, 95, 63, 0.2);
+        }
+
+        .solutions-title .title-main::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), transparent);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        .solutions-title .title-subtitle {
+            display: block;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            color: var(--light-green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .solutions-description {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            line-height: 1.7;
+            color: var(--light-green);
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 80px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .solution-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.15),
+                0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-medium);
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--bright-green) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+            z-index: -1;
+        }
+
+        .solution-card:hover .card-background {
+            opacity: 0.05;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.2),
+                0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            color: var(--accent-green);
+            background: linear-gradient(135deg, rgba(46, 167, 106, 0.1), rgba(52, 208, 88, 0.05));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-bouncy);
+            border: 2px solid rgba(46, 167, 106, 0.1);
+        }
+
+        .card-icon svg {
+            width: 30px;
+            height: 30px;
+            transition: all var(--transition-fast);
+        }
+
+        .solution-card:hover .card-icon {
+            transform: scale(1.1) rotate(-5deg);
+            background: var(--accent-green);
+            color: var(--primary-white);
+            box-shadow: 0 10px 30px rgba(46, 167, 106, 0.3);
+            border-color: var(--bright-green);
+        }
+
+        .solution-card h3 {
+            font-family: var(--font-primary);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            transition: all var(--transition-fast);
+            line-height: 1.2;
+        }
+
+        .solution-card:hover h3 {
+            transform: translateX(5px);
+            color: var(--light-green);
+        }
+
+        .solution-card p {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+            transition: all var(--transition-fast);
+        }
+
+        .solution-card:hover p {
+            color: #444;
+        }
+
+        .card-hover-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+            pointer-events: none;
+        }
+
+        .solution-card:hover .card-hover-effect {
+            transform: translateX(100%);
+        }
+
+        /* Production Centre Section */
+        .production-centre-section {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            overflow: hidden;
+            padding: 120px 0;
+        }
+
+        .production-centre-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .production-centre-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/hsr-1700-06.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .production-centre-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg, 
+                rgba(26, 95, 63, 0.7) 0%, 
+                rgba(36, 132, 87, 0.65) 50%, 
+                rgba(46, 167, 106, 0.7) 100%
+            );
+            z-index: 2;
+        }
+
+        .production-centre-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .production-centre-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Removed custom .production-centre-title styles - now using global styles */
+
+        .production-centre-description {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            line-height: 1.7;
+            color: var(--text-lighter);
+            margin: 0 auto;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .solution-card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--bright-green) 100%);
+            color: var(--primary-white);
+            text-decoration: none;
+            border-radius: 25px;
+            font-family: var(--font-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all var(--transition-bouncy);
+            box-shadow: 0 4px 15px rgba(26, 95, 63, 0.3);
+            position: relative;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .solution-card-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .solution-card-cta:hover::before {
+            left: 100%;
+        }
+
+        .solution-card-cta::after {
+            content: '→';
+            margin-left: 4px;
+            transition: transform var(--transition-fast);
+        }
+
+        .solution-card-cta:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(26, 95, 63, 0.4);
+            background: linear-gradient(135deg, var(--bright-green) 0%, var(--light-green) 100%);
+        }
+
+        .solution-card-cta:hover::after {
+            transform: translateX(3px);
+        }
+
+        .solution-card:hover .solution-card-cta {
+            box-shadow: 0 12px 35px rgba(26, 95, 63, 0.5);
+        }
+
+        /* Our Machines Section - copied from styles.css */
+        .machines-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--off-white);
+            overflow: hidden;
+            padding: 120px 0;
+        }
+
+        .machines-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .machines-grid-pattern {
+            width: 120%;
+            height: 120%;
+            background-image: 
+                linear-gradient(rgba(26, 95, 63, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 95, 63, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.4;
+            animation: gridMove 30s linear infinite;
+            transform: translate(-10%, -10%);
+        }
+
+        .machines-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .machines-title {
+            font-family: var(--font-primary);
+            margin-bottom: 30px;
+        }
+
+        .machines-description {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            line-height: 1.7;
+            color: var(--light-green);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .machines-title .title-line {
+            display: block;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            color: var(--accent-green);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .machines-title .title-main {
+            display: block;
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--primary-green);
+            line-height: 0.9;
+            margin-bottom: 15px;
+            position: relative;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(26, 95, 63, 0.2);
+        }
+
+        .machines-title .title-main::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), transparent);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        .machines-title .title-subtitle {
+            display: block;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            color: var(--light-green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .machines-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Enhanced Auto-Scrolling Carousel */
+        .carousel-container {
+            position: relative;
+            margin-bottom: 80px;
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background: linear-gradient(90deg, 
+                rgba(248, 255, 254, 0.3) 0%, 
+                rgba(248, 255, 254, 0.95) 10%, 
+                rgba(248, 255, 254, 1) 20%, 
+                rgba(248, 255, 254, 1) 80%, 
+                rgba(248, 255, 254, 0.95) 90%, 
+                rgba(248, 255, 254, 0.3) 100%);
+            padding: 40px 0;
+            box-shadow: inset 0 10px 30px rgba(26, 95, 63, 0.05);
+        }
+
+        .carousel-track {
+            display: flex;
+            align-items: center;
+            animation: smoothScroll 40s linear infinite;
+            gap: 80px;
+            width: max-content;
+        }
+
+        @keyframes smoothScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 200px;
+        }
+
+        .company-logo {
+            width: 160px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-medium);
+            cursor: pointer;
+            position: relative;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 25px rgba(26, 95, 63, 0.08);
+            border: 1px solid rgba(26, 95, 63, 0.1);
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+        }
+
+        .company-logo:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(26, 95, 63, 0.15);
+            background: rgba(255, 255, 255, 1);
+            border-color: var(--accent-green);
+        }
+
+        .company-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: all var(--transition-medium);
+            filter: grayscale(0.7) brightness(0.8);
+        }
+
+        .company-logo:hover img {
+            filter: grayscale(0) brightness(1);
+            transform: scale(1.05);
+        }
+
+        .logo-placeholder {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-green);
+            text-align: center;
+            letter-spacing: 1px;
+            transition: all var(--transition-medium);
+        }
+
+        .company-logo:hover .logo-placeholder {
+            color: var(--accent-green);
+            transform: scale(1.05);
+        }
+
+        /* Pause animation on hover */
+        .carousel-container:hover .carousel-track {
+            animation-play-state: paused;
+        }
+
+        /* CTA Section */
+        .machines-cta-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 25px;
+            padding: 50px;
+            border: 1px solid rgba(26, 95, 63, 0.1);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 70px rgba(26, 95, 63, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .machines-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 95, 63, 0.02), rgba(46, 167, 106, 0.02));
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-heading {
+            font-family: var(--font-primary);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        .cta-description {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+            color: var(--primary-green);
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .cta-button-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Consistent CTA Button */
+        .machines-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-family: var(--font-primary);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-bouncy);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            min-width: 180px;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--accent-green);
+            color: var(--primary-white);
+            border: 2px solid var(--accent-green);
+            box-shadow: 0 8px 25px rgba(46, 167, 106, 0.3);
+        }
+
+        .machines-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .machines-cta-button:hover::before {
+            left: 100%;
+        }
+
+        .machines-cta-button:hover {
+            background: var(--bright-green);
+            border-color: var(--bright-green);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(52, 208, 88, 0.4);
+        }
+
+        .machines-cta-button .cta-icon {
+            font-size: 1.1rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .machines-cta-button:hover .cta-icon {
+            transform: translateX(5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .graphical-cleaning-hero {
+                padding: 120px 0 55px;
+            }
+
+            .solutions-section {
+                padding: 100px 0;
+            }
+
+            .solutions-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 30px;
+                margin-top: 60px;
+            }
+
+            .production-centre-section {
+                padding: 100px 0;
+                min-height: 70vh;
+            }
+
+            .machines-section {
+                padding: 100px 0 80px;
+                min-height: auto;
+            }
+
+            .machines-cta-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .graphical-cleaning-hero {
+                padding: 110px 0 50px;
+            }
+
+            .solutions-section {
+                padding: 80px 0;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .solution-card {
+                padding: 25px 20px;
+                border-radius: 18px;
+            }
+
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 18px;
+            }
+
+            .card-icon svg {
+                width: 25px;
+                height: 25px;
+            }
+
+            .production-centre-section {
+                padding: 80px 0;
+                min-height: 60vh;
+            }
+
+            .machines-section {
+                padding: 80px 0 60px;
+                min-height: auto;
+            }
+
+            .machines-header {
+                margin-bottom: 60px;
+            }
+
+            .carousel-container {
+                margin-bottom: 60px;
+            }
+
+            .carousel-track {
+                gap: 40px;
+            }
+
+            .carousel-item {
+                flex: 0 0 220px;
+                margin: 0 15px;
+            }
+
+            .company-logo {
+                width: 160px;
+                height: 100px;
+            }
+
+            .machines-cta-section {
+                padding: 40px 30px;
+                gap: 30px;
+            }
+
+            .cta-heading {
+                font-size: 1.8rem;
+            }
+
+            .cta-description {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .graphical-cleaning-hero {
+                padding: 100px 0 40px;
+            }
+
+            .solutions-section {
+                padding: 60px 0;
+            }
+
+            .solution-card {
+                padding: 20px 15px;
+            }
+
+            .card-icon {
+                width: 45px;
+                height: 45px;
+                margin-bottom: 15px;
+            }
+
+            .card-icon svg {
+                width: 25px;
+                height: 25px;
+            }
+
+            .graphical-hero-cta {
+                padding: 14px 28px;
+                min-width: 180px;
+            }
+
+            .production-centre-section {
+                padding: 60px 0;
+                min-height: 50vh;
+            }
+
+            .machines-section {
+                padding: 60px 0 50px;
+            }
+
+            .machines-header {
+                margin-bottom: 50px;
+            }
+
+            .carousel-container {
+                margin-bottom: 50px;
+            }
+
+            .carousel-track {
+                gap: 25px;
+            }
+
+            .carousel-item {
+                flex: 0 0 180px;
+                margin: 0 10px;
+            }
+
+            .company-logo {
+                width: 140px;
+                height: 80px;
+            }
+
+            .logo-placeholder {
+                font-size: 0.9rem;
+            }
+
+            .machines-cta-section {
+                padding: 30px 20px;
+                gap: 25px;
+            }
+
+            .cta-heading {
+                font-size: 1.5rem;
+                margin-bottom: 15px;
+            }
+
+            .cta-description {
+                font-size: 0.95rem;
+            }
+
+            .machines-cta-button {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+                min-width: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                    <span class="logo-tagline">Est. 1991</span>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Dimple</a>
+                    <div class="nav-dropdown">
+                        <a href="graphical-cleaning.html" class="nav-link active">Graphical Cleaning</a>
+                        <div class="dropdown-content">
+                            <a href="wash-cloth.html" class="dropdown-link">Wash Cloth</a>
+                            <a href="cassette-rolls.html" class="dropdown-link">Cassette Rolls</a>
+                            <a href="winding-device.html" class="dropdown-link">Winding Device</a>
+                            <a href="manual-wiping.html" class="dropdown-link">Manual Wiping</a>
+                        </div>
+                    </div>
+                    <a href="index.html#formula1" class="nav-link">Formula 1</a>
+                    <a href="index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="index.html#customer-service" class="nav-link">Customer Service</a>
+                    <a href="index.html#brochures" class="nav-link">Brochures</a>
+                    <a href="index.html#contact" class="nav-contact-button">Contact</a>
+                </nav>
+                
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Off-Canvas Menu -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                <span class="logo-tagline">Est. 1991</span>
+            </div>
+            <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Dimple</a>
+            <div class="mobile-nav-dropdown">
+                <div class="mobile-nav-parent" id="graphicalCleaningToggle">
+                    <a href="graphical-cleaning.html" class="mobile-nav-link active">Graphical Cleaning</a>
+                    <span class="mobile-dropdown-arrow">▼</span>
+                </div>
+                <div class="mobile-nav-submenu active" id="graphicalCleaningSubmenu">
+                    <a href="wash-cloth.html" class="mobile-nav-sublink">— Wash Cloth</a>
+                    <a href="cassette-rolls.html" class="mobile-nav-sublink">— Cassette Rolls</a>
+                    <a href="winding-device.html" class="mobile-nav-sublink">— Winding Device</a>
+                    <a href="manual-wiping.html" class="mobile-nav-sublink">— Manual Wiping</a>
+                </div>
+            </div>
+            <a href="index.html#formula1" class="mobile-nav-link">Formula 1</a>
+            <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+            <a href="index.html#customer-service" class="mobile-nav-link">Customer Service</a>
+            <a href="index.html#brochures" class="mobile-nav-link">Brochures</a>
+            <a href="index.html#contact" class="mobile-nav-link nav-contact-button">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Graphical Cleaning Hero Section -->
+    <section class="graphical-cleaning-hero">
+        <div class="graphical-hero-background">
+            <div class="graphical-hero-image"></div>
+            <div class="graphical-hero-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="graphical-hero-content">
+                <h1 class="graphical-hero-title">Graphical Cleaning Solutions</h1>
+                <p class="graphical-hero-subtitle">Industry-Leading Wiping Technology</p>
+                <p class="graphical-hero-description">
+                    Delivering exceptional performance and reliability for the international print industry, 
+                    with cutting-edge wiping solutions designed for modern printing demands.
+                </p>
+                <a href="#solutions" class="graphical-hero-cta">
+                    <span class="cta-text">Explore Solutions</span>
+                    <span class="cta-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions-section" id="solutions">
+        <div class="container">
+            <div class="solutions-content">
+                <div class="solutions-header">
+                    <h2 class="solutions-title">
+                        <span class="title-line">Professional</span>
+                        <span class="title-main">Wiping Solutions</span>
+                        <span class="title-subtitle">For Every Application</span>
+                    </h2>
+                    <p class="solutions-description">
+                        Our comprehensive range of non-woven wiping solutions is designed to meet the demanding requirements of the graphical industry, ensuring optimal performance and reliability.
+                    </p>
+                </div>
+                
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 6H21V18C21 18.5304 20.7893 19.0391 20.4142 19.4142C20.0391 19.7893 19.5304 20 19 20H5C4.46957 20 3.96086 19.7893 3.58579 19.4142C3.21071 19.0391 3 18.5304 3 18V6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7 10L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7 14L13 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 6H3L4 4H20L21 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Wash Cloth</h3>
+                            <p>Over the years, Dimple BV has grown into the role of specialists in the field of washcloth for the international print industry. In offset, we offer excellent cleaning cloths for automatic blanket cleaning systems. Additionally we have the ideal material for automatic…</p>
+                            <a href="wash-cloth.html" class="solution-card-cta">Read More</a>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M8 14S9.5 16 12 16S16 14 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="9" y1="9" x2="9.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="15" y1="9" x2="15.01" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="6" y="2" width="12" height="4" rx="2" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Cassette Rolls</h3>
+                            <p>Dimple's washcloths are widely available in ready-to-use mini rolls. Specially produced on our high tech winding equipment, we offer cassettes for presses by the following manufacturers (among others): Heidelberg, Komori, Ryobi, Sakurai, MAN Roland, KBA and Adast.</p>
+                            <a href="cassette-rolls.html" class="solution-card-cta">Read More</a>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.5 4H20.5C20.7652 4 21.0196 4.10536 21.2071 4.29289C21.3946 4.48043 21.5 4.73478 21.5 5V19C21.5 19.2652 21.3946 19.5196 21.2071 19.7071C21.0196 19.8946 20.7652 20 20.5 20H14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M10.5 15L5.5 10L10.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M5.5 10H17.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="8" cy="16" r="2" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="13" cy="8" r="2" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Winding Device</h3>
+                            <p>Along with the growing demand for washcloth in 500 meter rolls, the need for winding machinery has grown drastically over the past few years. Initially introduced as a service item, winding machinery is now a mature product-line which completes the graphical line of business.</p>
+                            <a href="winding-device.html" class="solution-card-cta">Read More</a>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7 7H17V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M6 6L4 4M20 4L18 6M18 18L20 20M6 18L4 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Manual Wiping</h3>
+                            <p>Wiping and cleaning, whatever business you're in, whatever material needs to be cleaned, Dimple offers a complete range of wiping solutions: dry plano wipes, perforated rolls and impregnated cleaning rags. Available from stock, so why wait?</p>
+                            <a href="manual-wiping.html" class="solution-card-cta">Read More</a>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Production Centre Section -->
+    <section class="production-centre-section">
+        <div class="production-centre-background">
+            <div class="production-centre-image"></div>
+            <div class="production-centre-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="production-centre-content">
+                <h2 class="production-centre-title">Graphical Production and Worldwide Distribution Centre</h2>
+                <p class="production-centre-description">
+                    Products from various European Producers will be stocked and shipped from our new plant. The primary advantage for worldwide dealers is to get one 20 ft. or 40 ft. container with all of their graphical consumables. This is the most effective way of transport and creates efficient logistics throughout Europe.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Machines Section (copied from index.html) -->
+    <section class="machines-section" id="machines">
+        <div class="machines-background">
+            <div class="machines-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="machines-header">
+                <h2 class="machines-title">
+                    <span class="title-line">Trusted By</span>
+                    <span class="title-main">Our Machines</span>
+                    <span class="title-subtitle">Industry Leaders Worldwide</span>
+                </h2>
+                <p class="machines-description">
+                    Our products are used on heatset, coldset, sheetfed and digital printers.
+                </p>
+            </div>
+            
+            <div class="machines-content">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- First set of company logos -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                        
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="machines-cta-section">
+                    <div class="cta-content">
+                        <h3 class="cta-heading">A new concept, designed for you</h3>
+                        <p class="cta-description">
+                            Discover how our innovative machinery solutions can transform your production process and elevate your business to new heights.
+                        </p>
+                    </div>
+                    <div class="cta-button-wrapper">
+                        <button class="machines-cta-button">
+                            <span class="cta-text">Get More Information</span>
+                            <span class="cta-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (copied from index.html) -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                            <span class="logo-tagline">Est. 1991</span>
+                        </div>
+                        <p class="footer-description">
+                            Specialists in non-woven fabrics, delivering industrial excellence since 1991.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>Get In Touch</h4>
+                        <div class="contact-info">
+                            <a href="mailto:info@dimple.com" class="contact-link">info@dimple.com</a>
+                            <a href="tel:+31123456789" class="contact-link">+31 12 345 6789</a>
+                            <span class="contact-location">Netherlands</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 Dimple BV. All rights reserved.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/dimple-bv" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="index.html#contact" class="social-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 

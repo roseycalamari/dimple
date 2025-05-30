@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Dimple - Our Story & Leadership | Industrial Non-Woven Fabric Specialists | Est. 1991</title>
+    <link rel="icon" type="image/png" href="images/logo-wit@2x.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* About page specific styles - matching index.html exactly */
+        
+        /* About Hero Section - matching main hero */
+        .about-hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            overflow: hidden;
+            padding: 130px 0 60px;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: heroFadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        .about-hero-title {
+            font-family: var(--font-primary);
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--primary-white);
+            line-height: 0.9;
+            margin-bottom: 30px;
+            position: relative;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--bright-green), transparent);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        .about-hero-description {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+            color: var(--text-lighter);
+            margin: 0 auto;
+            font-weight: 400;
+            max-width: 800px;
+        }
+
+        /* CEO Section - White background matching other sections */
+        .ceo-section {
+            background: var(--off-white);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ceo-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(26, 95, 63, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 95, 63, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.3;
+            animation: gridMove 35s linear infinite;
+            transform: translate(-10%, -10%);
+        }
+
+        .ceo-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .ceo-image-container {
+            position: relative;
+            background: var(--primary-white);
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(26, 95, 63, 0.15);
+            aspect-ratio: 1;
+            transition: all var(--transition-medium);
+        }
+
+        .ceo-image-container:hover {
+            transform: scale(1.02) rotate(2deg);
+            box-shadow: 0 35px 90px rgba(26, 95, 63, 0.25);
+        }
+
+        .ceo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-medium);
+        }
+
+        .ceo-text {
+            position: relative;
+        }
+
+        .ceo-section-title {
+            display: block;
+            font-size: clamp(0.6rem, 1vw, 0.7rem);
+            font-weight: 500;
+            color: var(--accent-green);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            opacity: 0.8;
+        }
+
+        .ceo-title {
+            font-family: var(--font-primary);
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+            font-weight: 900;
+            color: var(--primary-green);
+            line-height: 0.9;
+            margin-bottom: 8px;
+            position: relative;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(26, 95, 63, 0.1);
+        }
+
+        .ceo-name {
+            display: block;
+            font-size: clamp(0.6rem, 1vw, 0.75rem);
+            font-weight: 600;
+            color: var(--light-green);
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            margin-bottom: 18px;
+        }
+
+        .ceo-bio {
+            font-size: clamp(0.75rem, 1.1vw, 0.85rem);
+            line-height: 1.5;
+            color: var(--light-green);
+            margin-bottom: 20px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* Quote Section - matching Formula 1 section style */
+        .quote-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            overflow: hidden;
+            padding: 120px 0;
+        }
+
+        .quote-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .quote-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/hsr-1700-06.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+            filter: brightness(0.8) contrast(1.1);
+        }
+
+        .quote-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg, 
+                rgba(26, 95, 63, 0.9) 0%, 
+                rgba(36, 132, 87, 0.85) 50%, 
+                rgba(46, 167, 106, 0.9) 100%
+            );
+            z-index: 2;
+        }
+
+        .quote-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .quote-text {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            line-height: 1.4;
+            color: var(--primary-white);
+            font-weight: 500;
+            margin-bottom: 30px;
+            font-style: italic;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-author {
+            font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+            color: var(--text-lighter);
+            margin-bottom: 35px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .quote-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-family: var(--font-primary);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-bouncy);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            min-width: 220px;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--primary-white);
+            color: var(--primary-green);
+            border: 2px solid var(--primary-white);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 95, 63, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .quote-cta:hover::before {
+            left: 100%;
+        }
+
+        .quote-cta:hover {
+            background: var(--bright-green);
+            color: var(--primary-white);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-icon {
+            font-size: 1.1rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .quote-cta:hover .cta-icon {
+            transform: translateX(5px);
+        }
+
+        /* Services Section - matching machines section */
+        .services-section {
+            position: relative;
+            background: var(--off-white);
+            overflow: hidden;
+            padding: 120px 0;
+        }
+
+        .services-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .services-grid-pattern {
+            width: 120%;
+            height: 120%;
+            background-image: 
+                linear-gradient(rgba(26, 95, 63, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 95, 63, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.4;
+            animation: gridMove 30s linear infinite;
+            transform: translate(-10%, -10%);
+        }
+
+        .services-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .services-title {
+            font-family: var(--font-primary);
+            margin-bottom: 30px;
+        }
+
+        .services-title .title-line {
+            display: block;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            color: var(--accent-green);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .services-title .title-main {
+            display: block;
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: var(--primary-green);
+            line-height: 0.9;
+            margin-bottom: 15px;
+            position: relative;
+            letter-spacing: -2px;
+            text-shadow: 0 4px 20px rgba(26, 95, 63, 0.2);
+        }
+
+        .services-title .title-main::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-green), transparent);
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+
+        .services-title .title-subtitle {
+            display: block;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            color: var(--light-green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.15),
+                0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-medium);
+            overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--bright-green) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+            z-index: -1;
+        }
+
+        .service-card:hover .card-background {
+            opacity: 0.05;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+            background: linear-gradient(135deg, rgba(46, 167, 106, 0.1), rgba(52, 208, 88, 0.05));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-bouncy);
+            border: 2px solid rgba(46, 167, 106, 0.1);
+        }
+
+        .card-icon svg {
+            width: 30px;
+            height: 30px;
+            transition: all var(--transition-fast);
+        }
+
+        .service-card:hover .card-icon {
+            transform: scale(1.1) rotate(-5deg);
+            background: var(--accent-green);
+            color: var(--primary-white);
+            box-shadow: 0 10px 30px rgba(46, 167, 106, 0.3);
+            border-color: var(--bright-green);
+        }
+
+        .service-card h3 {
+            font-family: var(--font-primary);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            transition: all var(--transition-fast);
+            line-height: 1.2;
+        }
+
+        .service-card:hover h3 {
+            transform: translateX(5px);
+            color: var(--light-green);
+        }
+
+        .service-card p {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+            transition: all var(--transition-fast);
+        }
+
+        .service-card:hover p {
+            color: #444;
+        }
+
+        .card-hover-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+            pointer-events: none;
+        }
+
+        .service-card:hover .card-hover-effect {
+            transform: translateX(100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.2),
+                0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* New Concept CTA Section */
+        .concept-cta-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .concept-cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .concept-cta-title {
+            font-family: var(--font-primary);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--primary-white);
+            margin-bottom: 40px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .concept-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-family: var(--font-primary);
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-bouncy);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            min-width: 200px;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--primary-white);
+            color: var(--primary-green);
+            border: 2px solid var(--primary-white);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .concept-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 95, 63, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .concept-cta-button:hover::before {
+            left: 100%;
+        }
+
+        .concept-cta-button:hover {
+            background: var(--bright-green);
+            color: var(--primary-white);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .concept-cta-button:hover .cta-icon {
+            transform: translateX(5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .about-hero {
+                padding: 120px 0 55px;
+            }
+
+            .ceo-content {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+
+            .ceo-image-container {
+                max-width: 250px;
+                margin: 0 auto;
+            }
+
+            .quote-section {
+                padding: 100px 0;
+                min-height: auto;
+            }
+
+            .services-section {
+                padding: 100px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .concept-cta-section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 110px 0 50px;
+            }
+
+            .ceo-image-container {
+                max-width: 180px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .service-card {
+                padding: 25px 20px;
+                border-radius: 18px;
+            }
+
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 18px;
+            }
+
+            .card-icon svg {
+                width: 25px;
+                height: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero {
+                padding: 100px 0 40px;
+            }
+
+            .ceo-section,
+            .quote-section,
+            .services-section,
+            .concept-cta-section {
+                padding: 80px 0;
+            }
+
+            .ceo-image-container {
+                max-width: 160px;
+            }
+
+            .service-card {
+                padding: 20px 15px;
+            }
+
+            .card-icon {
+                width: 45px;
+                height: 45px;
+                margin-bottom: 15px;
+            }
+
+            .card-icon svg {
+                width: 25px;
+                height: 25px;
+            }
+
+            .quote-cta {
+                padding: 12px 24px;
+                min-width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                    <span class="logo-tagline">Est. 1991</span>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link active">About Dimple</a>
+                    <div class="nav-dropdown">
+                        <a href="graphical-cleaning.html" class="nav-link">Graphical Cleaning</a>
+                        <div class="dropdown-content">
+                            <a href="wash-cloth.html" class="dropdown-link">Wash Cloth</a>
+                            <a href="cassette-rolls.html" class="dropdown-link">Cassette Rolls</a>
+                            <a href="winding-device.html" class="dropdown-link">Winding Device</a>
+                            <a href="manual-wiping.html" class="dropdown-link">Manual Wiping</a>
+                        </div>
+                    </div>
+                    <a href="index.html#formula1" class="nav-link">Formula 1</a>
+                    <a href="index.html#pricing" class="nav-link">Pricing</a>
+                    <a href="index.html#customer-service" class="nav-link">Customer Service</a>
+                    <a href="index.html#brochures" class="nav-link">Brochures</a>
+                    <a href="index.html#contact" class="nav-contact-button">Contact</a>
+                </nav>
+                
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Off-Canvas Menu -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                <span class="logo-tagline">Est. 1991</span>
+            </div>
+            <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Dimple</a>
+            <div class="mobile-nav-dropdown">
+                <div class="mobile-nav-parent" id="graphicalCleaningToggle">
+                    <a href="graphical-cleaning.html" class="mobile-nav-link">Graphical Cleaning</a>
+                    <span class="mobile-dropdown-arrow">▼</span>
+                </div>
+                <div class="mobile-nav-submenu" id="graphicalCleaningSubmenu">
+                    <a href="wash-cloth.html" class="mobile-nav-sublink">— Wash Cloth</a>
+                    <a href="cassette-rolls.html" class="mobile-nav-sublink">— Cassette Rolls</a>
+                    <a href="winding-device.html" class="mobile-nav-sublink">— Winding Device</a>
+                    <a href="manual-wiping.html" class="mobile-nav-sublink">— Manual Wiping</a>
+                </div>
+            </div>
+            <a href="index.html#formula1" class="mobile-nav-link">Formula 1</a>
+            <a href="index.html#pricing" class="mobile-nav-link">Pricing</a>
+            <a href="index.html#customer-service" class="mobile-nav-link">Customer Service</a>
+            <a href="index.html#brochures" class="mobile-nav-link">Brochures</a>
+            <a href="index.html#contact" class="mobile-nav-link nav-contact-button">Contact</a>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="hero-background">
+            <div class="hero-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="about-hero-content">
+                <h1 class="about-hero-title">Welcome to Dimple</h1>
+                <p class="about-hero-description">
+                    Established in 1991, we are specialists in the field non-woven fabrics. Our product lines, used by professionals around the world, offer the best possible results in industrial applications.
+                    <br><br>
+                    Please take this opportunity to explore our new website, offering further information on our history, the business solutions available to you, and detailed specifications on all the product lines.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO Section -->
+    <section class="ceo-section">
+        <div class="services-background">
+            <div class="services-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="ceo-content">
+                <div class="ceo-image-container">
+                    <img src="images/ge.png" alt="Ge Limmen - CEO of Dimple" class="ceo-image">
+                </div>
+                <div class="ceo-text">
+                    <span class="ceo-section-title">Meet Our Leadership</span>
+                    <h2 class="ceo-title">Ge Limmen</h2>
+                    <span class="ceo-name">Chief Executive Officer</span>
+                    <p class="ceo-bio">
+                        With over three decades of experience in the non-woven fabric industry, Ge Limmen founded Dimple in 1991 and continues to lead the company as CEO. Under his visionary leadership, Dimple has grown from a local startup to one of the market leaders in industrial non-woven fabrics, serving professionals across Europe and beyond.
+                        <br><br>
+                        Ge's commitment to innovation and excellence has driven the development of cutting-edge solutions, including the revolutionary High Speed Roller (HSR) 1700, which has transformed production efficiency in graphic printing applications.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-background">
+            <div class="quote-bg-image"></div>
+            <div class="quote-overlay"></div>
+        </div>
+        
+        <div class="container">
+            <div class="quote-content">
+                <p class="quote-text">
+                    It will be our pleasure to support you. Since starting Dimple, the industry has seen a number of changes. We strive to offer our customers cutting edge technology and business solutions. To this day and looking forward, our strong relationships both locally and worldwide allow us to develop the means share the ways to success.
+                </p>
+                <p class="quote-author">- Ge Limmen, November 2014</p>
+                <a href="index.html#contact" class="quote-cta">
+                    <span class="cta-text">More about our service desk</span>
+                    <span class="cta-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Information Section -->
+    <section class="services-section">
+        <div class="services-background">
+            <div class="services-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="services-content">
+                <div class="services-header">
+                    <h2 class="services-title">
+                        <span class="title-line">Our Story &</span>
+                        <span class="title-main">Expertise</span>
+                        <span class="title-subtitle">Three Decades of Excellence</span>
+                    </h2>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Our History</h3>
+                            <p>Founded in 1991 by Ge Limmen in Uitgeest, The Netherlands. Over three decades of experience has made us market leaders in non-woven fabrics, delivering quality products and independent advice to professionals worldwide.</p>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Market Leadership</h3>
+                            <p>Specialists in graphical, packaging, and display industries. Our 'never out of stock' principle ensures extremely short lead times and reliable supply chains for all your non-woven fabric needs.</p>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3>Innovation Focus</h3>
+                            <p>At the forefront of technology development, including our revolutionary High Speed Roller (HSR) 1700. We create cutting-edge solutions that transform production efficiency.</p>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M23 21V19C23 18.1645 22.7155 17.3541 22.2094 16.6977C21.7033 16.0414 20.9983 15.5735 20.2 15.3613" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89317 18.7122 8.75608 18.1676 9.45768C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Custom Solutions</h3>
+                            <p>Don't see what you need? We develop custom materials for specific applications. Our experience in creating today's standard products means we can design the perfect solution for your business.</p>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Machines Section (copied from index.html) -->
+    <section class="machines-section" id="machines">
+        <div class="machines-background">
+            <div class="machines-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="machines-header">
+                <h2 class="machines-title">
+                    <span class="title-line">Trusted By</span>
+                    <span class="title-main">Our Machines</span>
+                    <span class="title-subtitle">Industry Leaders Worldwide</span>
+                </h2>
+                <p class="machines-description">
+                    Our products are used on heatset, coldset, sheetfed and digital printers.
+                </p>
+            </div>
+            
+            <div class="machines-content">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- First set of company logos -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                        
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="machines-cta-section">
+                    <div class="cta-content">
+                        <h3 class="cta-heading">A new concept, designed for you</h3>
+                        <p class="cta-description">
+                            Discover how our innovative machinery solutions can transform your production process and elevate your business to new heights.
+                        </p>
+                    </div>
+                    <div class="cta-button-wrapper">
+                        <button class="machines-cta-button">
+                            <span class="cta-text">Get More Information</span>
+                            <span class="cta-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (copied from index.html) -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                            <span class="logo-tagline">Est. 1991</span>
+                        </div>
+                        <p class="footer-description">
+                            Specialists in non-woven fabrics, delivering industrial excellence since 1991.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>Get In Touch</h4>
+                        <div class="contact-info">
+                            <a href="mailto:info@dimple.com" class="contact-link">info@dimple.com</a>
+                            <a href="tel:+31123456789" class="contact-link">+31 12 345 6789</a>
+                            <span class="contact-location">Netherlands</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 Dimple BV. All rights reserved.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/dimple-bv" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="index.html#contact" class="social-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
