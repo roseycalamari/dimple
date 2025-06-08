@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dimple - Industrial Non-Woven Fabric Specialists | Est. 1991</title>
+    <link rel="icon" type="image/png" href="images/logo-wit@2x.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                    <span class="logo-tagline">Est. 1991</span>
+                </div>
+                
+                <nav class="nav-menu">
+                    <a href="home.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About Dimple</a>
+                    <div class="nav-dropdown">
+                        <a href="graphical-cleaning.html" class="nav-link">Graphical Cleaning</a>
+                        <div class="dropdown-content">
+                            <a href="wash-cloth.html" class="dropdown-link">Wash Cloth</a>
+                            <a href="cassette-rolls.html" class="dropdown-link">Cassette Rolls</a>
+                            <a href="winding-device.html" class="dropdown-link">Winding Device</a>
+                            <a href="manual-wiping.html" class="dropdown-link">Manual Wiping</a>
+                        </div>
+                    </div>
+                    <a href="formula1.html" class="nav-link">Formula 1</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <a href="customer-service.html" class="nav-link">Customer Service</a>
+                    <a href="#brochures" class="nav-link">Brochures</a>
+                    <a href="#contact" class="nav-contact-button">Contact</a>
+                </nav>
+                
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Off-Canvas Menu -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+        <div class="mobile-nav-header">
+            <div class="logo">
+                <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                <span class="logo-tagline">Est. 1991</span>
+            </div>
+            <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="home.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Dimple</a>
+            <div class="mobile-nav-dropdown">
+                <div class="mobile-nav-parent" id="graphicalCleaningToggle">
+                    <a href="graphical-cleaning.html" class="mobile-nav-link">Graphical Cleaning</a>
+                    <span class="mobile-dropdown-arrow">▼</span>
+                </div>
+                <div class="mobile-nav-submenu" id="graphicalCleaningSubmenu">
+                    <a href="wash-cloth.html" class="mobile-nav-sublink">— Wash Cloth</a>
+                    <a href="cassette-rolls.html" class="mobile-nav-sublink">— Cassette Rolls</a>
+                    <a href="winding-device.html" class="mobile-nav-sublink">— Winding Device</a>
+                    <a href="manual-wiping.html" class="mobile-nav-sublink">— Manual Wiping</a>
+                </div>
+            </div>
+            <a href="formula1.html" class="mobile-nav-link">Formula 1</a>
+            <a href="home.html#pricing" class="mobile-nav-link">Pricing</a>
+            <a href="customer-service.html" class="mobile-nav-link">Customer Service</a>
+            <a href="home.html#brochures" class="mobile-nav-link">Brochures</a>
+            <a href="home.html#contact" class="mobile-nav-link nav-contact-button">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Welcome to</span>
+                        <span class="title-main">Dimple</span>
+                        <span class="title-subtitle">Industrial Excellence Since 1991</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Specialists in the field of non-woven fabrics. Our product lines, used by professionals around the world, offer the best possible results in industrial applications throughout Europe.
+                    </p>
+                    
+                    <div class="hero-cta">
+                        <button class="cta-primary" data-action="explore">
+                            <span class="cta-text">Explore Our Solutions</span>
+                            <span class="cta-icon">→</span>
+                        </button>
+                        <button class="cta-secondary" data-action="learn">
+                            <span class="cta-text">Learn More</span>
+                            <span class="cta-icon">↓</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Interactive Service Cards -->
+        <div class="services-showcase">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card" data-service="graphical">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <h3>Graphical Cleaning</h3>
+                            <p>Innovative solutions ensuring highest product quality and customer service at competitive prices throughout Europe.</p>
+                            <div class="card-stats">
+                                <span class="stat">Industry Leading</span>
+                                <span class="stat">Since 1991</span>
+                            </div>
+                            <button class="card-cta">Discover More</button>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    
+                    <div class="service-card" data-service="formula1">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 453.405 453.405" fill="currentColor">
+                                    <path d="M382.08,60.394c-26.324-4.534-53.444-0.845-79.764,1.751c-26.223,2.587-53.604,5.753-79.585-0.397
+                                        c-30.592-7.241-49.945-27.294-64.216-54.464c-3.935,10.646-7.869,21.291-11.803,31.938
+                                        c-25.74,69.646-51.479,139.292-77.218,208.938L0,436.203l26.838,9.919l62.541-169.227c11.607,12.383,25.937,21.375,44.333,25.729
+                                        c25.979,6.146,53.363,2.986,79.584,0.398c26.318-2.601,53.441-6.287,79.765-1.752c33.826,5.826,55.682,26.086,71.323,55.871
+                                        c29.677-80.291,59.348-160.583,89.021-240.876C437.761,86.479,415.911,66.222,382.08,60.394z M385.379,203.349
+                                        c-13.234-11.169-27.441-18.638-44.57-21.931c-5.715,15.458-11.428,30.916-17.141,46.374c17.131,3.295,31.335,10.764,44.572,21.932
+                                        c-5.239,14.176-10.479,28.353-15.717,42.526c-13.234-11.168-27.443-18.642-44.573-21.93c5.239-14.177,10.479-28.353,15.718-42.528
+                                        c-17.442-2.813-34.473-2.797-52.072-1.72c-5.238,14.176-10.479,28.353-15.717,42.528c-18.21,1.471-36.358,3.56-54.567,5.028
+                                        c5.238-14.178,10.478-28.353,15.716-42.526c-17.599,1.078-34.631,1.096-52.073-1.719c-5.239,14.176-10.478,28.352-15.717,42.526
+                                        c-17.128-3.29-31.341-10.763-44.572-21.933c5.238-14.174,10.478-28.351,15.716-42.525c13.236,11.17,27.442,18.64,44.573,21.932
+                                        c5.712-15.458,11.427-30.918,17.139-46.376c-17.13-3.285-31.338-10.766-44.573-21.93c5.714-15.46,11.427-30.92,17.14-46.378
+                                        c13.236,11.173,27.442,18.635,44.572,21.933c5.239-14.176,10.478-28.351,15.717-42.525c17.442,2.813,34.476,2.797,52.073,1.717
+                                        c-5.238,14.175-10.478,28.351-15.717,42.526c18.209-1.471,36.357-3.558,54.567-5.028c5.238-14.175,10.479-28.351,15.717-42.527
+                                        c17.601-1.078,34.629-1.095,52.072,1.719c-5.239,14.176-10.478,28.351-15.717,42.528c17.131,3.294,31.335,10.761,44.573,21.93
+                                        C396.806,172.431,391.095,187.891,385.379,203.349z"/>
+                                    <path d="M234.167,184.726c-5.713,15.459-11.426,30.917-17.14,46.376c18.21-1.472,36.359-3.56,54.568-5.03
+                                        c5.713-15.457,11.426-30.916,17.139-46.374C270.523,181.169,252.376,183.257,234.167,184.726z"/>
+                                    <path d="M234.167,184.726c5.714-15.458,11.427-30.918,17.14-46.375c-17.604,1.075-34.629,1.093-52.075-1.718
+                                        c-5.713,15.458-11.426,30.917-17.139,46.375C199.536,185.824,216.566,185.807,234.167,184.726z"/>
+                                    <path d="M305.873,133.323c-5.713,15.458-11.426,30.916-17.139,46.375c17.601-1.075,34.629-1.093,52.073,1.72
+                                        c5.712-15.458,11.426-30.917,17.138-46.375C340.503,132.229,323.474,132.243,305.873,133.323z"/>
+                                </svg>
+                            </div>
+                            <h3>Formula 1 Innovation</h3>
+                            <p>Three years of R&D culminated in the High Speed Roller 1700, revolutionizing production efficiency in graphic printing.</p>
+                            <div class="card-stats">
+                                <span class="stat">3 Years R&D</span>
+                                <span class="stat">Speed +40%</span>
+                            </div>
+                            <button class="card-cta">Explore Technology</button>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                    
+                    <div class="service-card" data-service="service">
+                        <div class="card-background"></div>
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <h3>Customer Excellence</h3>
+                            <p>Our collaborative philosophy drives us to work alongside clients, delivering exceptional service and building lasting partnerships.</p>
+                            <div class="card-stats">
+                                <span class="stat">Global Reach</span>
+                                <span class="stat">24/7 Support</span>
+                            </div>
+                            <button class="card-cta">Get Support</button>
+                        </div>
+                        <div class="card-hover-effect"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Formula 1 Section -->
+    <section class="formula1-section" id="formula1">
+        <div class="formula1-background">
+            <div class="formula1-bg-image"></div>
+            <div class="formula1-overlay"></div>
+            <div class="checkered-flags">
+                <div class="checkered-flag flag-1"></div>
+                <div class="checkered-flag flag-2"></div>
+                <div class="checkered-flag flag-3"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="formula1-content">
+                <div class="formula1-header">
+                    <div class="f1-badge">
+                        <svg class="f1-icon" viewBox="0 0 453.405 453.405" fill="currentColor">
+                            <path d="M382.08,60.394c-26.324-4.534-53.444-0.845-79.764,1.751c-26.223,2.587-53.604,5.753-79.585-0.397
+                                c-30.592-7.241-49.945-27.294-64.216-54.464c-3.935,10.646-7.869,21.291-11.803,31.938
+                                c-25.74,69.646-51.479,139.292-77.218,208.938L0,436.203l26.838,9.919l62.541-169.227c11.607,12.383,25.937,21.375,44.333,25.729
+                                c25.979,6.146,53.363,2.986,79.584,0.398c26.318-2.601,53.441-6.287,79.765-1.752c33.826,5.826,55.682,26.086,71.323,55.871
+                                c29.677-80.291,59.348-160.583,89.021-240.876C437.761,86.479,415.911,66.222,382.08,60.394z"/>
+                        </svg>
+                        <span>F1 INNOVATION</span>
+                    </div>
+                    <h2 class="formula1-title">
+                        <span class="title-highlight">Formula 1</span>
+                        <span class="title-main">High Speed Revolution</span>
+                    </h2>
+                    <div class="formula1-subtitle">HSR 1700 • Racing Against Time</div>
+                </div>
+                
+                <div class="formula1-content-grid">
+                    <div class="formula1-text">
+                        <div class="text-card">
+                            <h3>The Challenge</h3>
+                            <p class="formula1-description">
+                                It took Dimple three years to design the High Speed Roller 1700. The aim was to speed up the production process of the winding of washcloth for the graphic printing industry and increase the efficiency of this process.
+                            </p>
+                        </div>
+                        
+                        <div class="text-card">
+                            <h3>The Victory</h3>
+                            <p class="formula1-description">
+                                All expectations were met when the first HSR 1700 became operational in October 2013. A true testament to engineering excellence and innovation.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="formula1-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">🏁</div>
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Years of R&D</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">⚡</div>
+                            <div class="stat-number">1700</div>
+                            <div class="stat-label">High Speed Roller</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-number">2013</div>
+                            <div class="stat-label">First Operational</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="formula1-cta">
+                    <button class="f1-cta-button">
+                        <span class="cta-text">Discover HSR Technology</span>
+                        <span class="cta-icon">→</span>
+                    </button>
+                    <div class="cta-subtitle">Experience the speed of innovation</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="racing-stripes">
+            <div class="stripe stripe-1"></div>
+            <div class="stripe stripe-2"></div>
+            <div class="stripe stripe-3"></div>
+        </div>
+    </section>
+
+    <!-- Our Machines Section -->
+    <section class="machines-section" id="machines">
+        <div class="machines-background">
+            <div class="machines-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="machines-header">
+                <h2 class="machines-title">
+                    <span class="title-line">Trusted By</span>
+                    <span class="title-main">Our Machines</span>
+                    <span class="title-subtitle">Industry Leaders Worldwide</span>
+                </h2>
+                <p class="machines-description">
+                    Our products are used on heatset, coldset, sheetfed and digital printers.
+                </p>
+            </div>
+            
+            <div class="machines-content">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- First set of company logos -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                        
+                        <!-- Duplicate set for seamless loop -->
+                        <div class="carousel-item">
+                            <a href="https://www.heidelberg.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Heidelberg-Logo.svg.png" alt="Heidelberg">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.kba.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/KBA-Logo.svg.png" alt="KBA">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.komori.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Komori.svg.png" alt="Komori">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.fujifilm.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Fujifilm-logo.png" alt="Fujifilm">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.mitsubishielectric.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Mitsubishi-logo.png" alt="Mitsubishi">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.goebel-ims.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/goebel-logo-png-transparent.png" alt="Goebel">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.akiyama-intl.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/Akiyama-Photoroom.png" alt="Akiyama">
+                            </a>
+                        </div>
+                        <div class="carousel-item">
+                            <a href="https://www.bakerperkins.com" class="company-logo" target="_blank" rel="noopener">
+                                <img src="images/baker-perkins-logo-Photoroom.png" alt="Baker Perkins">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="machines-cta-section">
+                    <div class="cta-content">
+                        <h3 class="cta-heading">A new concept, designed for you</h3>
+                        <p class="cta-description">
+                            Discover how our innovative machinery solutions can transform your production process and elevate your business to new heights.
+                        </p>
+                    </div>
+                    <div class="cta-button-wrapper">
+                        <button class="machines-cta-button">
+                            <span class="cta-text">Get More Information</span>
+                            <span class="cta-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="footer-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                            <span class="logo-tagline">Est. 1991</span>
+                        </div>
+                        <p class="footer-description">
+                            Specialists in non-woven fabrics, delivering industrial excellence since 1991.
+                        </p>
+                    </div>
+                    
+                    <div class="footer-contact">
+                        <h4>Get In Touch</h4>
+                        <div class="contact-info">
+                            <a href="mailto:info@dimple.com" class="contact-link">info@dimple.com</a>
+                            <a href="tel:+31123456789" class="contact-link">+31 12 345 6789</a>
+                            <span class="contact-location">Netherlands</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; 2024 Dimple BV. All rights reserved.</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/dimple-bv" class="social-link" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="home.html#contact" class="social-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Winding Device Solutions - Advanced Machinery Technology | Dimple</title>
+    <title>Manual Wiping Solutions - Professional Cleaning Materials | Dimple</title>
     <link rel="icon" type="image/png" href="images/logo-wit@2x.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Enhanced Winding Device Page Styles */
+        /* Enhanced Manual Wiping Page Styles */
         :root {
             --text-dark: #1a1a1a;
             --text-gray: #666666;
         }
         
-        .windingdevice-hero {
+        .washcloth-hero {
             position: relative;
             min-height: 100vh;
             display: flex;
@@ -25,7 +25,7 @@
             padding: 130px 0 60px;
         }
 
-        .windingdevice-hero::before {
+        .washcloth-hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -38,7 +38,7 @@
             pointer-events: none;
         }
 
-        .windingdevice-hero-content {
+        .washcloth-hero-content {
             position: relative;
             z-index: 2;
             text-align: center;
@@ -46,7 +46,7 @@
             margin: 0 auto;
         }
 
-        .windingdevice-hero-title {
+        .washcloth-hero-title {
             font-family: var(--font-primary);
             font-size: clamp(3rem, 6vw, 4.5rem);
             font-weight: 800;
@@ -56,7 +56,7 @@
             line-height: 1.1;
         }
 
-        .windingdevice-hero-subtitle {
+        .washcloth-hero-subtitle {
             font-family: var(--font-secondary);
             font-size: 1.3rem;
             color: var(--text-lighter);
@@ -64,7 +64,7 @@
             font-weight: 500;
         }
 
-        .windingdevice-hero-description {
+        .washcloth-hero-description {
             font-size: 1.1rem;
             color: var(--text-light);
             margin-bottom: 40px;
@@ -74,7 +74,7 @@
             margin-right: auto;
         }
 
-        .windingdevice-cta {
+        .washcloth-cta {
             display: flex;
             gap: 20px;
             justify-content: center;
@@ -340,7 +340,7 @@
         }
 
         /* CTA Section */
-        .windingdevice-cta-section {
+        .washcloth-cta-section {
             padding: 100px 0;
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
             text-align: center;
@@ -348,7 +348,7 @@
             overflow: hidden;
         }
 
-        .windingdevice-cta-section::before {
+        .washcloth-cta-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -411,7 +411,7 @@
                 gap: 20px;
             }
 
-            .windingdevice-cta {
+            .washcloth-cta {
                 flex-direction: column;
                 align-items: center;
             }
@@ -454,17 +454,38 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 1px solid rgba(26, 95, 63, 0.1);
-            max-width: 450px;
-            margin: 0 auto;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(26, 95, 63, 0.05), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-green);
         }
 
         .product-image {
-            width: 100%;
             height: 250px;
             overflow: hidden;
             position: relative;
+            z-index: 2;
         }
 
         .product-image img {
@@ -479,22 +500,24 @@
         }
 
         .product-content {
-            padding: 25px;
+            padding: 30px 25px 25px;
+            position: relative;
+            z-index: 2;
         }
 
         .product-title {
             font-family: var(--font-primary);
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-dark);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .product-description {
             color: var(--text-gray);
             line-height: 1.6;
-            font-size: 0.95rem;
             margin-bottom: 20px;
+            font-size: 0.9rem;
         }
 
         .download-button {
@@ -586,129 +609,6 @@
                 height: 220px;
             }
         }
-
-        /* Distribution Center Section Styles */
-        .distribution-section {
-            padding: 70px 0 60px;
-            min-height: 40vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .distribution-overlay {
-            background: linear-gradient(135deg, rgba(26, 95, 63, 0.92) 0%, rgba(26, 95, 63, 0.85) 100%);
-        }
-
-        .distribution-content {
-            background: rgba(0,0,0,0.13);
-            border-radius: 22px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-            padding: 38px 32px 30px;
-            max-width: 650px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .distribution-title {
-            color: #fff;
-            font-size: 2.3rem;
-            font-weight: 800;
-            text-shadow: 0 4px 24px rgba(0,0,0,0.25);
-            margin-bottom: 18px;
-        }
-
-        .distribution-description {
-            color: #fff;
-            font-size: 1.08rem;
-            line-height: 1.7;
-            opacity: 0.97;
-            max-width: 540px;
-            margin: 0 auto;
-            font-weight: 400;
-            letter-spacing: 0.01em;
-        }
-
-        @media (max-width: 768px) {
-            .distribution-section {
-                padding: 80px 0;
-                background-attachment: scroll;
-            }
-
-            .distribution-description {
-                font-size: 1rem;
-            }
-        }
-
-        /* Winding Device Info Section Styles */
-        .windingdevice-info-section {
-            padding: 100px 0;
-            background: var(--primary-white);
-            position: relative;
-        }
-
-        .windingdevice-info-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .windingdevice-info-text {
-            padding-right: 40px;
-        }
-
-        .windingdevice-info-title {
-            font-family: var(--font-primary);
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-            margin-bottom: 25px;
-        }
-
-        .windingdevice-info-description {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text-gray);
-            margin-bottom: 35px;
-        }
-
-        .windingdevice-info-image {
-            width: 100%;
-            height: 100%;
-            min-height: 400px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .windingdevice-info-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-        }
-
-        .windingdevice-info-image:hover img {
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            .windingdevice-info-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .windingdevice-info-text {
-                padding-right: 0;
-            }
-
-            .windingdevice-info-image {
-                min-height: 300px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -729,8 +629,8 @@
                         <div class="dropdown-content">
                             <a href="wash-cloth.html" class="dropdown-link">Wash Cloth</a>
                             <a href="cassette-rolls.html" class="dropdown-link">Cassette Rolls</a>
-                            <a href="winding-device.html" class="dropdown-link active">Winding Device</a>
-                            <a href="manual-wiping.html" class="dropdown-link">Manual Wiping</a>
+                            <a href="winding-device.html" class="dropdown-link">Winding Device</a>
+                            <a href="manual-wiping.html" class="dropdown-link active">Manual Wiping</a>
                         </div>
                     </div>
                     <a href="formula1.html" class="nav-link">Formula 1</a>
@@ -770,8 +670,8 @@
                 <div class="mobile-nav-submenu active" id="graphicalCleaningSubmenu">
                     <a href="wash-cloth.html" class="mobile-nav-sublink">— Wash Cloth</a>
                     <a href="cassette-rolls.html" class="mobile-nav-sublink">— Cassette Rolls</a>
-                    <a href="winding-device.html" class="mobile-nav-sublink active">— Winding Device</a>
-                    <a href="manual-wiping.html" class="mobile-nav-sublink">— Manual Wiping</a>
+                    <a href="winding-device.html" class="mobile-nav-sublink">— Winding Device</a>
+                    <a href="manual-wiping.html" class="mobile-nav-sublink active">— Manual Wiping</a>
                 </div>
             </div>
             <a href="formula1.html" class="mobile-nav-link">Formula 1</a>
@@ -782,16 +682,15 @@
         </div>
     </nav>
 
-    <!-- Winding Device Hero Section -->
-    <section class="windingdevice-hero">
+    <!-- Manual Wiping Hero Section -->
+    <section class="washcloth-hero">
         <div class="container">
-            <div class="windingdevice-hero-content">
-                <h1 class="windingdevice-hero-title">Winding Device</h1>
-                <p class="windingdevice-hero-subtitle">Advanced winding machinery for optimal production efficiency</p>
-                <p class="windingdevice-hero-description">
-                    Along with the growing demand for washcloth in 500metre rolls, the need for winding machinery has grown drastically over the past few years. Initially introduced as a service item, winding machinery is now a mature product-line which completes the graphical line of business. Make your own cassette rolls and save money.
+            <div class="washcloth-hero-content">
+                <h1 class="washcloth-hero-title">Wiping and cleaning</h1>
+                <p class="washcloth-hero-description">
+                    Wiping and cleaning, for whatever business you're in, whatever material needs to be cleaned, Dimple offers a complete range of wiping solutions: dry plano wipes, perforated rolls and impregnated cleaning rags. Available from stock, so why wait?
                 </p>
-                <div class="windingdevice-cta">
+                <div class="washcloth-cta">
                     <a href="#features" class="cta-primary">
                         <span class="cta-text">Explore Features</span>
                         <span class="cta-icon">↓</span>
@@ -805,22 +704,59 @@
         </div>
     </section>
 
-    <!-- Winding Device Info Section -->
-    <section class="windingdevice-info-section">
+    <!-- BioCleaner Section -->
+    <section class="biocleaner-section" id="biocleaner" style="padding: 80px 0; background: #f8f9fa;">
         <div class="container">
-            <div class="windingdevice-info-content">
-                <div class="windingdevice-info-text">
-                    <h2 class="windingdevice-info-title">Winding Device</h2>
-                    <p class="windingdevice-info-description">
-                        The winding device and parts such as spindles are available for all print presses that currently equipped with automatic blanket cleaning systems. Systems are supplied in both manually operated and automatic manner. Systems for popular presses are available from stock.
-                    </p>
-                    <a href="#" class="download-button">
-                        <span class="button-text">Download Brochure</span>
-                        <span class="button-icon">↓</span>
-                    </a>
+            <div class="biocleaner-header" style="text-align: center; margin-bottom: 50px;">
+                <h2 class="section-title" style="font-size: 2.3rem; font-weight: 800; color: #1a1a1a;">BioCleaner</h2>
+            </div>
+            <div class="biocleaner-main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; justify-content: center; margin-bottom: 40px;">
+                <div class="biocleaner-image" style="flex: 0 0 320px; max-width: 320px;">
+                    <img src="images/biocleaner-lw0rdnsbixk4voqoqquxcx7szdx9xat31s5amrbu7o.jpg" alt="BioCleaner" style="width: 100%; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.10);">
                 </div>
-                <div class="windingdevice-info-image">
-                    <img src="images/windingdevice.jpg" alt="Winding Device">
+                <div class="biocleaner-description" style="flex: 1 1 350px; min-width: 280px;">
+                    <p style="font-size: 1.1rem; color: #333; line-height: 1.7;">
+                        The BioCleaner-series by Dimple offers professional cleaning with a clear conscience. The ready to use wipes are presoaked with the solvent suitable for your application. Dimple has a range options, ensuring you have the correct wipes and detergents for your business needs. Available in plastic containers, cleansing wipes offer the easy solution to your cleaning work.
+                    </p>
+                </div>
+            </div>
+            <div class="biocleaner-subsections" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;">
+                <div class="biocleaner-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 18px rgba(26,95,63,0.07); padding: 32px 24px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 12px;">Press</h3>
+                    <p style="color: #444; font-size: 0.98rem; line-height: 1.6;">This high quality solvent offers an excellent cleaning solution for rubber cloths, rollers, spatulas, spare parts and in and around your print press. Free of aromatics. Effective cleaning through ink releaser.</p>
+                </div>
+                <div class="biocleaner-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 18px rgba(26,95,63,0.07); padding: 32px 24px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 12px;">Degrease</h3>
+                    <p style="color: #444; font-size: 0.98rem; line-height: 1.6;">Chromed, ceramic, rubber and plastic dampening rollers degreased easily and effectively by using the BioCleaner degreaser. The wipes are free of aromatics and chlorinated hydrocarbons.</p>
+                </div>
+                <div class="biocleaner-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 18px rgba(26,95,63,0.07); padding: 32px 24px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 12px;">Glass</h3>
+                    <p style="color: #444; font-size: 0.98rem; line-height: 1.6;">Cleans your glass surfaces! Scanners, copiers, anything made of glass Clean without spots and stripes.</p>
+                </div>
+                <div class="biocleaner-card" style="background: #fff; border-radius: 16px; box-shadow: 0 4px 18px rgba(26,95,63,0.07); padding: 32px 24px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 12px;">Hand</h3>
+                    <p style="color: #444; font-size: 0.98rem; line-height: 1.6;">Cleans your hands thoroughly and is skin-friendly at the same time. Easy to use, no water necessary.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DimWipes Section -->
+    <section class="dimwipes-section" id="dimwipes" style="padding: 80px 0; background: #f8f9fa;">
+        <div class="container">
+            <div class="dimwipes-header" style="text-align: center; margin-bottom: 50px;">
+                <h2 class="section-title" style="font-size: 2.3rem; font-weight: 800; color: #1a1a1a;">DimWipes®</h2>
+            </div>
+            <div class="dimwipes-content" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+                <div class="dimwipes-card" style="flex: 0 0 320px; max-width: 320px; background: #fff; border-radius: 16px; box-shadow: 0 4px 18px rgba(26,95,63,0.07); padding: 32px 24px;">
+                    <img src="images/dimwipes-drycut-lw0ruw5tuv3n0vyvg6em7cw4g4i5t5zb68qv2dixd0.jpg" alt="DimWipes® DryCut®" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 12px;">DimWipes® DryCut®</h3>
+                    <p style="color: #444; font-size: 0.98rem; line-height: 1.6;">Cleaning by hand comes easy using Dimple wiping rags. Available in 35 x 45 cms plano wipes in boxes.</p>
+                </div>
+                <div class="dimwipes-card" style="flex: 0 0 320px; max-width: 320px; background: #fff; border-radius: 16px; box-shadow: 0 4px 18px rgba(26,95,63,0.07); padding: 32px 24px;">
+                    <img src="images/dimwipes-perfo-lw0rujxxe0mwtygmfj4gsxz4q46e13mssk9jts11lw.jpg" alt="DimWipes® Perfo®" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
+                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 12px;">DimWipes® Perfo®</h3>
+                    <p style="color: #444; font-size: 0.98rem; line-height: 1.6;">Available in perforated rolls.</p>
                 </div>
             </div>
         </div>
@@ -937,7 +873,7 @@
                     <div class="cta-content">
                         <h3 class="cta-heading">A new concept, designed for you</h3>
                         <p class="cta-description">
-                            Discover how our innovative machinery solutions can transform your production process and elevate your business to new heights.
+                            Discover how our innovative manual wiping solutions can transform your cleaning operations and elevate your production efficiency.
                         </p>
                     </div>
                     <div class="cta-button-wrapper">
