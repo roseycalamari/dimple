@@ -318,6 +318,105 @@
                 gap: 30px;
             }
         }
+
+        /* Large Screen Responsive Design - Enhanced for large displays */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1300px;
+                padding: 0 3rem;
+            }
+            
+            .customer-service-hero-title {
+                font-size: clamp(3.2rem, 5vw, 4.2rem);
+            }
+            
+            .customer-service-hero-description {
+                font-size: clamp(1.2rem, 2vw, 1.4rem);
+                max-width: 800px;
+            }
+            
+            .features-grid {
+                gap: 35px;
+            }
+            
+            .feature-card {
+                padding: 35px 30px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1500px;
+                padding: 0 4rem;
+            }
+            
+            .customer-service-hero {
+                padding: 150px 0 80px;
+            }
+            
+            .customer-service-hero-title {
+                font-size: clamp(4.2rem, 5.5vw, 5.5rem);
+            }
+            
+            .customer-service-hero-description {
+                font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+                max-width: 900px;
+            }
+            
+            .features-section {
+                padding: 150px 0;
+            }
+            
+            .features-grid {
+                gap: 40px;
+            }
+            
+            .feature-card {
+                padding: 40px 35px;
+                border-radius: 25px;
+            }
+            
+            .team-photo-container {
+                height: 400px;
+                max-width: 500px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1700px;
+                padding: 0 5rem;
+            }
+            
+            .customer-service-hero {
+                padding: 180px 0 100px;
+            }
+            
+            .customer-service-hero-title {
+                font-size: clamp(5.5rem, 6vw, 6.5rem);
+            }
+            
+            .customer-service-hero-description {
+                font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+                max-width: 1000px;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 45px;
+                max-width: 1600px;
+                margin: 0 auto;
+            }
+            
+            .feature-card {
+                padding: 45px 40px;
+            }
+            
+            .team-photo-container {
+                height: 450px;
+                max-width: 600px;
+            }
+        }
     </style>
 </head>
 <body>

@@ -3510,3 +3510,217 @@ img {
         font-size: 0.7rem;
     }
 }
+
+/* LARGE SCREEN RESPONSIVE DESIGN - Enhanced for 27" and larger displays */
+
+/* Large Desktops (1200px - 1440px) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1300px;
+        padding: 0 3rem;
+    }
+    
+    /* Hero sections scaling */
+    .hero-title,
+    .about-hero-title,
+    .washcloth-hero-title,
+    .graphical-cleaning-hero-title {
+        font-size: clamp(3.2rem, 5vw, 4.2rem);
+    }
+    
+    .hero-description,
+    .about-hero-description,
+    .washcloth-hero-description {
+        font-size: clamp(1.2rem, 2vw, 1.4rem);
+        max-width: 800px;
+    }
+    
+    /* Services grid enhanced spacing */
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 35px;
+    }
+    
+    .service-card {
+        padding: 35px 30px;
+    }
+    
+    /* Formula1 section scaling */
+    .formula1-content {
+        max-width: 1300px;
+    }
+    
+    /* Machines section scaling */
+    .machines-title .title-main {
+        font-size: clamp(3.5rem, 6vw, 4.5rem);
+    }
+}
+
+/* Extra Large Desktops (1440px - 1600px) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1500px;
+        padding: 0 4rem;
+    }
+    
+    /* Hero sections enhanced for very large screens */
+    .hero-title,
+    .about-hero-title,
+    .washcloth-hero-title,
+    .graphical-cleaning-hero-title {
+        font-size: clamp(4.2rem, 5.5vw, 5.5rem);
+        line-height: 1.1;
+    }
+    
+    .hero-description,
+    .about-hero-description,
+    .washcloth-hero-description {
+        font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+        max-width: 900px;
+        line-height: 1.6;
+    }
+    
+    /* Enhanced spacing for large displays */
+    .hero,
+    .about-hero,
+    .washcloth-hero,
+    .graphical-cleaning-hero {
+        padding: 150px 0 80px;
+    }
+    
+    .services-showcase,
+    .machines-section,
+    .formula1-section {
+        padding: 150px 0;
+    }
+    
+    .services-grid {
+        gap: 40px;
+    }
+    
+    .service-card {
+        padding: 40px 35px;
+        border-radius: 25px;
+    }
+    
+    /* Button scaling for large screens */
+    .cta-primary,
+    .cta-secondary,
+    .f1-cta-button,
+    .machines-cta-button {
+        padding: 18px 35px;
+        font-size: 1.1rem;
+        min-width: 220px;
+    }
+    
+    /* Formula1 section enhanced */
+    .formula1-content {
+        max-width: 1500px;
+    }
+    
+    .formula1-content-grid {
+        gap: 80px;
+    }
+    
+    /* Machines section enhanced */
+    .machines-title .title-main {
+        font-size: clamp(4.5rem, 7vw, 6rem);
+    }
+    
+    .machines-description {
+        font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+        max-width: 700px;
+    }
+}
+
+/* Ultra-Wide Screens (1600px+) */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1700px;
+        padding: 0 5rem;
+    }
+    
+    /* Ultra-wide hero scaling */
+    .hero-title,
+    .about-hero-title,
+    .washcloth-hero-title,
+    .graphical-cleaning-hero-title {
+        font-size: clamp(5.5rem, 6vw, 6.5rem);
+    }
+    
+    .hero-description,
+    .about-hero-description,
+    .washcloth-hero-description {
+        font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+        max-width: 1000px;
+    }
+    
+    /* Ultra-wide content spacing */
+    .hero,
+    .about-hero,
+    .washcloth-hero,
+    .graphical-cleaning-hero {
+        padding: 180px 0 100px;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 45px;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+    
+    .service-card {
+        padding: 45px 40px;
+    }
+    
+    /* Enhanced typography scaling */
+    .section-title,
+    .machines-title .title-main,
+    .formula1-title .title-main {
+        font-size: clamp(3rem, 4vw, 4rem);
+    }
+    
+    .section-description {
+        font-size: clamp(1.2rem, 2vw, 1.4rem);
+        max-width: 900px;
+    }
+    
+    /* Formula1 section ultra-wide */
+    .formula1-content {
+        max-width: 1700px;
+    }
+    
+    .formula1-content-grid {
+        gap: 100px;
+    }
+    
+    .formula1-stats {
+        gap: 40px;
+    }
+    
+    /* Machines section ultra-wide */
+    .machines-title .title-main {
+        font-size: clamp(6rem, 8vw, 7rem);
+    }
+    
+    .machines-description {
+        font-size: clamp(1.5rem, 2.8vw, 1.8rem);
+        max-width: 800px;
+    }
+    
+    .machines-cta-section {
+        padding: 100px 0;
+    }
+    
+    .cta-heading {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+    }
+    
+    .cta-description {
+        font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+        max-width: 800px;
+    }
+}
+
+/* Comprehensive Responsive Design - Premium Green Theme */

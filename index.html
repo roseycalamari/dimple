@@ -637,24 +637,132 @@
             }
         }
 
-
-
-        /* Ultra-wide screens - Perfect scaling */
-        @media (min-width: 1400px) {
+        /* Large Screen Responsive Design - Enhanced for large displays */
+        @media (min-width: 1200px) {
             .container {
-                max-width: 1400px;
+                max-width: 1300px;
+                padding: 0 3rem;
+            }
+            
+            .welcome-title {
+                font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            }
+            
+            .welcome-subtitle {
+                font-size: clamp(1rem, 1.8vw, 1.3rem);
+                max-width: 700px;
+            }
+            
+            .video-section {
+                max-width: 750px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1500px;
+                padding: 0 4rem;
+            }
+            
+            .welcome-title {
+                font-size: clamp(3.5rem, 5vw, 4.5rem);
+            }
+            
+            .welcome-subtitle {
+                font-size: clamp(1.2rem, 2vw, 1.5rem);
+                max-width: 800px;
+            }
+            
+            .video-section {
+                max-width: 900px;
+            }
+            
+            .cta-button {
+                padding: 14px 24px;
+                font-size: 0.95rem;
+                min-width: 160px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1700px;
+                padding: 0 5rem;
+            }
+            
+            .welcome-title {
+                font-size: clamp(4.5rem, 6vw, 5.5rem);
+            }
+            
+            .welcome-subtitle {
+                font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+                max-width: 900px;
+            }
+            
+            .video-section {
+                max-width: 1000px;
+            }
+            
+            .cta-button {
+                padding: 16px 28px;
+                font-size: 1rem;
+                min-width: 180px;
+            }
+        }
+
+        /* Laptop/14-inch screens (1024px - 1366px) - Perfect for your 14-inch screen */
+        @media (min-width: 1024px) and (max-width: 1366px) {
+            .landing-container {
+                padding: 2rem 0 1rem;
+                min-height: 100vh;
+                justify-content: center;
+            }
+
+            .welcome-section {
+                margin-bottom: 1.2rem;
             }
 
             .welcome-title {
-                font-size: 4rem;
+                font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+                margin-bottom: 0.4rem;
             }
 
             .welcome-subtitle {
-                font-size: 1.4rem;
+                font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+                max-width: 550px;
+                margin-bottom: 0.6rem;
+            }
+
+            .welcome-badge {
+                padding: 0.35rem 0.75rem;
+                font-size: 0.65rem;
             }
 
             .video-section {
-                max-width: 750px;
+                max-width: 650px;
+                margin-bottom: 1.5rem;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+
+            .play-icon {
+                border-left-width: 16px;
+                border-top-width: 10px;
+                border-bottom-width: 10px;
+                margin-left: 3px;
+            }
+
+            .cta-button {
+                padding: 9px 18px;
+                font-size: 0.8rem;
+                min-width: 140px;
+            }
+
+            .cta-section {
+                gap: 0.8rem;
             }
         }
 
@@ -906,6 +1014,82 @@
                 font-size: 0.7rem;
             }
         }
+
+        /* Dimple-Themed Modern CEO Booking Modal (two-step, modern date picker) */
+        .dimple-modal-bg {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(26, 95, 63, 0.7); z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .dimple-modal {
+            background: #fff; border-radius: 18px; max-width: 400px; width: 90vw;
+            padding: 2.5rem 2rem 2rem 2rem; position: relative;
+            box-shadow: 0 12px 40px rgba(26, 95, 63, 0.18);
+            display: flex; flex-direction: column; align-items: stretch;
+            animation: dimpleModalIn 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        @keyframes dimpleModalIn {
+            from { transform: translateY(40px) scale(0.98); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+        .dimple-modal-close {
+            position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none;
+            font-size: 2rem; color: #1a5f3f; cursor: pointer; transition: color 0.2s;
+        }
+        .dimple-modal-close:hover { color: #c00; }
+        .dimple-modal-title {
+            color: #1a5f3f; font-family: 'Montserrat', sans-serif; font-size: 1.5rem;
+            font-weight: 800; margin-bottom: 1.2rem; text-align: center;
+        }
+        .dimple-modal-label {
+            font-family: 'Poppins', sans-serif; font-size: 1.1rem; color: #248457;
+            font-weight: 600; margin-bottom: 0.7rem; display: block; text-align: center;
+        }
+        .dimple-date-picker-wrapper {
+            position: relative; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem;
+        }
+        .dimple-date-picker {
+            padding: 0.7rem 1.2rem; border-radius: 8px; border: 1.5px solid #2ea76a;
+            font-size: 1.1rem; font-family: 'Poppins', sans-serif; background: #f8fffe; color: #1a5f3f;
+            width: 100%; box-sizing: border-box; transition: border 0.2s;
+        }
+        .dimple-date-picker:focus { border: 1.5px solid #1a5f3f; outline: none; }
+        .dimple-date-icon {
+            position: absolute; right: 1.2rem; font-size: 1.3rem; color: #2ea76a; pointer-events: none;
+        }
+        .dimple-modal-step { animation: dimpleStepFade 0.3s; }
+        @keyframes dimpleStepFade { from { opacity: 0; } to { opacity: 1; } }
+        .dimple-modal-form {
+            display: flex; flex-direction: column; gap: 0.7rem;
+        }
+        .dimple-modal-form label {
+            font-family: 'Poppins', sans-serif; font-size: 1rem; color: #248457;
+            font-weight: 600; margin-bottom: 0.1rem;
+        }
+        .dimple-modal-form input {
+            padding: 0.6rem 0.9rem; border-radius: 8px; border: 1.5px solid #2ea76a;
+            font-size: 1rem; font-family: 'Poppins', sans-serif; margin-bottom: 0.2rem;
+            background: #f8fffe; color: #1a5f3f; transition: border 0.2s;
+        }
+        .dimple-modal-form input:focus {
+            border: 1.5px solid #1a5f3f; outline: none;
+        }
+        .dimple-modal-submit {
+            margin-top: 1.2rem; background: linear-gradient(90deg, #1a5f3f, #2ea76a);
+            color: #fff; border: none; border-radius: 8px; padding: 0.85rem;
+            font-size: 1.1rem; font-family: 'Montserrat', sans-serif; font-weight: 700;
+            cursor: pointer; box-shadow: 0 4px 16px rgba(46, 167, 106, 0.08);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .dimple-modal-submit:disabled { background: #b7e2c7; color: #fff; cursor: not-allowed; }
+        .dimple-modal-submit:hover:enabled {
+            background: linear-gradient(90deg, #248457, #34d058);
+            box-shadow: 0 8px 24px rgba(46, 167, 106, 0.18);
+        }
+        .dimple-modal-success {
+            color: #248457; font-weight: 700; text-align: center; font-size: 1.1rem;
+            margin-top: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -966,6 +1150,33 @@
         <div class="floating-video-icon"></div>
         <span class="floating-video-text">Dimple on Video</span>
     </a>
+
+    <!-- Dimple-Themed Modern CEO Booking Modal (two-step, modern date picker) -->
+    <div id="ceo-booking-modal" class="dimple-modal-bg" style="display:none;">
+        <div class="dimple-modal">
+            <button id="close-ceo-booking-modal" class="dimple-modal-close">&times;</button>
+            <h2 class="dimple-modal-title">Book a Call with the CEO</h2>
+            <div id="dimple-step1" class="dimple-modal-step">
+                <label for="dimple-date-picker" class="dimple-modal-label">Choose a date</label>
+                <div class="dimple-date-picker-wrapper">
+                    <input type="date" id="dimple-date-picker" class="dimple-date-picker" required>
+                    <span class="dimple-date-icon">📅</span>
+                </div>
+                <button id="dimple-next-step" class="dimple-modal-submit" disabled>Next</button>
+            </div>
+            <form id="dimple-step2" class="dimple-modal-form dimple-modal-step" style="display:none;">
+                <label for="ceo-booking-name">Name</label>
+                <input type="text" id="ceo-booking-name" required placeholder="Your Name">
+                <label for="ceo-booking-email">Email</label>
+                <input type="email" id="ceo-booking-email" required placeholder="Your Email">
+                <label for="ceo-booking-info">Additional Info <span style="color:#aaa;font-weight:400;">(optional)</span></label>
+                <input type="text" id="ceo-booking-info" placeholder="Anything else?">
+                <input type="hidden" id="ceo-booking-date-hidden" name="date">
+                <button type="submit" class="dimple-modal-submit">Book Call</button>
+            </form>
+            <div id="ceo-booking-success-static" class="dimple-modal-success" style="display:none;">Thank you! Your booking request has been received.</div>
+        </div>
+    </div>
 
     <script>
         // Enhanced interactions
@@ -1095,6 +1306,49 @@
                 }
             });
         }
-         </script>
- </body>
- </html> 
+
+        // Modal open/close logic and step transitions
+        const dimpleModal = document.getElementById('ceo-booking-modal');
+        const dimpleOpenBtn = Array.from(document.querySelectorAll('button, a')).find(el => el.textContent && el.textContent.toLowerCase().includes('book') && el.textContent.toLowerCase().includes('ceo'));
+        const dimpleCloseBtn = document.getElementById('close-ceo-booking-modal');
+        const dimpleStep1 = document.getElementById('dimple-step1');
+        const dimpleStep2 = document.getElementById('dimple-step2');
+        const dimpleNextBtn = document.getElementById('dimple-next-step');
+        const dimpleDatePicker = document.getElementById('dimple-date-picker');
+        const dimpleForm = document.getElementById('dimple-step2');
+        const dimpleSuccess = document.getElementById('ceo-booking-success-static');
+        const dimpleDateHidden = document.getElementById('ceo-booking-date-hidden');
+
+        if (dimpleOpenBtn) {
+            dimpleOpenBtn.addEventListener('click', e => {
+                e.preventDefault();
+                dimpleModal.style.display = 'flex';
+                dimpleStep1.style.display = '';
+                dimpleStep2.style.display = 'none';
+                dimpleSuccess.style.display = 'none';
+                dimpleForm.reset();
+                dimpleDatePicker.value = '';
+                dimpleNextBtn.disabled = true;
+            });
+        }
+        dimpleCloseBtn.onclick = () => { dimpleModal.style.display = 'none'; };
+        window.onclick = e => { if (e.target === dimpleModal) dimpleModal.style.display = 'none'; };
+
+        dimpleDatePicker.addEventListener('input', () => {
+            dimpleNextBtn.disabled = !dimpleDatePicker.value;
+        });
+        dimpleNextBtn.onclick = () => {
+            if (dimpleDatePicker.value) {
+                dimpleStep1.style.display = 'none';
+                dimpleStep2.style.display = '';
+                dimpleDateHidden.value = dimpleDatePicker.value;
+            }
+        };
+        dimpleForm.onsubmit = e => {
+            e.preventDefault();
+            dimpleForm.style.display = 'none';
+            dimpleSuccess.style.display = '';
+        };
+    </script>
+</body>
+</html> 

@@ -407,6 +407,124 @@
             0% { transform: translate(-10%, -10%); }
             100% { transform: translate(-10% + 60px, -10% + 60px); }
         }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Large Screen Responsive Design - Enhanced for large displays */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1300px;
+                padding: 0 3rem;
+            }
+            
+            .washcloth-hero-title {
+                font-size: clamp(3.2rem, 5vw, 4.2rem);
+            }
+            
+            .washcloth-hero-description {
+                font-size: clamp(1.2rem, 2vw, 1.4rem);
+                max-width: 800px;
+            }
+            
+            .detailed-content-section .detailed-content {
+                gap: 60px;
+            }
+            
+            .detailed-content-section .stats-grid {
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1500px;
+                padding: 0 4rem;
+            }
+            
+            .washcloth-hero {
+                padding: 150px 0 80px;
+            }
+            
+            .washcloth-hero-title {
+                font-size: clamp(4.2rem, 5.5vw, 5.5rem);
+            }
+            
+            .washcloth-hero-description {
+                font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+                max-width: 900px;
+            }
+            
+            .comprehensive-washcloth-section,
+            .intro-section,
+            .detailed-content-section {
+                padding: 150px 0;
+            }
+            
+            .detailed-content-section .detailed-content {
+                gap: 80px;
+            }
+            
+            .detailed-content-section .content-title {
+                font-size: clamp(2.8rem, 4vw, 3.5rem);
+            }
+            
+            .detailed-content-section .content-description {
+                font-size: clamp(1.2rem, 2vw, 1.4rem);
+            }
+            
+            .detailed-content-section .stats-grid {
+                gap: 35px;
+            }
+            
+            .cta-primary,
+            .cta-secondary {
+                padding: 18px 35px;
+                font-size: 1.1rem;
+                min-width: 220px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1700px;
+                padding: 0 5rem;
+            }
+            
+            .washcloth-hero {
+                padding: 180px 0 100px;
+            }
+            
+            .washcloth-hero-title {
+                font-size: clamp(5.5rem, 6vw, 6.5rem);
+            }
+            
+            .washcloth-hero-description {
+                font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+                max-width: 1000px;
+            }
+            
+            .detailed-content-section .detailed-content {
+                gap: 100px;
+            }
+            
+            .detailed-content-section .content-title {
+                font-size: clamp(3.5rem, 5vw, 4.5rem);
+            }
+            
+            .detailed-content-section .feature-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 45px;
+            }
+            
+            .detailed-content-section .stats-grid {
+                gap: 40px;
+            }
+        }
     </style>
 </head>
 <body>

@@ -1063,6 +1063,139 @@
                 min-width: 160px;
             }
         }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Large Screen Responsive Design - Enhanced for large displays */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1300px;
+                padding: 0 3rem;
+            }
+            
+            .graphical-cleaning-hero-title {
+                font-size: clamp(3.2rem, 5vw, 4.2rem);
+            }
+            
+            .graphical-cleaning-hero-description {
+                font-size: clamp(1.2rem, 2vw, 1.4rem);
+                max-width: 800px;
+            }
+            
+            .solutions-grid {
+                gap: 35px;
+            }
+            
+            .solution-card {
+                padding: 35px 30px;
+            }
+            
+            .machines-cta-section {
+                gap: 60px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1500px;
+                padding: 0 4rem;
+            }
+            
+            .graphical-cleaning-hero {
+                padding: 150px 0 80px;
+            }
+            
+            .graphical-cleaning-hero-title {
+                font-size: clamp(4.2rem, 5.5vw, 5.5rem);
+            }
+            
+            .graphical-cleaning-hero-description {
+                font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+                max-width: 900px;
+            }
+            
+            .solutions-section,
+            .production-centre-section,
+            .machines-section {
+                padding: 150px 0;
+            }
+            
+            .solutions-grid {
+                gap: 40px;
+            }
+            
+            .solution-card {
+                padding: 40px 35px;
+                border-radius: 25px;
+            }
+            
+            .machines-cta-section {
+                gap: 80px;
+            }
+            
+            .cta-heading {
+                font-size: clamp(2.2rem, 4vw, 2.8rem);
+            }
+            
+            .cta-description {
+                font-size: clamp(1.2rem, 2vw, 1.4rem);
+            }
+            
+            .machines-cta-button {
+                padding: 18px 35px;
+                font-size: 1.1rem;
+                min-width: 220px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1700px;
+                padding: 0 5rem;
+            }
+            
+            .graphical-cleaning-hero {
+                padding: 180px 0 100px;
+            }
+            
+            .graphical-cleaning-hero-title {
+                font-size: clamp(5.5rem, 6vw, 6.5rem);
+            }
+            
+            .graphical-cleaning-hero-description {
+                font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+                max-width: 1000px;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 45px;
+                max-width: 1600px;
+                margin: 0 auto;
+            }
+            
+            .solution-card {
+                padding: 45px 40px;
+            }
+            
+            .machines-cta-section {
+                gap: 100px;
+            }
+            
+            .cta-heading {
+                font-size: clamp(2.8rem, 5vw, 3.5rem);
+            }
+            
+            .cta-description {
+                font-size: clamp(1.4rem, 2.5vw, 1.7rem);
+                max-width: 800px;
+            }
+        }
     </style>
 </head>
 <body>

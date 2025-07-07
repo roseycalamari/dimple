@@ -530,6 +530,97 @@
                 border-radius: 10px;
             }
         }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Large Screen Responsive Design - Enhanced for large displays */
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1300px;
+                padding: 0 3rem;
+            }
+            
+            .formula1-title .title-main {
+                font-size: clamp(3.5rem, 6vw, 4.5rem);
+            }
+            
+            .formula1-content-grid {
+                gap: 60px;
+            }
+            
+            .formula1-stats {
+                gap: 30px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .container {
+                max-width: 1500px;
+                padding: 0 4rem;
+            }
+            
+            .formula1-section {
+                padding: 150px 0;
+            }
+            
+            .formula1-title .title-main {
+                font-size: clamp(4.5rem, 7vw, 6rem);
+            }
+            
+            .formula1-content-grid {
+                gap: 80px;
+            }
+            
+            .formula1-stats {
+                gap: 35px;
+            }
+            
+            .stat-item {
+                padding: 25px;
+            }
+            
+            .f1-cta-button {
+                padding: 18px 35px;
+                font-size: 1.1rem;
+                min-width: 220px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1700px;
+                padding: 0 5rem;
+            }
+            
+            .formula1-section {
+                padding: 180px 0 100px;
+            }
+            
+            .formula1-title .title-main {
+                font-size: clamp(6rem, 8vw, 7rem);
+            }
+            
+            .formula1-content-grid {
+                gap: 100px;
+            }
+            
+            .formula1-stats {
+                gap: 40px;
+            }
+            
+            .stat-item {
+                padding: 30px;
+            }
+            
+            .stat-number {
+                font-size: clamp(2.5rem, 4vw, 3.5rem);
+            }
+        }
     </style>
 </head>
 <body>
