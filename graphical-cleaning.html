@@ -18,7 +18,22 @@
             align-items: center;
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
             overflow: hidden;
-            padding: 130px 0 60px;
+            padding: clamp(100px, 12vh, 150px) 0 clamp(40px, 6vh, 80px);
+        }
+
+        /* Enhanced mobile responsiveness for graphical cleaning page */
+        @media (max-width: 768px) {
+            .graphical-cleaning-hero {
+                padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
+                min-height: 90vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .graphical-cleaning-hero {
+                padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
+                min-height: 85vh;
+            }
         }
 
         .graphical-hero-background {

@@ -19,7 +19,7 @@
             --text-gray: #666666;
         }
 
-        /* Hero Section */
+        /* ENHANCED HERO SECTION - Mobile optimized */
         .formula1-hero {
             position: relative;
             min-height: 100vh;
@@ -27,7 +27,22 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            padding: 130px 0 80px;
+            padding: clamp(100px, 12vh, 150px) 0 clamp(50px, 8vh, 100px);
+        }
+
+        /* Enhanced mobile responsiveness for Formula 1 page */
+        @media (max-width: 768px) {
+            .formula1-hero {
+                padding: clamp(80px, 15vh, 120px) 0 clamp(40px, 8vh, 60px);
+                min-height: 90vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .formula1-hero {
+                padding: clamp(70px, 12vh, 100px) 0 clamp(30px, 6vh, 50px);
+                min-height: 85vh;
+            }
         }
 
         .formula1-hero::before {

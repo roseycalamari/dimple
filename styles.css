@@ -689,13 +689,13 @@ body {
     transition: all var(--transition-fast);
 }
 
-/* Mobile Off-Canvas Menu */
+/* ENHANCED MOBILE OFF-CANVAS MENU - Fixed white area issue */
 .mobile-nav-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     z-index: 999;
@@ -713,13 +713,15 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
-    height: 100%;
+    width: min(320px, 85vw);
+    height: 100vh;
     background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
     z-index: 1000;
     transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     overflow-y: auto;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
 }
 
 .mobile-nav-menu.active {
@@ -751,24 +753,29 @@ body {
 }
 
 .mobile-nav-links {
-    padding: 50px 0;
+    padding: 30px 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 .mobile-nav-link {
     display: block;
     color: var(--primary-white);
     text-decoration: none;
-    padding: 20px 30px;
-    margin-bottom: 8px;
+    padding: 16px 25px;
+    margin-bottom: 4px;
     font-family: var(--font-primary);
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 4vw, 1rem);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     transition: all var(--transition-fast);
     border-left: 4px solid transparent;
     opacity: 0;
     transform: translateX(50px);
+    flex-shrink: 0;
 }
 
 .mobile-nav-menu.active .mobile-nav-link {
@@ -1345,16 +1352,40 @@ img {
     /* Enhanced service cards for mobile */
     .services-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 0 10px;
+        gap: 12px;
+        padding: 0 8px;
+        max-width: 100%;
     }
     
     .service-card {
-        padding: 20px 16px;
-        border-radius: 12px;
+        padding: 18px 14px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
     
-    /* Prevent horizontal scroll */
+    .service-card h3 {
+        font-size: clamp(1rem, 4vw, 1.2rem) !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .service-card p {
+        font-size: clamp(0.8rem, 3vw, 0.9rem) !important;
+        line-height: 1.4 !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .card-icon {
+        width: 35px !important;
+        height: 35px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .card-icon svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    
+    /* Prevent horizontal scroll and enhance mobile layout */
     .hero,
     .services-showcase,
     .formula1-section,
@@ -1368,6 +1399,67 @@ img {
         width: 100%;
         max-width: 100vw;
         overflow-x: hidden;
+    }
+    
+    /* Enhanced mobile containers */
+    body {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+    
+    /* Global mobile typography optimization for all pages */
+    .hero-title,
+    .about-hero-title,
+    .washcloth-hero-title,
+    .graphical-cleaning-hero-title,
+    .customer-service-hero-title,
+    .cassette-rolls-hero-title,
+    .windingdevice-hero-title,
+    .formula1-hero-title {
+        font-size: clamp(2rem, 8vw, 3rem) !important;
+        line-height: 1.0 !important;
+        margin-bottom: clamp(15px, 4vw, 25px) !important;
+    }
+    
+    .hero-description,
+    .about-hero-description,
+    .washcloth-hero-description,
+    .graphical-cleaning-hero-description,
+    .customer-service-hero-description,
+    .cassette-rolls-hero-description,
+    .windingdevice-hero-description,
+    .formula1-hero-description {
+        font-size: clamp(0.85rem, 3.5vw, 1rem) !important;
+        line-height: 1.4 !important;
+        margin-bottom: clamp(20px, 5vw, 30px) !important;
+        max-width: 100% !important;
+        padding: 0 clamp(8px, 2vw, 16px) !important;
+    }
+    
+    /* Enhanced mobile CTA buttons for all pages */
+    .hero-cta,
+    .about-hero-cta,
+    .washcloth-hero-cta,
+    .graphical-cleaning-hero-cta,
+    .customer-service-hero-cta,
+    .cassette-rolls-hero-cta,
+    .windingdevice-hero-cta,
+    .formula1-hero-cta {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: clamp(12px, 3vw, 18px) !important;
+        margin-bottom: clamp(20px, 5vw, 30px) !important;
+    }
+    
+    .hero-cta .cta-primary,
+    .hero-cta .cta-secondary,
+    .about-hero-cta .cta-primary,
+    .about-hero-cta .cta-secondary {
+        width: 100% !important;
+        max-width: 280px !important;
+        min-width: auto !important;
+        padding: clamp(10px, 3vw, 14px) clamp(20px, 5vw, 28px) !important;
+        font-size: clamp(0.75rem, 3vw, 0.9rem) !important;
     }
     
     /* Mobile navigation full screen */
@@ -1999,7 +2091,7 @@ img {
 
 /* Carousel controls removed for auto-scroll */
 
-/* CTA Section */
+/* ENHANCED CTA SECTION - Better mobile experience */
 .machines-cta-section {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -2013,6 +2105,34 @@ img {
     box-shadow: 0 25px 70px rgba(26, 95, 63, 0.1);
     position: relative;
     overflow: hidden;
+}
+
+/* Enhanced mobile CTA section */
+@media (max-width: 768px) {
+    .machines-cta-section {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 25px 20px;
+        border-radius: 16px;
+        text-align: center;
+    }
+    
+    .cta-content {
+        margin-bottom: 10px;
+    }
+    
+    .cta-description {
+        font-size: clamp(0.85rem, 3.5vw, 1rem) !important;
+        line-height: 1.5 !important;
+        margin-bottom: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .machines-cta-section {
+        padding: 20px 16px;
+        gap: 20px;
+    }
 }
 
 .machines-cta-section::before {
@@ -2033,12 +2153,21 @@ img {
 
 .cta-heading {
     font-family: var(--font-primary);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(1.4rem, 3.5vw, 2.5rem);
     font-weight: 800;
     color: var(--primary-green);
     margin-bottom: 20px;
     line-height: 1.2;
     letter-spacing: -1px;
+}
+
+/* Enhanced mobile sizing for CTA heading */
+@media (max-width: 480px) {
+    .cta-heading {
+        font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+        line-height: 1.1 !important;
+        margin-bottom: 15px !important;
+    }
 }
 
 .cta-description {
@@ -2529,13 +2658,14 @@ img {
     display: block;
     color: var(--primary-white);
     text-decoration: none;
-    padding: 12px 30px 12px 50px;
+    padding: 10px 25px 10px 40px;
     font-family: var(--font-primary);
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 3.5vw, 0.9rem);
     font-weight: 500;
     transition: all var(--transition-fast);
     border-left: 4px solid transparent;
     opacity: 0.9;
+    flex-shrink: 0;
 }
 
 .mobile-nav-sublink:hover,
