@@ -797,6 +797,25 @@ body {
     transform: translateX(10px);
 }
 
+/* Fix for contact button in mobile menu */
+.mobile-nav-link.nav-contact-button {
+    color: var(--primary-green) !important;
+    background: var(--primary-white);
+    border: 2px solid var(--primary-white);
+    border-radius: 20px;
+    margin: 10px 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav-link.nav-contact-button:hover {
+    background: var(--bright-green);
+    color: var(--primary-white) !important;
+    border-color: var(--bright-green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
 /* ENHANCED HERO SECTION - Perfect scaling across all devices */
 .hero {
     position: relative;
