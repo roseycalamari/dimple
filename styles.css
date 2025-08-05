@@ -53,8 +53,9 @@ img {
     --sketch-blur: 1px;
 }
 
-/* ENHANCED RESPONSIVE CONTAINER SYSTEM */
-/* Dynamic container that scales perfectly across all screen sizes */
+/* STANDARDIZED CONTAINER SYSTEM - Maintains 14-inch screen proportions on all devices */
+/* This ensures the website looks the same regardless of screen size */
+
 .container {
     width: 100%;
     margin: 0 auto;
@@ -80,7 +81,7 @@ img {
     }
 }
 
-/* Standard Desktop (Your 14-inch screen) */
+/* Standard Desktop (Your 14-inch screen) - This is our reference point */
 @media (min-width: 1200px) {
     .container {
         max-width: 1400px;
@@ -88,42 +89,53 @@ img {
     }
 }
 
-/* Large Desktop (24-27 inch screens) - Prevents "skinny" appearance */
+/* Large Desktop (24-27 inch screens) - Maintains 14-inch proportions */
 @media (min-width: 1440px) {
     .container {
-        max-width: 1600px;
-        padding: 0 clamp(3rem, 5vw, 6rem);
+        max-width: 1400px; /* Same as 14-inch screen */
+        padding: 0 clamp(2rem, 4vw, 4rem);
+        /* Center the content to maintain visual balance */
+        margin: 0 auto;
     }
 }
 
-/* Ultra-wide screens (27+ inch) - Maximum space utilization */
+/* Ultra-wide screens (27+ inch) - Maintains 14-inch proportions */
 @media (min-width: 1600px) {
     .container {
-        max-width: 1800px;
-        padding: 0 clamp(4rem, 6vw, 8rem);
+        max-width: 1400px; /* Same as 14-inch screen */
+        padding: 0 clamp(2rem, 4vw, 4rem);
+        /* Center the content to maintain visual balance */
+        margin: 0 auto;
     }
 }
 
-/* Extra Large Screens (32+ inch) */
+/* Extra Large Screens (32+ inch) - Maintains 14-inch proportions */
 @media (min-width: 1920px) {
     .container {
-        max-width: 2000px;
-        padding: 0 clamp(5rem, 7vw, 10rem);
+        max-width: 1400px; /* Same as 14-inch screen */
+        padding: 0 clamp(2rem, 4vw, 4rem);
+        /* Center the content to maintain visual balance */
+        margin: 0 auto;
     }
 }
 
-/* ENHANCED TYPOGRAPHY SCALING */
-/* Dynamic typography that scales beautifully across all devices */
+/* STANDARDIZED TYPOGRAPHY SYSTEM - Consistent across all pages */
+/* This ensures all titles, subtitles, and descriptions have consistent sizing */
 
-/* Hero titles - Enhanced scaling */
+/* Hero titles - Standardized scaling */
 .hero-title,
 .about-hero-title,
 .washcloth-hero-title,
-.graphical-cleaning-hero-title {
+.graphical-cleaning-hero-title,
+.customer-service-hero-title,
+.cassette-rolls-hero-title,
+.windingdevice-hero-title,
+.formula1-hero-title {
     font-family: var(--font-primary);
     margin-bottom: 30px;
 }
 
+/* Standardized title line - consistent across all pages */
 .title-line {
     display: block;
     font-size: clamp(0.8rem, 1.8vw + 0.2rem, 1.4rem);
@@ -135,6 +147,7 @@ img {
     opacity: 0.8;
 }
 
+/* Standardized main title - consistent across all pages */
 .title-main {
     display: block;
     font-size: clamp(2.2rem, 6vw + 0.5rem, 7rem);
@@ -147,6 +160,7 @@ img {
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Standardized title subtitle - consistent across all pages */
 .title-subtitle {
     display: block;
     font-size: clamp(0.8rem, 2vw + 0.1rem, 1.6rem);
@@ -157,10 +171,15 @@ img {
     opacity: 0.9;
 }
 
-/* Section descriptions - Better scaling */
+/* Standardized section descriptions - consistent across all pages */
 .hero-description,
 .about-hero-description,
 .washcloth-hero-description,
+.graphical-cleaning-hero-description,
+.customer-service-hero-description,
+.cassette-rolls-hero-description,
+.windingdevice-hero-description,
+.formula1-hero-description,
 .section-description,
 .machines-description {
     font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.8rem);
@@ -171,10 +190,16 @@ img {
     max-width: clamp(400px, 70%, 900px);
 }
 
-/* Section titles - Enhanced scaling */
+/* Standardized section titles - consistent across all pages */
 .section-title,
 .machines-title .title-main,
-.formula1-title .title-main {
+.formula1-title .title-main,
+.about-section-title,
+.graphical-cleaning-section-title,
+.washcloth-section-title,
+.customer-service-section-title,
+.cassette-rolls-section-title,
+.windingdevice-section-title {
     font-family: var(--font-primary);
     font-size: clamp(2rem, 4.5vw + 0.5rem, 5.5rem) !important;
     font-weight: 800 !important;
@@ -797,25 +822,6 @@ body {
     transform: translateX(10px);
 }
 
-/* Fix for contact button in mobile menu */
-.mobile-nav-link.nav-contact-button {
-    color: var(--primary-green) !important;
-    background: var(--primary-white);
-    border: 2px solid var(--primary-white);
-    border-radius: 20px;
-    margin: 10px 25px;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-nav-link.nav-contact-button:hover {
-    background: var(--bright-green);
-    color: var(--primary-white) !important;
-    border-color: var(--bright-green);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
 /* ENHANCED HERO SECTION - Perfect scaling across all devices */
 .hero {
     position: relative;
@@ -1068,7 +1074,7 @@ body {
     margin: 0 auto;
 }
 
-/* Enhanced grid for different screen sizes */
+/* Standardized services grid - Maintains 14-inch screen proportions */
 @media (min-width: 768px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1086,15 +1092,24 @@ body {
 @media (min-width: 1440px) {
     .services-grid {
         grid-template-columns: repeat(3, 1fr);
-        max-width: 1400px;
-        gap: clamp(30px, 4vw, 50px);
+        max-width: 1200px; /* Same as 14-inch screen */
+        gap: clamp(20px, 3vw, 40px);
     }
 }
 
 @media (min-width: 1600px) {
     .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-        max-width: 1600px;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px; /* Same as 14-inch screen */
+        gap: clamp(20px, 3vw, 40px);
+    }
+}
+
+@media (min-width: 1920px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px; /* Same as 14-inch screen */
+        gap: clamp(20px, 3vw, 40px);
     }
 }
 
@@ -3683,9 +3698,15 @@ img {
 .formula1-title .title-main,
 .distribution-title,
 .concept-cta-title,
-.cta-heading {
+.cta-heading,
+.about-section-title,
+.graphical-cleaning-section-title,
+.washcloth-section-title,
+.customer-service-section-title,
+.cassette-rolls-section-title,
+.windingdevice-section-title {
     font-family: var(--font-primary);
-    font-size: clamp(2.5rem, 6vw, 3.8rem) !important;
+    font-size: clamp(2rem, 4.5vw + 0.5rem, 5.5rem) !important;
     font-weight: 800 !important;
     color: var(--primary-green) !important;
     line-height: 1.2 !important;
@@ -3736,12 +3757,18 @@ img {
     border-radius: 2px;
 }
 
-/* Subtitle styles */
+/* Standardized subtitle styles - consistent across all pages */
 .section-description,
 .solutions-description,
 .services-description,
-.machines-description {
-    font-size: clamp(1.1rem, 2.2vw, 1.3rem) !important;
+.machines-description,
+.about-section-description,
+.graphical-cleaning-section-description,
+.washcloth-section-description,
+.customer-service-section-description,
+.cassette-rolls-section-description,
+.windingdevice-section-description {
+    font-size: clamp(0.9rem, 1.5vw + 0.3rem, 1.8rem) !important;
     line-height: 1.7 !important;
     color: var(--light-green) !important;
     margin-bottom: 60px !important;
@@ -3915,7 +3942,7 @@ img {
 
 /* Large Desktops (1200px - 1440px) - Your 14" screen will also benefit */
 @media (min-width: 1200px) {
-    /* Enhanced spacing and layout */
+    /* Standardized spacing and layout */
     .hero,
     .about-hero,
     .graphical-cleaning-hero,
@@ -3923,7 +3950,7 @@ img {
         padding: clamp(120px, 15vh, 180px) 0 clamp(60px, 8vh, 100px);
     }
     
-    /* Enhanced hero content scaling */
+    /* Standardized hero content scaling */
     .hero-text {
         max-width: clamp(700px, 65%, 1000px);
     }
@@ -3936,16 +3963,16 @@ img {
         line-height: 1.6;
     }
     
-    /* Enhanced services for large screens */
+    /* Standardized services for large screens */
     .services-grid {
-        gap: clamp(30px, 3vw, 45px);
+        gap: clamp(20px, 3vw, 40px);
     }
     
     .service-card {
         padding: clamp(25px, 3vw, 40px);
     }
     
-    /* Better button sizing for large screens */
+    /* Standardized button sizing for large screens */
     .cta-primary,
     .cta-secondary,
     .btn-primary {
@@ -3954,136 +3981,136 @@ img {
         min-width: clamp(180px, 18vw, 220px);
     }
     
-    /* Enhanced hero CTA for large screens */
+    /* Standardized hero CTA for large screens */
     .hero-cta {
         gap: clamp(25px, 3vw, 35px);
         margin-bottom: clamp(40px, 6vh, 80px);
     }
 }
 
-/* ULTRA-WIDE DESKTOPS (1440px - 1600px) - Perfect for 27" screens */
+/* ULTRA-WIDE DESKTOPS (1440px - 1600px) - Maintains 14-inch proportions */
 @media (min-width: 1440px) {
-    /* Enhanced spacing and proportions for large screens */
+    /* Standardized spacing and proportions for large screens */
     .hero,
     .about-hero,
     .washcloth-hero,
     .graphical-cleaning-hero {
-        padding: clamp(140px, 18vh, 200px) 0 clamp(80px, 10vh, 120px);
+        padding: clamp(120px, 15vh, 180px) 0 clamp(60px, 8vh, 100px);
     }
     
-    /* Enhanced hero content for large screens */
+    /* Standardized hero content for large screens */
     .hero-text {
-        max-width: clamp(800px, 70%, 1200px);
+        max-width: clamp(700px, 65%, 1000px);
     }
     
     .hero-description,
     .about-hero-description,
     .washcloth-hero-description {
-        font-size: clamp(1.2rem, 1.3vw + 0.3rem, 1.8rem);
-        max-width: clamp(700px, 75%, 1000px);
-        line-height: 1.65;
+        font-size: clamp(1.1rem, 1.2vw + 0.2rem, 1.6rem);
+        max-width: clamp(600px, 70%, 900px);
+        line-height: 1.6;
     }
     
-    /* Enhanced services grid for ultra-wide */
+    /* Standardized services grid for ultra-wide */
     .services-showcase {
-        margin-top: clamp(50px, 6vw, 80px);
+        margin-top: clamp(30px, 5vw, 50px);
     }
     
     .services-grid {
-        gap: clamp(35px, 4vw, 50px);
-        max-width: 100%;
+        gap: clamp(20px, 3vw, 40px);
+        max-width: 1200px;
     }
     
     .service-card {
-        padding: clamp(30px, 3.5vw, 45px);
-        border-radius: clamp(20px, 2.5vw, 30px);
+        padding: clamp(25px, 3vw, 40px);
+        border-radius: clamp(16px, 2vw, 25px);
     }
     
-    /* Enhanced button scaling */
+    /* Standardized button scaling */
     .cta-primary,
     .cta-secondary,
     .f1-cta-button,
     .machines-cta-button {
-        padding: clamp(16px, 1.8vw, 22px) clamp(32px, 4vw, 40px);
-        font-size: clamp(1rem, 1.1vw + 0.1rem, 1.3rem);
-        min-width: clamp(200px, 20vw, 260px);
+        padding: clamp(14px, 1.5vw, 18px) clamp(28px, 3vw, 36px);
+        font-size: clamp(0.9rem, 1vw + 0.1rem, 1.1rem);
+        min-width: clamp(180px, 18vw, 220px);
     }
     
-    /* Enhanced hero CTA for ultra-wide */
+    /* Standardized hero CTA for ultra-wide */
     .hero-cta {
-        gap: clamp(30px, 4vw, 45px);
-        margin-bottom: clamp(60px, 8vh, 100px);
+        gap: clamp(25px, 3vw, 35px);
+        margin-bottom: clamp(40px, 6vh, 80px);
     }
     
-    /* Enhanced section spacing */
+    /* Standardized section spacing */
     .machines-section,
     .formula1-section {
         padding: clamp(120px, 15vh, 180px) 0;
     }
 }
 
-/* MASSIVE SCREENS (1600px+) - Ultimate space utilization */
+/* MASSIVE SCREENS (1600px+) - Maintains 14-inch proportions */
 @media (min-width: 1600px) {
-    /* Maximum hero scaling for massive displays */
+    /* Standardized hero scaling for massive displays */
     .hero,
     .about-hero,
     .washcloth-hero,
     .graphical-cleaning-hero {
-        padding: clamp(160px, 20vh, 240px) 0 clamp(100px, 12vh, 140px);
+        padding: clamp(120px, 15vh, 180px) 0 clamp(60px, 8vh, 100px);
     }
     
-    /* Ultimate hero content scaling */
+    /* Standardized hero content scaling */
     .hero-text {
-        max-width: clamp(900px, 75%, 1400px);
+        max-width: clamp(700px, 65%, 1000px);
     }
     
     .hero-description,
     .about-hero-description,
     .washcloth-hero-description {
-        font-size: clamp(1.3rem, 1.5vw + 0.4rem, 2.2rem);
-        max-width: clamp(800px, 80%, 1200px);
-        line-height: 1.7;
+        font-size: clamp(1.1rem, 1.2vw + 0.2rem, 1.6rem);
+        max-width: clamp(600px, 70%, 900px);
+        line-height: 1.6;
     }
     
-    /* Ultimate services grid - 4 columns for massive screens */
+    /* Standardized services grid - 3 columns for consistency */
     .services-showcase {
-        margin-top: clamp(60px, 7vw, 100px);
+        margin-top: clamp(30px, 5vw, 50px);
     }
     
     .services-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: clamp(40px, 5vw, 60px);
-        max-width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(20px, 3vw, 40px);
+        max-width: 1200px;
     }
     
     .service-card {
-        padding: clamp(35px, 4vw, 50px);
-        border-radius: clamp(25px, 3vw, 35px);
+        padding: clamp(25px, 3vw, 40px);
+        border-radius: clamp(16px, 2vw, 25px);
     }
     
-    /* Ultimate button scaling */
+    /* Standardized button scaling */
     .cta-primary,
     .cta-secondary,
     .f1-cta-button,
     .machines-cta-button {
-        padding: clamp(18px, 2vw, 24px) clamp(36px, 5vw, 48px);
-        font-size: clamp(1.1rem, 1.2vw + 0.2rem, 1.5rem);
-        min-width: clamp(220px, 22vw, 300px);
+        padding: clamp(14px, 1.5vw, 18px) clamp(28px, 3vw, 36px);
+        font-size: clamp(0.9rem, 1vw + 0.1rem, 1.1rem);
+        min-width: clamp(180px, 18vw, 220px);
     }
     
-    /* Ultimate hero CTA spacing */
+    /* Standardized hero CTA spacing */
     .hero-cta {
-        gap: clamp(35px, 5vw, 55px);
-        margin-bottom: clamp(80px, 10vh, 120px);
+        gap: clamp(25px, 3vw, 35px);
+        margin-bottom: clamp(40px, 6vh, 80px);
     }
     
-    /* Ultimate section spacing */
+    /* Standardized section spacing */
     .machines-section,
     .formula1-section {
-        padding: clamp(140px, 18vh, 220px) 0;
+        padding: clamp(120px, 15vh, 180px) 0;
     }
     
-    /* Enhanced content areas for massive screens */
+    /* Standardized content areas for massive screens */
     .formula1-content,
     .machines-content {
         max-width: 100%;
@@ -4092,6 +4119,166 @@ img {
     .formula1-content-grid,
     .machines-cta-section {
         gap: clamp(60px, 8vw, 120px);
+    }
+}
+
+/* EXTRA MASSIVE SCREENS (1920px+) - Maintains 14-inch proportions */
+@media (min-width: 1920px) {
+    /* Standardized hero scaling for extra large displays */
+    .hero,
+    .about-hero,
+    .washcloth-hero,
+    .graphical-cleaning-hero {
+        padding: clamp(120px, 15vh, 180px) 0 clamp(60px, 8vh, 100px);
+    }
+    
+    /* Standardized hero content scaling */
+    .hero-text {
+        max-width: clamp(700px, 65%, 1000px);
+    }
+    
+    /* Standardized hero title scaling for large screens */
+    .title-main {
+        font-size: clamp(2.2rem, 6vw + 0.5rem, 7rem) !important;
+        line-height: 0.9 !important;
+        letter-spacing: -2px !important;
+    }
+    
+    .title-line {
+        font-size: clamp(0.8rem, 1.8vw + 0.2rem, 1.4rem) !important;
+        margin-bottom: 12px !important;
+    }
+    
+    .title-subtitle {
+        font-size: clamp(0.8rem, 2vw + 0.1rem, 1.6rem) !important;
+    }
+    
+    .hero-description,
+    .about-hero-description,
+    .washcloth-hero-description {
+        font-size: clamp(1.1rem, 1.2vw + 0.2rem, 1.6rem);
+        max-width: clamp(600px, 70%, 900px);
+        line-height: 1.6;
+    }
+    
+    /* Standardized services grid for extra large screens */
+    .services-showcase {
+        margin-top: clamp(30px, 5vw, 50px);
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(20px, 3vw, 40px);
+        max-width: 1200px;
+    }
+    
+    .service-card {
+        padding: clamp(25px, 3vw, 40px);
+        border-radius: clamp(16px, 2vw, 25px);
+    }
+    
+    /* Standardized service card content for large screens */
+    .service-card h3 {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem) !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .service-card p {
+        font-size: clamp(0.9rem, 1.5vw, 1rem) !important;
+        line-height: 1.6 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .card-icon {
+        width: 60px !important;
+        height: 60px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .card-icon svg {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .card-stats {
+        gap: 10px !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .stat {
+        padding: 6px 12px !important;
+        font-size: 0.75rem !important;
+    }
+    
+    .card-cta {
+        padding: 10px 20px !important;
+        font-size: 0.85rem !important;
+    }
+    
+    /* Standardized button scaling */
+    .cta-primary,
+    .cta-secondary,
+    .f1-cta-button,
+    .machines-cta-button {
+        padding: clamp(14px, 1.5vw, 18px) clamp(28px, 3vw, 36px);
+        font-size: clamp(0.9rem, 1vw + 0.1rem, 1.1rem);
+        min-width: clamp(180px, 18vw, 220px);
+    }
+    
+    /* Standardized hero CTA spacing */
+    .hero-cta {
+        gap: clamp(25px, 3vw, 35px);
+        margin-bottom: clamp(40px, 6vh, 80px);
+    }
+    
+    /* Standardized section spacing */
+    .machines-section,
+    .formula1-section {
+        padding: clamp(120px, 15vh, 180px) 0;
+    }
+    
+    /* Standardized content areas for extra large screens */
+    .formula1-content,
+    .machines-content {
+        max-width: 100%;
+    }
+    
+    .formula1-content-grid,
+    .machines-cta-section {
+        gap: clamp(60px, 8vw, 120px);
+    }
+    
+    /* Standardized navigation for large screens */
+    .navbar {
+        height: 70px !important;
+        padding: 0 clamp(2rem, 4vw, 4rem) !important;
+    }
+    
+    .logo-text {
+        font-size: 1.6rem !important;
+    }
+    
+    .logo-tagline {
+        font-size: 0.65rem !important;
+    }
+    
+    .nav-link {
+        font-size: clamp(0.7rem, 1vw + 0.05rem, 0.85rem) !important;
+        padding: clamp(5px, 0.8vw, 8px) clamp(6px, 1vw, 12px) !important;
+    }
+    
+    .nav-contact-button {
+        font-size: clamp(0.7rem, 1vw + 0.05rem, 0.85rem) !important;
+        padding: clamp(6px, 1vw, 10px) clamp(12px, 2vw, 20px) !important;
+    }
+    
+    /* Standardized overall spacing for large screens */
+    .hero-content {
+        margin-bottom: clamp(60px, 5vh, 80px) !important;
+    }
+    
+    .services-showcase {
+        padding: 0 clamp(1rem, 3vw, 2rem) !important;
     }
 }
 
