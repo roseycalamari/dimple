@@ -303,6 +303,58 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Learn More button scroll functionality
+    const learnMoreButton = document.querySelector('[data-action="learn"]');
+    if (learnMoreButton) {
+        learnMoreButton.addEventListener('click', function() {
+            const servicesSection = document.querySelector('.services-showcase');
+            if (servicesSection) {
+                servicesSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // Discover HSR Technology button navigation functionality
+    const discoverHsrButton = document.querySelector('[data-action="discover-hsr"]');
+    if (discoverHsrButton) {
+        discoverHsrButton.addEventListener('click', function() {
+            window.location.href = 'formula1.html';
+        });
+    }
+
+    // Get More Information button navigation functionality
+    const getMoreInfoButtons = document.querySelectorAll('[data-action="get-more-info"]');
+    getMoreInfoButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            window.location.href = 'about.html';
+        });
+    });
+
+    // Service card modal buttons navigation functionality
+    const discoverGraphicalButton = document.querySelector('[data-action="discover-graphical"]');
+    if (discoverGraphicalButton) {
+        discoverGraphicalButton.addEventListener('click', function() {
+            window.location.href = 'graphical-cleaning.html';
+        });
+    }
+
+    const exploreFormula1Button = document.querySelector('[data-action="explore-formula1"]');
+    if (exploreFormula1Button) {
+        exploreFormula1Button.addEventListener('click', function() {
+            window.location.href = 'formula1.html';
+        });
+    }
+
+    const getSupportButton = document.querySelector('[data-action="get-support"]');
+    if (getSupportButton) {
+        getSupportButton.addEventListener('click', function() {
+            window.location.href = 'customer-service.html';
+        });
+    }
+
     // Dynamic background particles (subtle)
     function createParticle() {
         const particle = document.createElement('div');
