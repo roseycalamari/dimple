@@ -88,12 +88,20 @@ img {
         max-width: min(1100px, 90vw);
         padding: 0 clamp(1.25rem, 2.8vw, 2.2rem);
     }
+    
+    .navbar {
+        padding: 0 clamp(1.25rem, 2.8vw, 2.2rem);
+    }
 }
 
 /* Standard Desktop (Your 14-inch screen) - This is our reference point */
 @media (min-width: 1200px) {
     .container {
         max-width: min(1200px, 92vw);
+        padding: 0 clamp(1.5rem, 3vw, 2.5rem);
+    }
+    
+    .navbar {
         padding: 0 clamp(1.5rem, 3vw, 2.5rem);
     }
 }
@@ -105,6 +113,10 @@ img {
         padding: 0 clamp(2rem, 4vw, 3.5rem);
         margin: 0 auto;
     }
+    
+    .navbar {
+        padding: 0 clamp(2rem, 4vw, 3.5rem);
+    }
 }
 
 /* Extra Large Desktop */
@@ -113,6 +125,10 @@ img {
         max-width: min(1400px, 90vw);
         padding: 0 clamp(2.5rem, 4.5vw, 4rem);
         margin: 0 auto;
+    }
+    
+    .navbar {
+        padding: 0 clamp(2.5rem, 4.5vw, 4rem);
     }
 }
 
@@ -567,6 +583,8 @@ body {
         gap: clamp(12px, 2vw, 20px);
     }
 }
+
+/* Enhanced navigation spacing for medium desktops */
 
 @media (min-width: 1440px) {
     .nav-menu {
