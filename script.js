@@ -333,6 +333,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Explore button scroll functionality for about page
+    const exploreButton = document.querySelector('[data-action="scroll-to-story"]');
+    if (exploreButton) {
+        exploreButton.addEventListener('click', function() {
+            const storySection = document.querySelector('#our-story-expertise');
+            if (storySection) {
+                storySection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
     // Service card modal buttons navigation functionality
     const discoverGraphicalButton = document.querySelector('[data-action="discover-graphical"]');
     if (discoverGraphicalButton) {

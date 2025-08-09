@@ -92,6 +92,10 @@ img {
     .navbar {
         padding: 0 clamp(1.25rem, 2.8vw, 2.2rem);
     }
+    
+    .mobile-menu-toggle {
+        right: clamp(1.25rem, 2.8vw, 2.2rem);
+    }
 }
 
 /* Standard Desktop (Your 14-inch screen) - This is our reference point */
@@ -103,6 +107,10 @@ img {
     
     .navbar {
         padding: 0 clamp(1.5rem, 3vw, 2.5rem);
+    }
+    
+    .mobile-menu-toggle {
+        right: clamp(1.5rem, 3vw, 2.5rem);
     }
 }
 
@@ -117,6 +125,10 @@ img {
     .navbar {
         padding: 0 clamp(2rem, 4vw, 3.5rem);
     }
+    
+    .mobile-menu-toggle {
+        right: clamp(2rem, 4vw, 3.5rem);
+    }
 }
 
 /* Extra Large Desktop */
@@ -129,6 +141,10 @@ img {
     
     .navbar {
         padding: 0 clamp(2.5rem, 4.5vw, 4rem);
+    }
+    
+    .mobile-menu-toggle {
+        right: clamp(2.5rem, 4.5vw, 4rem);
     }
 }
 
@@ -512,10 +528,11 @@ body {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 70px;
     padding: 0 30px;
+    position: relative;
 }
 
 .logo {
@@ -748,6 +765,10 @@ body {
     gap: 3px;
     border-radius: 8px;
     transition: all var(--transition-fast);
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .mobile-menu-toggle:hover {
@@ -1132,32 +1153,33 @@ body {
 
 @media (min-width: 1024px) {
     .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1200px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1100px;
+        gap: 50px;
     }
 }
 
 @media (min-width: 1440px) {
     .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1200px; /* Same as 14-inch screen */
-        gap: clamp(20px, 3vw, 40px);
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1100px;
+        gap: 50px;
     }
 }
 
 @media (min-width: 1600px) {
     .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1200px; /* Same as 14-inch screen */
-        gap: clamp(20px, 3vw, 40px);
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1100px;
+        gap: 50px;
     }
 }
 
 @media (min-width: 1920px) {
     .services-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1200px; /* Same as 14-inch screen */
-        gap: clamp(20px, 3vw, 40px);
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1100px;
+        gap: 50px;
     }
 }
 
@@ -1177,6 +1199,10 @@ body {
     backdrop-filter: blur(10px);
     width: 100%;
     max-width: 100%;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .card-background {
@@ -1755,6 +1781,10 @@ img {
     .navbar {
         height: 70px;
         padding: 0 24px;
+    }
+    
+    .mobile-menu-toggle {
+        right: 24px;
     }
     
     .logo-text {
@@ -3800,6 +3830,14 @@ img {
     margin-bottom: 12px !important;
 }
 
+/* Specific override for "Our Story & Expertise" title to match machines section */
+.services-title .title-main {
+    font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.1 !important;
+    margin-bottom: 12px !important;
+}
+
 /* Special styling for titles on green backgrounds */
 .production-centre-title {
     font-family: var(--font-primary);
@@ -4318,6 +4356,10 @@ img {
     .navbar {
         height: 70px !important;
         padding: 0 clamp(2rem, 4vw, 4rem) !important;
+    }
+    
+    .mobile-menu-toggle {
+        right: clamp(2rem, 4vw, 4rem) !important;
     }
     
     .logo-text {
