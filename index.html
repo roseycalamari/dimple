@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Dimple - Welcome to Industrial Excellence | Est. 1991</title>
     <link rel="icon" type="image/png" href="images/logo-wit@2x.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -30,6 +30,13 @@
             --transition-fast: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --transition-medium: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --transition-bouncy: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            /* Responsive Scaling Variables */
+            --base-font-size: clamp(14px, 1.2vw, 18px);
+            --container-max-width: clamp(900px, 85vw, 1200px);
+            --section-gap: clamp(0.75rem, 2vh, 1.5rem);
+            --element-padding: clamp(0.5rem, 1.5vw, 1rem);
+            --border-radius: clamp(8px, 1.2vw, 12px);
         }
 
         /* Global Reset & Base Styles */
@@ -42,30 +49,35 @@
         html {
             scroll-behavior: smooth;
             height: 100%;
+            font-size: clamp(14px, 1.2vw, 18px);
         }
 
         body {
             font-family: var(--font-secondary);
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
-            min-height: 100vh;
-            height: 100%;
+            height: 100vh;
+            max-height: 100vh;
             position: relative;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
+            overflow: hidden;
         }
 
         /* Enhanced Container System - Perfect responsive fit */
         .container {
-            max-width: min(1200px, 95vw);
+            max-width: min(1200px, 92vw);
             margin: 0 auto;
-            padding: 0 clamp(1rem, 4vw, 3rem);
+            padding: 0 clamp(0.75rem, 2.5vw, 2rem);
             width: 100%;
-            min-height: 100vh;
+            height: 100vh;
+            max-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: clamp(1.5rem, 4vh, 3rem);
+            gap: clamp(0.5rem, 1.5vh, 1.2rem);
+            box-sizing: border-box;
         }
 
         /* Background Pattern - Matching main site hero */
@@ -100,8 +112,8 @@
         /* Logo Section - Top left corner */
         .logo-section {
             position: fixed;
-            top: 1.5rem;
-            left: 2rem;
+            top: clamp(0.5rem, 2vh, 1rem);
+            left: clamp(0.75rem, 3vw, 1.5rem);
             z-index: 100;
             animation: logoFadeIn 1s ease-out;
         }
@@ -109,8 +121,8 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.6rem 1rem;
+            gap: clamp(0.3rem, 1vw, 0.6rem);
+            padding: clamp(0.3rem, 1vh, 0.5rem) clamp(0.5rem, 2vw, 0.8rem);
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50px;
             backdrop-filter: blur(10px);
@@ -125,14 +137,14 @@
         }
 
         .logo-image {
-            height: 32px;
+            height: clamp(20px, 4vw, 28px);
             width: auto;
             filter: brightness(1.1);
         }
 
         .logo-tagline {
             font-family: var(--font-secondary);
-            font-size: 0.75rem;
+            font-size: clamp(0.5rem, 1.2vw, 0.65rem);
             font-weight: 300;
             color: var(--text-lighter);
             letter-spacing: 1px;
@@ -142,32 +154,34 @@
         .landing-container {
             position: relative;
             z-index: 2;
-            min-height: 100vh;
+            height: 100vh;
+            max-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: clamp(2rem, 6vh, 5rem) 0 clamp(1rem, 3vh, 2rem);
+            padding: clamp(4rem, 8vh, 6rem) 0 clamp(0.5rem, 1vh, 1rem);
             box-sizing: border-box;
-            gap: clamp(1rem, 3vh, 2rem);
+            gap: clamp(0.4rem, 1.2vh, 1rem);
+            overflow: hidden;
         }
 
         /* Enhanced Welcome Section - Better spacing and proportions */
         .welcome-section {
             text-align: center;
-            margin-bottom: clamp(1rem, 3vh, 2rem);
+            margin-bottom: clamp(0.3rem, 1vh, 0.8rem);
             animation: welcomeFadeIn 1s ease-out 0.3s both;
             flex-shrink: 0;
-            max-width: min(800px, 90vw);
-            padding: 0 clamp(0.5rem, 2vw, 1rem);
+            max-width: min(700px, 88vw);
+            padding: 0 clamp(0.25rem, 1.5vw, 0.75rem);
         }
 
         .welcome-title {
             font-family: var(--font-primary);
-            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: 800;
             color: var(--primary-white);
-            margin-bottom: clamp(0.5rem, 2vh, 1rem);
+            margin-bottom: clamp(0.2rem, 0.8vh, 0.5rem);
             line-height: 1.1;
             letter-spacing: -0.02em;
         }
@@ -181,10 +195,10 @@
         .title-highlight::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -3px;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 3px;
             background: linear-gradient(90deg, var(--bright-green), var(--accent-green));
             border-radius: 2px;
             animation: underlineGrow 1s ease-out 1.5s both;
@@ -192,25 +206,25 @@
 
         .welcome-subtitle {
             font-family: var(--font-secondary);
-            font-size: clamp(0.9rem, 2vw, 1.3rem);
+            font-size: clamp(0.7rem, 1.5vw, 0.95rem);
             font-weight: 400;
             color: var(--text-light);
-            max-width: min(700px, 85vw);
-            margin: 0 auto clamp(0.5rem, 2vh, 1rem);
-            line-height: 1.5;
+            max-width: min(600px, 82vw);
+            margin: 0 auto clamp(0.2rem, 0.8vh, 0.5rem);
+            line-height: 1.4;
             letter-spacing: 0.01em;
         }
 
         .welcome-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.45rem 0.9rem;
+            gap: 0.25rem;
+            padding: 0.25rem 0.5rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             font-family: var(--font-primary);
-            font-size: 0.7rem;
+            font-size: clamp(0.5rem, 1vw, 0.6rem);
             font-weight: 600;
             color: var(--primary-white);
             text-transform: uppercase;
@@ -221,14 +235,15 @@
         /* Clean Video Section */
         .video-section {
             width: 100%;
-            max-width: min(800px, 90vw);
-            margin-bottom: clamp(1.5rem, 4vh, 3rem);
+            max-width: min(950px, 92vw);
+            margin-bottom: clamp(0.3rem, 1vh, 0.8rem);
             animation: videoFadeIn 1s ease-out 0.6s both;
-            flex-shrink: 0;
+            flex-shrink: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 0 clamp(0.5rem, 2vw, 1rem);
+            padding: 0 clamp(0.1rem, 1vw, 0.5rem);
+            max-height: clamp(300px, 38vh, 550px);
         }
 
         .video-container {
@@ -251,40 +266,43 @@
             aspect-ratio: 16/9;
             display: block;
             border-radius: 12px;
+            max-height: clamp(300px, 38vh, 550px);
+            object-fit: cover;
         }
 
         /* Enhanced CTA Section - Better spacing and responsive layout */
         .cta-section {
             display: flex;
-            gap: clamp(0.75rem, 2vw, 1.5rem);
+            gap: clamp(0.8rem, 2.5vw, 1.5rem);
             justify-content: center;
             flex-wrap: nowrap;
             animation: ctaFadeIn 1s ease-out 0.9s both;
             flex-shrink: 0;
-            padding: 0 clamp(0.5rem, 2vw, 1rem);
-            max-width: min(600px, 90vw);
+            padding: clamp(0.5rem, 2vw, 1.2rem) clamp(0.5rem, 2vw, 1rem);
+            max-width: min(550px, 88vw);
+            margin: clamp(0.5rem, 1.5vh, 1rem) 0;
         }
 
         /* Enhanced Button System - Better sizing and touch targets */
         .cta-button {
             display: inline-flex;
             align-items: center;
-            gap: clamp(6px, 1.5vw, 10px);
-            padding: clamp(12px, 3vh, 16px) clamp(20px, 4vw, 28px);
+            gap: clamp(4px, 1vw, 8px);
+            padding: clamp(10px, 2.2vh, 14px) clamp(16px, 3.2vw, 24px);
             border-radius: 50px;
             font-family: var(--font-primary);
-            font-size: clamp(0.75rem, 2vw, 0.9rem);
+            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
             font-weight: 700;
             text-decoration: none;
             transition: all var(--transition-bouncy);
             cursor: pointer;
             position: relative;
             overflow: hidden;
-            min-width: clamp(140px, 25vw, 180px);
-            min-height: clamp(44px, 8vh, 56px);
+            min-width: clamp(140px, 24vw, 180px);
+            min-height: clamp(40px, 6vh, 48px);
             justify-content: center;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.4px;
             border: none;
             white-space: nowrap;
         }
@@ -439,149 +457,55 @@
         /* Enhanced Mobile Responsiveness - Better spacing and touch targets */
         @media (max-width: 768px) {
             .container {
-                padding: 0 clamp(1rem, 3vw, 1.5rem);
-                gap: clamp(1rem, 3vh, 2rem);
-                min-height: 100vh;
-                justify-content: flex-start;
-                padding-top: clamp(4rem, 10vh, 6rem);
-            }
-
-            .logo-section {
-                top: clamp(1rem, 3vh, 1.5rem);
-                left: clamp(1rem, 3vw, 1.5rem);
-            }
-
-            .logo {
-                padding: clamp(0.3rem, 1vh, 0.5rem) clamp(0.5rem, 2vw, 0.8rem);
-                gap: clamp(0.25rem, 1vw, 0.4rem);
-            }
-
-            .logo-image {
-                height: clamp(20px, 5vw, 26px);
-            }
-
-            .logo-tagline {
-                font-size: clamp(0.55rem, 1.5vw, 0.65rem);
+                padding: 0 clamp(0.75rem, 2.5vw, 1.25rem);
+                gap: clamp(0.4rem, 1.2vh, 0.8rem);
+                height: 100vh;
+                max-height: 100vh;
+                justify-content: center;
+                padding-top: clamp(3rem, 8vh, 4.5rem);
+                box-sizing: border-box;
             }
 
             .landing-container {
-                padding: clamp(1rem, 3vh, 2rem) 0 clamp(1rem, 3vh, 2rem);
-                min-height: 100vh;
-                justify-content: flex-start;
-                gap: clamp(1rem, 3vh, 2rem);
+                padding: clamp(0.75rem, 2vh, 1.5rem) 0 clamp(0.5rem, 1.5vh, 1rem);
+                height: 100vh;
+                max-height: 100vh;
+                justify-content: center;
+                gap: clamp(0.4rem, 1.2vh, 0.8rem);
+                overflow: hidden;
             }
 
             .welcome-section {
-                margin-bottom: clamp(1rem, 3vh, 2rem);
-                max-width: min(600px, 95vw);
+                margin-bottom: clamp(0.25rem, 0.8vh, 0.5rem);
+                max-width: min(500px, 92vw);
             }
 
             .welcome-title {
-                font-size: clamp(1.4rem, 6vw, 2.2rem);
-                margin-bottom: clamp(0.3rem, 1.5vh, 0.6rem);
+                font-size: clamp(1.1rem, 4.5vw, 1.6rem);
+                margin-bottom: clamp(0.15rem, 0.6vh, 0.3rem);
                 line-height: 1.1;
             }
 
             .welcome-subtitle {
-                font-size: clamp(0.8rem, 3vw, 1rem);
-                margin-bottom: clamp(0.4rem, 2vh, 0.8rem);
-                line-height: 1.5;
-                padding: 0 clamp(0.25rem, 2vw, 0.5rem);
-            }
-
-            .welcome-badge {
-                padding: clamp(0.25rem, 1vh, 0.4rem) clamp(0.5rem, 2vw, 0.7rem);
-                font-size: clamp(0.5rem, 1.5vw, 0.6rem);
-            }
-
-            .video-section {
-                margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
-                max-width: min(500px, 92vw);
-            }
-
-            .video-container {
-                border-radius: clamp(8px, 2vw, 12px);
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            }
-
-            .cta-section {
-                flex-direction: column;
-                align-items: center;
-                gap: clamp(0.6rem, 2vh, 1rem);
-                justify-content: center;
-                margin-bottom: clamp(1rem, 3vh, 2rem);
-                max-width: min(400px, 90vw);
-                flex-wrap: wrap;
-            }
-
-            .cta-button {
-                padding: clamp(10px, 2.5vh, 14px) clamp(16px, 4vw, 24px);
-                font-size: clamp(0.7rem, 2vw, 0.8rem);
-                min-width: clamp(130px, 30vw, 180px);
-                max-width: min(250px, 80vw);
-                width: 100%;
-                min-height: clamp(44px, 8vh, 52px);
-            }
-        }
-
-        /* Enhanced Small Mobile Screens - iPhone Mini 13 and similar */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 clamp(0.8rem, 3vw, 1.2rem);
-                gap: clamp(0.75rem, 2vh, 1.5rem);
-                min-height: 100vh;
-                justify-content: flex-start;
-                padding-top: clamp(3rem, 8vh, 5rem);
-            }
-
-            .logo-section {
-                top: clamp(0.8rem, 2vh, 1.2rem);
-                left: clamp(0.8rem, 2vw, 1.2rem);
-            }
-
-            .logo {
-                padding: clamp(0.2rem, 0.8vh, 0.3rem) clamp(0.4rem, 1.5vw, 0.6rem);
-                gap: clamp(0.2rem, 0.8vw, 0.3rem);
-            }
-
-            .logo-image {
-                height: clamp(18px, 4.5vw, 22px);
-            }
-
-            .logo-tagline {
-                font-size: clamp(0.5rem, 1.3vw, 0.6rem);
-            }
-
-            .landing-container {
-                padding: clamp(0.75rem, 2vh, 1.5rem) 0 clamp(0.75rem, 2vh, 1.5rem);
-                justify-content: flex-start;
-                gap: clamp(0.75rem, 2vh, 1.5rem);
-            }
-
-            .welcome-section {
-                margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
-                max-width: min(450px, 98vw);
-            }
-
-            .welcome-title {
-                font-size: clamp(1.2rem, 5.5vw, 1.6rem);
-                margin-bottom: clamp(0.2rem, 1vh, 0.4rem);
-            }
-
-            .welcome-subtitle {
-                font-size: clamp(0.75rem, 2.5vw, 0.85rem);
-                margin-bottom: clamp(0.3rem, 1.5vh, 0.6rem);
+                font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+                margin-bottom: clamp(0.2rem, 0.8vh, 0.4rem);
+                line-height: 1.4;
                 padding: 0 clamp(0.2rem, 1.5vw, 0.4rem);
             }
 
             .welcome-badge {
-                padding: clamp(0.2rem, 0.8vh, 0.3rem) clamp(0.4rem, 1.5vw, 0.6rem);
-                font-size: clamp(0.45rem, 1.3vw, 0.55rem);
+                padding: clamp(0.2rem, 0.6vh, 0.3rem) clamp(0.4rem, 1.5vw, 0.6rem);
+                font-size: clamp(0.45rem, 1.2vw, 0.55rem);
             }
 
             .video-section {
-                max-width: min(400px, 95vw);
-                margin-bottom: clamp(1.25rem, 3vh, 2rem);
+                margin-bottom: clamp(0.25rem, 0.8vh, 0.5rem);
+                max-width: min(420px, 88vw);
+                max-height: clamp(160px, 20vh, 250px);
+            }
+
+            .explainer-video {
+                max-height: clamp(160px, 20vh, 250px);
             }
 
             .video-container {
@@ -590,240 +514,375 @@
             }
 
             .cta-section {
-                gap: clamp(0.5rem, 1.5vh, 0.8rem);
-                margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
-                max-width: min(350px, 95vw);
+                flex-direction: column;
+                align-items: center;
+                gap: clamp(0.6rem, 1.8vh, 1rem);
+                justify-content: center;
+                margin-bottom: 0;
+                max-width: min(380px, 88vw);
                 flex-wrap: wrap;
+                padding: clamp(0.5rem, 1.5vh, 1rem) clamp(0.3rem, 1.5vw, 0.8rem);
             }
 
             .cta-button {
-                padding: clamp(8px, 2vh, 12px) clamp(14px, 3.5vw, 20px);
+                padding: clamp(9px, 2.2vh, 12px) clamp(14px, 3.5vw, 20px);
                 font-size: clamp(0.65rem, 1.8vw, 0.75rem);
-                min-width: clamp(120px, 28vw, 160px);
-                max-width: min(200px, 85vw);
-                min-height: clamp(40px, 7vh, 48px);
+                min-width: clamp(130px, 30vw, 170px);
+                max-width: min(220px, 80vw);
+                width: 100%;
+                min-height: clamp(38px, 6.5vh, 46px);
+            }
+        }
+
+        /* Enhanced Small Mobile Screens - iPhone Mini 13 and similar */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 clamp(0.6rem, 2.5vw, 1rem);
+                gap: clamp(0.3rem, 1vh, 0.6rem);
+                height: 100vh;
+                max-height: 100vh;
+                justify-content: center;
+                padding-top: clamp(2.5rem, 6vh, 3.5rem);
+                box-sizing: border-box;
+            }
+
+            .landing-container {
+                padding: clamp(0.5rem, 1.5vh, 1rem) 0 clamp(0.3rem, 1vh, 0.8rem);
+                height: 100vh;
+                max-height: 100vh;
+                justify-content: center;
+                gap: clamp(0.3rem, 1vh, 0.6rem);
+                overflow: hidden;
+            }
+
+            .welcome-section {
+                margin-bottom: clamp(0.2rem, 0.6vh, 0.4rem);
+                max-width: min(400px, 94vw);
+            }
+
+            .welcome-title {
+                font-size: clamp(0.95rem, 4vw, 1.3rem);
+                margin-bottom: clamp(0.1rem, 0.4vh, 0.25rem);
+            }
+
+            .welcome-subtitle {
+                font-size: clamp(0.6rem, 2.2vw, 0.75rem);
+                margin-bottom: clamp(0.15rem, 0.6vh, 0.3rem);
+                padding: 0 clamp(0.15rem, 1.2vw, 0.3rem);
+                line-height: 1.3;
+            }
+
+            .welcome-badge {
+                padding: clamp(0.15rem, 0.5vh, 0.25rem) clamp(0.3rem, 1.2vw, 0.5rem);
+                font-size: clamp(0.4rem, 1.1vw, 0.5rem);
+            }
+
+            .video-section {
+                max-width: min(350px, 90vw);
+                margin-bottom: clamp(0.2rem, 0.6vh, 0.4rem);
+                max-height: clamp(140px, 18vh, 200px);
+            }
+
+            .explainer-video {
+                max-height: clamp(140px, 18vh, 200px);
+            }
+
+            .video-container {
+                border-radius: clamp(5px, 1.2vw, 8px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            }
+
+            .cta-section {
+                gap: clamp(0.5rem, 1.5vh, 0.8rem);
+                margin-bottom: 0;
+                max-width: min(320px, 90vw);
+                flex-wrap: wrap;
+                padding: clamp(0.4rem, 1.2vh, 0.8rem) clamp(0.25rem, 1.2vw, 0.6rem);
+            }
+
+            .cta-button {
+                padding: clamp(7px, 1.8vh, 10px) clamp(12px, 3.2vw, 18px);
+                font-size: clamp(0.6rem, 1.7vw, 0.7rem);
+                min-width: clamp(115px, 28vw, 150px);
+                max-width: min(180px, 82vw);
+                min-height: clamp(32px, 5.5vh, 40px);
             }
         }
 
         /* Enhanced Large Screen Responsive Design - Better proportions */
         @media (min-width: 1200px) {
             .container {
-                max-width: min(1400px, 95vw);
-                padding: 0 clamp(2rem, 4vw, 4rem);
-                gap: clamp(2rem, 4vh, 3.5rem);
+                max-width: min(1200px, 92vw);
+                padding: 0 clamp(1.5rem, 3vw, 2.5rem);
+                gap: clamp(1.5rem, 3vh, 2.5rem);
             }
             
             .welcome-title {
-                font-size: clamp(2.4rem, 5vw, 3.8rem);
-                margin-bottom: clamp(0.75rem, 2vh, 1.25rem);
+                font-size: clamp(1.8rem, 4vw, 2.8rem);
+                margin-bottom: clamp(0.5rem, 1.5vh, 1rem);
             }
             
             .welcome-subtitle {
-                font-size: clamp(1.1rem, 2vw, 1.4rem);
-                max-width: min(800px, 80vw);
-                margin-bottom: clamp(0.75rem, 2vh, 1.25rem);
+                font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+                max-width: min(650px, 78vw);
+                margin-bottom: clamp(0.5rem, 1.5vh, 1rem);
             }
             
             .video-section {
-                max-width: min(850px, 85vw);
-                margin-bottom: clamp(2rem, 5vh, 3.5rem);
+                max-width: min(1100px, 90vw);
+                margin-bottom: clamp(1.25rem, 3vh, 2.5rem);
+                max-height: clamp(450px, 48vh, 650px);
+            }
+            
+            .explainer-video {
+                max-height: clamp(450px, 48vh, 650px);
             }
             
             .cta-button {
-                padding: clamp(14px, 3vh, 18px) clamp(24px, 4vw, 32px);
-                font-size: clamp(0.85rem, 1.8vw, 1rem);
-                min-width: clamp(160px, 20vw, 200px);
-                min-height: clamp(50px, 8vh, 60px);
+                padding: clamp(12px, 2.8vh, 16px) clamp(20px, 4vw, 28px);
+                font-size: clamp(0.8rem, 1.7vw, 0.95rem);
+                min-width: clamp(160px, 22vw, 200px);
+                min-height: clamp(44px, 6.5vh, 54px);
             }
         }
 
         @media (min-width: 1440px) {
             .container {
-                max-width: min(1600px, 95vw);
-                padding: 0 clamp(3rem, 5vw, 6rem);
-                gap: clamp(2.5rem, 5vh, 4rem);
+                max-width: min(1300px, 92vw);
+                padding: 0 clamp(2rem, 4vw, 3.5rem);
+                gap: clamp(1.75rem, 3.5vh, 3rem);
             }
             
             .welcome-title {
-                font-size: clamp(3rem, 5.5vw, 4.5rem);
-                margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
+                font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+                margin-bottom: clamp(0.6rem, 2vh, 1.2rem);
             }
             
             .welcome-subtitle {
-                font-size: clamp(1.3rem, 2.2vw, 1.6rem);
-                max-width: min(900px, 75vw);
-                margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
+                font-size: clamp(1.05rem, 2vw, 1.3rem);
+                max-width: min(700px, 75vw);
+                margin-bottom: clamp(0.6rem, 2vh, 1.2rem);
             }
             
             .video-section {
-                max-width: min(950px, 80vw);
-                margin-bottom: clamp(2.5rem, 6vh, 4rem);
+                max-width: min(1150px, 88vw);
+                margin-bottom: clamp(1.5rem, 4vh, 3rem);
+                max-height: clamp(500px, 52vh, 720px);
+            }
+            
+            .explainer-video {
+                max-height: clamp(500px, 52vh, 720px);
             }
             
             .cta-button {
-                padding: clamp(16px, 3.5vh, 20px) clamp(28px, 5vw, 36px);
-                font-size: clamp(0.9rem, 2vw, 1.1rem);
-                min-width: clamp(180px, 18vw, 220px);
-                min-height: clamp(55px, 9vh, 65px);
+                padding: clamp(13px, 3.2vh, 17px) clamp(22px, 4.5vw, 30px);
+                font-size: clamp(0.85rem, 1.9vw, 1rem);
+                min-width: clamp(170px, 18vw, 210px);
+                min-height: clamp(48px, 7.5vh, 58px);
             }
         }
 
         @media (min-width: 1600px) {
             .container {
-                max-width: min(1800px, 95vw);
-                padding: 0 clamp(4rem, 6vw, 8rem);
-                gap: clamp(3rem, 6vh, 5rem);
+                max-width: min(1400px, 90vw);
+                padding: 0 clamp(2.5rem, 4.5vw, 4rem);
+                gap: clamp(2rem, 4vh, 3.5rem);
             }
             
             .welcome-title {
-                font-size: clamp(4rem, 6vw, 5.5rem);
-                margin-bottom: clamp(1.25rem, 3vh, 2rem);
+                font-size: clamp(2.6rem, 5vw, 3.6rem);
+                margin-bottom: clamp(0.75rem, 2.5vh, 1.5rem);
             }
             
             .welcome-subtitle {
-                font-size: clamp(1.5rem, 2.5vw, 1.8rem);
-                max-width: min(1000px, 70vw);
-                margin-bottom: clamp(1.25rem, 3vh, 2rem);
+                font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+                max-width: min(750px, 72vw);
+                margin-bottom: clamp(0.75rem, 2.5vh, 1.5rem);
             }
             
             .video-section {
-                max-width: min(1100px, 75vw);
-                margin-bottom: clamp(3rem, 7vh, 5rem);
+                max-width: min(1250px, 85vw);
+                margin-bottom: clamp(1.75rem, 4.5vh, 3.5rem);
+                max-height: clamp(550px, 58vh, 780px);
+            }
+            
+            .explainer-video {
+                max-height: clamp(550px, 58vh, 780px);
             }
             
             .cta-button {
-                padding: clamp(18px, 4vh, 24px) clamp(32px, 6vw, 40px);
-                font-size: clamp(1rem, 2.2vw, 1.2rem);
-                min-width: clamp(200px, 16vw, 250px);
-                min-height: clamp(60px, 10vh, 70px);
+                padding: clamp(14px, 3.8vh, 18px) clamp(24px, 5vw, 32px);
+                font-size: clamp(0.9rem, 2.1vw, 1.05rem);
+                min-width: clamp(180px, 17vw, 220px);
+                min-height: clamp(50px, 8.5vh, 60px);
             }
         }
 
         /* Enhanced Laptop/14-inch screens (1024px - 1366px) - Perfect for your 14-inch screen */
         @media (min-width: 1024px) and (max-width: 1366px) {
             .container {
-                max-width: min(1200px, 92vw);
-                padding: 0 clamp(1.5rem, 3vw, 2.5rem);
-                gap: clamp(1.5rem, 3vh, 2.5rem);
-                min-height: 100vh;
+                max-width: min(1000px, 90vw);
+                padding: 0 clamp(1rem, 2.5vw, 2rem);
+                gap: clamp(1rem, 2.5vh, 2rem);
+                height: 100vh;
+                max-height: 100vh;
                 justify-content: center;
             }
 
             .landing-container {
-                padding: clamp(2rem, 5vh, 3rem) 0 clamp(1rem, 2vh, 1.5rem);
-                min-height: 100vh;
+                padding: clamp(1.5rem, 4vh, 2.5rem) 0 clamp(0.75rem, 1.5vh, 1.25rem);
+                height: 100vh;
+                max-height: 100vh;
                 justify-content: center;
-                gap: clamp(1.5rem, 3vh, 2.5rem);
+                gap: clamp(1rem, 2.5vh, 2rem);
             }
 
             .welcome-section {
-                margin-bottom: clamp(1rem, 2.5vh, 1.5rem);
-                max-width: min(700px, 85vw);
+                margin-bottom: clamp(0.75rem, 2vh, 1.25rem);
+                max-width: min(600px, 83vw);
             }
 
             .welcome-title {
-                font-size: clamp(2rem, 4vw, 2.6rem);
-                margin-bottom: clamp(0.4rem, 1.5vh, 0.8rem);
+                font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+                margin-bottom: clamp(0.3rem, 1.2vh, 0.6rem);
             }
 
             .welcome-subtitle {
-                font-size: clamp(1rem, 1.8vw, 1.1rem);
-                max-width: min(600px, 80vw);
-                margin-bottom: clamp(0.5rem, 1.5vh, 0.8rem);
+                font-size: clamp(0.85rem, 1.6vw, 1rem);
+                max-width: min(520px, 78vw);
+                margin-bottom: clamp(0.4rem, 1.2vh, 0.6rem);
             }
 
             .welcome-badge {
-                padding: clamp(0.3rem, 1vh, 0.5rem) clamp(0.6rem, 1.5vw, 0.9rem);
-                font-size: clamp(0.6rem, 1.3vw, 0.7rem);
+                padding: clamp(0.25rem, 0.8vh, 0.4rem) clamp(0.5rem, 1.2vw, 0.7rem);
+                font-size: clamp(0.55rem, 1.1vw, 0.65rem);
             }
 
             .video-section {
-                max-width: min(700px, 85vw);
-                margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
+                max-width: min(850px, 92vw);
+                margin-bottom: clamp(1rem, 2.5vh, 2rem);
+                max-height: clamp(350px, 42vh, 520px);
+            }
+
+            .explainer-video {
+                max-height: clamp(350px, 42vh, 520px);
             }
 
             .cta-button {
-                padding: clamp(10px, 2.5vh, 14px) clamp(18px, 3vw, 24px);
-                font-size: clamp(0.8rem, 1.8vw, 0.9rem);
-                min-width: clamp(140px, 22vw, 170px);
-                min-height: clamp(45px, 7vh, 55px);
+                padding: clamp(10px, 2.2vh, 13px) clamp(16px, 2.8vw, 22px);
+                font-size: clamp(0.75rem, 1.6vw, 0.85rem);
+                min-width: clamp(140px, 24vw, 170px);
+                min-height: clamp(40px, 6.5vh, 50px);
             }
 
             .cta-section {
-                gap: clamp(0.8rem, 2vw, 1.2rem);
-                max-width: min(500px, 80vw);
+                gap: clamp(1rem, 2.5vw, 1.8rem);
+                max-width: min(500px, 82vw);
+                padding: clamp(0.75rem, 2.5vh, 1.5rem) clamp(0.5rem, 2vw, 1rem);
+                margin: clamp(0.75rem, 2vh, 1.25rem) 0;
             }
         }
 
         /* Enhanced Landscape orientation - Better fit for mobile landscape */
         @media (orientation: landscape) and (max-height: 500px) {
+            body {
+                overflow: hidden;
+            }
+
             .container {
-                gap: clamp(0.5rem, 2vh, 1rem);
-                min-height: 100vh;
+                gap: clamp(0.2rem, 1vh, 0.5rem);
+                height: 100vh;
+                max-height: 100vh;
                 justify-content: center;
-                padding-top: clamp(1rem, 3vh, 2rem);
+                padding-top: clamp(0.5rem, 2vh, 1rem);
+                box-sizing: border-box;
             }
 
             .landing-container {
-                padding: clamp(0.75rem, 2vh, 1.5rem) 0 clamp(0.5rem, 1vh, 1rem);
-                min-height: 100vh;
-                gap: clamp(0.5rem, 2vh, 1rem);
+                padding: clamp(0.3rem, 1vh, 0.8rem) 0 clamp(0.2rem, 0.5vh, 0.5rem);
+                height: 100vh;
+                max-height: 100vh;
+                gap: clamp(0.2rem, 1vh, 0.5rem);
                 justify-content: center;
+                overflow: hidden;
             }
 
             .logo-section {
-                top: clamp(0.25rem, 1vh, 0.5rem);
+                top: clamp(0.2rem, 0.8vh, 0.4rem);
+                left: clamp(0.5rem, 2vw, 1rem);
             }
 
             .logo {
-                padding: clamp(0.2rem, 0.8vh, 0.3rem) clamp(0.4rem, 1.5vw, 0.6rem);
+                padding: clamp(0.15rem, 0.6vh, 0.25rem) clamp(0.3rem, 1.2vw, 0.5rem);
+                gap: clamp(0.15rem, 0.8vw, 0.3rem);
             }
 
             .logo-image {
-                height: clamp(16px, 4vw, 20px);
+                height: clamp(14px, 3.5vw, 18px);
             }
 
             .logo-tagline {
-                font-size: clamp(0.5rem, 1.2vw, 0.6rem);
+                font-size: clamp(0.45rem, 1vw, 0.55rem);
             }
 
             .welcome-section {
-                margin-bottom: clamp(0.3rem, 1vh, 0.6rem);
-                max-width: min(500px, 80vw);
-            }
-
-            .video-section {
-                margin-bottom: clamp(0.5rem, 2vh, 1rem);
-                max-width: min(450px, 70vw);
+                margin-bottom: clamp(0.1rem, 0.5vh, 0.3rem);
+                max-width: min(450px, 75vw);
             }
 
             .welcome-title {
-                font-size: clamp(1.2rem, 3.5vw, 1.6rem);
-                margin-bottom: clamp(0.15rem, 0.8vh, 0.3rem);
+                font-size: clamp(0.9rem, 3vw, 1.3rem);
+                margin-bottom: clamp(0.1rem, 0.4vh, 0.2rem);
             }
 
             .welcome-subtitle {
-                font-size: clamp(0.7rem, 1.5vw, 0.85rem);
-                margin-bottom: clamp(0.15rem, 0.8vh, 0.3rem);
+                font-size: clamp(0.6rem, 1.3vw, 0.75rem);
+                margin-bottom: clamp(0.1rem, 0.4vh, 0.2rem);
+                line-height: 1.3;
             }
 
             .welcome-badge {
-                padding: clamp(0.2rem, 0.8vh, 0.3rem) clamp(0.4rem, 1.5vw, 0.6rem);
-                font-size: clamp(0.5rem, 1.2vw, 0.6rem);
+                padding: clamp(0.1rem, 0.5vh, 0.2rem) clamp(0.25rem, 1.2vw, 0.4rem);
+                font-size: clamp(0.4rem, 1vw, 0.5rem);
+            }
+
+            .video-section {
+                margin-bottom: clamp(0.1rem, 0.5vh, 0.3rem);
+                max-width: min(380px, 65vw);
+                max-height: clamp(100px, 12vh, 140px);
+            }
+
+            .explainer-video {
+                max-height: clamp(100px, 12vh, 140px);
             }
 
             .cta-section {
                 flex-direction: row;
-                gap: clamp(0.4rem, 1.5vw, 0.8rem);
+                gap: clamp(0.4rem, 2vw, 0.8rem);
                 max-width: min(400px, 75vw);
                 flex-wrap: nowrap;
+                margin-bottom: 0;
+                padding: clamp(0.2rem, 0.8vh, 0.5rem) clamp(0.2rem, 1vw, 0.5rem);
             }
 
             .cta-button {
-                padding: clamp(6px, 1.5vh, 10px) clamp(12px, 2.5vw, 16px);
-                font-size: clamp(0.6rem, 1.5vw, 0.7rem);
-                min-width: clamp(80px, 15vw, 120px);
-                min-height: clamp(32px, 6vh, 40px);
+                padding: clamp(5px, 1.2vh, 8px) clamp(10px, 2.5vw, 14px);
+                font-size: clamp(0.55rem, 1.4vw, 0.65rem);
+                min-width: clamp(90px, 15vw, 120px);
+                min-height: clamp(28px, 4.5vh, 34px);
+            }
+
+            .floating-video-btn {
+                bottom: clamp(0.3rem, 1.5vh, 0.8rem);
+                right: clamp(0.3rem, 2vw, 0.8rem);
+                padding: clamp(0.2rem, 0.8vh, 0.4rem) clamp(0.4rem, 1.5vw, 0.8rem);
+                font-size: clamp(0.45rem, 1.1vw, 0.6rem);
+                gap: clamp(0.15rem, 0.8vw, 0.3rem);
+            }
+
+            .floating-video-icon {
+                width: clamp(10px, 2.5vw, 14px);
+                height: clamp(10px, 2.5vw, 14px);
             }
         }
 
@@ -853,43 +912,132 @@
             }
         }
 
-        /* Non-fullscreen mode optimization - When F11 is not active */
-        @media (max-height: 800px) and (min-width: 1024px) {
+        /* Common Laptop Screens (13-15 inch) - Optimized scaling */
+        @media (min-width: 1366px) and (max-width: 1920px) {
             .container {
-                padding-top: clamp(2rem, 4vh, 3rem);
-                padding-bottom: clamp(1rem, 2vh, 2rem);
-                gap: clamp(1rem, 2vh, 2rem);
-            }
-
-            .landing-container {
-                padding: clamp(1.5rem, 3vh, 2.5rem) 0 clamp(1rem, 2vh, 2rem);
-                gap: clamp(1rem, 2vh, 2rem);
-            }
-
-            .welcome-section {
-                margin-bottom: clamp(0.75rem, 2vh, 1.5rem);
-            }
-
-            .video-section {
-                margin-bottom: clamp(1rem, 2vh, 2rem);
-                max-width: min(600px, 80vw);
+                max-width: min(1100px, 88vw);
+                padding: 0 clamp(1.25rem, 2.8vw, 2.2rem);
+                gap: clamp(1.25rem, 2.8vh, 2.2rem);
             }
 
             .welcome-title {
-                font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-                margin-bottom: clamp(0.4rem, 1vh, 0.8rem);
+                font-size: clamp(1.7rem, 3.8vw, 2.5rem);
+                margin-bottom: clamp(0.4rem, 1.3vh, 0.7rem);
             }
 
             .welcome-subtitle {
-                font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-                margin-bottom: clamp(0.4rem, 1vh, 0.8rem);
+                font-size: clamp(0.9rem, 1.7vw, 1.05rem);
+                max-width: min(580px, 80vw);
+                margin-bottom: clamp(0.45rem, 1.3vh, 0.7rem);
+            }
+
+            .video-section {
+                max-width: min(620px, 80vw);
+                margin-bottom: clamp(1.1rem, 2.8vh, 2.2rem);
             }
 
             .cta-button {
-                padding: clamp(10px, 2vh, 14px) clamp(18px, 3vw, 24px);
-                font-size: clamp(0.8rem, 1.5vw, 0.9rem);
-                min-width: clamp(140px, 20vw, 170px);
-                min-height: clamp(44px, 6vh, 52px);
+                padding: clamp(10px, 2.2vh, 13px) clamp(16px, 2.8vw, 22px);
+                font-size: clamp(0.72rem, 1.6vw, 0.82rem);
+                min-width: clamp(125px, 18vw, 155px);
+                min-height: clamp(40px, 6.2vh, 50px);
+            }
+        }
+
+        /* Non-fullscreen mode optimization - When F11 is not active */
+        @media (max-height: 800px) and (min-width: 1024px) {
+            .container {
+                padding-top: clamp(1.5rem, 3vh, 2.5rem);
+                padding-bottom: clamp(0.75rem, 1.5vh, 1.5rem);
+                gap: clamp(0.75rem, 1.5vh, 1.5rem);
+            }
+
+            .landing-container {
+                padding: clamp(1rem, 2.5vh, 2rem) 0 clamp(0.75rem, 1.5vh, 1.5rem);
+                gap: clamp(0.75rem, 1.5vh, 1.5rem);
+            }
+
+            .welcome-section {
+                margin-bottom: clamp(0.5rem, 1.5vh, 1rem);
+            }
+
+            .video-section {
+                margin-bottom: clamp(0.75rem, 1.5vh, 1.5rem);
+                max-width: min(520px, 78vw);
+            }
+
+            .welcome-title {
+                font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+                margin-bottom: clamp(0.3rem, 0.8vh, 0.6rem);
+            }
+
+            .welcome-subtitle {
+                font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+                margin-bottom: clamp(0.3rem, 0.8vh, 0.6rem);
+            }
+
+            .cta-button {
+                padding: clamp(8px, 1.8vh, 12px) clamp(14px, 2.5vw, 20px);
+                font-size: clamp(0.7rem, 1.4vw, 0.8rem);
+                min-width: clamp(115px, 18vw, 150px);
+                min-height: clamp(36px, 5vh, 44px);
+            }
+        }
+
+        /* Ultra-wide and 4K Display Optimization */
+        @media (min-width: 2560px) {
+            .container {
+                max-width: min(1500px, 85vw);
+                padding: 0 clamp(3rem, 5vw, 5rem);
+                gap: clamp(2.5rem, 4.5vh, 4rem);
+            }
+
+            .welcome-title {
+                font-size: clamp(3rem, 5.5vw, 4rem);
+                margin-bottom: clamp(1rem, 2.5vh, 1.75rem);
+            }
+
+            .welcome-subtitle {
+                font-size: clamp(1.3rem, 2.3vw, 1.6rem);
+                max-width: min(850px, 70vw);
+                margin-bottom: clamp(1rem, 2.5vh, 1.75rem);
+            }
+
+            .video-section {
+                max-width: min(1400px, 82vw);
+                margin-bottom: clamp(2.5rem, 5vh, 4rem);
+                max-height: clamp(600px, 62vh, 900px);
+            }
+
+            .explainer-video {
+                max-height: clamp(600px, 62vh, 900px);
+            }
+
+            .cta-button {
+                padding: clamp(16px, 4.2vh, 22px) clamp(28px, 5.5vw, 38px);
+                font-size: clamp(0.95rem, 2.3vw, 1.15rem);
+                min-width: clamp(190px, 16vw, 230px);
+                min-height: clamp(54px, 9vh, 64px);
+            }
+        }
+
+        /* High DPI Display Scaling */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .welcome-title {
+                letter-spacing: -0.025em;
+            }
+            
+            .welcome-subtitle {
+                letter-spacing: 0.005em;
+            }
+            
+            .cta-button {
+                letter-spacing: 0.4px;
+            }
+            
+            .logo-image {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
             }
         }
 
@@ -944,20 +1092,20 @@
         /* Floating Action Button - "Dimple on Video" */
         .floating-video-btn {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
+            bottom: clamp(0.75rem, 3vh, 1.5rem);
+            right: clamp(0.75rem, 3vw, 1.5rem);
             z-index: 1000;
             background: linear-gradient(135deg, var(--accent-green), var(--bright-green));
             color: var(--primary-white);
-            padding: 1rem 1.5rem;
+            padding: clamp(0.5rem, 1.5vh, 0.8rem) clamp(0.75rem, 2.5vw, 1.2rem);
             border-radius: 50px;
             text-decoration: none;
             font-family: var(--font-primary);
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: clamp(0.3rem, 1vw, 0.6rem);
             box-shadow: 
                 0 8px 25px rgba(46, 167, 106, 0.4),
                 0 0 0 1px rgba(255, 255, 255, 0.1);
@@ -1001,8 +1149,8 @@
         }
 
         .floating-video-icon {
-            width: 20px;
-            height: 20px;
+            width: clamp(14px, 3vw, 18px);
+            height: clamp(14px, 3vw, 18px);
             background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
             display: flex;
@@ -1219,7 +1367,6 @@
             <div class="cta-section">
                 <button class="cta-button cta-primary" id="bookCallBtn">
                     <span>Book a Call with CEO</span>
-                    <span class="cta-icon">📅</span>
                 </button>
                 <a href="home.html" class="cta-button cta-secondary">
                     <span>Explore Dimple</span>
