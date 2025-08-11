@@ -16,14 +16,14 @@
             --off-white: #f8f9fa;
         }
         
-        /* Hero Section with Background Image - Matching about.html exactly */
+        /* Hero Section with Background Image - Matching cassette-rolls.html exactly */
         .washcloth-hero {
             position: relative;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.3) 100%) !important;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.3) 100%);
             overflow: hidden;
             padding: clamp(100px, 12vh, 150px) 0 clamp(40px, 6vh, 80px);
         }
@@ -79,7 +79,7 @@
             pointer-events: none;
         }
 
-        /* Enhanced mobile responsiveness for wash cloth page - matching about.html */
+        /* Enhanced mobile responsiveness for wash cloth page - matching graphical-cleaning.html */
         @media (max-width: 768px) {
             .washcloth-hero {
                 padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
@@ -87,16 +87,8 @@
             }
             
             .washcloth-hero-content {
-                text-align: center !important;
-                max-width: 100% !important;
-            }
-
-            .washcloth-hero .hero-content {
-                text-align: center !important;
-            }
-
-            .washcloth-hero .hero-cta {
-                justify-content: center !important;
+                text-align: center;
+                max-width: 100%;
             }
         }
 
@@ -110,85 +102,15 @@
         .washcloth-hero-content {
             position: relative;
             z-index: 3;
-            text-align: left !important;
+            text-align: left;
             margin-bottom: 60px;
             animation: heroFadeIn 1s ease-out forwards;
             opacity: 0;
         }
 
-        /* Override global washcloth-hero styles to match about.html exactly */
-        .washcloth-hero .hero-content {
-            text-align: left !important;
-            max-width: none !important;
-            margin: 0 !important;
-        }
+        /* Using global hero styles from styles.css for consistency */
+        
 
-        .washcloth-hero .hero-title {
-            font-family: var(--font-primary) !important;
-            font-size: clamp(3rem, 6vw, 4.5rem) !important;
-            font-weight: 800 !important;
-            color: var(--primary-white) !important;
-            line-height: 1.1 !important;
-            margin-bottom: 20px !important;
-            position: relative !important;
-            letter-spacing: normal !important;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
-        }
-
-        .washcloth-hero .hero-title .title-line {
-            display: block !important;
-            font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
-            font-weight: 500 !important;
-            color: var(--accent-green) !important;
-            text-transform: uppercase !important;
-            letter-spacing: 2px !important;
-            margin-bottom: 10px !important;
-            opacity: 1 !important;
-        }
-
-        .washcloth-hero .hero-title .title-main {
-            display: block !important;
-            font-size: clamp(3rem, 6vw, 4.5rem) !important;
-            font-weight: 800 !important;
-            line-height: 1.1 !important;
-            margin-bottom: 10px !important;
-            background: none !important;
-            -webkit-background-clip: unset !important;
-            -webkit-text-fill-color: unset !important;
-            background-clip: unset !important;
-            color: var(--primary-white) !important;
-        }
-
-        .washcloth-hero .hero-title .title-subtitle {
-            display: block !important;
-            font-size: clamp(1rem, 2vw, 1.2rem) !important;
-            font-weight: 400 !important;
-            color: var(--text-lighter) !important;
-            text-transform: none !important;
-            letter-spacing: normal !important;
-            margin-top: 15px !important;
-            font-family: var(--font-secondary) !important;
-        }
-
-        .washcloth-hero .hero-description {
-            font-size: 1.1rem !important;
-            line-height: 1.7 !important;
-            color: var(--text-light) !important;
-            margin-bottom: 40px !important;
-            font-weight: 400 !important;
-            max-width: 600px !important;
-            margin-left: 0 !important;
-            margin-right: auto !important;
-            text-shadow: none !important;
-        }
-
-        .washcloth-hero .hero-cta {
-            display: flex !important;
-            gap: 20px !important;
-            justify-content: flex-start !important;
-            flex-wrap: wrap !important;
-            margin-top: 0 !important;
-        }
 
         /* Ensure machines-title styling works in features section */
         .features-section .machines-title {
@@ -243,6 +165,42 @@
         }
 
         /* Using global hero styles from styles.css for consistency */
+        
+        /* Ensure proper left alignment and pure white title */
+        .washcloth-hero .hero-title {
+            color: white !important;
+            text-shadow: none !important;
+        }
+        
+        .washcloth-hero .hero-title .title-main {
+            color: white !important;
+            text-shadow: none !important;
+        }
+        
+        .washcloth-hero .hero-description {
+            text-align: left !important;
+            max-width: 600px !important;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            text-indent: 0 !important;
+        }
+        
+        .washcloth-hero .hero-cta {
+            justify-content: flex-start !important;
+        }
+        
+        .washcloth-hero .hero-text {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+        }
+        
+        /* Force description to align with title */
+        .washcloth-hero .hero-description,
+        .washcloth-hero .hero-title {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            text-indent: 0 !important;
+        }
 
         /* Feature Cards - Matching graphical cleaning solution-card style */
         .features-grid {
@@ -748,7 +706,7 @@
         }
 
         .cta-description {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
             line-height: 1.7;
             color: var(--primary-green);
             margin-bottom: 40px;
@@ -818,7 +776,7 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 40px;
             margin-top: 60px;
-            max-width: 1000px;
+            max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -832,10 +790,14 @@
                 0 6px 20px rgba(26, 95, 63, 0.08);
             transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: 2px solid rgba(26, 95, 63, 0.08);
-            max-width: 420px;
+            width: 100%;
+            height: auto;
+            min-height: 360px;
             margin: 0 auto;
             position: relative;
             backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
         }
 
         .product-card::before {
@@ -883,11 +845,12 @@
 
         .product-image {
             width: 100%;
-            height: 220px;
+            height: 180px;
             overflow: hidden;
             position: relative;
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: 20px;
+            flex-shrink: 0;
         }
 
         .product-image img {
@@ -941,23 +904,28 @@
         }
 
         .product-content {
-            padding: 25px;
+            padding: 20px;
             position: relative;
             z-index: 2;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 15px;
         }
 
         .product-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
         }
 
         .product-title {
             font-family: var(--font-primary);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--primary-green);
             margin: 0;
@@ -969,28 +937,15 @@
             color: var(--light-green);
         }
 
-        .product-rating {
-            display: flex;
-            gap: 2px;
-        }
 
-        .star {
-            color: #ffd700;
-            font-size: 1rem;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover .star {
-            transform: scale(1.1);
-        }
 
         .product-description {
             color: var(--text-gray);
             line-height: 1.6;
             font-size: 0.9rem;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             transition: color 0.3s ease;
+            flex: 1;
         }
 
         .product-card:hover .product-description {
@@ -1001,7 +956,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .feature-tag {
@@ -1035,27 +990,28 @@
         .download-button {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
             color: var(--primary-white);
-            padding: 12px 24px;
-            border-radius: 25px;
+            padding: 10px 18px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: none;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             position: relative;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(26, 95, 63, 0.2);
+            align-self: flex-start;
         }
 
         .download-button::before {
             content: '';
             display: inline-block;
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             background-image: url("images/pdf-document-svgrepo-com.svg");
             background-size: contain;
             background-repeat: no-repeat;
@@ -1117,15 +1073,19 @@
             .products-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
-                max-width: 400px;
+                max-width: 500px;
+            }
+
+            .product-card {
+                min-height: 340px;
             }
 
             .product-image {
-                height: 200px;
+                height: 160px;
             }
 
             .product-content {
-                padding: 20px;
+                padding: 18px;
             }
 
             .product-header {
@@ -1157,12 +1117,16 @@
                 gap: 20px;
             }
 
+            .product-card {
+                min-height: 320px;
+            }
+
             .product-image {
-                height: 180px;
+                height: 140px;
             }
 
             .product-content {
-                padding: 18px;
+                padding: 16px;
             }
 
             .product-title {
@@ -1260,6 +1224,10 @@
             .product-card {
                 padding: 35px 30px;
             }
+            
+            .machines-cta-section {
+                gap: 60px;
+            }
         }
 
         @media (min-width: 1440px) {
@@ -1301,6 +1269,10 @@
                 font-size: 1.1rem;
                 min-width: 220px;
             }
+            
+            .machines-cta-section {
+                gap: 80px;
+            }
         }
 
         @media (min-width: 1600px) {
@@ -1324,13 +1296,13 @@
             
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 50px;
-                max-width: 1200px;
+                gap: 45px;
+                max-width: 1600px;
                 margin: 0 auto;
             }
             
             .product-card {
-                max-width: 500px;
+                min-height: 460px;
             }
             
             .product-image {
@@ -1342,12 +1314,55 @@
             }
             
             .product-title {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
         }
 
         /* Let global styles.css handle the CTA section completely */
         /* This ensures perfect consistency with home.html and other pages */
+
+        /* Constrain CTA section to same width as carousel content */
+        .machines-cta-section .cta-content,
+        .machines-cta-section .cta-button-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        @media (min-width: 1200px) {
+            .machines-cta-section .cta-content,
+            .machines-cta-section .cta-button-wrapper {
+                max-width: 1300px;
+                padding: 0 3rem;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .machines-cta-section .cta-content,
+            .machines-cta-section .cta-button-wrapper {
+                max-width: 1500px;
+                padding: 0 4rem;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .machines-cta-section .cta-content,
+            .machines-cta-section .cta-button-wrapper {
+                max-width: 1700px;
+                padding: 0 5rem;
+            }
+        }
+
+        /* Ensure button text stays on one line */
+        .machines-cta-button {
+            white-space: nowrap;
+            min-width: fit-content;
+        }
+
+        .machines-cta-button .cta-text {
+            white-space: nowrap;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -1519,7 +1534,7 @@
     </section>
 
     <!-- Products Section -->
-    <section class="products-section">
+    <section class="products-section" id="products">
         <div class="container">
             <div class="section-header">
                 <h2 class="machines-title">
@@ -1544,13 +1559,6 @@
                     <div class="product-content">
                         <div class="product-header">
                             <h3 class="product-title">HeavyDuty®</h3>
-                            <div class="product-rating">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
                         </div>
                         <p class="product-description">
                             Dimple's classic washcloth is used in thousands of print presses around the world. 
@@ -1579,13 +1587,6 @@
                     <div class="product-content">
                         <div class="product-header">
                             <h3 class="product-title">CumLaude®</h3>
-                            <div class="product-rating">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
                         </div>
                         <p class="product-description">
                             Dimple's answer to those demanding printers looking to achieve top performance. 
@@ -1614,13 +1615,6 @@
                     <div class="product-content">
                         <div class="product-header">
                             <h3 class="product-title">Multisorb®</h3>
-                            <div class="product-rating">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
                         </div>
                         <p class="product-description">
                             Developed for demanding situations, especially when it comes to absorption and tear strength, 
@@ -1648,13 +1642,6 @@
                     <div class="product-content">
                         <div class="product-header">
                             <h3 class="product-title">Ultimo®</h3>
-                            <div class="product-rating">
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                                <span class="star">★</span>
-                            </div>
                         </div>
                         <p class="product-description">
                             The Ultimo® non-woven fabric was especially developed for the cleaning of highly sensitive 
@@ -1676,7 +1663,7 @@
         </div>
     </section>
 
-    <!-- Our Machines Section -->
+    <!-- Our Machines Section (copied from index.html) -->
     <section class="machines-section" id="machines">
         <div class="machines-background">
             <div class="machines-grid-pattern"></div>

@@ -8,24 +8,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Cassette Rolls page specific styles */
+        /* Enhanced Cassette Rolls Page Styles */
+        :root {
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+            --bright-green: #34d058;
+            --off-white: #f8f9fa;
+        }
         
-        /* Hero Section with Background Image */
+        /* Hero Section with Background Image - Matching graphical-cleaning.html exactly */
         .cassette-rolls-hero {
             position: relative;
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.3) 100%);
             overflow: hidden;
             padding: clamp(100px, 12vh, 150px) 0 clamp(40px, 6vh, 80px);
         }
 
-        /* Enhanced mobile responsiveness for cassette rolls page */
+        /* Enhanced mobile responsiveness for cassette rolls page - matching graphical-cleaning.html */
         @media (max-width: 768px) {
             .cassette-rolls-hero {
                 padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
                 min-height: 90vh;
+            }
+            
+            .cassette-hero-content {
+                text-align: center;
+                max-width: 100%;
             }
         }
 
@@ -51,12 +63,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/hsr-1700-06.jpg');
+            background-image: url('images/HSR1700/hsr-1700-04.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.15;
-            filter: brightness(0.8) contrast(1.1);
+            opacity: 0.3;
+            filter: brightness(0.9) contrast(1.1);
         }
 
         .cassette-hero-overlay {
@@ -67,9 +79,9 @@
             height: 100%;
             background: linear-gradient(
                 135deg, 
-                rgba(26, 95, 63, 0.95) 0%, 
-                rgba(36, 132, 87, 0.9) 50%, 
-                rgba(46, 167, 106, 0.95) 100%
+                rgba(0, 0, 0, 0.25) 0%, 
+                rgba(0, 0, 0, 0.2) 50%, 
+                rgba(0, 0, 0, 0.25) 100%
             );
             z-index: 2;
         }
@@ -90,70 +102,15 @@
         .cassette-hero-content {
             position: relative;
             z-index: 3;
-            text-align: center;
+            text-align: left;
+            margin-bottom: 60px;
             animation: heroFadeIn 1s ease-out forwards;
             opacity: 0;
-            max-width: 1000px;
-            margin: 0 auto;
         }
 
-        .cassette-hero-title {
-            font-family: var(--font-primary);
-            font-size: clamp(2.8rem, 8vw, 5.5rem);
-            font-weight: 900;
-            color: var(--primary-white);
-            line-height: 0.9;
-            margin-bottom: 30px;
-            position: relative;
-            letter-spacing: -2px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
+        /* Using global hero styles from styles.css for consistency */
 
-        .cassette-hero-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--bright-green), transparent);
-            border-radius: 2px;
-            opacity: 0.8;
-        }
 
-        .cassette-hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            color: var(--text-lighter);
-            margin-bottom: 40px;
-            font-weight: 500;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .cassette-hero-description {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            line-height: 1.7;
-            color: var(--text-lighter);
-            margin-bottom: 50px;
-            font-weight: 400;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .cassette-hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-family: var(--font-primary);
-            font-size: clamp(1rem, 1.5vw, 1.1rem);
-            font-weight: 700;
-            text-decoration: none;
-            transition: all var(--transition-bouncy);
-            cursor: pointer;
             position: relative;
             overflow: hidden;
             min-width: 220px;
@@ -192,10 +149,10 @@
             transform: translateX(5px);
         }
 
-        /* Ready-to-use Mini Rolls Section */
+        /* Ready-to-use Mini Rolls Section - Enhanced Design */
         .mini-rolls-section {
-            background: var(--off-white);
-            padding: 120px 0;
+            background: linear-gradient(135deg, var(--off-white) 0%, rgba(248, 255, 254, 0.8) 100%);
+            padding: 140px 0;
             position: relative;
             overflow: hidden;
         }
@@ -208,138 +165,489 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(26, 95, 63, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26, 95, 63, 0.02) 1px, transparent 1px);
-            background-size: 60px 60px;
-            opacity: 0.3;
-            animation: gridMove 35s linear infinite;
+                radial-gradient(circle at 20% 80%, rgba(46, 167, 106, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(52, 208, 88, 0.02) 0%, transparent 50%),
+                linear-gradient(rgba(26, 95, 63, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 95, 63, 0.015) 1px, transparent 1px);
+            background-size: 80px 80px, 120px 120px, 60px 60px, 60px 60px;
+            opacity: 0.6;
+            animation: gridMove 40s linear infinite;
         }
 
         .mini-rolls-content {
             position: relative;
             z-index: 2;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .mini-rolls-header {
             text-align: center;
-            margin-bottom: 80px;
-        }
-
-        .mini-rolls-title {
-            font-family: var(--font-primary);
-            font-size: clamp(2.5rem, 6vw, 3.8rem);
-            font-weight: 800;
-            color: var(--primary-green);
-            line-height: 1.2;
-            margin-bottom: 30px;
+            margin-bottom: 100px;
             position: relative;
-            letter-spacing: -1px;
-            text-shadow: 0 4px 20px rgba(26, 95, 63, 0.1);
         }
 
-        .mini-rolls-title::after {
+        .mini-rolls-header::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-green), var(--bright-green));
-            border-radius: 2px;
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+            opacity: 0.6;
         }
 
+
+
         .mini-rolls-description {
-            font-size: clamp(1.1rem, 2.2vw, 1.3rem);
-            line-height: 1.7;
+            font-size: clamp(1.2rem, 2.4vw, 1.4rem);
+            line-height: 1.8;
             color: var(--light-green);
-            margin-bottom: 60px;
-            font-weight: 400;
-            max-width: 800px;
+            margin-bottom: 70px;
+            font-weight: 500;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
             opacity: 0.9;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
 
-        /* Cassette Rolls Subsection */
+        /* Cassette Rolls Subsection - Enhanced Design */
         .cassette-subsection {
-            background: var(--primary-white);
-            border-radius: 25px;
-            padding: 60px;
-            box-shadow: 0 20px 60px rgba(26, 95, 63, 0.1);
-            border: 1px solid rgba(26, 95, 63, 0.1);
+            background: linear-gradient(135deg, var(--primary-white) 0%, rgba(248, 255, 254, 0.8) 100%);
+            border-radius: 30px;
+            padding: 80px;
+            box-shadow: 
+                0 30px 80px rgba(26, 95, 63, 0.12),
+                0 15px 40px rgba(26, 95, 63, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(46, 167, 106, 0.1);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            gap: 80px;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .cassette-subsection::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(46, 167, 106, 0.03) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Enhanced Cassette Rolls Modal */
+        .cassette-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cassette-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cassette-modal-content {
+            background: linear-gradient(135deg, var(--primary-white) 0%, rgba(248, 255, 254, 0.95) 100%);
+            border-radius: 30px;
+            padding: 60px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8) translateY(50px);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 40px 100px rgba(0, 0, 0, 0.3),
+                0 20px 60px rgba(26, 95, 63, 0.2);
+            border: 2px solid rgba(46, 167, 106, 0.1);
+        }
+
+        .cassette-modal.active .cassette-modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .cassette-modal-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: linear-gradient(135deg, var(--accent-green), var(--bright-green));
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(46, 167, 106, 0.3);
+        }
+
+        .cassette-modal-close:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 6px 20px rgba(46, 167, 106, 0.4);
+        }
+
+        .cassette-modal-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .cassette-modal-title {
+            font-family: var(--font-primary);
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            font-weight: 900;
+            color: var(--primary-green);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cassette-modal-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            opacity: 0.8;
+        }
+
+        .cassette-modal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .cassette-modal-card {
+            background: linear-gradient(135deg, rgba(46, 167, 106, 0.05) 0%, rgba(52, 208, 88, 0.03) 100%);
+            border-radius: 20px;
+            padding: 25px;
+            border: 1px solid rgba(46, 167, 106, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cassette-modal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(46, 167, 106, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cassette-modal-card:hover::before {
+            left: 100%;
+        }
+
+        .cassette-modal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(46, 167, 106, 0.15);
+            border-color: rgba(46, 167, 106, 0.2);
+        }
+
+        .cassette-modal-card h4 {
+            font-family: var(--font-primary);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cassette-modal-card p {
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .modal-card-image {
+            width: 100%;
+            height: 120px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .modal-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .cassette-modal-card:hover .modal-card-image img {
+            transform: scale(1.05);
+        }
+
+        .cassette-modal-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cassette-modal-button {
+            background: linear-gradient(135deg, var(--accent-green), var(--bright-green));
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(46, 167, 106, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cassette-modal-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cassette-modal-button:hover::before {
+            left: 100%;
+        }
+
+        .cassette-modal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(46, 167, 106, 0.4);
+        }
+
+        /* Cassette CTA Button */
+        .cassette-cta {
+            margin-top: 35px;
+        }
+
+        .cassette-explore-btn {
+            background: linear-gradient(135deg, var(--accent-green), var(--bright-green));
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 8px 25px rgba(46, 167, 106, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cassette-explore-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cassette-explore-btn:hover::before {
+            left: 100%;
+        }
+
+        .cassette-explore-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(46, 167, 106, 0.4);
+        }
+
+        .cassette-explore-btn .btn-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cassette-explore-btn .btn-icon {
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .cassette-explore-btn:hover .btn-icon {
+            transform: translateX(5px);
         }
 
         .cassette-info {
             order: 1;
+            position: relative;
+            z-index: 2;
         }
 
         .cassette-image-container {
             order: 2;
             position: relative;
-            border-radius: 20px;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(26, 95, 63, 0.15);
+            box-shadow: 
+                0 25px 60px rgba(26, 95, 63, 0.18),
+                0 10px 30px rgba(26, 95, 63, 0.1);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(248, 255, 254, 0.05));
+            backdrop-filter: blur(10px);
+        }
+
+        .cassette-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(46, 167, 106, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .cassette-image-container:hover::before {
+            opacity: 1;
         }
 
         .cassette-image {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform var(--transition-slow);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: brightness(0.95) contrast(1.05);
+            position: relative;
+            z-index: 2;
         }
 
         .cassette-image-container:hover .cassette-image {
-            transform: scale(1.05);
+            transform: scale(1.08);
+            filter: brightness(1.05) contrast(1.1);
         }
 
         .cassette-subtitle {
             font-family: var(--font-primary);
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 800;
+            font-size: clamp(2rem, 4.5vw, 2.8rem);
+            font-weight: 900;
             color: var(--primary-green);
-            line-height: 1.2;
-            margin-bottom: 25px;
+            line-height: 1.1;
+            margin-bottom: 30px;
             position: relative;
-            letter-spacing: -1px;
+            letter-spacing: -1.2px;
+            text-shadow: 0 3px 15px rgba(26, 95, 63, 0.1);
+        }
+
+        .cassette-subtitle::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 40px;
+            background: linear-gradient(180deg, var(--accent-green), var(--bright-green));
+            border-radius: 3px;
+            box-shadow: 0 2px 10px rgba(46, 167, 106, 0.3);
         }
 
         .cassette-text {
-            font-size: clamp(1rem, 2vw, 1.1rem);
-            line-height: 1.7;
+            font-size: clamp(1.1rem, 2.2vw, 1.2rem);
+            line-height: 1.8;
             color: var(--light-green);
-            margin-bottom: 30px;
-            font-weight: 400;
+            margin-bottom: 35px;
+            font-weight: 500;
+            opacity: 0.9;
         }
 
         .cassette-features {
             list-style: none;
             padding: 0;
             margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
         }
 
         .cassette-features li {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
+            gap: 15px;
+            margin-bottom: 0;
             font-size: 1rem;
             color: var(--light-green);
-            font-weight: 500;
+            font-weight: 600;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, rgba(46, 167, 106, 0.05) 0%, rgba(52, 208, 88, 0.03) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(46, 167, 106, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cassette-features li:hover {
+            background: linear-gradient(135deg, rgba(46, 167, 106, 0.08) 0%, rgba(52, 208, 88, 0.05) 100%);
+            border-color: rgba(46, 167, 106, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(46, 167, 106, 0.1);
         }
 
         .cassette-features li::before {
             content: '✓';
             color: var(--accent-green);
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             flex-shrink: 0;
+            background: linear-gradient(135deg, var(--accent-green), var(--bright-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 8px rgba(46, 167, 106, 0.3);
         }
 
         /* Responsive Design */
@@ -389,7 +697,8 @@
 
         @media (max-width: 480px) {
             .cassette-rolls-hero {
-                padding: 100px 0 40px;
+                padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
+                min-height: 85vh;
             }
 
             .mini-rolls-section {
@@ -437,11 +746,11 @@
                 padding: 0 3rem;
             }
             
-            .washcloth-hero-title {
+            .hero-title {
                 font-size: clamp(3.2rem, 5vw, 4.2rem);
             }
             
-            .washcloth-hero-description {
+            .hero-description {
                 font-size: clamp(1.2rem, 2vw, 1.4rem);
                 max-width: 800px;
             }
@@ -461,15 +770,15 @@
                 padding: 0 4rem;
             }
             
-            .washcloth-hero {
+            .cassette-rolls-hero {
                 padding: 150px 0 80px;
             }
             
-            .washcloth-hero-title {
+            .hero-title {
                 font-size: clamp(4.2rem, 5.5vw, 5.5rem);
             }
             
-            .washcloth-hero-description {
+            .hero-description {
                 font-size: clamp(1.3rem, 2.2vw, 1.6rem);
                 max-width: 900px;
             }
@@ -613,15 +922,24 @@
         
         <div class="container">
             <div class="cassette-hero-content">
-                <h1 class="cassette-hero-title">Cassette Rolls</h1>
-                <p class="cassette-hero-subtitle">Advanced Non-Woven Roll Solutions</p>
-                <p class="cassette-hero-description">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Cassette</span>
+                        <span class="title-main">Rolls</span>
+                        <span class="title-subtitle">Advanced Non-Woven Roll Solutions</span>
+                    </h1>
+                    
+                    <p class="hero-description">
                     Our premium cassette roll systems deliver consistent, high-quality cleaning performance for modern printing operations. Engineered for efficiency and reliability in high-volume production environments.
                 </p>
-                <a href="#mini-rolls" class="cassette-hero-cta">
-                    <span class="cta-text">Explore Solutions</span>
-                    <span class="cta-icon">→</span>
-                </a>
+                    
+                                        <div class="hero-cta">
+                        <button class="cta-secondary" onclick="scrollToMiniRolls()">
+                            <span class="cta-text">Read More</span>
+                            <span class="cta-icon">↓</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -631,7 +949,11 @@
         <div class="container">
             <div class="mini-rolls-content">
                 <div class="mini-rolls-header">
-                    <h2 class="mini-rolls-title">Ready-to-use Mini Rolls</h2>
+                    <h2 class="machines-title">
+                        <span class="title-line">Premium</span>
+                        <span class="title-main">Mini Rolls</span>
+                        <span class="title-subtitle">Ready-to-Use Solutions</span>
+                    </h2>
                     <p class="mini-rolls-description">
                         Dimple's washcloths are widely available in ready-to-use mini rolls. Produced, especially on our high tech winding equipment we offer cassettes for presses by the following manufacturers (among others): Heidelberg, Komori, Ryobi, Sakurai, MAN Roland, KBA and Adast.
                     </p>
@@ -652,6 +974,13 @@
                             <li>Optimized for high-speed operation</li>
                             <li>Reduced waste and downtime</li>
                         </ul>
+                        
+                        <div class="cassette-cta">
+                            <button class="cassette-explore-btn" onclick="openCassetteModal()">
+                                <span class="btn-text">Explore Products</span>
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </div>
                     </div>
                     <div class="cassette-image-container">
                         <img src="images/mini.jpg" alt="Cassette Rolls" class="cassette-image">
@@ -660,6 +989,58 @@
             </div>
         </div>
     </section>
+
+    <!-- Enhanced Cassette Rolls Modal -->
+    <div class="cassette-modal" id="cassetteModal">
+        <div class="cassette-modal-content">
+            <button class="cassette-modal-close" onclick="closeCassetteModal()">×</button>
+            
+            <div class="cassette-modal-header">
+                <h3 class="cassette-modal-title">Our Products</h3>
+                <p class="cassette-modal-subtitle">Advanced Non-Woven Solutions for Modern Printing</p>
+            </div>
+            
+            <div class="cassette-modal-grid">
+                <div class="cassette-modal-card">
+                    <div class="modal-card-image">
+                        <img src="images/heavyduty.png" alt="HeavyDuty® Washcloth">
+                    </div>
+                    <h4>HeavyDuty®</h4>
+                    <p>Our classic washcloth used in thousands of print presses worldwide. Excellent lint characteristics and absorption make this the ideal all-round washcloth.</p>
+                </div>
+                
+                <div class="cassette-modal-card">
+                    <div class="modal-card-image">
+                        <img src="images/cumlaude.jpg" alt="Cum Laude® Washcloth">
+                    </div>
+                    <h4>Cum Laude®</h4>
+                    <p>Premium performance with ultra-low lint and balanced absorption. Protects your rollers and rubber blankets in the best possible way.</p>
+                </div>
+                
+                <div class="cassette-modal-card">
+                    <div class="modal-card-image">
+                        <img src="images/multisorb.jpg" alt="MultiSorb® Washcloth">
+                    </div>
+                    <h4>MultiSorb®</h4>
+                    <p>Advanced multi-layer technology for superior cleaning performance. Designed for demanding printing environments.</p>
+                </div>
+                
+                <div class="cassette-modal-card">
+                    <div class="modal-card-image">
+                        <img src="images/ultimo.jpg" alt="Ultimo® Washcloth">
+                    </div>
+                    <h4>Ultimo®</h4>
+                    <p>Optimal plate cleaning with minimal scratching. Perfect for direct image printing applications.</p>
+                </div>
+            </div>
+            
+            <div class="cassette-modal-cta">
+                <button class="cassette-modal-button" onclick="goToWashClothProducts()">
+                    Read More
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Our Machines Section (copied from index.html) -->
     <section class="machines-section" id="machines">
@@ -845,5 +1226,50 @@
     </a>
 
     <script src="script.js"></script>
+    
+    <script>
+        // Scroll to Mini Rolls Section
+        function scrollToMiniRolls() {
+            const miniRollsSection = document.getElementById('mini-rolls');
+            if (miniRollsSection) {
+                miniRollsSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Cassette Modal Functions
+        function openCassetteModal() {
+            const modal = document.getElementById('cassetteModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCassetteModal() {
+            const modal = document.getElementById('cassetteModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function goToWashClothProducts() {
+            // Navigate to Wash Cloth page products section
+            window.location.href = 'wash-cloth.html#products';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('cassetteModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCassetteModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCassetteModal();
+            }
+        });
+    </script>
 </body>
 </html> 
