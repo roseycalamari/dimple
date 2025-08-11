@@ -347,6 +347,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Scroll to solutions functionality for graphical cleaning page
+    const scrollToSolutionsButton = document.querySelector('[data-action="scroll-to-solutions"]');
+    if (scrollToSolutionsButton) {
+        scrollToSolutionsButton.addEventListener('click', function() {
+            const solutionsSection = document.querySelector('#solutions');
+            if (solutionsSection) {
+                solutionsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // Scroll to features functionality for wash cloth page
+    const scrollToFeaturesButton = document.querySelector('[data-action="scroll-to-features"]');
+    if (scrollToFeaturesButton) {
+        scrollToFeaturesButton.addEventListener('click', function() {
+            const featuresSection = document.querySelector('#features');
+            if (featuresSection) {
+                featuresSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
     // Service card modal buttons navigation functionality
     const discoverGraphicalButton = document.querySelector('[data-action="discover-graphical"]');
     if (discoverGraphicalButton) {
