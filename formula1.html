@@ -19,33 +19,57 @@
             --text-gray: #666666;
         }
 
-        /* ENHANCED HERO SECTION - Mobile optimized */
-        .formula1-hero {
+        /* About Hero Section - Exact copy from About page */
+        .about-hero {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.3) 100%);
             overflow: hidden;
-            padding: clamp(100px, 12vh, 150px) 0 clamp(50px, 8vh, 100px);
+            padding: clamp(100px, 12vh, 150px) 0 clamp(40px, 6vh, 80px);
         }
 
-        /* Enhanced mobile responsiveness for Formula 1 page */
-        @media (max-width: 768px) {
-            .formula1-hero {
-                padding: clamp(80px, 15vh, 120px) 0 clamp(40px, 8vh, 60px);
-                min-height: 90vh;
-            }
+        .about-hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
-        @media (max-width: 480px) {
-            .formula1-hero {
-                padding: clamp(70px, 12vh, 100px) 0 clamp(30px, 6vh, 50px);
-                min-height: 85vh;
-            }
+        .about-hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/HSR1700/hsr-1700-05.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            filter: brightness(0.9) contrast(1.1);
         }
 
-        .formula1-hero::before {
+        .about-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg, 
+                rgba(0, 0, 0, 0.25) 0%, 
+                rgba(0, 0, 0, 0.2) 50%, 
+                rgba(0, 0, 0, 0.25) 100%
+            );
+            z-index: 2;
+        }
+
+        .about-hero-overlay::before {
             content: '';
             position: absolute;
             top: 0;
@@ -53,168 +77,235 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 30% 40%, rgba(220, 20, 60, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
-            animation: subtleGlow 6s ease-in-out infinite alternate;
-            z-index: 1;
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
         }
 
-        @keyframes subtleGlow {
-            0% { opacity: 0.5; }
-            100% { opacity: 0.8; }
+        /* Enhanced mobile responsiveness for about page */
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
+                min-height: 90vh;
+            }
+            
+            .about-hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+                max-width: 100%;
+            }
+
+            .hero-video-container {
+                order: -1;
+                max-width: 500px;
+            }
         }
 
-        .formula1-hero-content {
+        @media (max-width: 480px) {
+            .about-hero {
+                padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
+                min-height: 85vh;
+            }
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 3;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
-            position: relative;
-            z-index: 2;
+            margin-bottom: 60px;
+            animation: heroFadeIn 1s ease-out forwards;
+            opacity: 0;
         }
 
-        .hero-text-content {
-            max-width: 600px;
-        }
-
-        .f1-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(220, 20, 60, 0.15);
-            color: #dc143c;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-bottom: 25px;
-            border: 2px solid rgba(220, 20, 60, 0.3);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .f1-badge:hover {
-            background: rgba(220, 20, 60, 0.2);
-            border-color: rgba(220, 20, 60, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .formula1-hero-title {
-            font-family: var(--font-primary);
-            font-size: clamp(3.5rem, 8vw, 5rem);
-            font-weight: 900;
-            color: var(--primary-white);
-            margin-bottom: 20px;
-            text-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
-            letter-spacing: -2px;
-            line-height: 0.9;
-        }
-
-        .formula1-hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            color: #ffd700;
-            margin-bottom: 25px;
-            font-weight: 600;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            line-height: 1.4;
-        }
-
-        .formula1-hero-description {
-            font-size: clamp(1rem, 2vw, 1.1rem);
-            line-height: 1.7;
-            color: var(--primary-white);
-            margin-bottom: 40px;
-            opacity: 0.95;
+        .hero-text {
+            text-align: left;
+            margin-top: 120px;
         }
 
         .hero-video-container {
             position: relative;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .hero-video-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .hero-video-container iframe {
             width: 100%;
-            height: 360px;
-            border: none;
-            display: block;
-            border-radius: 16px;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        /* Video container loading state */
-        .hero-video-container::before {
+        .hero-video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1) 0%, rgba(255, 215, 0, 0.1) 100%);
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(26, 95, 63, 0.02) 0%, rgba(26, 95, 63, 0.01) 100%);
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(26, 95, 63, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(220, 20, 60, 0.02) 0%, transparent 50%);
             pointer-events: none;
-            z-index: -1;
-        }
-
-        /* Gallery Section */
-        .gallery-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
         .gallery-title {
             text-align: center;
             font-family: var(--font-primary);
-            font-size: clamp(2.2rem, 4vw, 2.8rem);
+            font-size: clamp(2.5rem, 5vw, 3.2rem);
             font-weight: 800;
             color: var(--primary-green);
-            margin-bottom: 60px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gallery-title::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            border-radius: 2px;
+        }
+
+        .gallery-subtitle {
+            text-align: center;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 2;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-top: 60px;
+            max-width: 1400px;
             margin-left: auto;
             margin-right: auto;
+            position: relative;
+            z-index: 2;
         }
 
         .gallery-item {
             position: relative;
-            height: 250px;
-            border-radius: 15px;
+            height: 280px;
+            border-radius: 20px;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
             background: #f8f9fa;
+            border: 1px solid rgba(26, 95, 63, 0.08);
         }
 
         .gallery-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(26, 95, 63, 0.2);
+            border-color: rgba(26, 95, 63, 0.2);
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 95, 63, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            position: relative;
+            z-index: 0;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.08);
+        }
+
+        .gallery-item::after {
+            content: '+';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 2.5rem;
+            color: white;
+            z-index: 2;
+            transition: transform 0.4s ease;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
+        }
+
+        .gallery-item:hover::after {
+            transform: translate(-50%, -50%) scale(1);
         }
 
         /* Modal Styles */
@@ -226,10 +317,13 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, 
+                rgba(0, 0, 0, 0.92) 0%, 
+                rgba(26, 95, 63, 0.1) 50%, 
+                rgba(0, 0, 0, 0.92) 100%);
+            backdrop-filter: blur(20px);
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
 
         .gallery-modal.show {
@@ -240,32 +334,52 @@
             position: relative;
             width: 90%;
             max-width: 1000px;
-            margin: 50px auto;
+            margin: 0 auto;
             text-align: center;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
+            transform: translateY(0);
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 40px 20px;
         }
 
         .gallery-modal.show .modal-content {
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
+        }
+
+        .gallery-modal.show {
+            opacity: 1;
+        }
+
+        .gallery-modal .modal-content {
+            transform: translateY(0) scale(0.95);
         }
 
         .modal-image {
             max-width: 100%;
-            max-height: 80vh;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            transition: opacity 0.2s ease;
+            max-height: 90vh;
+            border-radius: 25px;
+            box-shadow: 
+                0 30px 100px rgba(0, 0, 0, 0.7),
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            filter: brightness(1.05) contrast(1.1);
         }
 
         .modal-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
-            border: 2px solid var(--primary-green);
-            color: #fff;
-            font-size: 2.2rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.6rem;
             width: 56px;
             height: 56px;
             display: flex;
@@ -273,36 +387,51 @@
             justify-content: center;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 4px 18px rgba(26, 95, 63, 0.18);
-            transition: box-shadow 0.2s, transform 0.15s, background 0.2s, border 0.2s, opacity 0.2s;
-            opacity: 0.92;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            opacity: 0.85;
             z-index: 2;
+            font-weight: 400;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
+        
         .modal-nav:hover {
-            box-shadow: 0 8px 32px rgba(26, 95, 63, 0.28);
-            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
-            border-color: var(--accent-green);
-            opacity: 1;
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+            color: white;
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
             transform: translateY(-50%) scale(1.08);
+            opacity: 1;
         }
+        
         .modal-nav:active {
             transform: translateY(-50%) scale(0.96);
-            opacity: 0.85;
+            opacity: 0.9;
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
+        
         .modal-prev {
-            left: 32px;
+            left: 20px;
         }
+        
         .modal-next {
-            right: 32px;
+            right: 20px;
         }
         .modal-close {
             position: absolute;
-            top: 24px;
-            right: 32px;
-            background: linear-gradient(135deg, #fff, #f8f9fa);
-            border: 2px solid var(--primary-green);
-            color: var(--primary-green);
-            font-size: 2rem;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.4rem;
             width: 48px;
             height: 48px;
             display: flex;
@@ -310,42 +439,106 @@
             justify-content: center;
             border-radius: 50%;
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(26, 95, 63, 0.10);
-            transition: box-shadow 0.2s, transform 0.15s, background 0.2s, border 0.2s, color 0.2s;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
             z-index: 3;
+            font-weight: 400;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
+        
         .modal-close:hover {
-            background: linear-gradient(135deg, #fff, #e9ecef);
-            color: #dc143c;
-            border-color: #dc143c;
-            box-shadow: 0 6px 18px rgba(220, 20, 60, 0.18);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+            color: white;
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
             transform: scale(1.08);
         }
+        
         .modal-close:active {
-            transform: scale(0.95);
-            opacity: 0.85;
+            transform: scale(0.96);
+            opacity: 0.9;
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
         .modal-counter {
             position: absolute;
-            bottom: 24px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: #fff;
-            color: var(--primary-green);
-            padding: 8px 22px;
-            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
             font-size: 1rem;
-            font-weight: 600;
-            border: 2px solid var(--primary-green);
-            box-shadow: 0 2px 10px rgba(26, 95, 63, 0.08);
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
             letter-spacing: 0.04em;
-            opacity: 0.97;
+            opacity: 0.9;
+            transition: all 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-counter:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
         @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 0 auto;
+                height: 100vh;
+                padding: 30px 15px;
+            }
+            
+            .modal-nav {
+                width: 48px;
+                height: 48px;
+                font-size: 1.3rem;
+            }
+            .modal-prev {
+                left: 15px;
+            }
+            .modal-next {
+                right: 15px;
+            }
+            .modal-close {
+                top: 15px;
+                right: 15px;
+                width: 42px;
+                height: 42px;
+                font-size: 1.1rem;
+            }
+            .modal-counter {
+                bottom: 15px;
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                width: 98%;
+                margin: 0 auto;
+                height: 100vh;
+                padding: 20px 10px;
+            }
+            
             .modal-nav {
                 width: 44px;
                 height: 44px;
-                font-size: 1.5rem;
+                font-size: 1.2rem;
             }
             .modal-prev {
                 left: 10px;
@@ -358,12 +551,12 @@
                 right: 10px;
                 width: 38px;
                 height: 38px;
-                font-size: 1.3rem;
+                font-size: 1rem;
             }
             .modal-counter {
                 bottom: 10px;
-                padding: 6px 14px;
-                font-size: 0.95rem;
+                padding: 6px 16px;
+                font-size: 0.85rem;
             }
         }
 
@@ -467,30 +660,23 @@
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .formula1-hero {
-                padding: 100px 0 60px;
+            .gallery-section {
+                padding: 80px 0;
             }
-
-            .formula1-hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            
+            .gallery-title {
+                margin-bottom: 60px;
             }
-
-            .hero-video-container iframe {
-                height: 250px;
+            
+            .gallery-subtitle {
+                margin-bottom: 50px;
+                padding: 0 20px;
             }
-
-            .hero-video-container {
-                border-radius: 12px;
-            }
-
-            .hero-video-container iframe {
-                border-radius: 12px;
-            }
-
+            
             .gallery-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 25px;
+                margin-top: 40px;
             }
 
             .modal-nav {
@@ -534,15 +720,6 @@
 
             .gallery-item {
                 height: 200px;
-            }
-
-            .hero-video-container iframe {
-                height: 200px;
-                border-radius: 10px;
-            }
-
-            .hero-video-container {
-                border-radius: 10px;
             }
         }
 
@@ -701,23 +878,38 @@
     </nav>
 
     <!-- Formula 1 Hero Section -->
-    <section class="formula1-hero">
+    <section class="about-hero">
+        <div class="about-hero-background">
+            <div class="about-hero-bg-image"></div>
+            <div class="about-hero-overlay"></div>
+        </div>
+        
         <div class="container">
-            <div class="formula1-hero-content">
-                <div class="hero-text-content">
-                    <div class="f1-badge">
-                        🏎️ HIGH SPEED INNOVATION
+            <div class="about-hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">HIGH SPEED INNOVATION</span>
+                        <span class="title-main">Formula 1</span>
+                        <span class="title-subtitle">Revolutionary HSR 1700 Winding Machine</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Since 1992, Dimple has been at the forefront of graphic printing innovation. Our latest breakthrough, the High Speed Roller (HSR) 1700, delivers unprecedented efficiency with its unique Formula 1 purchase deal.
+                    </p>
+                    
+                    <div class="hero-cta">
+                        <button class="cta-secondary" data-action="scroll-to-hsr">
+                            <span class="cta-text">Explore</span>
+                            <span class="cta-icon">↓</span>
+                        </button>
                     </div>
-                    <h1 class="formula1-hero-title">Formula 1</h1>
-                    <p class="formula1-hero-subtitle">
-                        Dimple introduces the new winding machine HSR 1700 along with a unique purchase deal: Formula 1
-                    </p>
-                    <p class="formula1-hero-description">
-                        Since 1992, Dimple has been active in the field of the graphic printing industry. The company's wide range of experience has led to an ongoing search for innovative solutions in this fast developing market. The focus of Dimple is to continuously optimize efficiency in every possible way. Therefore Dimple is proud to present the launch of a new fabric winding machine, the High Speed Roller (HSR) 1700. This machine comes along with a unique purchase deal called: Formula 1. A formula designed to place your company in pole position.
-                    </p>
                 </div>
+                
                 <div class="hero-video-container">
-                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/92327196?h=a66ca933ba" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                    <div class="hero-video-wrapper">
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/92327196?h=a66ca933ba" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe>
+                        <div class="video-overlay"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -727,6 +919,7 @@
     <section class="gallery-section">
         <div class="container">
             <h2 class="gallery-title">An impression of our HSR 1700</h2>
+            <p class="gallery-subtitle">Discover the precision engineering and innovative design that makes our High Speed Roller the industry standard</p>
             <div class="gallery-grid" id="galleryGrid">
                 <!-- Gallery items will be dynamically populated -->
             </div>
@@ -745,7 +938,7 @@
     </div>
 
     <!-- HSR 1700 Section -->
-    <section class="hsr-section">
+    <section class="hsr-section" id="hsr-1700">
         <div class="container">
             <div class="hsr-content">
                 <div class="hsr-text">
@@ -1107,6 +1300,22 @@
 
         // Initialize gallery when page loads
         document.addEventListener('DOMContentLoaded', initializeGallery);
+
+        // Explore button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const exploreButton = document.querySelector('[data-action="scroll-to-hsr"]');
+            if (exploreButton) {
+                exploreButton.addEventListener('click', function() {
+                    const hsrSection = document.getElementById('hsr-1700');
+                    if (hsrSection) {
+                        hsrSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+        });
 
         // Add smooth scrolling for any anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
