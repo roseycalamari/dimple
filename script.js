@@ -375,6 +375,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Scroll to biocleaner functionality for manual wiping page
+    const scrollToBiocleanerButton = document.querySelector('[data-action="scroll-to-biocleaner"]');
+    if (scrollToBiocleanerButton) {
+        scrollToBiocleanerButton.addEventListener('click', function() {
+            const biocleanerSection = document.querySelector('#biocleaner');
+            if (biocleanerSection) {
+                biocleanerSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
     // Service card modal buttons navigation functionality
     const discoverGraphicalButton = document.querySelector('[data-action="discover-graphical"]');
     if (discoverGraphicalButton) {
