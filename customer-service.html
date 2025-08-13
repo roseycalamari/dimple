@@ -10,15 +10,76 @@
     <style>
         /* Customer Service page specific styles */
         
-        /* Customer Service Hero Section */
+        /* Customer Service Hero Section - Matching about page exactly */
         .customer-service-hero {
             position: relative;
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.3) 100%);
             overflow: hidden;
             padding: clamp(100px, 12vh, 150px) 0 clamp(40px, 6vh, 80px);
+        }
+
+        .customer-service-hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .customer-service-hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('images/HSR1700/hsr-1700-03.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .customer-service-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg, 
+                rgba(0, 0, 0, 0.25) 0%, 
+                rgba(0, 0, 0, 0.2) 50%, 
+                rgba(0, 0, 0, 0.25) 100%
+            );
+            z-index: 2;
+        }
+
+        .customer-service-hero-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .customer-service-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: left;
+            margin-bottom: 60px;
+            animation: heroFadeIn 1s ease-out forwards;
+            opacity: 0;
         }
 
         /* Enhanced mobile responsiveness for customer service page */
@@ -26,6 +87,11 @@
             .customer-service-hero {
                 padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
                 min-height: 90vh;
+            }
+            
+            .customer-service-hero-content {
+                text-align: center;
+                max-width: 100%;
             }
         }
 
@@ -36,70 +102,212 @@
             }
         }
 
-        .customer-service-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
-            pointer-events: none;
+        /* Hero Title Structure - Matching about page exactly */
+        .hero-title {
+            margin-bottom: 30px;
         }
 
-        .customer-service-hero-content {
-            position: relative;
-            z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 80px;
-            align-items: center;
-            animation: heroFadeIn 1s ease-out forwards;
-            opacity: 0;
+        .hero-title .title-line {
+            display: block;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            color: var(--primary-white);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
         }
 
-        .hero-text-content {
-            position: relative;
-        }
-
-        .customer-service-hero-title {
+        .hero-title .title-main {
+            display: block;
             font-family: var(--font-primary);
-            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 900;
             color: var(--primary-white);
             line-height: 0.9;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             position: relative;
             letter-spacing: -2px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .customer-service-hero-title::after {
+        .hero-title .title-main::after {
             content: '';
             position: absolute;
             bottom: -8px;
             left: 0;
             width: 60%;
             height: 4px;
-            background: linear-gradient(90deg, var(--bright-green), transparent);
+            background: linear-gradient(90deg, var(--accent-green), transparent);
             border-radius: 2px;
             opacity: 0.8;
         }
 
-        .customer-service-hero-subtitle {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            line-height: 1.7;
+        .hero-title .title-subtitle {
+            display: block;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
             color: var(--text-lighter);
-            margin-bottom: 25px;
-            font-weight: 500;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .hero-description {
+            font-family: var(--font-secondary);
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--text-light);
+            margin-bottom: clamp(30px, 4vh, 50px);
+            line-height: 1.5;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: clamp(15px, 3vw, 25px);
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: clamp(12px, 2.5vh, 16px) clamp(24px, 4vw, 32px);
+            border-radius: 50px;
+            font-family: var(--font-primary);
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-bouncy);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            min-width: clamp(160px, 25vw, 200px);
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: transparent;
+            color: var(--primary-white);
+            border: 2px solid var(--primary-white);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-secondary:hover::before {
+            left: 100%;
+        }
+
+        .cta-secondary:hover {
+            background: var(--primary-white);
+            color: var(--primary-green);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-text {
+            transition: transform var(--transition-fast);
+        }
+
+        .cta-icon {
+            font-size: 1.1rem;
+            transition: transform var(--transition-fast);
+        }
+
+                .cta-secondary:hover .cta-icon {
+            transform: translateY(3px);
+        }
+
+        /* Responsive Design for Hero Section */
+        @media (max-width: 1024px) {
+            .customer-service-hero {
+                padding: 120px 0 55px;
+            }
+            
+            .hero-description {
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .customer-service-hero {
+                padding: 110px 0 50px;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .customer-service-hero {
+                padding: 100px 0 40px;
+            }
+            
+            .hero-title .title-main {
+                font-size: clamp(2rem, 5vw, 3.5rem);
+            }
+            
+            .hero-description {
+                font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            }
+        }
+
+        /* Large Screen Responsive Design */
+        @media (min-width: 1200px) {
+            .customer-service-hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-title .title-main {
+                font-size: clamp(3.2rem, 5vw, 4.2rem);
+            }
+            
+            .hero-description {
+                font-size: clamp(1.2rem, 2vw, 1.4rem);
+                max-width: 800px;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .customer-service-hero {
+                padding: 180px 0 100px;
+            }
+            
+            .hero-title .title-main {
+                font-size: clamp(4.2rem, 5.5vw, 5.5rem);
+            }
+            
+            .hero-description {
+                font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+                max-width: 900px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .customer-service-hero {
+                padding: 200px 0 120px;
+            }
+            
+            .hero-title .title-main {
+                font-size: clamp(5.5rem, 6vw, 6.5rem);
+            }
+            
+            .hero-description {
+                font-size: clamp(1.5rem, 2.5vw, 1.8rem);
+                max-width: 1000px;
+            }
         }
 
         .customer-service-hero-description {
@@ -189,74 +397,105 @@
             opacity: 0.7;
         }
 
-        /* Service Features Section */
+        /* Enhanced Service Features Section - Professional and Dynamic */
         .service-features {
-            background: var(--off-white);
-            padding: 120px 0;
             position: relative;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
             overflow: hidden;
+            padding: clamp(80px, 10vh, 120px) 0;
         }
 
-        .service-features::before {
-            content: '';
+        .service-features-background {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: 1;
+        }
+
+        .service-features-grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120%;
+            height: 120%;
             background-image: 
-                linear-gradient(rgba(26, 95, 63, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26, 95, 63, 0.02) 1px, transparent 1px);
+                linear-gradient(rgba(26, 95, 63, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 95, 63, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
-            opacity: 0.3;
-            animation: gridMove 35s linear infinite;
-            transform: translate(-10%, -10%);
+            animation: serviceFeaturesGridMove 40s linear infinite;
+        }
+
+        @keyframes serviceFeaturesGridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
         }
 
         .service-features-content {
             position: relative;
             z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .service-features-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: clamp(50px, 8vh, 80px);
         }
 
         .service-features-title {
             font-family: var(--font-primary);
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
             color: var(--primary-green);
-            line-height: 0.9;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+            margin-bottom: clamp(20px, 3vh, 30px);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .service-features-subtitle {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: var(--light-green);
-            font-weight: 500;
-            max-width: 600px;
+            font-family: var(--font-secondary);
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: var(--primary-green);
+            max-width: 700px;
             margin: 0 auto;
+            line-height: 1.6;
+            font-weight: 500;
         }
 
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important;
             gap: 40px;
-            margin-top: 60px;
+            margin-top: clamp(40px, 5vh, 60px);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            grid-auto-flow: row;
         }
 
         .feature-card {
-            background: var(--primary-white);
-            border-radius: 20px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(26, 95, 63, 0.1);
-            transition: all var(--transition-medium);
             position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 35px;
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.15),
+                0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-medium);
             overflow: hidden;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
         }
 
         .feature-card::before {
@@ -266,42 +505,215 @@
             left: 0;
             width: 100%;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-green), var(--bright-green));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform var(--transition-medium);
+            background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(26, 95, 63, 0.1), transparent);
+            opacity: 0.6;
+        }
+
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--bright-green) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+            z-index: -1;
+        }
+
+        .feature-card:hover .card-background {
+            opacity: 0.05;
+        }
+
+        .feature-card:hover .feature-title {
+            transform: translateX(5px);
+            color: var(--light-green);
+        }
+
+        .feature-card:hover .feature-description {
+            color: #444;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(26, 95, 63, 0.15);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.2),
+                0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-hover-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+            pointer-events: none;
+        }
+
+        .feature-card:hover .card-hover-effect {
+            transform: translateX(100%);
         }
 
         .feature-card:hover::before {
-            transform: scaleX(1);
+            opacity: 1;
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
-            color: var(--primary-green);
-            margin: 0 auto 25px;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 25px;
+            color: var(--accent-green);
+            background: linear-gradient(135deg, rgba(46, 167, 106, 0.1), rgba(52, 208, 88, 0.05));
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-bouncy);
+            border: 2px solid rgba(46, 167, 106, 0.1);
+            margin: 0 0 25px 0;
+        }
+
+        .feature-icon svg {
+            width: 30px;
+            height: 30px;
+            transition: all var(--transition-fast);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(-5deg);
+            background: var(--accent-green);
+            color: var(--primary-white);
+            box-shadow: 0 10px 30px rgba(46, 167, 106, 0.3);
+            border-color: var(--bright-green);
         }
 
         .feature-title {
             font-family: var(--font-primary);
-            font-size: 1.4rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
             font-weight: 700;
             color: var(--primary-green);
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            transition: all var(--transition-fast);
+            line-height: 1.2;
+            flex-grow: 0;
         }
 
         .feature-description {
-            font-size: 0.95rem;
+            font-size: clamp(0.9rem, 1.5vw, 1.05rem);
             line-height: 1.6;
-            color: var(--light-green);
-            opacity: 0.9;
+            color: #666;
+            margin-bottom: 0;
+            transition: all var(--transition-fast);
+            flex: 1;
         }
+
+        /* Responsive Design for Service Features */
+        @media (max-width: 1024px) {
+            .service-features {
+                padding: clamp(70px, 8vh, 100px) 0;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: clamp(25px, 3vw, 40px);
+                max-width: 900px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-features {
+                padding: clamp(60px, 6vh, 80px) 0;
+            }
+            
+            .service-features-header {
+                margin-bottom: clamp(40px, 6vh, 60px);
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: clamp(20px, 3vh, 30px);
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .feature-card {
+                padding: clamp(20px, 3vw, 30px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-features {
+                padding: clamp(50px, 5vh, 70px) 0;
+            }
+            
+            .service-features-header {
+                margin-bottom: clamp(30px, 4vh, 40px);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            
+            .feature-card {
+                padding: clamp(18px, 2.5vw, 25px);
+                border-radius: clamp(14px, 2vw, 20px);
+            }
+            
+            .feature-icon {
+                width: clamp(50px, 6vw, 60px);
+                height: clamp(50px, 6vw, 60px);
+                margin-bottom: clamp(15px, 2vh, 20px);
+            }
+        }
+
+        /* Large Screen Responsive Design */
+        @media (min-width: 1200px) {
+            .service-features {
+                padding: clamp(100px, 12vh, 140px) 0;
+            }
+            
+            .features-grid {
+                gap: clamp(35px, 4vw, 45px);
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .service-features {
+                padding: clamp(120px, 14vh, 160px) 0;
+            }
+            
+            .features-grid {
+                gap: clamp(40px, 5vw, 50px);
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .service-features {
+                padding: clamp(140px, 16vh, 180px) 0;
+            }
+            
+            .features-grid {
+                gap: clamp(45px, 6vw, 55px);
+            }
+        }
+
+
 
         /* Responsive Design */
         @media (max-width: 968px) {
@@ -432,6 +844,561 @@
                 max-width: 600px;
             }
         }
+
+        /* Contact Details Section Styles */
+        .contact-details-section {
+            position: relative;
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow: hidden;
+        }
+
+        .contact-details-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .contact-details-grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.6;
+        }
+
+        .contact-details-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-details-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .contact-details-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact-details-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .contact-detail-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1a5f3f, #2ea76a);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-detail-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .contact-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(26, 95, 63, 0.15);
+        }
+
+        .contact-detail-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a5f3f, #2ea76a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .contact-detail-card:hover .contact-detail-icon {
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .contact-detail-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact-detail-text {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-detail-link {
+            color: #1a5f3f;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-detail-link:hover {
+            color: #2ea76a;
+            text-decoration: underline;
+        }
+
+        .contact-detail-description {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.4;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-additional-info {
+            margin-top: 60px;
+        }
+
+        .additional-info-card {
+            background: white;
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .additional-info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1a5f3f, #2ea76a);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .additional-info-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .additional-info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(26, 95, 63, 0.15);
+        }
+
+        .additional-info-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .additional-info-description {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .additional-info-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+
+        .info-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .info-feature:hover {
+            transform: translateX(5px);
+        }
+
+        .info-feature svg {
+            color: #2ea76a;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .info-feature:hover svg {
+            transform: scale(1.2);
+            color: #1a5f3f;
+        }
+
+        .info-feature span {
+            font-size: 1rem;
+            color: #333;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Responsive Design for Contact Details */
+        @media (max-width: 768px) {
+            .contact-details-section {
+                padding: 80px 0;
+            }
+
+            .contact-details-grid {
+                gap: 30px;
+                margin-bottom: 60px;
+            }
+
+            .contact-detail-card {
+                padding: 30px 25px;
+            }
+
+            .additional-info-card {
+                padding: 40px 30px;
+            }
+
+            .additional-info-features {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-details-section {
+                padding: 60px 0;
+            }
+
+            .contact-details-grid {
+                gap: 25px;
+            }
+
+            .contact-detail-card {
+                padding: 25px 20px;
+            }
+
+            .additional-info-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Enhanced Get Started Section Styles */
+        .enhanced-get-started-card {
+            position: relative;
+            background: var(--primary-green);
+            border-radius: 30px;
+            padding: 60px 50px;
+            box-shadow: 
+                0 25px 80px rgba(26, 95, 63, 0.3),
+                0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .get-started-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .get-started-pattern {
+            display: none;
+        }
+
+        .get-started-overlay {
+            display: none;
+        }
+
+        .get-started-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .get-started-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .get-started-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .get-started-icon-wrapper:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .get-started-icon-wrapper svg {
+            color: white;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        .get-started-title {
+            font-family: var(--font-primary);
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .get-started-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .get-started-description {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .get-started-description p {
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .get-started-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .get-started-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .get-started-feature:hover {
+            transform: translateX(8px);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .feature-check {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .get-started-feature:hover .feature-check {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+
+        .feature-check svg {
+            color: white;
+            width: 12px;
+            height: 12px;
+        }
+
+        .get-started-feature span {
+            font-size: 1rem;
+            color: white;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .get-started-cta {
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary, .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 160px;
+            justify-content: center;
+            border: 2px solid transparent;
+        }
+
+        .cta-primary {
+            background: white;
+            color: var(--primary-green);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            background: white;
+            color: var(--primary-green);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .cta-secondary:hover {
+            transform: translateY(-3px);
+            background: white;
+            color: var(--primary-green);
+            border-color: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-note {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .cta-note svg {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Design for Enhanced Get Started Section */
+        @media (max-width: 768px) {
+            .enhanced-get-started-card {
+                padding: 40px 30px;
+                margin-top: 60px;
+            }
+
+            .get-started-features {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-primary, .cta-secondary {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .enhanced-get-started-card {
+                padding: 30px 20px;
+                margin-top: 40px;
+                border-radius: 20px;
+            }
+
+            .get-started-title {
+                font-size: clamp(1.8rem, 4vw, 2.2rem);
+            }
+
+            .get-started-subtitle {
+                font-size: clamp(1rem, 2vw, 1.1rem);
+            }
+
+            .get-started-description p {
+                font-size: clamp(0.9rem, 1.8vw, 1rem);
+            }
+
+            .get-started-feature {
+                padding: 12px 15px;
+            }
+
+            .get-started-feature span {
+                font-size: 0.9rem;
+            }
+        }
+        }
     </style>
 </head>
 <body>
@@ -453,9 +1420,9 @@
                     </div>
                     <a href="formula1.html" class="nav-link">Formula 1</a>
                     <a href="home.html#pricing" class="nav-link">Pricing</a>
-                    <a href="customer-service.html" class="nav-link active">Customer Service</a>
-                    <a href="home.html#brochures" class="nav-link">Brochures</a>
-                    <a href="home.html#contact" class="nav-contact-button">Contact</a>
+                    <a href="customer-service.html#contact" class="nav-link active">Customer Service</a>
+                    <a href="brochures.html" class="nav-link">Brochures</a>
+                    <a href="customer-service.html" class="nav-contact-button">Contact</a>
                 </nav>
                 
                 <div class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -490,74 +1457,42 @@
             </div>
             <a href="formula1.html" class="mobile-nav-link">Formula 1</a>
             <a href="home.html#pricing" class="mobile-nav-link">Pricing</a>
-            <a href="customer-service.html" class="mobile-nav-link active">Customer Service</a>
-            <a href="home.html#brochures" class="mobile-nav-link">Brochures</a>
-            <a href="home.html#contact" class="mobile-nav-link nav-contact-button">Contact</a>
+                                    <a href="customer-service.html#contact" class="mobile-nav-link active">Customer Service</a>
+            <a href="brochures.html" class="mobile-nav-link">Brochures</a>
+            <a href="customer-service.html" class="mobile-nav-link nav-contact-button">Contact</a>
         </div>
     </nav>
 
     <!-- Customer Service Hero Section -->
-    <section class="customer-service-hero" id="hero">
+    <section class="customer-service-hero">
+        <div class="customer-service-hero-background">
+            <div class="customer-service-hero-bg-image"></div>
+            <div class="customer-service-hero-overlay"></div>
+        </div>
+        
         <div class="container">
             <div class="customer-service-hero-content">
-                <div class="hero-text-content">
-                    <h1 class="customer-service-hero-title">
-                        We are your service desk
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-line">Customer</span>
+                        <span class="title-main">Service</span>
+                        <span class="title-subtitle">Professional Support When You Need It</span>
                     </h1>
                     
-                    <div class="customer-service-hero-subtitle">
-                        We, the customers service team, are available from Monday to Friday from 08.00 – 18.00 hours by phone 0031 – 251 316302 or by email info@dimple.nl.
-                    </div>
-                    
-                    <p class="customer-service-hero-description">
-                        We are your service desk. You can ask us any question and we will give you the answer either straight away, or get feedback from our production, expedition or export department.
+                    <p class="hero-description">
+                        Our dedicated customer service team is available Monday to Friday from 08:00 to 18:00 hours. We guarantee a maximum response time of 24 hours, ensuring you get the information and support you need rapidly and efficiently.
                     </p>
                     
-                    <p class="customer-service-hero-description">
-                        So if we cannot help you instantly we work with a maximum respond time of 2 hours. We will see to it that you get the information you want, rapidly.
-                    </p>
-                    
-                    <p class="customer-service-hero-description">
-                        So if you need prices, samples, track and trace or other information, or of course if you want to place an order, please feel free to contact us. It will be our pleasure to support you.
-                    </p>
-                    
-                    <div class="contact-info-highlight">
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
-                            <span>+31 251 316302</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                            <span>info@dimple.nl</span>
-                        </div>
-                        <div class="contact-item">
-                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12,6 12,12 16,14"/>
-                            </svg>
-                            <span>Monday - Friday: 08:00 - 18:00</span>
-                        </div>
+                    <div class="hero-cta">
+                        <button class="cta-secondary" data-action="scroll-to-contact">
+                            <span class="cta-text">Contact Us</span>
+                            <span class="cta-icon">↓</span>
+                        </button>
+                        <a href="index.html" class="cta-button cta-primary video-cta-btn">
+                            <span class="cta-text">Watch Our Video</span>
+                            <span class="cta-icon">▶</span>
+                        </a>
                     </div>
-                </div>
-                
-                <div class="team-photo-container">
-                    <div class="team-photo-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                        <h3>Our Service Team</h3>
-                        <p>Professional customer service specialists ready to assist you</p>
-                    </div>
-                    <!-- Replace this placeholder with actual team photo when available -->
-                    <!-- <img src="images/team-photo.jpg" alt="Customer Service Team" style="width: 100%; height: 100%; object-fit: cover; border-radius: 18px;"> -->
                 </div>
             </div>
         </div>
@@ -565,6 +1500,10 @@
 
     <!-- Service Features Section -->
     <section class="service-features">
+        <div class="service-features-background">
+            <div class="service-features-grid-pattern"></div>
+        </div>
+        
         <div class="container">
             <div class="service-features-content">
                 <div class="service-features-header">
@@ -576,23 +1515,31 @@
                 
                 <div class="features-grid">
                     <div class="feature-card">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <div class="card-background"></div>
+                        <div class="card-hover-effect"></div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
                             <circle cx="12" cy="12" r="10"/>
                             <polyline points="12,6 12,12 16,14"/>
                         </svg>
-                        <h3 class="feature-title">2-Hour Response Time</h3>
+                        </div>
+                        <h3 class="feature-title">24h Response Time</h3>
                         <p class="feature-description">
-                            When we can't provide immediate answers, we guarantee a maximum response time of 2 hours. Your time is valuable, and we respect that.
+                            When we can't provide immediate answers, we guarantee a maximum response time of 24 hours. Your time is valuable, and we respect that.
                         </p>
                     </div>
                     
                     <div class="feature-card">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <div class="card-background"></div>
+                        <div class="card-hover-effect"></div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
                             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
                             <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                         </svg>
+                        </div>
                         <h3 class="feature-title">Expert Team</h3>
                         <p class="feature-description">
                             Our service team works closely with production, expedition, and export departments to ensure you get comprehensive and accurate information.
@@ -600,9 +1547,13 @@
                     </div>
                     
                     <div class="feature-card">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <div class="card-background"></div>
+                        <div class="card-hover-effect"></div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                         </svg>
+                        </div>
                         <h3 class="feature-title">Multiple Contact Options</h3>
                         <p class="feature-description">
                             Reach us via phone at +31 251 316302 or email at info@dimple.nl. We're available Monday through Friday from 08:00 to 18:00.
@@ -610,11 +1561,15 @@
                     </div>
                     
                     <div class="feature-card">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <div class="card-background"></div>
+                        <div class="card-hover-effect"></div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
                             <path d="M9 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4"/>
                             <polyline points="9,11 12,14 15,11"/>
                             <path d="M12 2v12"/>
                         </svg>
+                        </div>
                         <h3 class="feature-title">Complete Support</h3>
                         <p class="feature-description">
                             From pricing and samples to track & trace and order placement - we handle all your inquiries with professional care and attention to detail.
@@ -622,10 +1577,14 @@
                     </div>
                     
                     <div class="feature-card">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <div class="card-background"></div>
+                        <div class="card-hover-effect"></div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                             <path d="M9 12l2 2 4-4"/>
                         </svg>
+                        </div>
                         <h3 class="feature-title">Reliable Partnership</h3>
                         <p class="feature-description">
                             With over 30 years of experience since 1991, we understand your business needs and provide consistent, reliable service you can count on.
@@ -633,14 +1592,213 @@
                     </div>
                     
                     <div class="feature-card">
-                        <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <div class="card-background"></div>
+                        <div class="card-hover-effect"></div>
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
                             <circle cx="12" cy="12" r="3"/>
                             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                         </svg>
+                        </div>
                         <h3 class="feature-title">Customized Solutions</h3>
                         <p class="feature-description">
                             Every inquiry is unique. We provide personalized service and solutions tailored to your specific needs and industry requirements.
                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Details Section -->
+    <section class="contact-details-section" id="contact">
+        <div class="contact-details-background">
+            <div class="contact-details-grid-pattern"></div>
+        </div>
+        
+        <div class="container">
+            <div class="contact-details-content">
+                <div class="contact-details-header">
+                    <h2 class="contact-details-title">Contact Information</h2>
+                    <p class="contact-details-subtitle">
+                        Get in touch with our professional team. We're here to help with all your inquiries and support needs.
+                    </p>
+                </div>
+                
+                <div class="contact-details-grid">
+                    <div class="contact-detail-card">
+                        <div class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-detail-title">Phone</h3>
+                        <p class="contact-detail-text">
+                            <a href="tel:+31251316302" class="contact-detail-link">+31 251 316302</a>
+                        </p>
+                        <p class="contact-detail-description">
+                            Available Monday to Friday<br>
+                            08:00 - 18:00 hours
+                        </p>
+                    </div>
+                    
+                    <div class="contact-detail-card">
+                        <div class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-detail-title">Email</h3>
+                        <p class="contact-detail-text">
+                            <a href="mailto:info@dimple.nl" class="contact-detail-link">info@dimple.nl</a>
+                        </p>
+                        <p class="contact-detail-description">
+                            We guarantee a response<br>
+                            within 24 hours
+                        </p>
+                    </div>
+                    
+                    <div class="contact-detail-card">
+                        <div class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-detail-title">Address</h3>
+                        <p class="contact-detail-text">
+                            Schieland 18<br>
+                            1948 RM Beverwijk<br>
+                            Netherlands
+                        </p>
+                        <p class="contact-detail-description">
+                            Our headquarters<br>
+                            and production facility
+                        </p>
+                    </div>
+                    
+                    <div class="contact-detail-card">
+                        <div class="contact-detail-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-detail-title">Business Hours</h3>
+                        <p class="contact-detail-text">
+                            Monday - Friday<br>
+                            08:00 - 18:00
+                        </p>
+                        <p class="contact-detail-description">
+                            Central European Time<br>
+                            (CET/CEST)
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="contact-additional-info">
+                    <div class="enhanced-get-started-card">
+                        <div class="get-started-background">
+                            <div class="get-started-pattern"></div>
+                            <div class="get-started-overlay"></div>
+                        </div>
+                        
+                        <div class="get-started-content">
+                            <div class="get-started-header">
+                                <div class="get-started-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="32" height="32">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                    </svg>
+                                </div>
+                                <h3 class="get-started-title">Ready to Get Started?</h3>
+                                <p class="get-started-subtitle">
+                                    Let's turn your vision into reality. Our expert team is here to guide you every step of the way.
+                                </p>
+                            </div>
+                            
+                            <div class="get-started-description">
+                                <p>
+                                    Our customer service team is ready to assist you with product information, pricing, samples, and any technical questions you may have. Don't hesitate to reach out - we're here to help your business succeed.
+                                </p>
+                            </div>
+                            
+                            <div class="get-started-features">
+                                <div class="get-started-feature">
+                                    <div class="feature-check">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                            <path d="M20 6L9 17l-5-5"/>
+                                        </svg>
+                                    </div>
+                                    <span>Product Information & Specifications</span>
+                                </div>
+                                <div class="get-started-feature">
+                                    <div class="feature-check">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                            <path d="M20 6L9 17l-5-5"/>
+                                        </svg>
+                                    </div>
+                                    <span>Pricing & Quotations</span>
+                                </div>
+                                <div class="get-started-feature">
+                                    <div class="feature-check">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                            <path d="M20 6L9 17l-5-5"/>
+                                        </svg>
+                                    </div>
+                                    <span>Sample Requests</span>
+                                </div>
+                                <div class="get-started-feature">
+                                    <div class="feature-check">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                            <path d="M20 6L9 17l-5-5"/>
+                                        </svg>
+                                    </div>
+                                    <span>Technical Support</span>
+                                </div>
+                                <div class="get-started-feature">
+                                    <div class="feature-check">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                            <path d="M20 6L9 17l-5-5"/>
+                                        </svg>
+                                    </div>
+                                    <span>Order Placement & Tracking</span>
+                                </div>
+                                <div class="get-started-feature">
+                                    <div class="feature-check">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                            <path d="M20 6L9 17l-5-5"/>
+                                        </svg>
+                                    </div>
+                                    <span>Custom Solutions & Consultation</span>
+                                </div>
+                            </div>
+                            
+                            <div class="get-started-cta">
+                                <div class="cta-buttons">
+                                    <a href="tel:+31251316302" class="cta-primary">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                        </svg>
+                                        <span>Call Now</span>
+                                    </a>
+                                    <a href="mailto:info@dimple.nl" class="cta-secondary">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                            <polyline points="22,6 12,13 2,6"/>
+                                        </svg>
+                                        <span>Send Email</span>
+                                    </a>
+                                </div>
+                                <div class="cta-note">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12,6 12,12 16,14"/>
+                                    </svg>
+                                    <span>Response guaranteed within 24 hours</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -825,11 +1983,32 @@
         </div>
     </footer>
 
-    <!-- Floating Video Button -->
-    <a href="index.html" class="floating-video-btn" title="Watch Dimple Video">
-        <div class="floating-video-icon"></div>
+
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top" title="Back to top">
+        <span class="arrow-icon">↑</span>
     </a>
 
+    <script>
+        // Customer Service Hero Scroll Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollButton = document.querySelector('[data-action="scroll-to-contact"]');
+            
+            if (scrollButton) {
+                scrollButton.addEventListener('click', function() {
+                    // Scroll to the contact section (service features section)
+                    const contactSection = document.querySelector('.service-features');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html> 

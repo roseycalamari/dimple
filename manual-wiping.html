@@ -545,60 +545,7 @@
             opacity: 0.9;
         }
 
-        /* CTA Section */
-        .washcloth-cta-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
 
-        .washcloth-cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-family: var(--font-primary);
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary-white);
-            margin-bottom: 20px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-description {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            line-height: 1.7;
-            color: var(--primary-green);
-            margin-bottom: 40px;
-            font-weight: 400;
-            opacity: 0.95;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
@@ -617,14 +564,510 @@
                 gap: 20px;
             }
 
-            .washcloth-cta {
-                flex-direction: column;
-                align-items: center;
+
+        }
+
+        /* Enhanced BioCleaner Section Styles */
+        .biocleaner-section {
+            position: relative;
+            padding: clamp(80px, 10vh, 120px) 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+            overflow: hidden;
+        }
+
+        .biocleaner-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .biocleaner-grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120%;
+            height: 120%;
+            background-image: 
+                linear-gradient(rgba(26, 95, 63, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 95, 63, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: biocleanerGridMove 30s linear infinite;
+        }
+
+        @keyframes biocleanerGridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        .biocleaner-header {
+            text-align: center;
+            margin-bottom: clamp(40px, 6vh, 60px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .biocleaner-subtitle {
+            font-family: var(--font-secondary);
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: var(--text-gray);
+            margin-top: clamp(15px, 2vh, 20px);
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .biocleaner-main {
+            display: flex;
+            justify-content: center;
+            margin-bottom: clamp(40px, 6vh, 60px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .biocleaner-description {
+            max-width: clamp(600px, 50vw, 800px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .description-text {
+            font-family: var(--font-secondary);
+            font-size: clamp(1rem, 1.6vw, 1.2rem);
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-weight: 400;
+            text-align: left;
+        }
+
+        .biocleaner-subsections {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(30px, 4vw, 50px);
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-card {
+            background: var(--primary-white);
+            border-radius: clamp(16px, 2vw, 24px);
+            overflow: hidden;
+            box-shadow: 
+                0 8px 32px rgba(26, 95, 63, 0.08),
+                0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: all var(--transition-medium);
+            border: 1px solid rgba(26, 95, 63, 0.08);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 
+                0 16px 50px rgba(26, 95, 63, 0.15),
+                0 8px 25px rgba(0, 0, 0, 0.08);
+            border-color: rgba(26, 95, 63, 0.15);
+        }
+
+        .card-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 95, 63, 0.02), rgba(46, 167, 106, 0.02));
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+        }
+
+        .service-card:hover .card-background {
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: clamp(24px, 4vw, 32px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-icon {
+            width: clamp(60px, 8vw, 80px);
+            height: clamp(60px, 8vw, 80px);
+            background: rgba(26, 95, 63, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: clamp(16px, 2.5vh, 24px);
+            transition: all var(--transition-medium);
+            border: 2px solid rgba(26, 95, 63, 0.15);
+        }
+
+        .service-card:hover .card-icon {
+            background: rgba(26, 95, 63, 0.12);
+            border-color: rgba(26, 95, 63, 0.25);
+            transform: scale(1.05);
+        }
+
+        .icon-image {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+            transition: transform var(--transition-medium);
+        }
+
+        .service-card:hover .icon-image {
+            transform: scale(1.1);
+        }
+
+        .card-title {
+            font-family: var(--font-primary);
+            font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: clamp(12px, 2vh, 16px);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .card-description {
+            font-family: var(--font-secondary);
+            font-size: clamp(0.9rem, 1.4vw, 1rem);
+            color: var(--text-gray);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .card-hover-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(26, 95, 63, 0.05) 0%,
+                transparent 50%,
+                rgba(46, 167, 106, 0.03) 100%
+            );
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+            pointer-events: none;
+        }
+
+        .service-card:hover .card-hover-effect {
+            opacity: 1;
+        }
+
+        /* Responsive Design for BioCleaner */
+        @media (max-width: 1024px) {
+            .biocleaner-subsections {
+                grid-template-columns: repeat(2, 1fr);
+                gap: clamp(25px, 3vw, 40px);
+                max-width: 900px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .biocleaner-section {
+                padding: clamp(60px, 8vh, 80px) 0;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+            .biocleaner-main {
+                margin-bottom: clamp(30px, 4vh, 40px);
+            }
+
+            .biocleaner-description {
+                max-width: clamp(500px, 80vw, 600px);
+            }
+
+            .description-text {
+                text-align: center;
+            }
+
+            .biocleaner-subsections {
+                grid-template-columns: repeat(2, 1fr);
+                gap: clamp(20px, 2.5vw, 30px);
+                max-width: 600px;
+            }
+
+            .service-card {
+                border-radius: clamp(12px, 2vw, 18px);
+            }
+
+            .card-content {
+                padding: clamp(20px, 3vw, 28px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .biocleaner-section {
+                padding: clamp(50px, 6vh, 70px) 0;
+            }
+
+            .biocleaner-header {
+                margin-bottom: clamp(30px, 4vh, 40px);
+            }
+
+            .biocleaner-subtitle {
+                font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+                margin-top: clamp(12px, 1.5vh, 18px);
+            }
+
+            .biocleaner-description {
+                max-width: clamp(400px, 85vw, 500px);
+            }
+
+            .biocleaner-subsections {
+                grid-template-columns: 1fr;
+                gap: clamp(18px, 2vh, 22px);
+                max-width: 400px;
+            }
+
+            .card-content {
+                padding: clamp(18px, 2.5vw, 24px);
+            }
+
+            .card-icon {
+                width: clamp(50px, 10vw, 70px);
+                height: clamp(50px, 10vw, 70px);
+                margin-bottom: clamp(14px, 2vh, 20px);
+            }
+        }
+
+        /* Enhanced DimWipes Section Styles */
+        .dimwipes-section {
+            position: relative;
+            padding: clamp(80px, 10vh, 120px) 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+            overflow: hidden;
+        }
+
+        .dimwipes-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .dimwipes-grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120%;
+            height: 120%;
+            background-image: 
+                linear-gradient(rgba(26, 95, 63, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(26, 95, 63, 0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: dimwipesGridMove 25s linear infinite;
+        }
+
+        @keyframes dimwipesGridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(40px, 40px); }
+        }
+
+        .dimwipes-header {
+            text-align: center;
+            margin-bottom: clamp(40px, 6vh, 60px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .dimwipes-subtitle {
+            font-family: var(--font-secondary);
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: var(--text-gray);
+            margin-top: clamp(15px, 2vh, 20px);
+            font-weight: 400;
+            line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dimwipes-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: clamp(30px, 4vw, 50px);
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .dimwipes-card {
+            background: var(--primary-white);
+            border-radius: clamp(16px, 2vw, 24px);
+            overflow: hidden;
+            box-shadow: 
+                0 8px 32px rgba(26, 95, 63, 0.08),
+                0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: all var(--transition-medium);
+            border: 1px solid rgba(26, 95, 63, 0.08);
+            position: relative;
+        }
+
+        .dimwipes-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 20px 60px rgba(26, 95, 63, 0.15),
+                0 8px 32px rgba(0, 0, 0, 0.08);
+            border-color: rgba(26, 95, 63, 0.15);
+        }
+
+        .card-image-container {
+            position: relative;
+            width: 100%;
+            height: clamp(200px, 25vh, 280px);
+            overflow: hidden;
+        }
+
+        .dimwipes-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-medium);
+        }
+
+        .dimwipes-card:hover .dimwipes-image {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(26, 95, 63, 0.1) 0%,
+                transparent 50%,
+                rgba(46, 167, 106, 0.05) 100%
+            );
+            opacity: 0;
+            transition: opacity var(--transition-medium);
+        }
+
+        .dimwipes-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-content {
+            padding: clamp(24px, 4vw, 32px);
+        }
+
+        .card-title {
+            font-family: var(--font-primary);
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: clamp(12px, 2vh, 16px);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .card-description {
+            font-family: var(--font-secondary);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: clamp(20px, 3vh, 28px);
+            font-weight: 400;
+        }
+
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(8px, 1.5vw, 12px);
+        }
+
+        .feature-tag {
+            display: inline-block;
+            padding: clamp(6px, 1.2vh, 10px) clamp(12px, 2vw, 16px);
+            background: rgba(26, 95, 63, 0.08);
+            color: var(--primary-green);
+            border-radius: 50px;
+            font-family: var(--font-secondary);
+            font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            border: 1px solid rgba(26, 95, 63, 0.15);
+            transition: all var(--transition-fast);
+        }
+
+        .feature-tag:hover {
+            background: rgba(26, 95, 63, 0.12);
+            border-color: rgba(26, 95, 63, 0.25);
+            transform: translateY(-1px);
+        }
+
+        /* Responsive Design for DimWipes */
+        @media (max-width: 1024px) {
+            .dimwipes-content {
+                grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                gap: clamp(25px, 3vw, 40px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .dimwipes-section {
+                padding: clamp(60px, 8vh, 80px) 0;
+            }
+
+            .dimwipes-content {
+                grid-template-columns: 1fr;
+                gap: clamp(20px, 3vh, 30px);
+                max-width: 500px;
+            }
+
+            .dimwipes-card {
+                border-radius: clamp(12px, 2vw, 18px);
+            }
+
+            .card-image-container {
+                height: clamp(180px, 22vh, 240px);
+            }
+
+            .card-content {
+                padding: clamp(20px, 3vw, 28px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dimwipes-section {
+                padding: clamp(50px, 6vh, 70px) 0;
+            }
+
+            .dimwipes-header {
+                margin-bottom: clamp(30px, 4vh, 40px);
+            }
+
+            .dimwipes-subtitle {
+                font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+                margin-top: clamp(12px, 1.5vh, 18px);
+            }
+
+            .card-image-container {
+                height: clamp(160px, 20vh, 200px);
+            }
+
+            .card-content {
+                padding: clamp(18px, 2.5vw, 24px);
+            }
+
+            .feature-tag {
+                padding: clamp(5px, 1vh, 8px) clamp(10px, 2vw, 14px);
+                font-size: clamp(0.7rem, 2.5vw, 0.8rem);
             }
         }
 
@@ -940,9 +1383,9 @@
                     </div>
                     <a href="formula1.html" class="nav-link">Formula 1</a>
                     <a href="home.html#pricing" class="nav-link">Pricing</a>
-                    <a href="customer-service.html" class="nav-link">Customer Service</a>
-                    <a href="home.html#brochures" class="nav-link">Brochures</a>
-                    <a href="home.html#contact" class="nav-contact-button">Contact</a>
+                    <a href="customer-service.html#contact" class="nav-link">Customer Service</a>
+                    <a href="brochures.html" class="nav-link">Brochures</a>
+                    <a href="customer-service.html" class="nav-contact-button">Contact</a>
                 </nav>
                 
                 <div class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -977,9 +1420,9 @@
             </div>
             <a href="formula1.html" class="mobile-nav-link">Formula 1</a>
             <a href="home.html#pricing" class="mobile-nav-link">Pricing</a>
-            <a href="customer-service.html" class="mobile-nav-link">Customer Service</a>
-            <a href="home.html#brochures" class="mobile-nav-link">Brochures</a>
-            <a href="home.html#contact" class="mobile-nav-link nav-contact-button">Contact</a>
+                                    <a href="customer-service.html#contact" class="mobile-nav-link">Customer Service</a>
+            <a href="brochures.html" class="mobile-nav-link">Brochures</a>
+            <a href="customer-service.html" class="mobile-nav-link nav-contact-button">Contact</a>
         </div>
     </nav>
 
@@ -1015,30 +1458,34 @@
     </section>
 
     <!-- BioCleaner Section -->
-    <section class="biocleaner-section" id="biocleaner" style="padding: 80px 0; background: #f8f9fa;">
+    <section class="biocleaner-section" id="biocleaner">
+        <div class="biocleaner-background">
+            <div class="biocleaner-grid-pattern"></div>
+        </div>
+        
         <div class="container">
-            <div class="biocleaner-header" style="text-align: center; margin-bottom: 50px;">
-                <h2 class="section-title" style="font-size: 2.3rem; font-weight: 800; color: #1a1a1a;">BioCleaner</h2>
+            <div class="biocleaner-header">
+                <h2 class="section-title">BioCleaner</h2>
+                <p class="biocleaner-subtitle">Professional cleaning solutions with environmental consciousness</p>
             </div>
-            <div class="biocleaner-main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 40px; justify-content: center; margin-bottom: 40px;">
-                <div class="biocleaner-image" style="flex: 0 0 320px; max-width: 320px;">
-                    <img src="images/biocleaner-lw0rdnsbixk4voqoqquxcx7szdx9xat31s5amrbu7o.jpg" alt="BioCleaner" style="width: 100%; border-radius: 18px; box-shadow: 0 8px 32px rgba(0,0,0,0.10);">
-                </div>
-                <div class="biocleaner-description" style="flex: 1 1 350px; min-width: 280px;">
-                    <p style="font-size: 1.1rem; color: #333; line-height: 1.7;">
+            
+            <div class="biocleaner-main">
+                <div class="biocleaner-description">
+                    <p class="description-text">
                         The BioCleaner-series by Dimple offers professional cleaning with a clear conscience. The ready to use wipes are presoaked with the solvent suitable for your application. Dimple has a range options, ensuring you have the correct wipes and detergents for your business needs. Available in plastic containers, cleansing wipes offer the easy solution to your cleaning work.
                     </p>
                 </div>
             </div>
+            
             <div class="biocleaner-subsections">
                 <div class="service-card">
                     <div class="card-background"></div>
                     <div class="card-content">
                         <div class="card-icon">
-                            <img src="images/pressure.png" alt="Press Icon" style="width: 100%; height: 100%; object-fit: contain;">
+                            <img src="images/pressure.png" alt="Press Icon" class="icon-image">
                         </div>
-                        <h3>Press</h3>
-                        <p>This high quality solvent offers an excellent cleaning solution for rubber cloths, rollers, spatulas, spare parts and in and around your print press. Free of aromatics. Effective cleaning through ink releaser.</p>
+                        <h3 class="card-title">Press</h3>
+                        <p class="card-description">This high quality solvent offers an excellent cleaning solution for rubber cloths, rollers, spatulas, spare parts and in and around your print press. Free of aromatics. Effective cleaning through ink releaser.</p>
                     </div>
                     <div class="card-hover-effect"></div>
                 </div>
@@ -1047,10 +1494,10 @@
                     <div class="card-background"></div>
                     <div class="card-content">
                         <div class="card-icon">
-                            <img src="images/degrease.png" alt="Degrease Icon" style="width: 100%; height: 100%; object-fit: contain;">
+                            <img src="images/degrease.png" alt="Degrease Icon" class="icon-image">
                         </div>
-                        <h3>Degrease</h3>
-                        <p>Chromed, ceramic, rubber and plastic dampening rollers degreased easily and effectively by using the BioCleaner degreaser. The wipes are free of aromatics and chlorinated hydrocarbons.</p>
+                        <h3 class="card-title">Degrease</h3>
+                        <p class="card-description">Chromed, ceramic, rubber and plastic dampening rollers degreased easily and effectively by using the BioCleaner degreaser. The wipes are free of aromatics and chlorinated hydrocarbons.</p>
                     </div>
                     <div class="card-hover-effect"></div>
                 </div>
@@ -1059,10 +1506,10 @@
                     <div class="card-background"></div>
                     <div class="card-content">
                         <div class="card-icon">
-                            <img src="images/glass.png" alt="Glass Icon" style="width: 100%; height: 100%; object-fit: contain;">
+                            <img src="images/glass.png" alt="Glass Icon" class="icon-image">
                         </div>
-                        <h3>Glass</h3>
-                        <p>Cleans your glass surfaces! Scanners, copiers, anything made of glass. Clean without spots and stripes for crystal clear results.</p>
+                        <h3 class="card-title">Glass</h3>
+                        <p class="card-description">Cleans your glass surfaces! Scanners, copiers, anything made of glass. Clean without spots and stripes for crystal clear results.</p>
                     </div>
                     <div class="card-hover-effect"></div>
                 </div>
@@ -1071,10 +1518,10 @@
                     <div class="card-background"></div>
                     <div class="card-content">
                         <div class="card-icon">
-                            <img src="images/handwipersss.png" alt="Hand Icon" style="width: 100%; height: 100%; object-fit: contain;">
+                            <img src="images/handwipersss.png" alt="Hand Icon" class="icon-image">
                         </div>
-                        <h3>Hand</h3>
-                        <p>Cleans your hands thoroughly and is skin-friendly at the same time. Easy to use, no water necessary for convenient cleaning.</p>
+                        <h3 class="card-title">Hand</h3>
+                        <p class="card-description">Cleans your hands thoroughly and is skin-friendly at the same time. Easy to use, no water necessary for convenient cleaning.</p>
                     </div>
                     <div class="card-hover-effect"></div>
                 </div>
@@ -1083,21 +1530,48 @@
     </section>
 
     <!-- DimWipes Section -->
-    <section class="dimwipes-section" id="dimwipes" style="padding: 80px 0; background: #f8f9fa;">
+    <section class="dimwipes-section" id="dimwipes">
+        <div class="dimwipes-background">
+            <div class="dimwipes-grid-pattern"></div>
+        </div>
+        
         <div class="container">
-            <div class="dimwipes-header" style="text-align: center; margin-bottom: 50px;">
-                <h2 class="section-title" style="font-size: 2.3rem; font-weight: 800; color: #1a1a1a;">DimWipes®</h2>
+            <div class="dimwipes-header">
+                <h2 class="section-title">DimWipes®</h2>
+                <p class="dimwipes-subtitle">Professional cleaning solutions designed for industrial excellence</p>
             </div>
-            <div class="dimwipes-content" style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
-                <div class="dimwipes-card" style="flex: 0 0 320px; max-width: 320px; background: #fff; border-radius: 16px; box-shadow: 0 4px 18px rgba(26,95,63,0.07); padding: 32px 24px;">
-                    <img src="images/dimwipes-drycut-lw0ruw5tuv3n0vyvg6em7cw4g4i5t5zb68qv2dixd0.jpg" alt="DimWipes® DryCut®" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
-                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 12px;">DimWipes® DryCut®</h3>
-                    <p style="color: #444; font-size: 0.98rem; line-height: 1.6;">Cleaning by hand comes easy using Dimple wiping rags. Available in 35 x 45 cms plano wipes in boxes.</p>
+            
+            <div class="dimwipes-content">
+                <div class="dimwipes-card">
+                    <div class="card-image-container">
+                        <img src="images/dimwipes-drycut-lw0ruw5tuv3n0vyvg6em7cw4g4i5t5zb68qv2dixd0.jpg" alt="DimWipes® DryCut®" class="dimwipes-image">
+                        <div class="card-overlay"></div>
                 </div>
-                <div class="dimwipes-card" style="flex: 0 0 320px; max-width: 320px; background: #fff; border-radius: 16px; box-shadow: 0 4px 18px rgba(26,95,63,0.07); padding: 32px 24px;">
-                    <img src="images/dimwipes-perfo-lw0rujxxe0mwtygmfj4gsxz4q46e13mssk9jts11lw.jpg" alt="DimWipes® Perfo®" style="width: 100%; border-radius: 12px; margin-bottom: 20px;">
-                    <h3 style="font-size: 1.2rem; font-weight: 700; color: #1a1a1a; margin-bottom: 12px;">DimWipes® Perfo®</h3>
-                    <p style="color: #444; font-size: 0.98rem; line-height: 1.6;">Available in perforated rolls.</p>
+                    <div class="card-content">
+                        <h3 class="card-title">DimWipes® DryCut®</h3>
+                        <p class="card-description">Cleaning by hand comes easy using Dimple wiping rags. Available in 35 x 45 cms plano wipes in boxes.</p>
+                        <div class="card-features">
+                            <span class="feature-tag">Hand Cleaning</span>
+                            <span class="feature-tag">Boxed Format</span>
+                            <span class="feature-tag">35 x 45 cm</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dimwipes-card">
+                    <div class="card-image-container">
+                        <img src="images/dimwipes-perfo-lw0rujxxe0mwtygmfj4gsxz4q46e13mssk9jts11lw.jpg" alt="DimWipes® Perfo®" class="dimwipes-image">
+                        <div class="card-overlay"></div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">DimWipes® Perfo®</h3>
+                        <p class="card-description">Available in perforated rolls for continuous cleaning operations.</p>
+                        <div class="card-features">
+                            <span class="feature-tag">Perforated</span>
+                            <span class="feature-tag">Roll Format</span>
+                            <span class="feature-tag">Continuous</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1281,9 +1755,11 @@
         </div>
     </footer>
 
-    <!-- Floating Video Button -->
-    <a href="index.html" class="floating-video-btn" title="Watch Dimple Video">
-        <div class="floating-video-icon"></div>
+
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top" title="Back to top">
+        <span class="arrow-icon">↑</span>
     </a>
 
     <script src="script.js"></script>

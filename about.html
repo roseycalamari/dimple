@@ -86,6 +86,45 @@
             }
         }
 
+        /* Video CTA Button Styles */
+        .video-cta-btn {
+            background: linear-gradient(135deg, var(--bright-green), var(--accent-green)) !important;
+            border: 2px solid var(--bright-green) !important;
+            color: var(--primary-white) !important;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-bouncy) !important;
+        }
+
+        .video-cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .video-cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .video-cta-btn:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+            box-shadow: 0 15px 40px rgba(52, 208, 88, 0.4) !important;
+            background: linear-gradient(135deg, var(--accent-green), var(--bright-green)) !important;
+        }
+
+        .video-cta-btn .cta-icon {
+            transition: transform var(--transition-fast);
+        }
+
+        .video-cta-btn:hover .cta-icon {
+            transform: scale(1.2);
+        }
+
         @media (max-width: 480px) {
             .about-hero {
                 padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
@@ -990,9 +1029,9 @@
                     </div>
                     <a href="formula1.html" class="nav-link">Formula 1</a>
                     <a href="home.html#pricing" class="nav-link">Pricing</a>
-                    <a href="customer-service.html" class="nav-link">Customer Service</a>
-                    <a href="home.html#brochures" class="nav-link">Brochures</a>
-                    <a href="home.html#contact" class="nav-contact-button">Contact</a>
+                    <a href="customer-service.html#contact" class="nav-link">Customer Service</a>
+                    <a href="brochures.html" class="nav-link">Brochures</a>
+                    <a href="customer-service.html" class="nav-contact-button">Contact</a>
                 </nav>
                 
                 <div class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -1027,9 +1066,9 @@
             </div>
             <a href="formula1.html" class="mobile-nav-link">Formula 1</a>
             <a href="home.html#pricing" class="mobile-nav-link">Pricing</a>
-            <a href="customer-service.html" class="mobile-nav-link">Customer Service</a>
-            <a href="home.html#brochures" class="mobile-nav-link">Brochures</a>
-            <a href="home.html#contact" class="mobile-nav-link nav-contact-button">Contact</a>
+                                    <a href="customer-service.html#contact" class="mobile-nav-link">Customer Service</a>
+            <a href="brochures.html" class="mobile-nav-link">Brochures</a>
+            <a href="customer-service.html" class="mobile-nav-link nav-contact-button">Contact</a>
         </div>
     </nav>
 
@@ -1058,6 +1097,10 @@
                             <span class="cta-text">Explore</span>
                             <span class="cta-icon">↓</span>
                         </button>
+                        <a href="index.html" class="cta-button cta-primary video-cta-btn">
+                            <span class="cta-text">Watch Our Video</span>
+                            <span class="cta-icon">▶</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1381,10 +1424,11 @@
 
     </footer>
 
-    <!-- Floating Video Button -->
-    <a href="index.html" class="floating-video-btn" title="Watch Dimple Video">
-        <div class="floating-video-icon"></div>
-        <span class="floating-video-text">Dimple on Video</span>
+
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top" title="Back to top">
+        <span class="arrow-icon">↑</span>
     </a>
 
     <!-- JavaScript -->

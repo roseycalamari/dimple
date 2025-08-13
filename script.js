@@ -685,4 +685,143 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     console.log('Dimple Premium Interactive Features Loaded ✨');
+    
+    // ===== BACK TO TOP BUTTON FUNCTIONALITY =====
+    // Enhanced back-to-top button with smooth animations and scroll detection
+    
+    // Create back-to-top button if it doesn't exist
+    function createBackToTopButton() {
+        if (!document.querySelector('.back-to-top')) {
+            const backToTopButton = document.createElement('a');
+            backToTopButton.href = '#';
+            backToTopButton.className = 'back-to-top';
+            backToTopButton.setAttribute('aria-label', 'Back to top');
+            backToTopButton.setAttribute('title', 'Back to top');
+            
+            // Create arrow icon
+            const arrowIcon = document.createElement('span');
+            arrowIcon.className = 'arrow-icon';
+            arrowIcon.innerHTML = '↑';
+            arrowIcon.style.fontWeight = 'bold';
+            
+            backToTopButton.appendChild(arrowIcon);
+            document.body.appendChild(backToTopButton);
+            
+            // Add click event
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                smoothScrollToTop();
+            });
+            
+            console.log('Back to top button created successfully');
+        }
+    }
+    
+    // Smooth scroll to top function
+    function smoothScrollToTop() {
+        const backToTopButton = document.querySelector('.back-to-top');
+        if (backToTopButton) {
+            // Add loading state
+            backToTopButton.style.pointerEvents = 'none';
+            backToTopButton.style.opacity = '0.7';
+            
+            // Smooth scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            // Reset button state after scroll
+            setTimeout(() => {
+                if (backToTopButton) {
+                    backToTopButton.style.pointerEvents = 'auto';
+                    backToTopButton.style.opacity = '1';
+                }
+            }, 1000);
+        }
+    }
+    
+    // Show/hide back-to-top button based on scroll position
+    function toggleBackToTopButton() {
+        const backToTopButton = document.querySelector('.back-to-top');
+        if (backToTopButton) {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Show button when scrolled down 20% of viewport height
+            const showThreshold = windowHeight * 0.2;
+            
+            if (scrollTop > showThreshold) {
+                if (!backToTopButton.classList.contains('visible')) {
+                    backToTopButton.classList.add('visible');
+                }
+            } else {
+                if (backToTopButton.classList.contains('visible')) {
+                    backToTopButton.classList.remove('visible');
+                }
+            }
+            
+            // Hide button when near bottom of page
+            const hideThreshold = documentHeight - windowHeight - 100;
+            if (scrollTop > hideThreshold) {
+                backToTopButton.style.opacity = '0.6';
+            } else {
+                backToTopButton.style.opacity = '1';
+            }
+        }
+    }
+    
+    // Enhanced scroll event handler with throttling
+    let scrollTimeout;
+    function handleScroll() {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(toggleBackToTopButton, 10);
+    }
+    
+    // Initialize back-to-top button
+    function initBackToTopButton() {
+        createBackToTopButton();
+        
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
+        // Initial check
+        toggleBackToTopButton();
+        
+        // Add keyboard support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Home') {
+                e.preventDefault();
+                smoothScrollToTop();
+            }
+        });
+        
+        console.log('Back to top button initialized successfully');
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initBackToTopButton);
+    } else {
+        initBackToTopButton();
+    }
+    
+    // Re-initialize if page content changes dynamically
+    if (typeof MutationObserver !== 'undefined') {
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' && !document.querySelector('.back-to-top')) {
+                    setTimeout(initBackToTopButton, 100);
+                }
+            });
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
 }); 

@@ -926,18 +926,9 @@
                 min-height: clamp(28px, 4.5vh, 34px);
             }
 
-            .floating-video-btn {
-                bottom: clamp(0.3rem, 1.5vh, 0.8rem);
-                right: clamp(0.3rem, 2vw, 0.8rem);
-                padding: clamp(0.2rem, 0.8vh, 0.4rem) clamp(0.4rem, 1.5vw, 0.8rem);
-                font-size: clamp(0.45rem, 1.1vw, 0.6rem);
-                gap: clamp(0.15rem, 0.8vw, 0.3rem);
-            }
+            
 
-            .floating-video-icon {
-                width: clamp(10px, 2.5vw, 14px);
-                height: clamp(10px, 2.5vw, 14px);
-            }
+            
         }
 
         /* Enhanced Extra tall screens optimization */
@@ -1170,11 +1161,11 @@
         }
 
         /* Focus states for better accessibility */
-        .cta-button:focus,
-        .floating-video-btn:focus {
+        .cta-button:focus {
             outline: 2px solid var(--bright-green);
             outline-offset: 2px;
         }
+
 
         /* Better touch targets for mobile */
         @media (pointer: coarse) {
@@ -1183,113 +1174,14 @@
                 min-width: 44px;
             }
             
-            .floating-video-btn {
-                min-height: 44px;
-                min-width: 44px;
-            }
+            
         }
 
-        /* Floating Action Button - "Dimple on Video" */
-        .floating-video-btn {
-            position: fixed;
-            bottom: clamp(0.75rem, 3vh, 1.5rem);
-            right: clamp(0.75rem, 3vw, 1.5rem);
-            z-index: 1000;
-            background: linear-gradient(135deg, var(--accent-green), var(--bright-green));
-            color: var(--primary-white);
-            padding: clamp(0.5rem, 1.5vh, 0.8rem) clamp(0.75rem, 2.5vw, 1.2rem);
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: var(--font-primary);
-            font-weight: 700;
-            font-size: clamp(0.6rem, 1.5vw, 0.8rem);
-            display: flex;
-            align-items: center;
-            gap: clamp(0.3rem, 1vw, 0.6rem);
-            box-shadow: 
-                0 8px 25px rgba(46, 167, 106, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            transition: all var(--transition-bouncy);
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            animation: floatingPulse 3s ease-in-out infinite;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
 
-        .floating-video-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, var(--bright-green), var(--accent-green));
-            border-radius: 50px;
-            opacity: 0;
-            transition: opacity var(--transition-fast);
-            z-index: -1;
-        }
 
-        .floating-video-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 
-                0 15px 40px rgba(46, 167, 106, 0.6),
-                0 0 0 1px rgba(255, 255, 255, 0.3);
-            animation-play-state: paused;
-        }
 
-        .floating-video-btn:hover::before {
-            opacity: 1;
-        }
 
-        .floating-video-btn:active {
-            transform: translateY(-1px) scale(1.02);
-        }
 
-        .floating-video-icon {
-            width: clamp(14px, 3vw, 18px);
-            height: clamp(14px, 3vw, 18px);
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .floating-video-icon::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 6px solid var(--accent-green);
-            border-top: 4px solid transparent;
-            border-bottom: 4px solid transparent;
-            margin-left: 1px;
-        }
-
-        .floating-video-text {
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        /* Floating button animations */
-        @keyframes floatingPulse {
-            0%, 100% {
-                box-shadow: 
-                    0 8px 25px rgba(46, 167, 106, 0.4),
-                    0 0 0 1px rgba(255, 255, 255, 0.1),
-                    0 0 0 0 rgba(46, 167, 106, 0.4);
-            }
-            50% {
-                box-shadow: 
-                    0 8px 25px rgba(46, 167, 106, 0.4),
-                    0 0 0 1px rgba(255, 255, 255, 0.1),
-                    0 0 0 10px rgba(46, 167, 106, 0.1);
-            }
-        }
 
         /* Enhanced Mobile responsiveness for floating button */
         @media (max-width: 768px) {
@@ -1312,32 +1204,7 @@
                 filter: brightness(1.15) contrast(1.05);
             }
 
-            .floating-video-btn {
-                bottom: clamp(1.2rem, 3.5vh, 2rem);
-                right: clamp(1.2rem, 3.5vw, 2rem);
-                padding: clamp(0.6rem, 1.8vh, 1rem) clamp(1rem, 2.8vw, 1.5rem);
-                font-size: clamp(0.7rem, 1.8vw, 0.85rem);
-                gap: clamp(0.4rem, 1.2vw, 0.7rem);
-                min-height: clamp(40px, 7vh, 48px);
-                z-index: 1001;
-                background: linear-gradient(135deg, var(--accent-green), var(--bright-green));
-                box-shadow: 0 6px 20px rgba(46, 167, 106, 0.4), 0 2px 8px rgba(0, 0, 0, 0.15);
-                border: 1.5px solid rgba(255, 255, 255, 0.25);
-            }
 
-            .floating-video-icon {
-                width: clamp(14px, 3.5vw, 18px);
-                height: clamp(14px, 3.5vw, 18px);
-                background: rgba(255, 255, 255, 0.95);
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-            }
-
-            .floating-video-icon::after {
-                border-left-width: clamp(3px, 0.8vw, 5px);
-                border-top-width: clamp(2px, 0.6vw, 3px);
-                border-bottom-width: clamp(2px, 0.6vw, 3px);
-                border-left-color: var(--accent-green);
-            }
         }
 
         @media (max-width: 480px) {
@@ -1350,38 +1217,12 @@
                 height: clamp(20px, 5vw, 25px);
             }
 
-            .floating-video-btn {
-                bottom: clamp(0.8rem, 2.5vh, 1.2rem);
-                right: clamp(0.8rem, 2.5vw, 1.2rem);
-                padding: clamp(0.5rem, 1.5vh, 0.8rem) clamp(0.8rem, 2.2vw, 1.2rem);
-                font-size: clamp(0.65rem, 1.6vw, 0.75rem);
-                gap: clamp(0.3rem, 1vw, 0.5rem);
-                min-height: clamp(36px, 6vh, 44px);
-                z-index: 1001;
-                border-radius: 20px;
-            }
 
-            .floating-video-icon {
-                width: clamp(12px, 3vw, 16px);
-                height: clamp(12px, 3vw, 16px);
-            }
-
-            .floating-video-icon::after {
-                border-left-width: clamp(2px, 0.6vw, 4px);
-                border-top-width: clamp(1.5px, 0.4vw, 2.5px);
-                border-bottom-width: clamp(1.5px, 0.4vw, 2.5px);
-            }
         }
 
         /* Landscape mode adjustments */
         @media (orientation: landscape) and (max-height: 500px) {
-            .floating-video-btn {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.6rem 1rem;
-                font-size: 0.7rem;
-                z-index: 1001;
-            }
+            /* Video button styles moved to external CSS */
         }
 
         /* Dimple-Themed Modern CEO Booking Modal (two-step, modern date picker) */
@@ -1514,10 +1355,7 @@
         </div>
     </div>
 
-    <!-- Floating Video Button -->
-    <a href="index.html" class="floating-video-btn" title="Watch Dimple Video">
-        <div class="floating-video-icon"></div>
-    </a>
+
 
     <!-- Calendly Inline Widget (fallback) -->
     <div id="calendly-inline-widget" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; z-index:999999; background:rgba(26, 95, 63, 0.75); backdrop-filter:blur(4px);">
@@ -1865,5 +1703,12 @@
             }
         });
     </script>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" aria-label="Back to top" title="Back to top">
+        <span class="arrow-icon">↑</span>
+    </a>
+
+    <script src="script.js"></script>
 </body>
 </html> 
