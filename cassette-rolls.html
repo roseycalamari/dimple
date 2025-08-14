@@ -46,6 +46,60 @@
                 padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
                 min-height: 85vh;
             }
+            
+                    /* Enhanced mobile hero content */
+        .cassette-hero-content {
+            padding: 0 15px;
+        }
+        
+        .hero-title .title-line {
+            font-size: clamp(1.8rem, 6vw, 2.2rem);
+        }
+        
+        .hero-title .title-main {
+            font-size: clamp(2.5rem, 8vw, 3rem);
+        }
+        
+        /* Force "Rolls" to be same size as "Dimple" on mobile */
+        .cassette-rolls-hero .hero-title .title-main {
+            font-size: clamp(2.5rem, 8vw, 3rem) !important;
+        }
+        
+        .hero-title .title-main .title-main-text {
+            font-size: clamp(2.5rem, 8vw, 3rem);
+        }
+        
+        /* Ensure "Rolls" has same size as "Dimple" on mobile */
+        .hero-title .title-main {
+            font-size: clamp(2.5rem, 8vw, 3rem) !important;
+        }
+        
+        .hero-title .title-main span {
+            font-size: clamp(2.5rem, 8vw, 3rem) !important;
+        }
+        
+        .hero-title .title-subtitle {
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+        }
+            
+            .hero-description {
+                font-size: clamp(1rem, 3.5vw, 1.1rem);
+                line-height: 1.6;
+                margin-bottom: 25px;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .cta-secondary {
+                width: 100%;
+                max-width: 280px;
+                padding: 14px 24px;
+                font-size: 0.95rem;
+            }
         }
 
         .cassette-hero-background {
@@ -109,8 +163,7 @@
         }
 
         /* Using global hero styles from styles.css for consistency */
-
-
+        .cassette-hero-cta {
             position: relative;
             overflow: hidden;
             min-width: 220px;
@@ -466,6 +519,9 @@
         /* Cassette CTA Button */
         .cassette-cta {
             margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .cassette-explore-btn {
@@ -484,6 +540,9 @@
             gap: 12px;
             position: relative;
             overflow: hidden;
+            margin: 0 auto;
+            justify-content: center;
+            min-width: 200px;
         }
 
         .cassette-explore-btn::before {
@@ -693,6 +752,56 @@
                 padding: 40px 30px;
                 gap: 30px;
             }
+            
+            /* Enhanced mobile mini rolls section */
+            .mini-rolls-header .machines-title .title-line {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
+            
+            .mini-rolls-header .machines-title .title-main {
+                font-size: clamp(2rem, 6vw, 2.5rem);
+            }
+            
+            .mini-rolls-header .machines-title .title-subtitle {
+                font-size: clamp(1rem, 3vw, 1.2rem);
+            }
+            
+            .mini-rolls-description {
+                font-size: clamp(1rem, 3.5vw, 1.1rem);
+                line-height: 1.7;
+                padding: 0 20px;
+            }
+            
+            .cassette-subtitle {
+                font-size: clamp(1.8rem, 5vw, 2.2rem);
+                text-align: center;
+            }
+            
+            .cassette-text {
+                font-size: clamp(1rem, 3.5vw, 1.1rem);
+                line-height: 1.7;
+                text-align: center;
+                padding: 0 15px;
+            }
+            
+            .cassette-features {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 0 15px;
+            }
+            
+            .cassette-features li {
+                padding: 15px 20px;
+                font-size: clamp(0.9rem, 3vw, 1rem);
+                text-align: center;
+            }
+            
+            .cassette-explore-btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 16px 28px;
+                font-size: 1rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -713,6 +822,66 @@
             .cassette-subsection {
                 padding: 30px 20px;
                 gap: 25px;
+            }
+            
+            /* Enhanced mobile machines section */
+            .machines-section {
+                padding: 60px 0;
+            }
+            
+            .machines-header .machines-title .title-line {
+                font-size: clamp(1.3rem, 4.5vw, 1.8rem);
+            }
+            
+            .machines-header .machines-title .title-main {
+                font-size: clamp(1.8rem, 5.5vw, 2.3rem);
+            }
+            
+            .machines-header .machines-title .title-subtitle {
+                font-size: clamp(0.9rem, 2.8vw, 1.1rem);
+            }
+            
+            .machines-description {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+                padding: 0 20px;
+                line-height: 1.6;
+            }
+            
+            .carousel-container {
+                margin: 40px 0;
+            }
+            
+            .carousel-item {
+                min-width: 120px;
+                margin: 0 10px;
+            }
+            
+            .company-logo img {
+                height: 40px;
+                width: auto;
+            }
+            
+            .machines-cta-section {
+                padding: 40px 20px;
+                text-align: center;
+            }
+            
+            .cta-heading {
+                font-size: clamp(1.3rem, 4vw, 1.6rem);
+                margin-bottom: 15px;
+            }
+            
+            .cta-description {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+                line-height: 1.6;
+                margin-bottom: 25px;
+            }
+            
+            .machines-cta-button {
+                width: 100%;
+                max-width: 280px;
+                padding: 16px 28px;
+                font-size: 1rem;
             }
         }
 
@@ -849,6 +1018,121 @@
                 gap: 40px;
             }
         }
+        
+        /* Enhanced Mobile Footer and General Improvements */
+        @media (max-width: 768px) {
+            .footer {
+                padding: 50px 0 25px;
+            }
+            
+            .footer-content {
+                padding: 0 20px;
+            }
+            
+            .footer-main {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            
+                    .footer-brand .footer-logo .logo-image {
+            height: 40px;
+            width: auto;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+            
+            .footer-description {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+                line-height: 1.6;
+            }
+            
+            .footer-contact h4 {
+                font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+                margin-bottom: 15px;
+            }
+            
+            .contact-info {
+                gap: 8px;
+            }
+            
+            .contact-link {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+                padding-top: 25px;
+            }
+            
+            .footer-copyright p {
+                font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            }
+            
+            .footer-social {
+                gap: 20px;
+            }
+            
+            .social-link {
+                font-size: clamp(0.9rem, 3vw, 1rem);
+                padding: 10px 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .cassette-rolls-hero {
+                padding: clamp(60px, 10vh, 80px) 0 clamp(20px, 5vh, 30px);
+            }
+            
+            .mini-rolls-section {
+                padding: 50px 0;
+            }
+            
+            .cassette-subsection {
+                padding: 25px 15px;
+                gap: 20px;
+            }
+            
+            .machines-section {
+                padding: 50px 0;
+            }
+            
+            .footer {
+                padding: 40px 0 20px;
+            }
+            
+            .footer-content {
+                padding: 0 15px;
+            }
+            
+            .back-to-top {
+                right: 15px;
+                bottom: 15px;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .back-to-top .arrow-icon {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -856,6 +1140,11 @@
     <header class="header">
         <div class="container">
             <div class="navbar">
+                <div class="navbar-brand">
+                    <a href="home.html" class="logo-link">
+                        <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                    </a>
+                </div>
                 <nav class="nav-menu">
                     <a href="home.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About Dimple</a>
@@ -888,6 +1177,9 @@
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
     <nav class="mobile-nav-menu" id="mobileNavMenu">
         <div class="mobile-nav-header">
+            <div class="mobile-nav-brand">
+                <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="mobile-logo-image">
+            </div>
             <button class="mobile-nav-close" id="mobileNavClose">×</button>
         </div>
         <div class="mobile-nav-links">
@@ -1270,6 +1562,40 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeCassetteModal();
+            }
+        });
+
+        // Enhanced Mobile Navigation Dropdown Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const graphicalCleaningToggle = document.getElementById('graphicalCleaningToggle');
+            const graphicalCleaningSubmenu = document.getElementById('graphicalCleaningSubmenu');
+            
+            if (graphicalCleaningToggle && graphicalCleaningSubmenu) {
+                graphicalCleaningToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Toggle active state on parent
+                    this.classList.toggle('active');
+                    
+                    // Toggle submenu
+                    graphicalCleaningSubmenu.classList.toggle('active');
+                    
+                    // Update arrow rotation
+                    const arrow = this.querySelector('.mobile-dropdown-arrow');
+                    if (arrow) {
+                        if (graphicalCleaningSubmenu.classList.contains('active')) {
+                            arrow.style.transform = 'rotate(180deg)';
+                        } else {
+                            arrow.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                });
+                
+                // Prevent submenu clicks from closing the dropdown
+                graphicalCleaningSubmenu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
             }
         });
     </script>

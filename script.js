@@ -640,48 +640,96 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile submenu dropdown functionality
+    // Enhanced Mobile submenu dropdown functionality
     const graphicalCleaningToggle = document.getElementById('graphicalCleaningToggle');
     const graphicalCleaningSubmenu = document.getElementById('graphicalCleaningSubmenu');
     
     if (graphicalCleaningToggle && graphicalCleaningSubmenu) {
-        // Toggle submenu on arrow click
+        let isAnimating = false;
+        
+        // Toggle submenu on parent click
         graphicalCleaningToggle.addEventListener('click', function(e) {
-            // Only toggle if clicking the arrow or parent container, not the link
+            // Prevent default only if clicking the parent container or arrow
             const clickedElement = e.target;
-            if (clickedElement.classList.contains('mobile-dropdown-arrow') || 
-                clickedElement === graphicalCleaningToggle) {
+            const isLink = clickedElement.tagName === 'A';
+            
+            if (!isLink) {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                const isExpanded = graphicalCleaningToggle.classList.contains('expanded');
+                if (isAnimating) return; // Prevent rapid clicking
                 
-                if (isExpanded) {
-                    graphicalCleaningToggle.classList.remove('expanded');
-                    graphicalCleaningSubmenu.classList.remove('active');
-                } else {
-                    graphicalCleaningToggle.classList.add('expanded');
-                    graphicalCleaningSubmenu.classList.add('active');
-                }
+                toggleSubmenu();
             }
         });
         
-        // Handle submenu link clicks
+        // Enhanced toggle function with better animation handling
+        function toggleSubmenu() {
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            const isExpanded = graphicalCleaningToggle.classList.contains('expanded');
+            
+            if (isExpanded) {
+                // Collapse submenu
+                graphicalCleaningToggle.classList.remove('expanded');
+                graphicalCleaningSubmenu.classList.remove('active');
+                
+                // Reset animation state after transition
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 300);
+            } else {
+                // Expand submenu
+                graphicalCleaningToggle.classList.add('expanded');
+                graphicalCleaningSubmenu.classList.add('active');
+                
+                // Reset animation state after transition
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 300);
+            }
+        }
+        
+        // Handle submenu link clicks with improved UX
         const submenuLinks = graphicalCleaningSubmenu.querySelectorAll('.mobile-nav-sublink');
         submenuLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
+                
                 const targetUrl = this.getAttribute('href');
+                
+                // Add visual feedback
+                this.style.transform = 'scale(0.98)';
                 
                 // Close menu first
                 closeMobileMenu();
                 
-                // Then navigate after a short delay
+                // Then navigate after a short delay for better UX
                 setTimeout(() => {
                     window.location.href = targetUrl;
-                }, 500);
+                }, 400);
+            });
+            
+            // Remove visual feedback on touch end
+            link.addEventListener('touchend', function() {
+                this.style.transform = '';
             });
         });
+        
+        // Prevent dropdown from interfering with scroll
+        graphicalCleaningSubmenu.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+        }, { passive: true });
+        
+        // Close submenu when mobile menu closes
+        const originalCloseMobileMenu = closeMobileMenu;
+        closeMobileMenu = function() {
+            graphicalCleaningToggle.classList.remove('expanded');
+            graphicalCleaningSubmenu.classList.remove('active');
+            originalCloseMobileMenu();
+        };
     }
 
     console.log('Dimple Premium Interactive Features Loaded ✨');

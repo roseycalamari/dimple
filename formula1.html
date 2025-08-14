@@ -90,15 +90,23 @@
             }
             
             .about-hero-content {
-                grid-template-columns: 1fr;
+                display: flex !important;
+                flex-direction: column !important;
+                grid-template-columns: none !important;
                 gap: 40px;
                 text-align: center;
                 max-width: 100%;
             }
 
+            .hero-text {
+                text-align: center;
+                margin-top: 0;
+            }
+
             .hero-video-container {
-                order: -1;
+                order: 1;
                 max-width: 500px;
+                margin-top: 20px;
             }
         }
 
@@ -1348,6 +1356,12 @@
     <header class="header">
         <div class="container">
             <div class="navbar">
+                <div class="navbar-brand">
+                    <a href="home.html" class="logo-link">
+                        <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                    </a>
+                </div>
+                
                 <nav class="nav-menu">
                     <a href="home.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About Dimple</a>
@@ -1380,6 +1394,9 @@
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
     <nav class="mobile-nav-menu" id="mobileNavMenu">
         <div class="mobile-nav-header">
+            <div class="mobile-nav-brand">
+                <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="mobile-logo-image">
+            </div>
             <button class="mobile-nav-close" id="mobileNavClose">×</button>
         </div>
         <div class="mobile-nav-links">

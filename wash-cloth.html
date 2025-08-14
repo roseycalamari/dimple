@@ -15,6 +15,32 @@
             --bright-green: #34d058;
             --off-white: #f8f9fa;
         }
+
+        /* Logo Section Styles */
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+        .logo-image {
+            height: 40px;
+            width: auto;
+            filter: brightness(1.1);
+        }
+
+
         
         /* Hero Section with Background Image - Matching cassette-rolls.html exactly */
         .washcloth-hero {
@@ -79,7 +105,7 @@
             pointer-events: none;
         }
 
-        /* Enhanced mobile responsiveness for wash cloth page - matching graphical-cleaning.html */
+        /* Enhanced mobile responsiveness for wash cloth page - matching about.html exactly */
         @media (max-width: 768px) {
             .washcloth-hero {
                 padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
@@ -87,15 +113,230 @@
             }
             
             .washcloth-hero-content {
-                text-align: center;
-                max-width: 100%;
+                text-align: center !important;
+                max-width: 100% !important;
             }
+
+            .washcloth-hero .hero-description {
+                text-align: center !important;
+                padding: clamp(1rem, 3vw, 1.5rem) clamp(1.5rem, 5vw, 2rem) !important;
+                margin: 0 auto clamp(1.5rem, 4vh, 2rem) auto !important;
+                background: transparent !important;
+                backdrop-filter: none !important;
+                max-width: min(600px, 90vw) !important;
+                line-height: 1.7 !important;
+                font-size: clamp(1rem, 2.8vw, 1.2rem) !important;
+                color: rgba(255, 255, 255, 0.95) !important;
+            }
+
+            .washcloth-hero .hero-cta {
+                justify-content: center !important;
+                padding: 0 20px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 auto 30px auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 15px !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 10 !important;
+                position: relative !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                border-radius: 16px !important;
+                backdrop-filter: blur(10px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            }
+
+            /* Mobile Logo Styles */
+            .logo-section {
+                margin-right: auto;
+            }
+
+            .logo-image {
+                height: 32px;
+            }
+
+
+
+            /* Mobile Navigation Logo */
+            .mobile-logo-section {
+                display: flex;
+                align-items: center;
+                margin-right: auto;
+            }
+
+            .mobile-logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-decoration: none;
+            }
+
+            .mobile-logo-image {
+                height: 28px;
+                width: auto;
+                filter: brightness(1.1);
+            }
+
+            /* Mobile Footer Logo Centering */
+            .footer .footer-logo {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin: 0 auto clamp(1rem, 3vh, 1.5rem) auto !important;
+            }
+
+            .footer .footer-logo .logo-image {
+                height: clamp(32px, 6vw, 40px) !important;
+                width: auto !important;
+                filter: brightness(1.1) !important;
+            }
+
+            /* Mobile CTA Section Styling */
+            .machines-cta-section {
+                padding: clamp(2rem, 5vh, 3rem) clamp(1rem, 4vw, 1.5rem) !important;
+                margin: clamp(2rem, 5vh, 3rem) 0 !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                border-radius: clamp(16px, 4vw, 20px) !important;
+                backdrop-filter: blur(10px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.1) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+            }
+
+            .machines-cta-section .cta-content {
+                text-align: center !important;
+                margin-bottom: clamp(1.5rem, 4vh, 2rem) !important;
+                width: 100% !important;
+                max-width: min(600px, 90vw) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+
+            .machines-cta-section .cta-heading {
+                font-size: clamp(1.5rem, 4vw, 2rem) !important;
+                font-weight: 700 !important;
+                color: var(--primary-white) !important;
+                margin-bottom: clamp(0.8rem, 2vh, 1.2rem) !important;
+                line-height: 1.2 !important;
+                letter-spacing: -0.02em !important;
+            }
+
+            .machines-cta-section .cta-description {
+                font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
+                color: rgba(255, 255, 255, 0.9) !important;
+                line-height: 1.6 !important;
+                max-width: min(500px, 90vw) !important;
+                margin: 0 auto !important;
+            }
+
+            .machines-cta-section .cta-button-wrapper {
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
+
+            .machines-cta-section .machines-cta-button {
+                padding: clamp(16px, 4vh, 20px) clamp(24px, 6vw, 32px) !important;
+                font-size: clamp(0.95rem, 2.8vw, 1.05rem) !important;
+                min-width: clamp(200px, 45vw, 240px) !important;
+                min-height: clamp(52px, 9vh, 60px) !important;
+                border-radius: 32px !important;
+                background: var(--primary-white) !important;
+                color: var(--primary-green) !important;
+                border: 2.5px solid var(--primary-white) !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.4px !important;
+                transition: all 0.3s ease !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 10px !important;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+                text-transform: uppercase !important;
+            }
+
+            .machines-cta-section .machines-cta-button:hover {
+                transform: translateY(-2px) !important;
+                background: var(--bright-green) !important;
+                color: var(--primary-white) !important;
+            }
+
+
         }
 
         @media (max-width: 480px) {
             .washcloth-hero {
                 padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
                 min-height: 85vh;
+            }
+
+            .washcloth-hero .hero-description {
+                text-align: center !important;
+                padding: clamp(0.8rem, 2.5vw, 1.2rem) clamp(1.2rem, 4vw, 1.8rem) !important;
+                margin: 0 auto clamp(1.2rem, 3vh, 1.8rem) auto !important;
+                background: transparent !important;
+                backdrop-filter: none !important;
+                max-width: min(550px, 88vw) !important;
+                line-height: 1.6 !important;
+                font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
+                color: rgba(255, 255, 255, 0.95) !important;
+            }
+
+            .washcloth-hero .hero-cta {
+                justify-content: center !important;
+                padding: 0 20px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 auto 30px auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 15px !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                z-index: 10 !important;
+                position: relative !important;
+                background: rgba(255, 255, 255, 0.1) !important;
+                border-radius: 16px !important;
+                backdrop-filter: blur(10px) !important;
+                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            }
+
+            /* Mobile CTA Section Styling for Small Screens */
+            .machines-cta-section {
+                padding: clamp(1.5rem, 4vh, 2.5rem) clamp(0.8rem, 3vw, 1.2rem) !important;
+                margin: clamp(1.5rem, 4vh, 2.5rem) 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+            }
+
+            .machines-cta-section .cta-heading {
+                font-size: clamp(1.3rem, 3.5vw, 1.8rem) !important;
+                margin-bottom: clamp(0.6rem, 1.5vh, 1rem) !important;
+            }
+
+            .machines-cta-section .cta-description {
+                font-size: clamp(0.8rem, 2.2vw, 1rem) !important;
+                max-width: min(450px, 88vw) !important;
+            }
+
+            .machines-cta-section .machines-cta-button {
+                padding: clamp(12px, 3vh, 16px) clamp(18px, 4.5vw, 24px) !important;
+                font-size: clamp(0.85rem, 2.2vw, 0.95rem) !important;
+                min-width: clamp(160px, 35vw, 200px) !important;
+                min-height: clamp(44px, 7vh, 52px) !important;
             }
         }
 
@@ -175,10 +416,35 @@
             color: white !important;
             text-shadow: none !important;
         }
+
+        .washcloth-hero .hero-title .title-line {
+            font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+            font-weight: 500 !important;
+            color: var(--primary-white) !important;
+            margin-bottom: 12px !important;
+            text-transform: uppercase !important;
+            letter-spacing: 2px !important;
+            opacity: 0.8 !important;
+        }
+
+        .washcloth-hero .hero-title .title-subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.1rem) !important;
+            font-weight: 600 !important;
+            color: var(--primary-white) !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+            opacity: 0.9 !important;
+        }
         
         .washcloth-hero .hero-title .title-main {
+            font-size: clamp(3rem, 7vw, 5.5rem) !important;
+            font-weight: 900 !important;
             color: white !important;
             text-shadow: none !important;
+            line-height: 0.9 !important;
+            margin-bottom: 15px !important;
+            position: relative !important;
+            letter-spacing: -2px !important;
         }
         
         .washcloth-hero .hero-description {
@@ -1374,6 +1640,12 @@
     <header class="header">
         <div class="container">
             <div class="navbar">
+                <div class="logo-section">
+                    <a href="home.html" class="logo">
+                        <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                    </a>
+                </div>
+                
                 <nav class="nav-menu">
                     <a href="home.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About Dimple</a>
@@ -1406,6 +1678,11 @@
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
     <nav class="mobile-nav-menu" id="mobileNavMenu">
         <div class="mobile-nav-header">
+            <div class="mobile-logo-section">
+                <a href="home.html" class="mobile-logo">
+                    <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="mobile-logo-image">
+                </a>
+            </div>
             <button class="mobile-nav-close" id="mobileNavClose">×</button>
         </div>
         <div class="mobile-nav-links">

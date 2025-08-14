@@ -683,12 +683,33 @@ body {
     transform: translateY(-10px);
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     margin-top: 8px;
+    /* Prevent layout shifts */
+    contain: layout style paint;
+    /* Improve performance */
+    will-change: opacity, visibility, transform;
 }
 
 .nav-dropdown:hover .dropdown-content {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+/* Mobile dropdown improvements */
+@media (max-width: 768px) {
+    .nav-dropdown:hover .dropdown-content {
+        /* Disable hover effects on mobile to prevent glitches */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+    }
+    
+    /* Show dropdown on focus for mobile accessibility */
+    .nav-dropdown:focus-within .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 }
 
 .dropdown-link {
@@ -813,26 +834,32 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 8px;
-    gap: 3px;
-    border-radius: 8px;
-    transition: all var(--transition-fast);
+    padding: 10px;
+    gap: 4px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
     position: absolute;
     right: 30px;
     top: 50%;
     transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .mobile-menu-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .hamburger-line {
-    width: 22px;
-    height: 2px;
+    width: 24px;
+    height: 3px;
     background: var(--primary-white);
-    border-radius: 2px;
-    transition: all var(--transition-fast);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 /* ENHANCED MOBILE OFF-CANVAS MENU - Fixed white area issue */
@@ -859,69 +886,168 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: min(320px, 85vw);
+    width: min(350px, 90vw);
     height: 100vh;
-    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
     z-index: 1000;
-    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     overflow-y: auto;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Custom scrollbar for mobile navigation */
+.mobile-nav-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.mobile-nav-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.mobile-nav-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.mobile-nav-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .mobile-nav-menu.active {
     right: 0;
 }
 
-.mobile-nav-header {
+.mobile-nav-menu .mobile-nav-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 25px 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.mobile-nav-menu .mobile-nav-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.mobile-nav-menu .mobile-nav-header .mobile-nav-brand {
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1001;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-menu .mobile-nav-header .mobile-nav-brand:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-nav-menu .mobile-nav-header .mobile-nav-brand .mobile-logo-image {
+    height: 32px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.mobile-nav-menu .mobile-nav-header .mobile-nav-brand:hover .mobile-logo-image {
+    transform: scale(1.1);
 }
 
 .mobile-nav-close {
-    background: none;
-    border: none;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--primary-white);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    font-weight: 300;
     cursor: pointer;
-    padding: 8px;
+    padding: 12px;
     border-radius: 50%;
-    transition: all var(--transition-fast);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .mobile-nav-close:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: rotate(90deg);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .mobile-nav-links {
-    padding: 30px 0;
+    padding: 20px 0;
     flex: 1;
     display: flex;
     flex-direction: column;
     min-height: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
 }
 
 .mobile-nav-link {
-    display: block;
+    display: flex;
+    align-items: center;
     color: var(--primary-white);
     text-decoration: none;
-    padding: 16px 25px;
-    margin-bottom: 4px;
+    padding: 18px 30px;
+    margin: 0 15px 8px 15px;
     font-family: var(--font-primary);
-    font-size: clamp(0.9rem, 4vw, 1rem);
+    font-size: clamp(0.95rem, 3.5vw, 1.05rem);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.8px;
-    transition: all var(--transition-fast);
-    border-left: 4px solid transparent;
+    letter-spacing: 0.5px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     opacity: 0;
     transform: translateX(50px);
     flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.mobile-nav-link:hover::before {
+    left: 100%;
 }
 
 .mobile-nav-menu.active .mobile-nav-link {
@@ -936,11 +1062,388 @@ body {
 .mobile-nav-link:nth-child(5) { transition-delay: 0.5s; }
 .mobile-nav-link:nth-child(6) { transition-delay: 0.6s; }
 
+/* Enhanced Mobile Navigation Dropdowns */
+.mobile-nav-dropdown {
+    margin: 0 15px 8px 15px;
+    position: relative;
+    /* Prevent layout shifts */
+    contain: layout style paint;
+}
+
+.mobile-nav-parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 30px;
+    font-family: var(--font-primary);
+    font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-white);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.mobile-nav-parent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mobile-nav-parent:hover::before,
+.mobile-nav-parent:active::before {
+    left: 100%;
+}
+
+.mobile-nav-parent:hover,
+.mobile-nav-parent:active {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .mobile-nav-parent:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .mobile-nav-parent:active {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.mobile-nav-parent.active {
+    background: linear-gradient(135deg, rgba(52, 208, 88, 0.15) 0%, rgba(52, 208, 88, 0.08) 100%);
+    border-color: var(--bright-green);
+    color: var(--bright-green);
+    box-shadow: 0 8px 25px rgba(52, 208, 88, 0.3);
+}
+
+.mobile-nav-parent.active::before {
+    background: linear-gradient(90deg, transparent, rgba(52, 208, 88, 0.2), transparent);
+}
+
+.mobile-dropdown-arrow {
+    font-size: 0.9rem;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: var(--bright-green);
+    font-weight: bold;
+    display: inline-block;
+    transform: rotate(0deg);
+    pointer-events: none;
+    user-select: none;
+}
+
+.mobile-nav-parent.active .mobile-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Ensure arrow is always visible and properly positioned */
+.mobile-dropdown-arrow {
+    flex-shrink: 0;
+    margin-left: 10px;
+}
+
+.mobile-nav-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    margin: 0 15px 8px 15px;
+    opacity: 0;
+    transform: translateY(-10px);
+    will-change: max-height, opacity, transform;
+}
+
+.mobile-nav-submenu.active {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Improved animation performance */
+.mobile-nav-submenu {
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.mobile-nav-sublink {
+    display: block;
+    color: var(--primary-white);
+    text-decoration: none;
+    padding: 15px 30px 15px 50px;
+    margin-bottom: 6px;
+    font-family: var(--font-primary);
+    font-size: clamp(0.9rem, 3.2vw, 1rem);
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.mobile-nav-sublink::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--bright-green);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.mobile-nav-sublink:hover::before {
+    transform: scaleY(1);
+}
+
+.mobile-nav-sublink:hover,
+.mobile-nav-sublink.active {
+    background: linear-gradient(135deg, rgba(52, 208, 88, 0.1) 0%, rgba(52, 208, 88, 0.05) 100%);
+    border-color: var(--bright-green);
+    transform: translateX(5px);
+    color: var(--bright-green);
+}
+
+.mobile-nav-sublink.active {
+    background: linear-gradient(135deg, rgba(52, 208, 88, 0.15) 0%, rgba(52, 208, 88, 0.08) 100%);
+    border-color: var(--bright-green);
+    color: var(--bright-green);
+    box-shadow: 0 4px 15px rgba(52, 208, 88, 0.2);
+}
+
+/* Touch device optimizations for sublinks */
+@media (hover: none) and (pointer: coarse) {
+    .mobile-nav-sublink:hover {
+        transform: none;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+        border-color: rgba(255, 255, 255, 0.08);
+        color: var(--primary-white);
+    }
+    
+    .mobile-nav-sublink:active {
+        transform: translateX(3px);
+        background: linear-gradient(135deg, rgba(52, 208, 88, 0.1) 0%, rgba(52, 208, 88, 0.05) 100%);
+        border-color: var(--bright-green);
+        color: var(--bright-green);
+    }
+}
+
+/* Fix for mobile navigation dropdown glitches */
+.mobile-nav-dropdown .mobile-nav-parent {
+    margin-bottom: 0;
+}
+
+.mobile-nav-dropdown .mobile-nav-submenu {
+    margin-top: 8px;
+}
+
+/* Ensure proper spacing between dropdown items */
+.mobile-nav-dropdown .mobile-nav-sublink:last-child {
+    margin-bottom: 0;
+}
+
+/* Enhanced mobile dropdown performance and stability */
+.mobile-nav-submenu {
+    will-change: max-height, opacity, transform;
+}
+
+/* Prevent layout shifts during dropdown animation */
+.mobile-nav-dropdown {
+    contain: layout style paint;
+}
+
+/* Improved touch targets for mobile */
+@media (max-width: 768px) {
+    .mobile-nav-parent {
+        min-height: 60px;
+        padding: 20px 30px;
+    }
+    
+    .mobile-nav-sublink {
+        min-height: 50px;
+        padding: 18px 30px 18px 50px;
+        margin-bottom: 8px;
+    }
+    
+    /* Ensure dropdown doesn't cause horizontal scroll */
+    .mobile-nav-submenu {
+        max-width: calc(100vw - 60px);
+        overflow-x: hidden;
+    }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .mobile-nav-parent,
+    .mobile-nav-sublink {
+        border-width: 0.5px;
+    }
+}
+
+/* Additional mobile stability improvements */
+@media (max-width: 768px) {
+    /* Prevent iOS Safari zoom on input focus */
+    .mobile-nav-parent,
+    .mobile-nav-sublink {
+        font-size: 16px;
+    }
+    
+    /* Improve touch response */
+    .mobile-nav-dropdown {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Prevent unwanted text selection */
+    .mobile-nav-parent,
+    .mobile-nav-sublink {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* Smooth scrolling for iOS */
+    .mobile-nav-submenu {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+    
+    /* Enhanced mobile dropdown positioning */
+    .mobile-nav-submenu {
+        position: relative;
+        z-index: 1001;
+        /* Ensure dropdown appears above other elements */
+        isolation: isolate;
+    }
+    
+    /* Prevent dropdown from being cut off */
+    .mobile-nav-dropdown {
+        overflow: visible;
+    }
+    
+    /* Better touch targets for mobile */
+    .mobile-nav-parent {
+        cursor: pointer;
+        /* Ensure the entire area is clickable */
+        position: relative;
+    }
+    
+    /* Visual feedback for touch interactions */
+    .mobile-nav-parent:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+}
+
+/* Prevent text selection issues */
+.mobile-nav-parent,
+.mobile-nav-sublink {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Enhanced Mobile Navigation Responsive Improvements */
+@media (max-width: 768px) {
+    .mobile-nav-menu {
+        width: min(380px, 95vw);
+    }
+    
+    .mobile-nav-header {
+        padding: 20px 25px;
+    }
+    
+    .mobile-nav-link {
+        padding: 16px 25px;
+        margin: 0 12px 6px 12px;
+        font-size: clamp(0.9rem, 3.2vw, 1rem);
+    }
+    
+    .mobile-nav-parent {
+        padding: 16px 25px;
+        margin: 0 12px 6px 12px;
+        font-size: clamp(0.9rem, 3.2vw, 1rem);
+    }
+    
+    .mobile-nav-sublink {
+        padding: 14px 25px 14px 45px;
+        margin: 0 12px 4px 12px;
+        font-size: clamp(0.85rem, 3vw, 0.95rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-nav-menu {
+        width: 95vw;
+    }
+    
+    .mobile-nav-header {
+        padding: 18px 20px;
+    }
+    
+    .mobile-nav-link {
+        padding: 15px 20px;
+        margin: 0 10px 5px 10px;
+        font-size: clamp(0.85rem, 3vw, 0.95rem);
+    }
+    
+    .mobile-nav-parent {
+        padding: 15px 20px;
+        margin: 0 10px 5px 10px;
+        font-size: clamp(0.85rem, 3vw, 0.95rem);
+    }
+    
+    .mobile-nav-sublink {
+        padding: 12px 20px 12px 40px;
+        margin: 0 10px 3px 10px;
+        font-size: clamp(0.8rem, 2.8vw, 0.9rem);
+    }
+}
+
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
-    background: rgba(255, 255, 255, 0.1);
-    border-left-color: var(--bright-green);
-    transform: translateX(10px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+    border-color: var(--bright-green);
+    transform: translateX(8px) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    color: var(--bright-green);
+}
+
+.mobile-nav-link.active {
+    background: linear-gradient(135deg, rgba(52, 208, 88, 0.2) 0%, rgba(52, 208, 88, 0.1) 100%);
+    border-color: var(--bright-green);
+    color: var(--bright-green);
+    box-shadow: 0 8px 25px rgba(52, 208, 88, 0.3);
 }
 
 /* ENHANCED HERO SECTION - Perfect scaling across all devices */
