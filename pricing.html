@@ -8,13 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Enhanced Pricing Page Styles */
+        /* Pricing Page Styles */
         :root {
             --text-dark: #1a1a1a;
             --text-gray: #666666;
         }
         
-        /* ENHANCED PRICING HERO SECTION - Professional and modern */
         .pricing-hero {
             position: relative;
             min-height: 100vh;
@@ -55,26 +54,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                135deg, 
-                rgba(0, 0, 0, 0.25) 0%, 
-                rgba(0, 0, 0, 0.2) 50%, 
-                rgba(0, 0, 0, 0.25) 100%
-            );
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.25) 100%);
             z-index: 2;
-        }
-
-        .pricing-hero-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
-            pointer-events: none;
         }
 
         .pricing-hero-content {
@@ -111,501 +92,286 @@
             flex-wrap: wrap;
         }
 
-        .pricing-hero .cta-primary,
-        .pricing-hero .cta-secondary {
-            padding: clamp(12px, 2.5vh, 16px) clamp(24px, 4vw, 32px);
-            font-size: clamp(0.9rem, 1.8vw, 1rem);
-            min-width: clamp(160px, 25vw, 200px);
-        }
-
-        /* Enhanced mobile responsiveness for pricing page */
-        @media (max-width: 768px) {
-            .pricing-hero {
-                padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
-                min-height: 90vh;
-            }
-            
-            .pricing-hero-content {
-                text-align: center;
-                max-width: 100%;
-            }
-
-            .pricing-hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .pricing-hero {
-                padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
-                min-height: 85vh;
-            }
-        }
-
-        /* Enhanced Pricing Plans Section */
-        .pricing-plans-section {
-            position: relative;
+        .pricing-calculator-section {
             padding: clamp(80px, 10vh, 120px) 0;
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
-            overflow: hidden;
         }
-
-        .pricing-plans-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .pricing-plans-grid-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 120%;
-            height: 120%;
-            background-image: 
-                linear-gradient(rgba(26, 95, 63, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26, 95, 63, 0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: pricingGridMove 35s linear infinite;
-        }
-
-        @keyframes pricingGridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(40px, 40px); }
-        }
-
-        .pricing-plans-header {
-            text-align: center;
-            margin-bottom: clamp(50px, 8vh, 80px);
-            position: relative;
-            z-index: 2;
-        }
-
-        .pricing-plans-title {
-            font-family: var(--font-primary);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            color: var(--primary-green);
-            margin-bottom: clamp(20px, 3vh, 30px);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        .pricing-plans-subtitle {
-            font-family: var(--font-secondary);
-            font-size: clamp(1rem, 1.8vw, 1.2rem);
-            color: var(--text-gray);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .pricing-plans-grid {
+        
+        .calculator-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: clamp(30px, 4vw, 50px);
             max-width: 1200px;
             margin: 0 auto;
-            position: relative;
-            z-index: 2;
         }
-
-        .pricing-plan {
+        
+        .calculator-inputs,
+        .calculator-results {
             background: var(--primary-white);
             border-radius: clamp(20px, 3vw, 28px);
-            padding: clamp(30px, 5vw, 50px);
-            box-shadow: 
-                0 10px 40px rgba(26, 95, 63, 0.08),
-                0 4px 20px rgba(0, 0, 0, 0.04);
+            padding: clamp(30px, 4vw, 40px);
+            box-shadow: 0 10px 40px rgba(26, 95, 63, 0.08), 0 4px 20px rgba(0, 0, 0, 0.04);
             border: 2px solid rgba(26, 95, 63, 0.08);
-            transition: all var(--transition-medium);
-            position: relative;
-            overflow: hidden;
         }
-
-        .pricing-plan::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-green), var(--accent-green));
-            opacity: 0;
-            transition: opacity var(--transition-medium);
-        }
-
-        .pricing-plan:hover {
-            transform: translateY(-8px);
-            box-shadow: 
-                0 20px 60px rgba(26, 95, 63, 0.15),
-                0 8px 30px rgba(0, 0, 0, 0.08);
-            border-color: rgba(26, 95, 63, 0.2);
-        }
-
-        .pricing-plan:hover::before {
-            opacity: 1;
-        }
-
-        .plan-header {
-            text-align: center;
-            margin-bottom: clamp(25px, 4vh, 35px);
-        }
-
-        .plan-name {
+        
+        .calculator-section-title {
             font-family: var(--font-primary);
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: clamp(1.5rem, 2.5vw, 1.8rem);
             font-weight: 700;
             color: var(--primary-green);
-            margin-bottom: clamp(10px, 1.5vh, 15px);
-            line-height: 1.2;
+            margin-bottom: clamp(25px, 3vh, 35px);
         }
-
-        .plan-price {
+        
+        .input-group {
+            margin-bottom: clamp(20px, 3vh, 25px);
+        }
+        
+        .input-label {
+            display: block;
+            font-family: var(--font-primary);
+            font-size: clamp(0.9rem, 1.4vw, 1rem);
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: clamp(8px, 1.5vh, 12px);
+        }
+        
+        .calculator-input {
+            width: 100%;
+            padding: clamp(12px, 2vh, 16px) clamp(16px, 2.5vw, 20px);
+            font-family: var(--font-secondary);
+            font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+            border: 2px solid rgba(26, 95, 63, 0.15);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background: #f8fffe;
+            color: var(--primary-green);
+        }
+        
+        .calculator-input:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 4px rgba(46, 167, 106, 0.1);
+            background: var(--primary-white);
+        }
+        
+        .roll-type-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        
+        .roll-type-btn {
+            padding: clamp(16px, 2.5vh, 20px) clamp(12px, 2vw, 16px);
+            border: 2px solid rgba(26, 95, 63, 0.15);
+            border-radius: 12px;
+            background: #f8fffe;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .roll-type-btn.active {
+            border-color: var(--accent-green);
+            background: linear-gradient(135deg, rgba(46, 167, 106, 0.08) 0%, rgba(46, 167, 106, 0.04) 100%);
+            box-shadow: 0 4px 16px rgba(46, 167, 106, 0.15);
+        }
+        
+        .roll-type-icon {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+        }
+        
+        .roll-type-name {
+            font-family: var(--font-primary);
+            font-size: clamp(1rem, 1.6vw, 1.1rem);
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+        
+        .roll-type-rate {
+            font-family: var(--font-secondary);
+            font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+            color: var(--text-gray);
+        }
+        
+        .input-with-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .quantity-btn {
+            width: 48px;
+            height: 48px;
+            border: 2px solid var(--primary-green);
+            border-radius: 12px;
+            background: var(--primary-white);
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background: var(--primary-green);
+            color: var(--primary-white);
+        }
+        
+        .input-with-controls .calculator-input {
+            flex: 1;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
+            border-radius: 16px;
+            padding: clamp(25px, 3vh, 35px);
+            text-align: center;
+            margin-bottom: clamp(25px, 3vh, 35px);
+            box-shadow: 0 8px 32px rgba(26, 95, 63, 0.2);
+        }
+        
+        .result-label {
+            font-family: var(--font-secondary);
+            font-size: clamp(0.9rem, 1.4vw, 1rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .result-value {
             font-family: var(--font-primary);
             font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
-            color: var(--primary-green);
-            margin-bottom: clamp(5px, 1vh, 10px);
+            color: var(--primary-white);
             line-height: 1;
+            margin-bottom: 8px;
         }
-
-        .plan-period {
+        
+        .result-sublabel {
             font-family: var(--font-secondary);
-            font-size: clamp(0.9rem, 1.5vw, 1rem);
-            color: var(--text-gray);
-            font-weight: 500;
+            font-size: clamp(0.85rem, 1.3vw, 0.95rem);
+            color: rgba(255, 255, 255, 0.8);
         }
-
-        .plan-features {
-            margin-bottom: clamp(25px, 4vh, 35px);
+        
+        .results-breakdown {
+            background: #f8fffe;
+            border-radius: 12px;
+            padding: clamp(20px, 3vh, 25px);
+            margin-bottom: clamp(20px, 3vh, 25px);
         }
-
-        .plan-feature {
+        
+        .result-item {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: clamp(10px, 2vw, 15px);
-            margin-bottom: clamp(12px, 2vh, 18px);
+            padding: clamp(10px, 1.5vh, 14px) 0;
             font-family: var(--font-secondary);
-            font-size: clamp(0.9rem, 1.4vw, 1rem);
+        }
+        
+        .result-item-label {
+            font-size: clamp(0.9rem, 1.3vw, 1rem);
             color: var(--text-gray);
-            line-height: 1.5;
         }
-
-        .feature-icon {
-            width: clamp(16px, 2.5vw, 20px);
-            height: clamp(16px, 2.5vw, 20px);
-            background: var(--accent-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .feature-icon::after {
-            content: '✓';
-            color: white;
-            font-size: clamp(10px, 1.5vw, 12px);
-            font-weight: bold;
-        }
-
-        .plan-cta {
-            text-align: center;
-        }
-
-        .plan-button {
-            width: 100%;
-            padding: clamp(12px, 2.5vh, 16px) clamp(20px, 3vw, 28px);
+        
+        .result-item-value {
             font-family: var(--font-primary);
-            font-size: clamp(0.9rem, 1.6vw, 1rem);
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+        
+        .result-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(26, 95, 63, 0.2), transparent);
+            margin: clamp(8px, 1.5vh, 12px) 0;
+        }
+        
+        .result-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .result-btn {
+            width: 100%;
+            padding: clamp(12px, 2vh, 16px);
+            border-radius: 12px;
+            font-family: var(--font-primary);
+            font-size: clamp(0.9rem, 1.4vw, 1rem);
             font-weight: 600;
-            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             border: 2px solid var(--primary-green);
+        }
+        
+        .result-btn.primary {
             background: var(--primary-green);
             color: var(--primary-white);
-            cursor: pointer;
-            transition: all var(--transition-medium);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
-
-        .plan-button:hover {
+        
+        .result-btn.primary:hover {
             background: var(--accent-green);
             border-color: var(--accent-green);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(46, 167, 106, 0.3);
         }
-
-        .plan-button.secondary {
+        
+        .result-btn.secondary {
             background: transparent;
             color: var(--primary-green);
         }
-
-        .plan-button.secondary:hover {
-            background: var(--primary-green);
-            color: var(--primary-white);
+        
+        .result-btn.secondary:hover {
+            background: rgba(26, 95, 63, 0.05);
+        }
+        
+        #advancedToggle {
+            border: 2px dashed rgba(26, 95, 63, 0.2);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #advancedToggle:hover {
+            border-color: var(--accent-green);
+            background: rgba(46, 167, 106, 0.05);
+        }
+        
+        #advancedToggle.active {
+            border-style: solid;
+            border-color: var(--accent-green);
+            background: rgba(46, 167, 106, 0.08);
+        }
+        
+        #advancedSettings {
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Enhanced Features Section */
-        .pricing-features-section {
-            position: relative;
-            padding: clamp(80px, 10vh, 120px) 0;
-            background: var(--primary-white);
-            overflow: hidden;
-        }
-
-        .pricing-features-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .pricing-features-grid-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 120%;
-            height: 120%;
-            background-image: 
-                linear-gradient(rgba(26, 95, 63, 0.01) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(26, 95, 63, 0.01) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: featuresGridMove 40s linear infinite;
-        }
-
-        @keyframes featuresGridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .pricing-features-header {
-            text-align: center;
-            margin-bottom: clamp(50px, 8vh, 80px);
-            position: relative;
-            z-index: 2;
-        }
-
-        .pricing-features-title {
-            font-family: var(--font-primary);
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            color: var(--primary-green);
-            margin-bottom: clamp(20px, 3vh, 30px);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
-
-        .pricing-features-subtitle {
-            font-family: var(--font-secondary);
-            font-size: clamp(1rem, 1.8vw, 1.2rem);
-            color: var(--text-gray);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .pricing-features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: clamp(30px, 4vw, 50px);
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .pricing-feature-card {
-            background: var(--primary-white);
-            border-radius: clamp(16px, 2vw, 24px);
-            padding: clamp(25px, 4vw, 35px);
-            box-shadow: 
-                0 8px 32px rgba(26, 95, 63, 0.06),
-                0 4px 16px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(26, 95, 63, 0.06);
-            transition: all var(--transition-medium);
-            text-align: center;
-        }
-
-        .pricing-feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 
-                0 16px 48px rgba(26, 95, 63, 0.12),
-                0 8px 24px rgba(0, 0, 0, 0.06);
-            border-color: rgba(26, 95, 63, 0.12);
-        }
-
-        .feature-card-icon {
-            width: clamp(60px, 8vw, 80px);
-            height: clamp(60px, 8vw, 80px);
-            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto clamp(20px, 3vh, 25px);
-            transition: all var(--transition-medium);
-        }
-
-        .pricing-feature-card:hover .feature-card-icon {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(26, 95, 63, 0.3);
-        }
-
-        .feature-card-title {
-            font-family: var(--font-primary);
-            font-size: clamp(1.2rem, 2.2vw, 1.5rem);
-            font-weight: 700;
-            color: var(--primary-green);
-            margin-bottom: clamp(12px, 2vh, 16px);
-            line-height: 1.2;
-        }
-
-        .feature-card-description {
-            font-family: var(--font-secondary);
-            font-size: clamp(0.9rem, 1.4vw, 1rem);
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        /* Enhanced CTA Section */
-        .pricing-cta-section {
-            position: relative;
-            padding: clamp(80px, 10vh, 120px) 0;
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 50%, var(--accent-green) 100%);
-            overflow: hidden;
-        }
-
-        .pricing-cta-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .pricing-cta-grid-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 120%;
-            height: 120%;
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
-            animation: ctaGridMove 30s linear infinite;
-        }
-
-        @keyframes ctaGridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(40px, 40px); }
-        }
-
-        .pricing-cta-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .pricing-cta-title {
-            font-family: var(--font-primary);
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            color: var(--primary-white);
-            margin-bottom: clamp(20px, 3vh, 30px);
-            line-height: 1.2;
-        }
-
-        .pricing-cta-description {
-            font-family: var(--font-secondary);
-            font-size: clamp(1rem, 1.8vw, 1.2rem);
-            color: var(--text-light);
-            margin-bottom: clamp(30px, 4vh, 50px);
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-
-        .pricing-cta-buttons {
-            display: flex;
-            gap: clamp(15px, 3vw, 25px);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .pricing-cta .cta-primary,
-        .pricing-cta .cta-secondary {
-            padding: clamp(12px, 2.5vh, 16px) clamp(24px, 4vw, 32px);
-            font-size: clamp(0.9rem, 1.8vw, 1rem);
-            min-width: clamp(160px, 25vw, 200px);
-        }
-
-        /* Responsive Design */
         @media (max-width: 1024px) {
-            .pricing-plans-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                gap: clamp(25px, 3vw, 40px);
-            }
-
-            .pricing-features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: clamp(25px, 3vw, 40px);
+            .calculator-container {
+                grid-template-columns: 1fr;
             }
         }
-
+        
         @media (max-width: 768px) {
-            .pricing-plans-section,
-            .pricing-features-section,
-            .pricing-cta-section {
-                padding: clamp(60px, 8vh, 80px) 0;
-            }
-
-            .pricing-plans-grid {
+            .roll-type-toggle {
                 grid-template-columns: 1fr;
-                gap: clamp(20px, 3vh, 30px);
-                max-width: 500px;
-            }
-
-            .pricing-features-grid {
-                grid-template-columns: 1fr;
-                gap: clamp(20px, 3vh, 30px);
-                max-width: 500px;
-            }
-
-            .pricing-cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .pricing-plans-section,
-            .pricing-features-section,
-            .pricing-cta-section {
-                padding: clamp(50px, 6vh, 70px) 0;
-            }
-
-            .pricing-plans-header,
-            .pricing-features-header {
-                margin-bottom: clamp(30px, 4vh, 40px);
-            }
-
-            .pricing-plan {
-                padding: clamp(25px, 4vw, 35px);
-            }
-
-            .pricing-feature-card {
-                padding: clamp(20px, 3vw, 30px);
             }
         }
     </style>
@@ -615,6 +381,10 @@
     <header class="header">
         <div class="container">
             <div class="navbar">
+                <a href="home.html" class="navbar-brand">
+                    <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
+                </a>
+                
                 <nav class="nav-menu">
                     <a href="home.html" class="nav-link">Home</a>
                     <a href="about.html" class="nav-link">About Dimple</a>
@@ -631,12 +401,51 @@
                     <a href="pricing.html" class="nav-link active">Pricing</a>
                     <a href="customer-service.html" class="nav-link">Customer Service</a>
                     <a href="brochures.html" class="nav-link">Brochures</a>
+                    <a href="customer-service.html#contact" class="nav-contact-button">Contact</a>
                 </nav>
+                
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Pricing Hero Section -->
+    <!-- Mobile Menu -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+    <nav class="mobile-nav-menu" id="mobileNavMenu">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-brand">
+                <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="mobile-logo-image">
+            </div>
+            <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="home.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Dimple</a>
+            <div class="mobile-nav-dropdown">
+                <div class="mobile-nav-parent" id="graphicalCleaningToggle">
+                    <a href="graphical-cleaning.html" class="mobile-nav-parent-link">Graphical Cleaning</a>
+                    <span class="mobile-dropdown-arrow" id="graphicalCleaningArrow">▼</span>
+                </div>
+                <div class="mobile-nav-submenu" id="graphicalCleaningSubmenu">
+                    <a href="wash-cloth.html" class="mobile-nav-sublink">— Wash Cloth</a>
+                    <a href="cassette-rolls.html" class="mobile-nav-sublink">— Cassette Rolls</a>
+                    <a href="winding-device.html" class="mobile-nav-sublink">— Winding Device</a>
+                    <a href="manual-wiping.html" class="mobile-nav-sublink">— Manual Wiping</a>
+                </div>
+            </div>
+            <a href="formula1.html" class="mobile-nav-link">Formula 1</a>
+            <a href="pricing.html" class="mobile-nav-link active">Pricing</a>
+            <a href="customer-service.html" class="mobile-nav-link">Customer Service</a>
+            <a href="brochures.html" class="mobile-nav-link">Brochures</a>
+            <a href="customer-service.html#contact" class="mobile-nav-link nav-contact-button">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
     <section class="pricing-hero">
         <div class="pricing-hero-background">
             <div class="pricing-hero-bg-image"></div>
@@ -645,259 +454,167 @@
         
         <div class="container">
             <div class="pricing-hero-content">
-                <h1 class="pricing-hero-title">Competitive Pricing for Industrial Excellence</h1>
+                <h1 class="pricing-hero-title">Calculate Your Roll Costs Instantly</h1>
                 <p class="pricing-hero-subtitle">
-                    Discover our transparent pricing structure designed to meet your industrial cleaning needs. 
-                    Quality solutions at competitive rates, with flexible options for businesses of all sizes.
+                    Use our advanced pricing calculator to get accurate cost estimates for wet and dry rolls.
                 </p>
                 <div class="pricing-hero-cta">
-                    <a href="#pricing-plans" class="cta-button cta-primary">View Plans</a>
-                    <a href="index.html" class="cta-button cta-secondary video-cta-btn">Watch Our Video</a>
-                    <a href="#contact" class="cta-button cta-secondary">Get Quote</a>
+                    <a href="#pricing-calculator" class="cta-button cta-primary">Use Calculator</a>
+                    <a href="customer-service.html#contact" class="cta-button cta-secondary">Contact Us</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Plans Section -->
-    <section class="pricing-plans-section" id="pricing-plans">
-        <div class="pricing-plans-background">
-            <div class="pricing-plans-grid-pattern"></div>
-        </div>
-        
+    <!-- Calculator Section -->
+    <section class="pricing-calculator-section" id="pricing-calculator">
         <div class="container">
-            <div class="pricing-plans-header">
-                <h2 class="pricing-plans-title">Choose Your Plan</h2>
-                <p class="pricing-plans-subtitle">
-                    Select the perfect solution for your business needs. All plans include our commitment to quality and customer support.
-                </p>
-            </div>
-            
-            <div class="pricing-plans-grid">
-                <!-- Starter Plan -->
-                <div class="pricing-plan">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Starter</h3>
-                        <div class="plan-price">€299</div>
-                        <div class="plan-period">per month</div>
-                    </div>
+            <div class="calculator-container">
+                <!-- Inputs -->
+                <div class="calculator-inputs">
+                    <h3 class="calculator-section-title">Configuration</h3>
                     
-                    <div class="plan-features">
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Basic cleaning supplies package</span>
-                        </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Email support</span>
-                        </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Standard delivery</span>
-                        </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Monthly replenishment</span>
+                    <div class="input-group">
+                        <label class="input-label">Roll Type</label>
+                        <div class="roll-type-toggle">
+                            <button class="roll-type-btn active" id="wetRollBtn">
+                                <span class="roll-type-icon">💧</span>
+                                <span class="roll-type-name">Wet Rolls</span>
+                                <span class="roll-type-rate">30 rolls/hour</span>
+                            </button>
+                            <button class="roll-type-btn" id="dryRollBtn">
+                                <span class="roll-type-icon">☀️</span>
+                                <span class="roll-type-name">Dry Rolls</span>
+                                <span class="roll-type-rate">60 rolls/hour</span>
+                            </button>
                         </div>
                     </div>
                     
-                    <div class="plan-cta">
-                        <button class="plan-button">Get Started</button>
-                    </div>
-                </div>
-
-                <!-- Professional Plan -->
-                <div class="pricing-plan">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Professional</h3>
-                        <div class="plan-price">€599</div>
-                        <div class="plan-period">per month</div>
-                    </div>
-                    
-                    <div class="plan-features">
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Complete cleaning solution package</span>
-                        </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Priority phone & email support</span>
-                        </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Express delivery</span>
-                        </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Bi-weekly replenishment</span>
-                        </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Custom solutions consultation</span>
+                    <div class="input-group">
+                        <label class="input-label">Number of Rolls</label>
+                        <div class="input-with-controls">
+                            <button class="quantity-btn" id="decreaseBtn">−</button>
+                            <input type="number" id="quantityInput" class="calculator-input" value="100" min="1">
+                            <button class="quantity-btn" id="increaseBtn">+</button>
                         </div>
                     </div>
                     
-                    <div class="plan-cta">
-                        <button class="plan-button">Choose Professional</button>
-                    </div>
-                </div>
-
-                <!-- Enterprise Plan -->
-                <div class="pricing-plan">
-                    <div class="plan-header">
-                        <h3 class="plan-name">Enterprise</h3>
-                        <div class="plan-price">€999</div>
-                        <div class="plan-period">per month</div>
+                    <div class="input-group">
+                        <label class="input-label">Roll Width (meters)</label>
+                        <input type="number" id="widthInput" class="calculator-input" value="17" step="0.1" min="0.1">
                     </div>
                     
-                    <div class="plan-features">
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Full industrial cleaning suite</span>
+                    <div class="input-group">
+                        <label class="input-label">Roll Length (meters)</label>
+                        <input type="number" id="lengthInput" class="calculator-input" value="10" step="0.1" min="0.1">
+                    </div>
+                    
+                    <div class="input-group">
+                        <button class="roll-type-btn" id="advancedToggle" style="width: 100%;">
+                            <span>⚙️ Advanced Settings</span>
+                        </button>
+                    </div>
+                    
+                    <div id="advancedSettings" style="display: none;">
+                        <div class="input-group">
+                            <label class="input-label">Labor Wage (€/hour)</label>
+                            <input type="number" id="wageInput" class="calculator-input" value="10.00" step="0.01" min="0">
                         </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>24/7 dedicated support</span>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Material Cost (€/m²)</label>
+                            <input type="number" id="materialInput" class="calculator-input" value="0.24" step="0.01" min="0">
                         </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Same-day delivery</span>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Converting Cost - Wet (€/roll)</label>
+                            <input type="number" id="convertingWetInput" class="calculator-input" value="1.00" step="0.01" min="0">
                         </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Weekly replenishment</span>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Converting Cost - Dry (€/roll)</label>
+                            <input type="number" id="convertingDryInput" class="calculator-input" value="0.50" step="0.01" min="0">
                         </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>Custom formulation development</span>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Solvent Price (€/liter)</label>
+                            <input type="number" id="solventPriceInput" class="calculator-input" value="2.65" step="0.01" min="0">
                         </div>
-                        <div class="plan-feature">
-                            <div class="feature-icon"></div>
-                            <span>On-site technical support</span>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Solvent Level (ml/m²)</label>
+                            <input type="number" id="solventLevelInput" class="calculator-input" value="110" step="1" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Core Cost (€/meter)</label>
+                            <input type="number" id="coreCostInput" class="calculator-input" value="0.70" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Packaging Cost (€/roll)</label>
+                            <input type="number" id="packagingInput" class="calculator-input" value="0.10" step="0.01" min="0">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results -->
+                <div class="calculator-results">
+                    <h3 class="calculator-section-title">Cost Breakdown</h3>
+                    
+                    <div class="result-card">
+                        <div class="result-label">Total Order Cost</div>
+                        <div class="result-value" id="totalCost">€0.00</div>
+                        <div class="result-sublabel" id="quantityLabel">0 rolls</div>
+                    </div>
+                    
+                    <div class="results-breakdown">
+                        <div class="result-item">
+                            <span class="result-item-label">Cost Per Roll</span>
+                            <span class="result-item-value" id="costPerRoll">€0.00</span>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-item">
+                            <span class="result-item-label">Labor Cost</span>
+                            <span class="result-item-value" id="laborCost">€0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-item-label">Material Cost</span>
+                            <span class="result-item-value" id="materialCost">€0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-item-label">Converting Cost</span>
+                            <span class="result-item-value" id="convertingCost">€0.00</span>
+                        </div>
+                        <div class="result-item" id="solventRow">
+                            <span class="result-item-label">Solvent Cost</span>
+                            <span class="result-item-value" id="solventCost">€0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-item-label">Core Cost</span>
+                            <span class="result-item-value" id="coreCost">€0.00</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-item-label">Packaging Cost</span>
+                            <span class="result-item-value" id="packagingCost">€0.00</span>
+                        </div>
+                        <div class="result-divider"></div>
+                        <div class="result-item">
+                            <span class="result-item-label">Surface Area</span>
+                            <span class="result-item-value" id="surfaceArea">0 m²</span>
                         </div>
                     </div>
                     
-                    <div class="plan-cta">
-                        <button class="plan-button secondary">Contact Sales</button>
+                    <div class="result-actions">
+                        <button class="result-btn primary" id="quoteBtn">📧 Request Quote</button>
+                        <button class="result-btn secondary" id="printBtn">🖨️ Print Results</button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Features Section -->
-    <section class="pricing-features-section">
-        <div class="pricing-features-background">
-            <div class="pricing-features-grid-pattern"></div>
-        </div>
-        
-        <div class="container">
-            <div class="pricing-features-header">
-                <h2 class="pricing-features-title">Why Choose Dimple?</h2>
-                <p class="pricing-features-subtitle">
-                    Our pricing reflects our commitment to quality, innovation, and customer satisfaction. 
-                    Here's what makes us the preferred choice for industrial cleaning solutions.
-                </p>
-            </div>
-            
-            <div class="pricing-features-grid">
-                <div class="pricing-feature-card">
-                    <div class="feature-card-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-card-title">Premium Quality</h3>
-                    <p class="feature-card-description">
-                        All our products meet the highest industry standards, ensuring consistent performance and reliability for your operations.
-                    </p>
-                </div>
-
-                <div class="pricing-feature-card">
-                    <div class="feature-card-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-card-title">Proven Results</h3>
-                    <p class="feature-card-description">
-                        Decades of experience in industrial cleaning, with solutions that have been tested and proven across various industries.
-                    </p>
-                </div>
-
-                <div class="pricing-feature-card">
-                    <div class="feature-card-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-card-title">Expert Support</h3>
-                    <p class="feature-card-description">
-                        Dedicated customer service team with deep knowledge of industrial cleaning processes and requirements.
-                    </p>
-                </div>
-
-                <div class="pricing-feature-card">
-                    <div class="feature-card-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-card-title">Flexible Solutions</h3>
-                    <p class="feature-card-description">
-                        Customizable packages and flexible delivery schedules to meet your specific operational requirements.
-                    </p>
-                </div>
-
-                <div class="pricing-feature-card">
-                    <div class="feature-card-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-card-title">Sustainable Practices</h3>
-                    <p class="feature-card-description">
-                        Environmentally conscious solutions that maintain high performance while reducing environmental impact.
-                    </p>
-                </div>
-
-                <div class="pricing-feature-card">
-                    <div class="feature-card-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor" width="40" height="40">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-card-title">Global Reach</h3>
-                    <p class="feature-card-description">
-                        Serving customers worldwide with reliable delivery and local support networks for international operations.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing CTA Section -->
-    <section class="pricing-cta-section" id="contact">
-        <div class="pricing-cta-background">
-            <div class="pricing-cta-grid-pattern"></div>
-        </div>
-        
-        <div class="container">
-            <div class="pricing-cta-content">
-                <h2 class="pricing-cta-title">Ready to Get Started?</h2>
-                <p class="pricing-cta-description">
-                    Contact our team today to discuss your specific needs and find the perfect solution for your business. 
-                    We're here to help you achieve industrial excellence.
-                </p>
-                <div class="pricing-cta-buttons">
-                    <a href="mailto:info@dimple.nl" class="cta-button cta-primary">Contact Sales</a>
-                    <a href="tel:+31123456789" class="cta-button cta-secondary">Call Now</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer (copied from index.html) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-background">
             <div class="footer-grid-pattern"></div>
@@ -950,14 +667,133 @@
         </div>
     </footer>
 
-
-
-    <!-- Back to Top Button -->
     <a href="#" class="back-to-top" aria-label="Back to top" title="Back to top">
         <span class="arrow-icon">↑</span>
     </a>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
+    <script>
+    // Pricing Calculator
+    var rollType = 'wet';
+    var advancedOpen = false;
+    
+    function calculate() {
+        var quantity = Number(document.getElementById('quantityInput').value) || 100;
+        var width = Number(document.getElementById('widthInput').value) || 17;
+        var length = Number(document.getElementById('lengthInput').value) || 10;
+        
+        // Get values from advanced settings
+        var wage = Number(document.getElementById('wageInput').value) || 10.00;
+        var materialPrice = Number(document.getElementById('materialInput').value) || 0.24;
+        var convertingWet = Number(document.getElementById('convertingWetInput').value) || 1.00;
+        var convertingDry = Number(document.getElementById('convertingDryInput').value) || 0.50;
+        var solventPrice = Number(document.getElementById('solventPriceInput').value) || 2.65;
+        var solventLevel = Number(document.getElementById('solventLevelInput').value) || 110;
+        var coreCostPerMeter = Number(document.getElementById('coreCostInput').value) || 0.70;
+        var packaging = Number(document.getElementById('packagingInput').value) || 0.10;
+        
+        var rate = rollType === 'wet' ? 30 : 60;
+        var area = width * length;
+        
+        var labor = wage / rate;
+        var material = area * materialPrice;
+        var converting = rollType === 'wet' ? convertingWet : convertingDry;
+        var solvent = rollType === 'wet' ? (area * solventLevel / 1000) * solventPrice : 0;
+        var core = length * coreCostPerMeter;
+        
+        var perRoll = labor + material + converting + solvent + core + packaging;
+        var total = perRoll * quantity;
+        
+        document.getElementById('totalCost').textContent = '€' + total.toFixed(2);
+        document.getElementById('quantityLabel').textContent = quantity + ' rolls';
+        document.getElementById('costPerRoll').textContent = '€' + perRoll.toFixed(2);
+        document.getElementById('laborCost').textContent = '€' + labor.toFixed(2);
+        document.getElementById('materialCost').textContent = '€' + material.toFixed(2);
+        document.getElementById('convertingCost').textContent = '€' + converting.toFixed(2);
+        document.getElementById('solventCost').textContent = '€' + solvent.toFixed(2);
+        document.getElementById('coreCost').textContent = '€' + core.toFixed(2);
+        document.getElementById('packagingCost').textContent = '€' + PACKAGING.toFixed(2);
+        document.getElementById('surfaceArea').textContent = area.toFixed(2) + ' m²';
+        
+        document.getElementById('solventRow').style.display = rollType === 'wet' ? 'flex' : 'none';
+    }
+    
+    document.getElementById('wetRollBtn').onclick = function() {
+        rollType = 'wet';
+        document.getElementById('wetRollBtn').classList.add('active');
+        document.getElementById('dryRollBtn').classList.remove('active');
+        calculate();
+    };
+    
+    document.getElementById('dryRollBtn').onclick = function() {
+        rollType = 'dry';
+        document.getElementById('dryRollBtn').classList.add('active');
+        document.getElementById('wetRollBtn').classList.remove('active');
+        calculate();
+    };
+    
+    document.getElementById('decreaseBtn').onclick = function() {
+        var input = document.getElementById('quantityInput');
+        var val = Number(input.value) || 1;
+        if (val > 1) {
+            input.value = val - 1;
+            calculate();
+        }
+    };
+    
+    document.getElementById('increaseBtn').onclick = function() {
+        var input = document.getElementById('quantityInput');
+        var val = Number(input.value) || 0;
+        input.value = val + 1;
+        calculate();
+    };
+    
+    document.getElementById('quantityInput').oninput = calculate;
+    document.getElementById('widthInput').oninput = calculate;
+    document.getElementById('lengthInput').oninput = calculate;
+    
+    // Advanced settings toggle
+    document.getElementById('advancedToggle').onclick = function() {
+        advancedOpen = !advancedOpen;
+        var settings = document.getElementById('advancedSettings');
+        var toggle = document.getElementById('advancedToggle');
+        settings.style.display = advancedOpen ? 'block' : 'none';
+        if (advancedOpen) {
+            toggle.classList.add('active');
+        } else {
+            toggle.classList.remove('active');
+        }
+    };
+    
+    // Advanced settings inputs
+    document.getElementById('wageInput').oninput = calculate;
+    document.getElementById('materialInput').oninput = calculate;
+    document.getElementById('convertingWetInput').oninput = calculate;
+    document.getElementById('convertingDryInput').oninput = calculate;
+    document.getElementById('solventPriceInput').oninput = calculate;
+    document.getElementById('solventLevelInput').oninput = calculate;
+    document.getElementById('coreCostInput').oninput = calculate;
+    document.getElementById('packagingInput').oninput = calculate;
+    
+    document.getElementById('quoteBtn').onclick = function() {
+        var quantity = document.getElementById('quantityInput').value;
+        var width = document.getElementById('widthInput').value;
+        var length = document.getElementById('lengthInput').value;
+        var total = document.getElementById('totalCost').textContent;
+        var perRoll = document.getElementById('costPerRoll').textContent;
+        
+        var subject = 'Quote Request - ' + (rollType === 'wet' ? 'Wet' : 'Dry') + ' Rolls';
+        var body = 'Hello,\n\nI would like a quote for:\n\nRoll Type: ' + (rollType === 'wet' ? 'Wet' : 'Dry') + ' Rolls\nQuantity: ' + quantity + ' rolls\nDimensions: ' + width + 'm x ' + length + 'm\n\nCalculated:\n- Per Roll: ' + perRoll + '\n- Total: ' + total + '\n\nThank you';
+        
+        window.location.href = 'mailto:info@dimple.nl?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    };
+    
+    document.getElementById('printBtn').onclick = function() {
+        window.print();
+    };
+    
+    // Initialize
+    setTimeout(calculate, 100);
+    </script>
 </body>
 </html>

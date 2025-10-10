@@ -643,24 +643,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Enhanced Mobile submenu dropdown functionality
     const graphicalCleaningToggle = document.getElementById('graphicalCleaningToggle');
     const graphicalCleaningSubmenu = document.getElementById('graphicalCleaningSubmenu');
+    const graphicalCleaningArrow = document.getElementById('graphicalCleaningArrow');
     
-    if (graphicalCleaningToggle && graphicalCleaningSubmenu) {
+    if (graphicalCleaningToggle && graphicalCleaningSubmenu && graphicalCleaningArrow) {
         let isAnimating = false;
         
-        // Toggle submenu on parent click
-        graphicalCleaningToggle.addEventListener('click', function(e) {
-            // Prevent default only if clicking the parent container or arrow
-            const clickedElement = e.target;
-            const isLink = clickedElement.tagName === 'A';
+        // Toggle submenu ONLY when clicking the arrow
+        graphicalCleaningArrow.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
-            if (!isLink) {
-                e.preventDefault();
-                e.stopPropagation();
-                
-                if (isAnimating) return; // Prevent rapid clicking
-                
-                toggleSubmenu();
-            }
+            if (isAnimating) return; // Prevent rapid clicking
+            
+            toggleSubmenu();
         });
         
         // Enhanced toggle function with better animation handling
