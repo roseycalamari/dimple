@@ -202,16 +202,19 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 
-    // Enhanced mobile menu functionality
+    // NEW MODERN MOBILE MENU FUNCTIONALITY
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-    const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-    const mobileNavMenu = document.getElementById('mobileNavMenu');
-    const mobileNavClose = document.getElementById('mobileNavClose');
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+    const mobileMenuSublinks = document.querySelectorAll('.mobile-menu-sublink');
+    const graphicalCleaningToggle = document.getElementById('graphicalCleaningToggle');
+    const graphicalCleaningSubmenu = document.getElementById('graphicalCleaningSubmenu');
     
     function openMobileMenu() {
-        mobileNavOverlay.classList.add('active');
-        mobileNavMenu.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        mobileMenu.classList.add('active');
         document.body.style.overflow = 'hidden';
         
         // Animate hamburger lines
@@ -222,13 +225,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Focus management
         setTimeout(() => {
-            mobileNavClose.focus();
-        }, 400);
+            mobileMenuClose.focus();
+        }, 300);
     }
     
     function closeMobileMenu() {
-        mobileNavOverlay.classList.remove('active');
-        mobileNavMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        mobileMenu.classList.remove('active');
         document.body.style.overflow = '';
         
         // Reset hamburger lines
@@ -237,10 +240,16 @@ document.addEventListener('DOMContentLoaded', function() {
         lines[1].style.opacity = '1';
         lines[2].style.transform = 'none';
         
+        // Close any open dropdowns
+        if (graphicalCleaningToggle && graphicalCleaningSubmenu) {
+            graphicalCleaningToggle.classList.remove('active');
+            graphicalCleaningSubmenu.classList.remove('active');
+        }
+        
         // Return focus to toggle button
         setTimeout(() => {
             mobileMenuToggle.focus();
-        }, 400);
+        }, 300);
     }
     
     // Event listeners
@@ -248,18 +257,41 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuToggle.addEventListener('click', openMobileMenu);
     }
     
-    if (mobileNavClose) {
-        mobileNavClose.addEventListener('click', closeMobileMenu);
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
     }
     
-    if (mobileNavOverlay) {
-        mobileNavOverlay.addEventListener('click', closeMobileMenu);
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    }
+    
+    // Dropdown functionality
+    if (graphicalCleaningToggle && graphicalCleaningSubmenu) {
+        graphicalCleaningToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isActive = this.classList.contains('active');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.mobile-menu-dropdown-toggle').forEach(toggle => {
+                toggle.classList.remove('active');
+            });
+            document.querySelectorAll('.mobile-menu-submenu').forEach(submenu => {
+                submenu.classList.remove('active');
+            });
+            
+            // Toggle current dropdown
+            if (!isActive) {
+                this.classList.add('active');
+                graphicalCleaningSubmenu.classList.add('active');
+            }
+        });
     }
     
     // Close menu when clicking on navigation links
-    mobileNavLinks.forEach(link => {
+    [...mobileMenuLinks, ...mobileMenuSublinks].forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
             
             // Close menu first
@@ -267,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Then navigate after a short delay
             setTimeout(() => {
-                if (targetId.startsWith('#')) {
+                if (targetId && targetId.startsWith('#')) {
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
                         targetElement.scrollIntoView({
@@ -275,17 +307,29 @@ document.addEventListener('DOMContentLoaded', function() {
                             block: 'start'
                         });
                     }
-                } else {
+                } else if (targetId && !targetId.startsWith('#')) {
                     window.location.href = targetId;
                 }
-            }, 500);
+            }, 300);
         });
     });
     
     // Close menu on escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileNavMenu.classList.contains('active')) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
             closeMobileMenu();
+        }
+    });
+    
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.mobile-menu-dropdown')) {
+            document.querySelectorAll('.mobile-menu-dropdown-toggle').forEach(toggle => {
+                toggle.classList.remove('active');
+            });
+            document.querySelectorAll('.mobile-menu-submenu').forEach(submenu => {
+                submenu.classList.remove('active');
+            });
         }
     });
 
