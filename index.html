@@ -66,6 +66,16 @@
             overflow: hidden;
         }
 
+        /* Mobile scrolling fix */
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+                max-height: none;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+        }
+
         /* Enhanced Container System - Perfect responsive fit */
         .container {
             max-width: min(1200px, 92vw);
@@ -475,9 +485,10 @@
             .container {
                 padding: 0 clamp(1rem, 3vw, 1.5rem);
                 gap: clamp(0.8rem, 2.5vh, 1.5rem);
-                height: 100vh;
-                max-height: 100vh;
-                justify-content: center;
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
+                justify-content: flex-start;
                 padding-top: clamp(3rem, 8vh, 5rem);
                 padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
                 box-sizing: border-box;
@@ -485,11 +496,12 @@
 
             .landing-container {
                 padding: clamp(1rem, 3vh, 2rem) 0 clamp(0.8rem, 2.5vh, 1.5rem);
-                height: 100vh;
-                max-height: 100vh;
-                justify-content: center;
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
+                justify-content: flex-start;
                 gap: clamp(0.5rem, 1.5vh, 1rem);
-                overflow: hidden;
+                overflow: visible;
             }
 
             .welcome-section {
@@ -608,9 +620,10 @@
             .container {
                 padding: 0 clamp(1rem, 4vw, 1.5rem);
                 gap: clamp(0.8rem, 2.5vh, 1.5rem);
-                height: 100vh;
-                max-height: 100vh;
-                justify-content: center;
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
+                justify-content: flex-start;
                 padding-top: clamp(3.5rem, 8vh, 5rem);
                 padding-bottom: clamp(1.5rem, 4vh, 2.5rem);
                 box-sizing: border-box;
@@ -618,11 +631,12 @@
 
             .landing-container {
                 padding: clamp(1.2rem, 3vh, 2rem) 0 clamp(0.8rem, 2.5vh, 1.5rem);
-                height: 100vh;
-                max-height: 100vh;
-                justify-content: center;
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
+                justify-content: flex-start;
                 gap: clamp(1rem, 2.8vh, 2rem);
-                overflow: hidden;
+                overflow: visible;
             }
 
             .welcome-section {
@@ -700,13 +714,22 @@
             .container {
                 padding: 0 clamp(0.8rem, 3.5vw, 1.2rem);
                 gap: clamp(0.6rem, 2vh, 1.2rem);
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
+                justify-content: flex-start;
                 padding-top: clamp(3rem, 7vh, 4.5rem);
                 padding-bottom: clamp(1.2rem, 3.5vh, 2rem);
             }
 
             .landing-container {
                 padding: clamp(1rem, 2.5vh, 1.8rem) 0 clamp(0.6rem, 2vh, 1.2rem);
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
+                justify-content: flex-start;
                 gap: clamp(0.8rem, 2.5vh, 1.8rem);
+                overflow: visible;
             }
 
             .welcome-section {
@@ -772,14 +795,16 @@
         /* Enhanced Mobile Landscape Mode - Better proportions */
         @media (orientation: landscape) and (max-height: 500px) {
             body {
-                overflow: hidden;
+                overflow-x: hidden;
+                overflow-y: auto;
             }
 
             .container {
                 gap: clamp(0.4rem, 1.5vh, 0.8rem);
-                height: 100vh;
-                max-height: 100vh;
-                justify-content: center;
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
+                justify-content: flex-start;
                 padding-top: clamp(1rem, 3vh, 2rem);
                 padding-bottom: clamp(0.5rem, 1.5vh, 1rem);
                 box-sizing: border-box;
@@ -787,11 +812,12 @@
 
             .landing-container {
                 padding: clamp(0.5rem, 2vh, 1.2rem) 0 clamp(0.3rem, 1vh, 0.8rem);
-                height: 100vh;
-                max-height: 100vh;
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
                 gap: clamp(0.4rem, 1.5vh, 0.8rem);
-                justify-content: center;
-                overflow: hidden;
+                justify-content: flex-start;
+                overflow: visible;
             }
 
             .logo-section {
@@ -1227,25 +1253,28 @@
         /* Enhanced Landscape orientation - Better fit for mobile landscape */
         @media (orientation: landscape) and (max-height: 500px) {
             body {
-                overflow: hidden;
+                overflow-x: hidden;
+                overflow-y: auto;
             }
 
             .container {
                 gap: clamp(0.2rem, 1vh, 0.5rem);
-                height: 100vh;
-                max-height: 100vh;
-                justify-content: center;
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
+                justify-content: flex-start;
                 padding-top: clamp(0.5rem, 2vh, 1rem);
                 box-sizing: border-box;
             }
 
             .landing-container {
                 padding: clamp(0.3rem, 1vh, 0.8rem) 0 clamp(0.2rem, 0.5vh, 0.5rem);
-                height: 100vh;
-                max-height: 100vh;
+                height: auto;
+                max-height: none;
+                min-height: 100vh;
                 gap: clamp(0.2rem, 1vh, 0.5rem);
-                justify-content: center;
-                overflow: hidden;
+                justify-content: flex-start;
+                overflow: visible;
             }
 
             .logo-section {
@@ -1745,9 +1774,9 @@
 
     <!-- Logo Section -->
     <div class="logo-section">
-        <div class="logo">
+        <a href="home.html" class="logo">
             <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
-        </div>
+        </a>
     </div>
 
     <!-- Main Landing Container -->
