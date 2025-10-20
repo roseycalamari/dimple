@@ -212,6 +212,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const graphicalCleaningToggle = document.getElementById('graphicalCleaningToggle');
     const graphicalCleaningSubmenu = document.getElementById('graphicalCleaningSubmenu');
     
+    // Only initialize mobile menu if elements exist
+    if (mobileMenuToggle && mobileMenuOverlay && mobileMenu && mobileMenuClose) {
+    
     function openMobileMenu() {
         mobileMenuOverlay.classList.add('active');
         mobileMenu.classList.add('active');
@@ -332,6 +335,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+    
+    } // End of mobile menu initialization check
 
     // Smooth scroll indicator
     const scrollIndicator = document.querySelector('.scroll-indicator');
@@ -412,6 +417,48 @@ document.addEventListener('DOMContentLoaded', function() {
             const featuresSection = document.querySelector('#features');
             if (featuresSection) {
                 featuresSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // Scroll to mini rolls functionality for cassette rolls page
+    const scrollToMiniRollsButton = document.querySelector('[data-action="scroll-to-mini-rolls"]');
+    if (scrollToMiniRollsButton) {
+        scrollToMiniRollsButton.addEventListener('click', function() {
+            const miniRollsSection = document.querySelector('#mini-rolls');
+            if (miniRollsSection) {
+                miniRollsSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // Scroll to winding info functionality for winding device page
+    const scrollToWindingInfoButton = document.querySelector('[data-action="scroll-to-winding-info"]');
+    if (scrollToWindingInfoButton) {
+        scrollToWindingInfoButton.addEventListener('click', function() {
+            const windingInfoSection = document.querySelector('#winding-info');
+            if (windingInfoSection) {
+                windingInfoSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+
+    // Scroll to calculator functionality for pricing page
+    const scrollToCalculatorButton = document.querySelector('[data-action="scroll-to-calculator"]');
+    if (scrollToCalculatorButton) {
+        scrollToCalculatorButton.addEventListener('click', function() {
+            const calculatorSection = document.querySelector('#pricing-calculator');
+            if (calculatorSection) {
+                calculatorSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
@@ -685,8 +732,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Enhanced Mobile submenu dropdown functionality
-    const graphicalCleaningToggle = document.getElementById('graphicalCleaningToggle');
-    const graphicalCleaningSubmenu = document.getElementById('graphicalCleaningSubmenu');
     const graphicalCleaningArrow = document.getElementById('graphicalCleaningArrow');
     
     if (graphicalCleaningToggle && graphicalCleaningSubmenu && graphicalCleaningArrow) {

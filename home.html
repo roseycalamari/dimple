@@ -10,6 +10,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Mobile Menu Logo - Green Version */
+        .mobile-menu-logo-image {
+            transition: all 0.3s ease;
+            height: 32px;
+            width: auto;
+            display: block;
+        }
+        
+        .mobile-menu-logo-image:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
         /* Mobile Footer Logo Centering for Home Page */
         @media (max-width: 768px) {
             .footer-brand {
@@ -200,8 +213,7 @@
     <nav class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
             <div class="mobile-menu-logo">
-                <img src="images/logo-wit@2x.png" alt="Dimple Logo">
-                <span class="mobile-menu-logo-text">Dimple</span>
+                <img src="images/logo greeen.png" alt="Dimple Logo" class="mobile-menu-logo-image">
             </div>
             <button class="mobile-menu-close" id="mobileMenuClose">×</button>
         </div>

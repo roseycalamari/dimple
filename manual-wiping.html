@@ -14,8 +14,8 @@
             --text-gray: #666666;
         }
         
-        /* ENHANCED MANUAL WIPING HERO SECTION - Mobile optimized with HSR1700 background */
-        .washcloth-hero {
+        /* Hero Section with Background Image - Similar to about.html */
+        .graphical-cleaning-hero {
             position: relative;
             min-height: 100vh;
             display: flex;
@@ -26,7 +26,60 @@
             padding: clamp(100px, 12vh, 150px) 0 clamp(40px, 6vh, 80px);
         }
 
-        .washcloth-hero-background {
+        /* Enhanced mobile responsiveness for graphical cleaning page - matching about.html */
+        @media (max-width: 768px) {
+            .graphical-cleaning-hero {
+                padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
+                min-height: 90vh;
+            }
+            
+            .graphical-hero-content {
+                text-align: center;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .graphical-cleaning-hero {
+                padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
+                min-height: 85vh;
+            }
+        }
+
+        /* Mobile Hero Title Styles - Match about.html sizing for "Cleaning" */
+        @media (max-width: 768px) {
+            .graphical-cleaning-hero .hero-title .title-main {
+                font-size: clamp(3rem, 7vw, 5.5rem) !important;
+                font-weight: 900;
+                color: var(--primary-white);
+                line-height: 0.9;
+                margin-bottom: 15px;
+                position: relative;
+                letter-spacing: -2px;
+                text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+
+            .graphical-cleaning-hero .hero-title .title-line {
+                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                font-weight: 500;
+                color: var(--accent-green);
+                margin-bottom: 12px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                opacity: 0.8;
+            }
+
+            .graphical-cleaning-hero .hero-title .title-subtitle {
+                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                font-weight: 600;
+                color: var(--light-green);
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                opacity: 0.9;
+            }
+        }
+
+        .graphical-hero-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -35,13 +88,13 @@
             z-index: 1;
         }
 
-        .washcloth-hero-bg-image {
+        .graphical-hero-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/HSR1700/hsr-1700-03.jpg');
+            background-image: url('images/HSR1700/hsr-1700-07.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -49,7 +102,7 @@
             filter: brightness(0.9) contrast(1.1);
         }
 
-        .washcloth-hero-overlay {
+        .graphical-hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -64,7 +117,7 @@
             z-index: 2;
         }
 
-        .washcloth-hero-overlay::before {
+        .graphical-hero-overlay::before {
             content: '';
             position: absolute;
             top: 0;
@@ -77,27 +130,7 @@
             pointer-events: none;
         }
 
-        /* Enhanced mobile responsiveness for manual wiping page */
-        @media (max-width: 768px) {
-            .washcloth-hero {
-                padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
-                min-height: 90vh;
-            }
-            
-            .washcloth-hero-content {
-                text-align: center;
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .washcloth-hero {
-                padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
-                min-height: 85vh;
-            }
-        }
-
-        .washcloth-hero-content {
+        .graphical-hero-content {
             position: relative;
             z-index: 3;
             text-align: left;
@@ -108,151 +141,12 @@
 
         /* Using global hero styles from styles.css for consistency */
         
-        /* Hero text positioning and styling */
-        .washcloth-hero .hero-text {
-            max-width: 800px;
-            text-align: left;
-            margin-left: 0;
-            margin-right: auto;
-            opacity: 1 !important;
-        }
         
-        .washcloth-hero .hero-title {
-            text-align: left;
-            margin-bottom: 30px;
-        }
         
-        .washcloth-hero .hero-title .title-line {
-            display: block;
-            text-align: left;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            font-weight: 500;
-            color: var(--primary-white);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.9;
-        }
         
-        .washcloth-hero .hero-title .title-main {
-            display: block;
-            text-align: left;
-            font-size: clamp(2.8rem, 8vw, 5.5rem);
-            font-weight: 900;
-            color: #ffffff !important;
-            line-height: 1.1;
-            margin-bottom: 15px;
-            position: relative;
-            letter-spacing: -2px;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            opacity: 1 !important;
-            filter: none !important;
-            -webkit-text-fill-color: #ffffff !important;
-        }
         
-        .washcloth-hero .hero-title .title-main::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 50%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-green), transparent);
-            border-radius: 2px;
-            opacity: 0.8;
-        }
         
-        .washcloth-hero .hero-title .title-subtitle {
-            display: block;
-            text-align: left;
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            font-weight: 600;
-            color: var(--primary-white);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            opacity: 0.9;
-        }
         
-        .washcloth-hero .hero-description {
-            text-align: left;
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            line-height: 1.7;
-            color: var(--primary-white);
-            font-weight: 400;
-            max-width: 600px;
-            margin-bottom: 40px;
-            margin-left: 0;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-        
-        .washcloth-hero .hero-cta {
-            text-align: left;
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-left: 0;
-            margin-right: auto;
-            justify-content: flex-start;
-        }
-        
-        /* Button styling to ensure white text and left alignment */
-        .washcloth-hero .hero-cta .cta-secondary {
-            color: var(--primary-white);
-            border-color: var(--primary-white);
-            margin-left: 0;
-            margin-right: auto;
-        }
-        
-        .washcloth-hero .hero-cta .cta-secondary .cta-text {
-            color: var(--primary-white);
-        }
-        
-        .washcloth-hero .hero-cta .cta-secondary .cta-icon {
-            color: var(--primary-white);
-        }
-        
-        /* Mobile responsiveness - center align on small screens */
-        @media (max-width: 768px) {
-            .washcloth-hero .hero-text {
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .washcloth-hero .hero-title {
-                text-align: center;
-            }
-            
-            .washcloth-hero .hero-title .title-line {
-                text-align: center;
-            }
-            
-            .washcloth-hero .hero-title .title-main {
-                text-align: center;
-            }
-            
-            .washcloth-hero .hero-title .title-subtitle {
-                text-align: center;
-            }
-            
-            .washcloth-hero .hero-description {
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .washcloth-hero .hero-cta {
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .washcloth-hero .hero-title .title-main::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
 
         /* Section Headers */
         .section-header {
@@ -607,6 +501,18 @@
             margin-bottom: clamp(40px, 6vh, 60px);
             position: relative;
             z-index: 2;
+        }
+
+        /* Ensure biocleaner section title matches other page section titles */
+        .biocleaner-header .section-title {
+            font-size: clamp(1.4rem, 3vw, 2.5rem) !important;
+            font-weight: 800 !important;
+            color: var(--primary-green) !important;
+            line-height: 1.2 !important;
+            margin-bottom: 30px !important;
+            position: relative;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(26, 95, 63, 0.1);
         }
 
         .biocleaner-subtitle {
@@ -1408,8 +1314,7 @@
     <nav class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
             <div class="mobile-menu-logo">
-                <img src="images/logo-wit@2x.png" alt="Dimple Logo">
-                <span class="mobile-menu-logo-text">Dimple</span>
+                <img src="images/logo greeen.png" alt="Dimple Logo" class="mobile-menu-logo-image">
             </div>
             <button class="mobile-menu-close" id="mobileMenuClose">×</button>
         </div>
@@ -1437,20 +1342,20 @@
         </div>
     </nav>
 
-    <!-- Manual Wiping Hero Section -->
-    <section class="washcloth-hero">
-        <div class="washcloth-hero-background">
-            <div class="washcloth-hero-bg-image"></div>
-            <div class="washcloth-hero-overlay"></div>
+    <!-- Graphical Cleaning Hero Section -->
+    <section class="graphical-cleaning-hero">
+        <div class="graphical-hero-background">
+            <div class="graphical-hero-image"></div>
+            <div class="graphical-hero-overlay"></div>
         </div>
         
         <div class="container">
-            <div class="washcloth-hero-content">
+            <div class="graphical-hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        <span class="title-line">Wiping and</span>
-                        <span class="title-main">Cleaning</span>
-                        <span class="title-subtitle">Professional Wiping Solutions</span>
+                        <span class="title-line">Manual</span>
+                        <span class="title-main">Wiping</span>
+                        <span class="title-subtitle">Industry-Leading Wiping Technology</span>
                     </h1>
                     
                     <p class="hero-description">
@@ -1458,9 +1363,13 @@
                     </p>
                     
                     <div class="hero-cta">
-                        <a href="#biocleaner" class="cta-secondary" data-action="scroll-to-biocleaner">
-                            <span class="cta-text">Explore</span>
+                        <button class="cta-secondary" data-action="scroll-to-biocleaner">
+                            <span class="cta-text">Explore Solutions</span>
                             <span class="cta-icon">↓</span>
+                        </button>
+                        <a href="index.html" class="cta-button cta-primary video-cta-btn">
+                            <span class="cta-text">Watch Our Video</span>
+                            <span class="cta-icon">▶</span>
                         </a>
                     </div>
                 </div>

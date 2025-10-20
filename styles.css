@@ -1085,7 +1085,7 @@ body {
     margin: 24px;
     padding: 16px 24px;
     background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
-    color: var(--primary-white);
+        color: var(--primary-white);
     text-decoration: none;
     font-family: var(--font-primary);
     font-size: 1rem;
@@ -7556,5 +7556,4 @@ img {
         letter-spacing: -1px !important;
         text-shadow: 0 4px 20px rgba(26, 95, 63, 0.2) !important;
     }
-}
 }

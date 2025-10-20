@@ -16,8 +16,8 @@
             --off-white: #f8f9fa;
         }
         
-        /* Hero Section with Background Image - Matching graphical-cleaning.html exactly */
-        .cassette-rolls-hero {
+        /* Hero Section with Background Image - Similar to about.html */
+        .graphical-cleaning-hero {
             position: relative;
             min-height: 100vh;
             display: flex;
@@ -28,81 +28,60 @@
             padding: clamp(100px, 12vh, 150px) 0 clamp(40px, 6vh, 80px);
         }
 
-        /* Enhanced mobile responsiveness for cassette rolls page - matching graphical-cleaning.html */
+        /* Enhanced mobile responsiveness for graphical cleaning page - matching about.html */
         @media (max-width: 768px) {
-            .cassette-rolls-hero {
+            .graphical-cleaning-hero {
                 padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
                 min-height: 90vh;
             }
             
-            .cassette-hero-content {
+            .graphical-hero-content {
                 text-align: center;
                 max-width: 100%;
             }
         }
 
         @media (max-width: 480px) {
-            .cassette-rolls-hero {
+            .graphical-cleaning-hero {
                 padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
                 min-height: 85vh;
             }
-            
-                    /* Enhanced mobile hero content */
-        .cassette-hero-content {
-            padding: 0 15px;
         }
-        
-        .hero-title .title-line {
-            font-size: clamp(1.8rem, 6vw, 2.2rem);
-        }
-        
-        .hero-title .title-main {
-            font-size: clamp(2.5rem, 8vw, 3rem);
-        }
-        
-        /* Force "Rolls" to be same size as "Dimple" on mobile */
-        .cassette-rolls-hero .hero-title .title-main {
-            font-size: clamp(2.5rem, 8vw, 3rem) !important;
-        }
-        
-        .hero-title .title-main .title-main-text {
-            font-size: clamp(2.5rem, 8vw, 3rem);
-        }
-        
-        /* Ensure "Rolls" has same size as "Dimple" on mobile */
-        .hero-title .title-main {
-            font-size: clamp(2.5rem, 8vw, 3rem) !important;
-        }
-        
-        .hero-title .title-main span {
-            font-size: clamp(2.5rem, 8vw, 3rem) !important;
-        }
-        
-        .hero-title .title-subtitle {
-            font-size: clamp(1rem, 3.5vw, 1.2rem);
-        }
-            
-            .hero-description {
-                font-size: clamp(1rem, 3.5vw, 1.1rem);
-                line-height: 1.6;
-                margin-bottom: 25px;
+
+        /* Mobile Hero Title Styles - Match about.html sizing for "Cleaning" */
+        @media (max-width: 768px) {
+            .graphical-cleaning-hero .hero-title .title-main {
+                font-size: clamp(3rem, 7vw, 5.5rem) !important;
+                font-weight: 900;
+                color: var(--primary-white);
+                line-height: 0.9;
+                margin-bottom: 15px;
+                position: relative;
+                letter-spacing: -2px;
+                text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             }
-            
-            .hero-cta {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
+
+            .graphical-cleaning-hero .hero-title .title-line {
+                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                font-weight: 500;
+                color: var(--accent-green);
+                margin-bottom: 12px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                opacity: 0.8;
             }
-            
-            .cta-secondary {
-                width: 100%;
-                max-width: 280px;
-                padding: 14px 24px;
-                font-size: 0.95rem;
+
+            .graphical-cleaning-hero .hero-title .title-subtitle {
+                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                font-weight: 600;
+                color: var(--light-green);
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                opacity: 0.9;
             }
         }
 
-        .cassette-hero-background {
+        .graphical-hero-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -111,13 +90,13 @@
             z-index: 1;
         }
 
-        .cassette-hero-image {
+        .graphical-hero-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/HSR1700/hsr-1700-04.jpg');
+            background-image: url('images/HSR1700/hsr-1700-07.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -125,7 +104,7 @@
             filter: brightness(0.9) contrast(1.1);
         }
 
-        .cassette-hero-overlay {
+        .graphical-hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -140,7 +119,7 @@
             z-index: 2;
         }
 
-        .cassette-hero-overlay::before {
+        .graphical-hero-overlay::before {
             content: '';
             position: absolute;
             top: 0;
@@ -153,7 +132,7 @@
             pointer-events: none;
         }
 
-        .cassette-hero-content {
+        .graphical-hero-content {
             position: relative;
             z-index: 3;
             text-align: left;
@@ -163,44 +142,6 @@
         }
 
         /* Using global hero styles from styles.css for consistency */
-        .cassette-hero-cta {
-            position: relative;
-            overflow: hidden;
-            min-width: 220px;
-            justify-content: center;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            background: var(--primary-white);
-            color: var(--primary-green);
-            border: 2px solid var(--primary-white);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .cassette-hero-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(26, 95, 63, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .cassette-hero-cta:hover::before {
-            left: 100%;
-        }
-
-        .cassette-hero-cta:hover {
-            background: var(--bright-green);
-            color: var(--primary-white);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .cassette-hero-cta:hover .cta-icon {
-            transform: translateX(5px);
-        }
 
         /* Ready-to-use Mini Rolls Section - Enhanced Design */
         .mini-rolls-section {
@@ -711,9 +652,6 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .cassette-rolls-hero {
-                padding: 120px 0 55px;
-            }
 
             .mini-rolls-section {
                 padding: 100px 0;
@@ -736,9 +674,6 @@
         }
 
         @media (max-width: 768px) {
-            .cassette-rolls-hero {
-                padding: 110px 0 50px;
-            }
 
             .mini-rolls-section {
                 padding: 80px 0;
@@ -805,19 +740,11 @@
         }
 
         @media (max-width: 480px) {
-            .cassette-rolls-hero {
-                padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
-                min-height: 85vh;
-            }
 
             .mini-rolls-section {
                 padding: 60px 0;
             }
 
-            .cassette-hero-cta {
-                padding: 14px 28px;
-                min-width: 180px;
-            }
 
             .cassette-subsection {
                 padding: 30px 20px;
@@ -939,9 +866,6 @@
                 padding: 0 4rem;
             }
             
-            .cassette-rolls-hero {
-                padding: 150px 0 80px;
-            }
             
             .hero-title {
                 font-size: clamp(4.2rem, 5.5vw, 5.5rem);
@@ -1097,9 +1021,6 @@
                 padding: 0 15px;
             }
             
-            .cassette-rolls-hero {
-                padding: clamp(60px, 10vh, 80px) 0 clamp(20px, 5vh, 30px);
-            }
             
             .mini-rolls-section {
                 padding: 50px 0;
@@ -1178,8 +1099,7 @@
     <nav class="mobile-menu" id="mobileMenu">
         <div class="mobile-menu-header">
             <div class="mobile-menu-logo">
-                <img src="images/logo-wit@2x.png" alt="Dimple Logo">
-                <span class="mobile-menu-logo-text">Dimple</span>
+                <img src="images/logo greeen.png" alt="Dimple Logo" class="mobile-menu-logo-image">
             </div>
             <button class="mobile-menu-close" id="mobileMenuClose">×</button>
         </div>
@@ -1207,31 +1127,35 @@
         </div>
     </nav>
 
-    <!-- Cassette Rolls Hero Section -->
-    <section class="cassette-rolls-hero">
-        <div class="cassette-hero-background">
-            <div class="cassette-hero-image"></div>
-            <div class="cassette-hero-overlay"></div>
+    <!-- Graphical Cleaning Hero Section -->
+    <section class="graphical-cleaning-hero">
+        <div class="graphical-hero-background">
+            <div class="graphical-hero-image"></div>
+            <div class="graphical-hero-overlay"></div>
         </div>
         
         <div class="container">
-            <div class="cassette-hero-content">
+            <div class="graphical-hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
                         <span class="title-line">Cassette</span>
                         <span class="title-main">Rolls</span>
-                        <span class="title-subtitle">Advanced Non-Woven Roll Solutions</span>
+                        <span class="title-subtitle">Industry-Leading Wiping Technology</span>
                     </h1>
                     
                     <p class="hero-description">
-                    Our premium cassette roll systems deliver consistent, high-quality cleaning performance for modern printing operations. Engineered for efficiency and reliability in high-volume production environments.
-                </p>
+                        Dimple's washcloths are widely available in ready-to-use mini rolls. Specially produced on our high tech winding equipment, we offer cassettes for presses by the following manufacturers (among others): Heidelberg, Komori, Ryobi, Sakurai, MAN Roland, KBA and Adast.
+                    </p>
                     
-                                        <div class="hero-cta">
-                        <button class="cta-secondary" onclick="scrollToMiniRolls()">
-                            <span class="cta-text">Read More</span>
+                    <div class="hero-cta">
+                        <button class="cta-secondary" data-action="scroll-to-mini-rolls">
+                            <span class="cta-text">Explore Solutions</span>
                             <span class="cta-icon">↓</span>
                         </button>
+                        <a href="index.html" class="cta-button cta-primary video-cta-btn">
+                            <span class="cta-text">Watch Our Video</span>
+                            <span class="cta-icon">▶</span>
+                        </a>
                     </div>
                 </div>
             </div>
