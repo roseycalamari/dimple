@@ -175,6 +175,444 @@
         }
 
         /* Using global hero styles from styles.css for consistency */
+
+        /* PRICING CALCULATOR STYLES */
+        .pricing-calculator-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+
+        .pricing-calculator-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(26, 95, 63, 0.02) 0%, transparent 50%);
+        }
+
+        .pricing-calculator-section .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-calculator-section .section-title {
+            font-family: var(--font-primary);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .pricing-calculator-section .section-description {
+            font-family: var(--font-secondary);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .calculator-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .calculator-inputs,
+        .calculator-results {
+            background: var(--primary-white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(26, 95, 63, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .calculator-inputs:hover,
+        .calculator-results:hover {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            border-color: rgba(26, 95, 63, 0.2);
+        }
+
+        .calculator-section-title {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .calculator-section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            border-radius: 2px;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            display: block;
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            letter-spacing: 0.3px;
+        }
+
+        .calculator-input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid rgba(26, 95, 63, 0.15);
+            border-radius: 12px;
+            font-family: var(--font-secondary);
+            font-size: 1rem;
+            color: #1a1a1a !important;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .calculator-input::placeholder {
+            color: #999999 !important;
+            opacity: 1;
+        }
+
+        .calculator-input:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            background: var(--primary-white);
+            box-shadow: 0 0 0 4px rgba(46, 167, 106, 0.1);
+            color: #1a1a1a !important;
+        }
+
+        .roll-type-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .roll-type-btn {
+            padding: 16px 20px;
+            border: 2px solid rgba(26, 95, 63, 0.15);
+            border-radius: 12px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: #1a1a1a;
+        }
+
+        .roll-type-btn:hover {
+            border-color: rgba(26, 95, 63, 0.3);
+            background: var(--primary-white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .roll-type-btn.active {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            border-color: var(--accent-green);
+            color: var(--primary-white);
+        }
+
+        .roll-type-name {
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .roll-type-rate {
+            font-family: var(--font-secondary);
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .roll-type-btn.active .roll-type-name,
+        .roll-type-btn.active .roll-type-rate {
+            color: var(--primary-white);
+        }
+
+        .single-roll-indicator {
+            padding: 16px 20px;
+            border: 2px solid rgba(26, 95, 63, 0.15);
+            border-radius: 12px;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: #1a1a1a;
+        }
+        
+        .single-roll-indicator .roll-type-name,
+        .single-roll-indicator .roll-type-rate {
+            color: #1a1a1a;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            color: var(--primary-white);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(26, 95, 63, 0.2);
+        }
+
+        .result-label {
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .result-value {
+            font-family: var(--font-primary);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+            line-height: 1;
+        }
+
+        .result-sublabel {
+            font-family: var(--font-secondary);
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        .results-breakdown {
+            margin-bottom: 30px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(26, 95, 63, 0.1);
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-item-label {
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            color: #666666;
+            font-weight: 500;
+        }
+
+        .result-item-value {
+            font-family: var(--font-primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .result-divider {
+            height: 1px;
+            background: rgba(26, 95, 63, 0.2);
+            margin: 20px 0;
+        }
+
+        .result-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .result-btn {
+            padding: 14px 20px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .result-btn.primary {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            color: var(--primary-white);
+            box-shadow: 0 4px 12px rgba(26, 95, 63, 0.2);
+        }
+
+        .result-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 95, 63, 0.3);
+        }
+
+        .result-btn.secondary {
+            background: #f8f9fa;
+            color: var(--primary-green);
+            border: 2px solid rgba(26, 95, 63, 0.15);
+        }
+
+        .result-btn.secondary:hover {
+            background: var(--primary-white);
+            border-color: rgba(26, 95, 63, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .calculator-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pricing-calculator-section {
+                padding: 60px 0;
+            }
+
+            .calculator-inputs,
+            .calculator-results {
+                padding: 30px 20px;
+            }
+
+            .calculator-section-title {
+                font-size: 1.5rem;
+            }
+
+            .result-value {
+                font-size: 2.5rem;
+            }
+
+            .result-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .roll-type-toggle {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calculator-inputs,
+            .calculator-results {
+                padding: 25px 15px;
+            }
+
+            .calculator-section-title {
+                font-size: 1.3rem;
+            }
+
+            .result-value {
+                font-size: 2rem;
+            }
+
+            .result-btn {
+                padding: 12px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            /* Hide everything except print content */
+            body * {
+                visibility: hidden;
+            }
+            
+            #printContent,
+            #printContent * {
+                visibility: visible;
+            }
+            
+            #printContent {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 20px;
+            }
+            
+            .print-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                font-family: Arial, sans-serif;
+            }
+            
+            .print-table th,
+            .print-table td {
+                border: 1px solid #333;
+                padding: 12px;
+                text-align: left;
+            }
+            
+            .print-table th {
+                background-color: #f0f0f0;
+                font-weight: bold;
+            }
+            
+            .print-header {
+                margin-bottom: 30px;
+                border-bottom: 3px solid #1a5f3f;
+                padding-bottom: 15px;
+            }
+            
+            .print-header h1 {
+                margin: 0;
+                color: #1a5f3f;
+                font-size: 28px;
+            }
+            
+            .print-header p {
+                margin: 5px 0 0 0;
+                color: #666;
+                font-size: 14px;
+            }
+            
+            .print-total {
+                background-color: #1a5f3f !important;
+                color: white !important;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            
+            .print-total td {
+                border-color: #1a5f3f !important;
+            }
+        }
+        
+        /* Hide print content on screen */
+        #printContent {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -260,17 +698,17 @@
             <div class="about-hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        <span class="title-line">About</span>
-                        <span class="title-main">Dimple</span>
-                        <span class="title-subtitle">Three Decades of Innovation & Excellence</span>
+                        <span class="title-line">Transparent</span>
+                        <span class="title-main">Pricing</span>
+                        <span class="title-subtitle">Calculate Your Custom Roll Costs</span>
                     </h1>
                     
                     <p class="hero-description">
-                        Founded in 1991 by Ge Limmen, Dimple has evolved from a local startup to a market leader in non-woven fabrics. Our commitment to innovation, quality, and customer service has made us the trusted choice for professionals across Europe and beyond.
+                        Get instant pricing estimates for your custom roll production. Our interactive calculator helps you understand costs based on your specific requirements, including roll type, dimensions, and production volumes.
                     </p>
                     
                     <div class="hero-cta">
-                        <button class="cta-secondary" data-action="scroll-to-story">
+                        <button class="cta-secondary" data-action="scroll-to-calculator">
                             <span class="cta-text">Explore</span>
                             <span class="cta-icon">↓</span>
                         </button>
@@ -287,6 +725,11 @@
     <!-- Calculator Section -->
     <section class="pricing-calculator-section" id="pricing-calculator">
         <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Pricing Calculator</h2>
+                <p class="section-description">Calculate the cost of your custom roll production</p>
+            </div>
+            
             <div class="calculator-container">
                 <!-- Inputs -->
                 <div class="calculator-inputs">
@@ -403,8 +846,7 @@
                     </div>
                     
                     <div class="result-actions">
-                        <button class="result-btn primary" id="quoteBtn">📧 Request Quote</button>
-                        <button class="result-btn secondary" id="printBtn">🖨️ Print Results</button>
+                        <button class="result-btn primary" id="quoteBtn" style="grid-column: 1 / -1;">📧 Request Quote</button>
                     </div>
                 </div>
             </div>
@@ -468,6 +910,78 @@
     <a href="#" class="back-to-top" aria-label="Back to top" title="Back to top">
         <span class="arrow-icon">↑</span>
     </a>
+
+    <!-- Hidden Print Content -->
+    <div id="printContent">
+        <div class="print-header">
+            <h1>Dimple - Pricing Calculator Results</h1>
+            <p id="printDate"></p>
+        </div>
+        
+        <table class="print-table">
+            <thead>
+                <tr>
+                    <th colspan="2">Configuration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Roll Type</strong></td>
+                    <td id="printRollType"></td>
+                </tr>
+                <tr>
+                    <td><strong>Roll Width</strong></td>
+                    <td id="printWidth"></td>
+                </tr>
+                <tr>
+                    <td><strong>Roll Length</strong></td>
+                    <td id="printLength"></td>
+                </tr>
+                <tr>
+                    <td><strong>Surface Area</strong></td>
+                    <td id="printArea"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table class="print-table">
+            <thead>
+                <tr>
+                    <th colspan="2">Cost Breakdown</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Labor Cost</strong></td>
+                    <td id="printLaborCost"></td>
+                </tr>
+                <tr>
+                    <td><strong>Material Cost</strong></td>
+                    <td id="printMaterialCost"></td>
+                </tr>
+                <tr id="printSolventRow">
+                    <td><strong>Solvent Cost</strong></td>
+                    <td id="printSolventCost"></td>
+                </tr>
+                <tr>
+                    <td><strong>Core Cost</strong></td>
+                    <td id="printCoreCost"></td>
+                </tr>
+                <tr>
+                    <td><strong>Packaging Cost</strong></td>
+                    <td id="printPackagingCost"></td>
+                </tr>
+                <tr class="print-total">
+                    <td><strong>TOTAL COST (Single Roll)</strong></td>
+                    <td id="printTotalCost"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p style="margin-top: 30px; color: #666; font-size: 12px;">
+            This is an estimate based on the provided configuration. For an accurate quote, please contact us at info@dimple.nl or +31 251 316 302
+        </p>
+    </div>
 
     <script src="script.js"></script>
     <script>
@@ -565,20 +1079,21 @@
     document.getElementById('packagingInput').oninput = calculate;
     
     document.getElementById('quoteBtn').onclick = function() {
-        var quantity = 1; // Single roll production
+        // Redirect to contact page with calculator data stored in sessionStorage
         var width = document.getElementById('widthInput').value;
         var length = document.getElementById('lengthInput').value;
         var total = document.getElementById('totalCost').textContent;
-        var perRoll = document.getElementById('costPerRoll').textContent;
         
-        var subject = 'Quote Request - ' + (rollType === 'wet' ? 'Wet' : 'Dry') + ' Rolls';
-        var body = 'Hello,\n\nI would like a quote for:\n\nRoll Type: ' + (rollType === 'wet' ? 'Wet' : 'Dry') + ' Rolls\nQuantity: ' + quantity + ' roll\nDimensions: ' + (width / 1000) + 'm x ' + length + 'm\n\nCalculated:\n- Per Roll: ' + perRoll + '\n- Total: ' + total + '\n\nThank you';
+        // Store calculator data for potential use on contact page
+        sessionStorage.setItem('quoteData', JSON.stringify({
+            rollType: rollType === 'wet' ? 'Wet' : 'Dry',
+            width: (width / 1000) + 'm',
+            length: length + 'm',
+            totalCost: total
+        }));
         
-        window.location.href = 'mailto:info@dimple.nl?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    };
-    
-    document.getElementById('printBtn').onclick = function() {
-        window.print();
+        // Redirect to contact page
+        window.location.href = 'customer-service.html#contact';
     };
     
     // Mobile menu functionality
@@ -624,6 +1139,17 @@
     
     // Initialize
     setTimeout(calculate, 100);
+    
+    // Scroll to calculator functionality
+    const scrollToCalculatorBtn = document.querySelector('[data-action="scroll-to-calculator"]');
+    if (scrollToCalculatorBtn) {
+        scrollToCalculatorBtn.addEventListener('click', function() {
+            const calculatorSection = document.getElementById('pricing-calculator');
+            if (calculatorSection) {
+                calculatorSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
     </script>
 </body>
 </html>

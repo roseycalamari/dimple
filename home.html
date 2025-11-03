@@ -19,7 +19,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.3) 100%);
+            background: transparent;
             overflow: hidden;
             padding: clamp(100px, 12vh, 150px) 0 clamp(40px, 6vh, 80px);
         }
@@ -39,12 +39,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/HSR1700/hsr-1700-02.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.3;
-            filter: brightness(0.9) contrast(1.1);
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 50%, var(--primary-green) 100%);
+            opacity: 1;
         }
 
         .about-hero-overlay {
@@ -55,9 +51,9 @@
             height: 100%;
             background: linear-gradient(
                 135deg, 
-                rgba(0, 0, 0, 0.25) 0%, 
-                rgba(0, 0, 0, 0.2) 50%, 
-                rgba(0, 0, 0, 0.25) 100%
+                rgba(0, 0, 0, 0.1) 0%, 
+                rgba(0, 0, 0, 0.05) 50%, 
+                rgba(0, 0, 0, 0.1) 100%
             );
             z-index: 2;
         }
@@ -262,17 +258,17 @@
             <div class="about-hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        <span class="title-line">About</span>
-                        <span class="title-main">Dimple</span>
-                        <span class="title-subtitle">Three Decades of Innovation & Excellence</span>
+                        <span class="title-line">Industrial</span>
+                        <span class="title-main">Excellence</span>
+                        <span class="title-subtitle">Non-Woven Fabric Specialists Since 1991</span>
                     </h1>
                     
                     <p class="hero-description">
-                        Founded in 1991 by Ge Limmen, Dimple has evolved from a local startup to a market leader in non-woven fabrics. Our commitment to innovation, quality, and customer service has made us the trusted choice for professionals across Europe and beyond.
+                        Leading provider of innovative cleaning solutions for the graphical and industrial sectors. From our revolutionary Formula 1 HSR 1700 to comprehensive wiping materials, we deliver quality and performance that professionals trust worldwide.
                     </p>
                     
                     <div class="hero-cta">
-                        <button class="cta-secondary" data-action="scroll-to-story">
+                        <button class="cta-secondary" data-action="scroll-to-formula1">
                             <span class="cta-text">Explore</span>
                             <span class="cta-icon">↓</span>
                         </button>
@@ -559,5 +555,17 @@
     </a>
 
     <script src="script.js"></script>
+    <script>
+    // Scroll to Formula 1 section functionality
+    const scrollToFormula1Btn = document.querySelector('[data-action="scroll-to-formula1"]');
+    if (scrollToFormula1Btn) {
+        scrollToFormula1Btn.addEventListener('click', function() {
+            const formula1Section = document.getElementById('formula1');
+            if (formula1Section) {
+                formula1Section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+    </script>
 </body>
 </html>

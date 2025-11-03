@@ -88,7 +88,7 @@ img {
 /* Specific navbar logo styling with high specificity */
 .navbar-brand .logo-image,
 .navbar .logo-image {
-    height: clamp(40px, 4vw, 48px) !important;
+    height: 45px !important;
     width: auto !important;
     filter: brightness(0) invert(1) !important;
     transition: filter var(--transition-fast) !important;
@@ -2142,7 +2142,7 @@ img {
     }
     
     .logo-image {
-        height: 32px !important;
+        height: 38px !important;
         width: auto !important;
     }
     
@@ -4952,7 +4952,7 @@ img {
 }
 
 .logo-image {
-    height: clamp(40px, 4vw, 48px) !important;
+    height: 45px !important;
     width: auto !important;
     display: block !important;
     opacity: 1 !important;
