@@ -26,6 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let ticking = false;
     
     function updateHeader() {
+        // Only run if header exists (for pages that have a header)
+        if (!header) {
+            ticking = false;
+            return;
+        }
+        
         const currentScrollY = window.scrollY;
         
         // Add scrolled class when scrolled down
@@ -55,12 +61,15 @@ document.addEventListener('DOMContentLoaded', function() {
         ticking = false;
     }
     
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(updateHeader);
-            ticking = true;
-        }
-    });
+    // Only add scroll listener if header exists
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+    }
 
     // Parallax effect for hero background
     const heroBackground = document.querySelector('.hero-grid-pattern');

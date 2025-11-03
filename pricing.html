@@ -8,26 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Pricing Page Styles */
-        :root {
-            --text-dark: #1a1a1a;
-            --text-gray: #666666;
-            --primary-green: #1a5f3f;
-            --accent-green: #2ea76a;
-            --bright-green: #34d058;
-            --light-green: #6b7280;
-            --primary-white: #ffffff;
-            --text-light: #f8f9fa;
-            --off-white: #f8f9fa;
-            --transition-fast: 0.2s ease;
-            --transition-medium: 0.3s ease;
-            --transition-bouncy: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --font-primary: 'Montserrat', sans-serif;
-            --font-secondary: 'Poppins', sans-serif;
-        }
+        /* About page specific styles - matching index.html exactly */
         
-        /* Hero Section with Background Image - Similar to about.html */
-        .graphical-cleaning-hero {
+        /* ENHANCED ABOUT HERO SECTION - Mobile optimized with HSR1700 background */
+        .about-hero {
             position: relative;
             min-height: 100vh;
             display: flex;
@@ -38,60 +22,7 @@
             padding: clamp(100px, 12vh, 150px) 0 clamp(40px, 6vh, 80px);
         }
 
-        /* Enhanced mobile responsiveness for graphical cleaning page - matching about.html */
-        @media (max-width: 768px) {
-            .graphical-cleaning-hero {
-                padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
-                min-height: 90vh;
-            }
-            
-            .graphical-hero-content {
-                text-align: center;
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .graphical-cleaning-hero {
-                padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
-                min-height: 85vh;
-            }
-        }
-
-        /* Mobile Hero Title Styles - Match about.html sizing for "Cleaning" */
-        @media (max-width: 768px) {
-            .graphical-cleaning-hero .hero-title .title-main {
-                font-size: clamp(3rem, 7vw, 5.5rem) !important;
-                font-weight: 900;
-                color: var(--primary-white);
-                line-height: 0.9;
-                margin-bottom: 15px;
-                position: relative;
-                letter-spacing: -2px;
-                text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            }
-
-            .graphical-cleaning-hero .hero-title .title-line {
-                font-size: clamp(0.9rem, 2vw, 1.1rem);
-                font-weight: 500;
-                color: var(--accent-green);
-                margin-bottom: 12px;
-                text-transform: uppercase;
-                letter-spacing: 2px;
-                opacity: 0.8;
-            }
-
-            .graphical-cleaning-hero .hero-title .title-subtitle {
-                font-size: clamp(0.9rem, 2vw, 1.1rem);
-                font-weight: 600;
-                color: var(--light-green);
-                letter-spacing: 1px;
-                text-transform: uppercase;
-                opacity: 0.9;
-            }
-        }
-
-        .graphical-hero-background {
+        .about-hero-background {
             position: absolute;
             top: 0;
             left: 0;
@@ -100,13 +31,13 @@
             z-index: 1;
         }
 
-        .graphical-hero-image {
+        .about-hero-bg-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('images/HSR1700/hsr-1700-07.jpg');
+            background-image: url('images/HSR1700/hsr-1700-02.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -114,7 +45,7 @@
             filter: brightness(0.9) contrast(1.1);
         }
 
-        .graphical-hero-overlay {
+        .about-hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -129,7 +60,7 @@
             z-index: 2;
         }
 
-        .graphical-hero-overlay::before {
+        .about-hero-overlay::before {
             content: '';
             position: absolute;
             top: 0;
@@ -142,358 +73,61 @@
             pointer-events: none;
         }
 
-        .graphical-hero-content {
-            position: relative;
-            z-index: 3;
-            text-align: left;
-            margin-bottom: 60px;
-            animation: heroFadeIn 1s ease-out forwards;
-            opacity: 0;
+        /* Enhanced mobile responsiveness for about page */
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: clamp(80px, 15vh, 120px) 0 clamp(30px, 8vh, 50px);
+                min-height: 90vh;
+            }
+            
+            .about-hero-content {
+                text-align: center;
+                max-width: 100%;
+            }
         }
 
-        /* Using global hero styles from styles.css for consistency */
-
-        .pricing-calculator-section {
-            padding: clamp(100px, 12vh, 140px) 0;
-            background: linear-gradient(135deg, var(--off-white) 0%, rgba(248, 255, 254, 0.8) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-calculator-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(46, 167, 106, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(52, 208, 88, 0.02) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .calculator-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: clamp(40px, 5vw, 60px);
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .calculator-inputs,
-        .calculator-results {
-            background: var(--primary-white);
-            border-radius: clamp(24px, 4vw, 32px);
-            padding: clamp(40px, 5vw, 50px);
-            box-shadow: 
-                0 20px 60px rgba(26, 95, 63, 0.12),
-                0 8px 30px rgba(0, 0, 0, 0.08),
-                0 2px 10px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(26, 95, 63, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .calculator-inputs::before,
-        .calculator-results::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent-green), var(--bright-green));
-        }
-        
-        .calculator-section-title {
-            font-family: var(--font-primary);
-            font-size: clamp(1.8rem, 3vw, 2.2rem);
-            font-weight: 800;
-            color: var(--primary-green);
-            margin-bottom: clamp(30px, 4vh, 40px);
-            text-align: center;
-            position: relative;
-            letter-spacing: -0.5px;
-        }
-
-        .calculator-section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-green), var(--bright-green));
-            border-radius: 2px;
-        }
-        
-        .input-group {
-            margin-bottom: clamp(25px, 3.5vh, 30px);
-        }
-        
-        .input-label {
-            display: block;
-            font-family: var(--font-primary);
-            font-size: clamp(1rem, 1.6vw, 1.1rem);
-            font-weight: 700;
-            color: var(--primary-green);
-            margin-bottom: clamp(12px, 2vh, 16px);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .single-roll-indicator {
-            display: flex;
-            align-items: center;
-            gap: clamp(0.3rem, 1vw, 0.6rem);
-            padding: clamp(0.3rem, 1vh, 0.5rem) clamp(0.5rem, 2vw, 0.8rem);
-            background: rgba(26, 95, 63, 0.1);
-            border-radius: 50px;
-            border: 1px solid rgba(26, 95, 63, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .single-roll-indicator:hover {
-            background: rgba(26, 95, 63, 0.15);
-            transform: translateY(-2px);
-        }
-        
-        .calculator-input {
-            width: 100%;
-            padding: clamp(12px, 2vh, 16px) clamp(16px, 2.5vw, 20px);
-            font-family: var(--font-secondary);
-            font-size: clamp(0.95rem, 1.4vw, 1.05rem);
-            border: 2px solid rgba(26, 95, 63, 0.15);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            background: #f8fffe;
-            color: var(--primary-green);
-        }
-        
-        .calculator-input:focus {
-            outline: none;
-            border-color: var(--accent-green);
-            box-shadow: 0 0 0 4px rgba(46, 167, 106, 0.1);
-            background: var(--primary-white);
-        }
-        
-        .roll-type-toggle {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            background: rgba(26, 95, 63, 0.05);
-            padding: 8px;
-            border-radius: 16px;
-            border: 1px solid rgba(26, 95, 63, 0.1);
-        }
-        
-        .roll-type-btn {
-            padding: clamp(20px, 3vh, 24px) clamp(16px, 2.5vw, 20px);
-            border: 2px solid transparent;
-            border-radius: 12px;
-            background: var(--primary-white);
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .roll-type-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(46, 167, 106, 0.1), transparent);
-            transition: left 0.6s ease;
-        }
-        
-        .roll-type-btn:hover::before {
-            left: 100%;
-        }
-        
-        .roll-type-btn.active {
-            border-color: var(--accent-green);
-            background: linear-gradient(135deg, rgba(46, 167, 106, 0.12) 0%, rgba(46, 167, 106, 0.06) 100%);
-            box-shadow: 
-                0 8px 25px rgba(46, 167, 106, 0.2),
-                0 4px 15px rgba(46, 167, 106, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .roll-type-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 15px rgba(26, 95, 63, 0.1);
-        }
-        
-        .roll-type-icon {
-            font-size: clamp(1.8rem, 3vw, 2.2rem);
-        }
-        
-        .roll-type-name {
-            font-family: var(--font-primary);
-            font-size: clamp(1rem, 1.6vw, 1.1rem);
-            font-weight: 600;
-            color: var(--primary-green);
-        }
-        
-        .roll-type-rate {
-            font-family: var(--font-secondary);
-            font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-            color: var(--text-gray);
-        }
-        
-        .input-with-controls {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .quantity-btn {
-            width: 48px;
-            height: 48px;
-            border: 2px solid var(--primary-green);
-            border-radius: 12px;
-            background: var(--primary-white);
-            color: var(--primary-green);
-            font-size: 1.5rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .quantity-btn:hover {
-            background: var(--primary-green);
-            color: var(--primary-white);
-        }
-        
-        .input-with-controls .calculator-input {
-            flex: 1;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .result-card {
-            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%);
-            border-radius: 20px;
-            padding: clamp(30px, 4vh, 40px);
-            text-align: center;
-            margin-bottom: clamp(30px, 4vh, 40px);
-            box-shadow: 
-                0 15px 40px rgba(26, 95, 63, 0.25),
-                0 8px 25px rgba(26, 95, 63, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .result-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            animation: float 8s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-20px, -20px) rotate(180deg); }
-        }
-        
-        .result-label {
-            font-family: var(--font-secondary);
-            font-size: clamp(0.9rem, 1.4vw, 1rem);
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .result-value {
-            font-family: var(--font-primary);
-            font-size: clamp(3rem, 6vw, 4rem);
+        /* Hero Title Styles - Override global styles to match services title size */
+        .about-hero .hero-title .title-main {
+            font-size: clamp(3rem, 7vw, 5.5rem) !important;
             font-weight: 900;
             color: var(--primary-white);
-            line-height: 1;
-            margin-bottom: 12px;
+            line-height: 0.9;
+            margin-bottom: 15px;
+            position: relative;
+            letter-spacing: -2px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .result-sublabel {
-            font-family: var(--font-secondary);
-            font-size: clamp(0.85rem, 1.3vw, 0.95rem);
-            color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .results-breakdown {
-            background: #f8fffe;
-            border-radius: 12px;
-            padding: clamp(20px, 3vh, 25px);
-            margin-bottom: clamp(20px, 3vh, 25px);
-        }
-        
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: clamp(10px, 1.5vh, 14px) 0;
-            font-family: var(--font-secondary);
-        }
-        
-        .result-item-label {
-            font-size: clamp(0.9rem, 1.3vw, 1rem);
-            color: var(--text-gray);
-        }
-        
-        .result-item-value {
-            font-family: var(--font-primary);
-            font-size: clamp(1rem, 1.5vw, 1.1rem);
-            font-weight: 700;
-            color: var(--primary-green);
-        }
-        
-        .result-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(26, 95, 63, 0.2), transparent);
-            margin: clamp(8px, 1.5vh, 12px) 0;
-        }
-        
-        .result-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .result-btn {
-            width: 100%;
-            padding: clamp(16px, 2.5vh, 20px);
-            border-radius: 16px;
-            font-family: var(--font-primary);
-            font-size: clamp(1rem, 1.6vw, 1.1rem);
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid var(--primary-green);
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
 
-        .result-btn::before {
+        .about-hero .hero-title .title-line {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 500;
+            color: var(--primary-white);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        .about-hero .hero-title .title-subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 600;
+            color: var(--primary-white);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* Video CTA Button Styles */
+        .video-cta-btn {
+            background: linear-gradient(135deg, var(--bright-green), var(--accent-green)) !important;
+            border: 2px solid var(--bright-green) !important;
+            color: var(--primary-white) !important;
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-bouncy) !important;
+        }
+
+        .video-cta-btn::before {
             content: '';
             position: absolute;
             top: 0;
@@ -503,83 +137,44 @@
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.6s ease;
         }
-        
-        .result-btn:hover::before {
+
+        .video-cta-btn:hover::before {
             left: 100%;
         }
-        
-        .result-btn.primary {
-            background: var(--primary-green);
-            color: var(--primary-white);
-            box-shadow: 0 4px 15px rgba(26, 95, 63, 0.3);
-        }
-        
-        .result-btn.primary:hover {
-            background: var(--accent-green);
-            border-color: var(--accent-green);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(26, 95, 63, 0.4);
-        }
-        
-        .result-btn.secondary {
-            background: transparent;
-            color: var(--primary-green);
-            border-color: rgba(26, 95, 63, 0.3);
-        }
-        
-        .result-btn.secondary:hover {
-            background: rgba(26, 95, 63, 0.08);
-            border-color: var(--primary-green);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(26, 95, 63, 0.2);
-        }
-        
-        #advancedToggle {
-            border: 2px dashed rgba(26, 95, 63, 0.2);
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        #advancedToggle:hover {
-            border-color: var(--accent-green);
-            background: rgba(46, 167, 106, 0.05);
-        }
-        
-        #advancedToggle.active {
-            border-style: solid;
-            border-color: var(--accent-green);
-            background: rgba(46, 167, 106, 0.08);
-        }
-        
-        #advancedSettings {
-            animation: slideDown 0.3s ease-out;
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .video-cta-btn:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+            box-shadow: 0 15px 40px rgba(52, 208, 88, 0.4) !important;
+            background: linear-gradient(135deg, var(--accent-green), var(--bright-green)) !important;
         }
 
-        @media (max-width: 1024px) {
-            .calculator-container {
-                grid-template-columns: 1fr;
-            }
+        .video-cta-btn .cta-icon {
+            transition: transform var(--transition-fast);
         }
-        
-        @media (max-width: 768px) {
-            .roll-type-toggle {
-                grid-template-columns: 1fr;
+
+        .video-cta-btn:hover .cta-icon {
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 480px) {
+            .about-hero {
+                padding: clamp(70px, 12vh, 100px) 0 clamp(25px, 6vh, 40px);
+                min-height: 85vh;
             }
         }
 
 
+
+        .about-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: left;
+            margin-bottom: 60px;
+            animation: heroFadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+
+        /* Using global hero styles from styles.css for consistency */
     </style>
 </head>
 <body>
@@ -587,8 +182,8 @@
     <header class="header">
         <div class="container">
             <div class="navbar">
-                <div class="logo-section">
-                    <a href="home.html" class="logo">
+                <div class="navbar-brand">
+                    <a href="home.html" class="logo-link">
                         <img src="images/logo-wit@2x.png" alt="Dimple Logo" class="logo-image">
                     </a>
                 </div>
@@ -654,29 +249,29 @@
         </div>
     </nav>
 
-    <!-- Graphical Cleaning Hero Section -->
-    <section class="graphical-cleaning-hero">
-        <div class="graphical-hero-background">
-            <div class="graphical-hero-image"></div>
-            <div class="graphical-hero-overlay"></div>
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-background">
+            <div class="about-hero-bg-image"></div>
+            <div class="about-hero-overlay"></div>
         </div>
         
         <div class="container">
-            <div class="graphical-hero-content">
+            <div class="about-hero-content">
                 <div class="hero-text">
                     <h1 class="hero-title">
-                        <span class="title-line">Pricing</span>
-                        <span class="title-main">Calculator</span>
-                        <span class="title-subtitle">Industry-Leading Wiping Technology</span>
+                        <span class="title-line">About</span>
+                        <span class="title-main">Dimple</span>
+                        <span class="title-subtitle">Three Decades of Innovation & Excellence</span>
                     </h1>
                     
                     <p class="hero-description">
-                        Calculate your roll costs instantly with our advanced pricing calculator. Get accurate cost estimates for wet and dry rolls with real-time calculations based on your specific requirements.
+                        Founded in 1991 by Ge Limmen, Dimple has evolved from a local startup to a market leader in non-woven fabrics. Our commitment to innovation, quality, and customer service has made us the trusted choice for professionals across Europe and beyond.
                     </p>
                     
                     <div class="hero-cta">
-                        <button class="cta-secondary" data-action="scroll-to-calculator">
-                            <span class="cta-text">Use Calculator</span>
+                        <button class="cta-secondary" data-action="scroll-to-story">
+                            <span class="cta-text">Explore</span>
                             <span class="cta-icon">↓</span>
                         </button>
                         <a href="index.html" class="cta-button cta-primary video-cta-btn">
@@ -721,7 +316,7 @@
                     
                     <div class="input-group">
                         <label class="input-label">Roll Width (millimeters)</label>
-                        <input type="number" id="widthInput" class="calculator-input" value="17000" step="1" min="1000">
+                        <input type="number" id="widthInput" class="calculator-input" value="1070" step="1" min="1000">
                     </div>
                     
                     <div class="input-group">
@@ -781,11 +376,6 @@
                     
                     <div class="results-breakdown">
                         <div class="result-item">
-                            <span class="result-item-label">Cost Per Roll</span>
-                            <span class="result-item-value" id="costPerRoll">€0.00</span>
-                        </div>
-                        <div class="result-divider"></div>
-                        <div class="result-item">
                             <span class="result-item-label">Labor Cost</span>
                             <span class="result-item-value" id="laborCost">€0.00</span>
                         </div>
@@ -844,7 +434,7 @@
                         <h4>Get In Touch</h4>
                         <div class="contact-info">
                             <a href="mailto:info@dimple.nl" class="contact-link">info@dimple.nl</a>
-                            <a href="tel:+31123456789" class="contact-link">+31 12 345 6789</a>
+                            <a href="tel:+31251316302" class="contact-link">+31 251 316 302</a>
                             <span class="contact-address">Schieland 18, 1948 RM Beverwijk</span>
                             <span class="contact-location">Netherlands</span>
                         </div>
@@ -907,14 +497,13 @@
         var labor = wage / rate;
         var material = area * materialPrice;
         var solvent = rollType === 'wet' ? (area * solventLevel / 1000) * solventPrice : 0;
-        var core = length * coreCostPerMeter;
+        var core = width * coreCostPerMeter;
         
         var perRoll = labor + material + solvent + core + packaging;
         var total = perRoll * quantity;
         
         document.getElementById('totalCost').textContent = '€' + perRoll.toFixed(2);
         document.getElementById('quantityLabel').textContent = '1 roll';
-        document.getElementById('costPerRoll').textContent = '€' + perRoll.toFixed(2);
         document.getElementById('laborCost').textContent = '€' + labor.toFixed(2);
         document.getElementById('materialCost').textContent = '€' + material.toFixed(2);
         document.getElementById('solventCost').textContent = '€' + solvent.toFixed(2);

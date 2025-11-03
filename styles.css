@@ -88,10 +88,13 @@ img {
 /* Specific navbar logo styling with high specificity */
 .navbar-brand .logo-image,
 .navbar .logo-image {
-    height: clamp(24px, 4vh, 36px) !important;
+    height: clamp(40px, 4vw, 48px) !important;
     width: auto !important;
     filter: brightness(0) invert(1) !important;
     transition: filter var(--transition-fast) !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .logo-image:hover {
@@ -582,7 +585,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70px;
+    height: 80px;
     padding: 0 30px;
     position: relative;
 }
@@ -2139,7 +2142,7 @@ img {
     }
     
     .logo-image {
-        height: 24px !important;
+        height: 32px !important;
         width: auto !important;
     }
     
@@ -2878,7 +2881,7 @@ img {
     
     /* Mobile navigation missing elements */
     .navbar {
-        height: 70px;
+        height: 80px;
         padding: 0 24px;
     }
     
@@ -3033,7 +3036,7 @@ img {
     }
     
     .navbar {
-        height: 70px;
+        height: 80px;
     }
     
     /* Enhanced service grid for tablets */
@@ -4949,9 +4952,11 @@ img {
 }
 
 .logo-image {
-    height: clamp(24px, 4vh, 36px) !important;
+    height: clamp(40px, 4vw, 48px) !important;
     width: auto !important;
     display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .footer-logo .logo-image {
@@ -5430,7 +5435,7 @@ img {
     
     /* Standardized navigation for large screens */
     .navbar {
-        height: 70px !important;
+        height: 80px !important;
         padding: 0 clamp(2rem, 4vw, 4rem) !important;
     }
     
