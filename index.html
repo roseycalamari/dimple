@@ -67,35 +67,35 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            max-width: clamp(320px, 85vw, 900px);
-            padding: clamp(15px, 2vw, 30px);
+            max-width: clamp(300px, 75vw, 700px);
+            padding: clamp(10px, 1.5vw, 20px);
             margin: 0 auto;
         }
 
         /* Welcome Title */
         .welcome-title {
             text-align: center;
-            margin-bottom: clamp(20px, 3vh, 35px);
+            margin-bottom: clamp(15px, 2.5vh, 25px);
             animation: fadeInDown 0.8s ease-out;
         }
 
         .welcome-title h1 {
             font-family: var(--font-primary);
-            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
             font-weight: 800;
             color: var(--primary-white);
             line-height: 1.2;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            margin-bottom: clamp(8px, 1.5vh, 12px);
+            margin-bottom: clamp(6px, 1.2vh, 10px);
         }
 
         .welcome-title p {
             font-family: var(--font-secondary);
-            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            font-size: clamp(0.85rem, 1.6vw, 1rem);
             color: var(--primary-white);
             font-weight: 400;
-            line-height: 1.5;
+            line-height: 1.4;
             opacity: 0.95;
         }
 
@@ -103,13 +103,13 @@
         .video-container {
             position: relative;
             background: var(--primary-white);
-            border-radius: clamp(12px, 2vw, 20px);
+            border-radius: clamp(10px, 1.8vw, 16px);
             overflow: hidden;
             box-shadow: 
-                0 15px 50px rgba(0, 0, 0, 0.3),
-                0 8px 25px rgba(0, 0, 0, 0.2);
+                0 12px 40px rgba(0, 0, 0, 0.3),
+                0 6px 20px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: clamp(20px, 3vh, 35px);
+            margin-bottom: clamp(15px, 2.5vh, 28px);
             animation: fadeInUp 1s ease-out 0.2s backwards;
             transition: all var(--transition-medium);
         }
@@ -142,7 +142,7 @@
         /* Action Buttons */
         .action-buttons {
             display: flex;
-            gap: clamp(12px, 2.5vw, 20px);
+            gap: clamp(10px, 2vw, 16px);
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
@@ -153,11 +153,11 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            padding: clamp(12px, 2vh, 16px) clamp(22px, 3.5vw, 32px);
+            gap: 6px;
+            padding: clamp(10px, 1.8vh, 14px) clamp(18px, 3vw, 26px);
             border-radius: 50px;
             font-family: var(--font-primary);
-            font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
             font-weight: 600;
             text-decoration: none;
             border: none;
@@ -165,8 +165,8 @@
             transition: all var(--transition-medium);
             position: relative;
             overflow: hidden;
-            min-width: clamp(160px, 28vw, 200px);
-            letter-spacing: 0.3px;
+            min-width: clamp(140px, 25vw, 180px);
+            letter-spacing: 0.2px;
         }
 
         .btn::before {
@@ -253,15 +253,15 @@
         /* Logo Watermark (Optional) */
         .logo-watermark {
             position: fixed;
-            top: clamp(15px, 2.5vh, 30px);
-            left: clamp(15px, 2.5vw, 30px);
+            top: clamp(12px, 2vh, 25px);
+            left: clamp(12px, 2vw, 25px);
             z-index: 10;
             opacity: 0.95;
             animation: fadeIn 1s ease-out;
         }
 
         .logo-watermark img {
-            height: clamp(35px, 5vh, 50px);
+            height: clamp(30px, 4.5vh, 45px);
             width: auto;
             filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
         }
@@ -345,7 +345,7 @@
         /* Tablet Landscape and Desktop */
         @media (min-width: 1024px) {
             .welcome-container {
-                max-width: 900px;
+                max-width: 700px;
             }
 
             .video-wrapper {
@@ -356,24 +356,24 @@
         /* Large Desktop */
         @media (min-width: 1440px) {
             .welcome-container {
-                max-width: 1000px;
+                max-width: 750px;
             }
 
             .welcome-title h1 {
-                font-size: 3rem;
+                font-size: 2.4rem;
             }
 
             .btn {
-                font-size: 1.1rem;
-                padding: 16px 36px;
-                min-width: 210px;
+                font-size: 1rem;
+                padding: 14px 30px;
+                min-width: 190px;
             }
         }
 
         /* Ultra-wide screens */
         @media (min-width: 1920px) {
             .welcome-container {
-                max-width: 1100px;
+                max-width: 800px;
             }
         }
 
