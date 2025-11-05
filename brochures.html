@@ -175,59 +175,6 @@
         }
 
         /* Using global hero styles from styles.css for consistency */
-    
-        /* === CRITICAL: HEADER & LOGO VISIBILITY === */
-        /* Must be first to establish baseline */
-        header.header,
-        .header {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            right: 0 !important;
-            z-index: 10000 !important;
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-
-        .navbar-brand,
-        .header .navbar-brand {
-            display: flex !important;
-            align-items: center !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-        }
-
-        body header.header .container .navbar .navbar-brand .logo-link img.logo-image,
-        .navbar-brand .logo-image,
-        .header .logo-image,
-        img[alt="Dimple Logo"] {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            height: 45px !important;
-            width: auto !important;
-            filter: brightness(0) invert(1) !important;
-            position: relative !important;
-            z-index: 10001 !important;
-        }
-
-        /* Mobile Header Container */
-        .mobile-header-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 80px;
-            z-index: 1000;
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .mobile-header-container {
-                display: block;
-            }
-        }
 
         /* Brochures page specific styles - matching other pages exactly */
         
@@ -667,23 +614,6 @@
             .brochure-card {
                 padding: 25px 20px;
             }
-        }
-
-        /* FORCE LOGO VISIBILITY - MAX PRIORITY */
-        body header.header .container .navbar .navbar-brand .logo-link .logo-image,
-        .header .navbar-brand .logo-link img.logo-image,
-        .navbar-brand .logo-image,
-        .header .logo-image,
-        header .logo-image,
-        img[src="images/logo-wit@2x.png"] {
-            display: block !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            height: 45px !important;
-            width: auto !important;
-            filter: brightness(0) invert(1) !important;
-            position: relative !important;
-            z-index: 9999 !important;
         }
     </style>
 </head>

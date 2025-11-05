@@ -71,6 +71,8 @@ img {
     align-items: center;
     margin-right: 2rem;
     z-index: 1000;
+    flex-shrink: 0;
+    min-width: max-content;
 }
 
 .logo-link {
@@ -78,6 +80,7 @@ img {
     align-items: center;
     text-decoration: none;
     transition: transform var(--transition-fast);
+    flex-shrink: 0;
 }
 
 .logo-link:hover {
@@ -89,6 +92,8 @@ img {
 .navbar .logo-image {
     height: 45px !important;
     width: auto !important;
+    min-width: 45px !important;
+    object-fit: contain !important;
     filter: brightness(0) invert(1) !important;
     transition: filter var(--transition-fast) !important;
     display: block !important;
