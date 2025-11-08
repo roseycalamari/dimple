@@ -110,6 +110,19 @@ img {
     filter: brightness(0) invert(1) !important;
 }
 
+/* Hide logo in header/navbar on desktop (768px and above) */
+@media (min-width: 768px) {
+    .header .navbar-brand,
+    .header .logo-link,
+    .header .navbar-brand .logo-image,
+    .header .navbar .logo-image,
+    .header .logo,
+    .header .logo-text,
+    .header .mobile-menu-logo {
+        display: none !important;
+    }
+}
+
 .container {
     width: 100%;
     margin: 0 auto;

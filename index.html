@@ -271,6 +271,13 @@
             to { opacity: 0.9; }
         }
 
+        /* Hide logo watermark on desktop (768px and above) */
+        @media (min-width: 768px) {
+            .logo-watermark {
+                display: none !important;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .welcome-container {
