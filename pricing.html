@@ -712,10 +712,6 @@
                             <span class="cta-text">Explore</span>
                             <span class="cta-icon">↓</span>
                         </button>
-                        <a href="index.html" class="cta-button cta-primary video-cta-btn">
-                            <span class="cta-text">Dimple animated</span>
-                            <span class="cta-icon">▶</span>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -738,13 +734,13 @@
                     <div class="input-group">
                         <label class="input-label">Roll Type</label>
                         <div class="roll-type-toggle">
-                            <button class="roll-type-btn active" id="wetRollBtn">
-                                <span class="roll-type-name">Wet Rolls</span>
-                                <span class="roll-type-rate">30 rolls/hour</span>
-                            </button>
-                            <button class="roll-type-btn" id="dryRollBtn">
+                            <button class="roll-type-btn active" id="dryRollBtn">
                                 <span class="roll-type-name">Dry Rolls</span>
                                 <span class="roll-type-rate">60 rolls/hour</span>
+                            </button>
+                            <button class="roll-type-btn" id="wetRollBtn">
+                                <span class="roll-type-name">Wet Rolls</span>
+                                <span class="roll-type-rate">30 rolls/hour</span>
                             </button>
                         </div>
                     </div>
@@ -842,6 +838,27 @@
                         <div class="result-item">
                             <span class="result-item-label">Surface Area</span>
                             <span class="result-item-value" id="surfaceArea">0 m²</span>
+                        </div>
+                    </div>
+                    
+                    <div class="result-divider"></div>
+                    
+                    <div class="contact-info-section">
+                        <h4 style="font-family: var(--font-primary); font-size: 1.1rem; font-weight: 700; color: var(--primary-green); margin-bottom: 20px; text-align: center;">Your Contact Information</h4>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Name *</label>
+                            <input type="text" id="contactName" class="calculator-input" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Company *</label>
+                            <input type="text" id="contactCompany" class="calculator-input" placeholder="Enter your company name" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Phone Number *</label>
+                            <input type="tel" id="contactPhone" class="calculator-input" placeholder="Enter your phone number" required>
                         </div>
                     </div>
                     
@@ -986,7 +1003,7 @@
     <script src="script.js"></script>
     <script>
     // Pricing Calculator
-    var rollType = 'wet';
+    var rollType = 'dry';
     var advancedOpen = false;
     
     function calculate() {
@@ -1079,21 +1096,60 @@
     document.getElementById('packagingInput').oninput = calculate;
     
     document.getElementById('quoteBtn').onclick = function() {
-        // Redirect to contact page with calculator data stored in sessionStorage
+        // Get contact information
+        var contactName = document.getElementById('contactName').value.trim();
+        var contactCompany = document.getElementById('contactCompany').value.trim();
+        var contactPhone = document.getElementById('contactPhone').value.trim();
+        
+        // Validate contact information
+        if (!contactName || !contactCompany || !contactPhone) {
+            alert('Please fill in all contact information fields (Name, Company, and Phone Number) before requesting a quote.');
+            return;
+        }
+        
+        // Get all calculator values
         var width = document.getElementById('widthInput').value;
         var length = document.getElementById('lengthInput').value;
-        var total = document.getElementById('totalCost').textContent;
+        var totalCost = document.getElementById('totalCost').textContent;
+        var laborCost = document.getElementById('laborCost').textContent;
+        var materialCost = document.getElementById('materialCost').textContent;
+        var solventCost = document.getElementById('solventCost').textContent;
+        var coreCost = document.getElementById('coreCost').textContent;
+        var packagingCost = document.getElementById('packagingCost').textContent;
+        var surfaceArea = document.getElementById('surfaceArea').textContent;
         
-        // Store calculator data for potential use on contact page
-        sessionStorage.setItem('quoteData', JSON.stringify({
-            rollType: rollType === 'wet' ? 'Wet' : 'Dry',
-            width: (width / 1000) + 'm',
-            length: length + 'm',
-            totalCost: total
-        }));
+        var rollTypeName = rollType === 'wet' ? 'Wet Rolls' : 'Dry Rolls';
+        var rollRate = rollType === 'wet' ? '30 rolls/hour' : '60 rolls/hour';
         
-        // Redirect to contact page
-        window.location.href = 'customer-service.html#contact';
+        // Create email subject and body
+        var subject = 'Request a Quote - Dimple Pricing Calculator';
+        var body = 'Hello Dimple Team,%0D%0A%0D%0A';
+        body += 'I would like to request a quote based on the following configuration:%0D%0A%0D%0A';
+        body += '--- CONTACT INFORMATION ---%0D%0A';
+        body += 'Name: ' + encodeURIComponent(contactName) + '%0D%0A';
+        body += 'Company: ' + encodeURIComponent(contactCompany) + '%0D%0A';
+        body += 'Phone Number: ' + encodeURIComponent(contactPhone) + '%0D%0A';
+        body += '%0D%0A--- CONFIGURATION ---%0D%0A';
+        body += 'Roll Type: ' + rollTypeName + ' (' + rollRate + ')%0D%0A';
+        body += 'Roll Width: ' + width + ' mm%0D%0A';
+        body += 'Roll Length: ' + length + ' m%0D%0A';
+        body += 'Surface Area: ' + surfaceArea + '%0D%0A';
+        body += '%0D%0A--- COST BREAKDOWN ---%0D%0A';
+        body += 'Labor Cost: ' + laborCost + '%0D%0A';
+        body += 'Material Cost: ' + materialCost + '%0D%0A';
+        if (rollType === 'wet') {
+            body += 'Solvent Cost: ' + solventCost + '%0D%0A';
+        }
+        body += 'Core Cost: ' + coreCost + '%0D%0A';
+        body += 'Packaging Cost: ' + packagingCost + '%0D%0A';
+        body += '%0D%0A';
+        body += 'TOTAL COST (Single Roll): ' + totalCost + '%0D%0A';
+        body += '%0D%0A';
+        body += 'Please provide me with a detailed quote for this configuration.%0D%0A%0D%0A';
+        body += 'Best regards,%0D%0A' + encodeURIComponent(contactName);
+        
+        // Open email client
+        window.location.href = 'mailto:info@dimple.nl?subject=' + subject + '&body=' + body;
     };
     
     // Mobile menu functionality
