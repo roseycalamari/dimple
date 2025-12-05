@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Dimple - Industrial Non-Woven Fabric Specialists</title>
+    <title data-translate="pageTitle">Welcome to Dimple - Industrial Non-Woven Fabric Specialists</title>
     <link rel="icon" type="image/png" href="images/logo-wit@2x.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         /* Reset & Variables */
         * {
@@ -506,7 +507,7 @@
     <!-- Logo Watermark -->
     <div class="logo-watermark">
         <a href="home.html">
-            <img src="images/logo-wit@2x.png" alt="Dimple Logo">
+            <img src="images/logo-wit@2x.png" alt="Dimple Logo" data-translate="logoAlt">
         </a>
     </div>
 
@@ -514,8 +515,8 @@
     <div class="welcome-container">
         <!-- Welcome Title -->
         <div class="welcome-title">
-            <h1>Welcome to Dimple</h1>
-            <p>Discover how we revolutionize industrial cleaning solutions</p>
+            <h1 data-translate="welcomeTitle">Welcome to Dimple</h1>
+            <p data-translate="welcomeSubtitle">Discover how we revolutionize industrial cleaning solutions</p>
         </div>
 
         <!-- Video Container -->
@@ -529,7 +530,7 @@
                     playsinline
                 >
                     <source src="dimplebv_explainer.mp4" type="video/mp4">
-                    Your browser does not support the video tag. Please upgrade your browser.
+                    <span data-translate="videoNotSupported">Your browser does not support the video tag. Please upgrade your browser.</span>
                 </video>
             </div>
         </div>
@@ -537,10 +538,10 @@
         <!-- Action Buttons -->
         <div class="action-buttons">
             <button id="bookCallBtn" class="btn btn-primary">
-                <span>Book a Call with CEO</span>
+                <span data-translate="bookCallBtn">Book a Call with CEO</span>
             </button>
             <a href="home.html" class="btn btn-secondary">
-                <span>Explore Dimple</span>
+                <span data-translate="exploreDimpleBtn">Explore Dimple</span>
                 <span class="btn-icon">→</span>
             </a>
         </div>
@@ -556,6 +557,24 @@
 
     <!-- Calendly script -->
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+    <!-- Language Toggle Component -->
+    <div class="language-toggle-container">
+        <!-- Language Menu (slides up) -->
+        <div class="language-menu">
+            <a href="#" class="language-option" data-lang="EN">EN</a>
+            <a href="#" class="language-option" data-lang="DE">DE</a>
+            <a href="#" class="language-option" data-lang="FR">FR</a>
+            <a href="#" class="language-option" data-lang="ES">ES</a>
+            <a href="#" class="language-option" data-lang="AR">AR</a>
+            <a href="#" class="language-option" data-lang="ZH">ZH</a>
+        </div>
+        
+        <!-- Toggle Button -->
+        <button class="language-toggle-button" aria-label="Change language">
+            <span class="current-language">EN</span>
+        </button>
+    </div>
 
     <script>
         // Enhanced video interaction
@@ -618,6 +637,120 @@
             }
         });
     </script>
+
+    <!-- Translation System for Index Page -->
+    <script>
+        // Translations object for all languages
+        const translations = {
+            EN: {
+                pageTitle: 'Welcome to Dimple - Industrial Non-Woven Fabric Specialists',
+                logoAlt: 'Dimple Logo',
+                welcomeTitle: 'Welcome to Dimple',
+                welcomeSubtitle: 'Discover how we revolutionize industrial cleaning solutions',
+                videoNotSupported: 'Your browser does not support the video tag. Please upgrade your browser.',
+                bookCallBtn: 'Book a Call with CEO',
+                exploreDimpleBtn: 'Explore Dimple'
+            },
+            DE: {
+                pageTitle: 'Willkommen bei Dimple - Spezialisten für industrielle Vliesstoffe',
+                logoAlt: 'Dimple Logo',
+                welcomeTitle: 'Willkommen bei Dimple',
+                welcomeSubtitle: 'Entdecken Sie, wie wir industrielle Reinigungslösungen revolutionieren',
+                videoNotSupported: 'Ihr Browser unterstützt das Video-Tag nicht. Bitte aktualisieren Sie Ihren Browser.',
+                bookCallBtn: 'Gespräch mit CEO buchen',
+                exploreDimpleBtn: 'Dimple erkunden'
+            },
+            FR: {
+                pageTitle: 'Bienvenue chez Dimple - Spécialistes des textiles non-tissés industriels',
+                logoAlt: 'Logo Dimple',
+                welcomeTitle: 'Bienvenue chez Dimple',
+                welcomeSubtitle: 'Découvrez comment nous révolutionnons les solutions de nettoyage industriel',
+                videoNotSupported: 'Votre navigateur ne prend pas en charge la balise vidéo. Veuillez mettre à jour votre navigateur.',
+                bookCallBtn: 'Réserver un appel avec le PDG',
+                exploreDimpleBtn: 'Explorer Dimple'
+            },
+            ES: {
+                pageTitle: 'Bienvenido a Dimple - Especialistas en telas no tejidas industriales',
+                logoAlt: 'Logo de Dimple',
+                welcomeTitle: 'Bienvenido a Dimple',
+                welcomeSubtitle: 'Descubra cómo revolucionamos las soluciones de limpieza industrial',
+                videoNotSupported: 'Su navegador no admite la etiqueta de video. Por favor, actualice su navegador.',
+                bookCallBtn: 'Reservar llamada con CEO',
+                exploreDimpleBtn: 'Explorar Dimple'
+            },
+            AR: {
+                pageTitle: 'مرحباً بكم في Dimple - متخصصون في الأقمشة غير المنسوجة الصناعية',
+                logoAlt: 'شعار Dimple',
+                welcomeTitle: 'مرحباً بكم في Dimple',
+                welcomeSubtitle: 'اكتشف كيف نُحدث ثورة في حلول التنظيف الصناعي',
+                videoNotSupported: 'متصفحك لا يدعم علامة الفيديو. يرجى ترقية متصفحك.',
+                bookCallBtn: 'حجز مكالمة مع الرئيس التنفيذي',
+                exploreDimpleBtn: 'استكشف Dimple'
+            },
+            ZH: {
+                pageTitle: '欢迎来到 Dimple - 工业无纺布专家',
+                logoAlt: 'Dimple 标志',
+                welcomeTitle: '欢迎来到 Dimple',
+                welcomeSubtitle: '探索我们如何革新工业清洁解决方案',
+                videoNotSupported: '您的浏览器不支持视频标签。请升级您的浏览器。',
+                bookCallBtn: '预约与 CEO 通话',
+                exploreDimpleBtn: '探索 Dimple'
+            }
+        };
+
+        // Function to apply translations
+        function applyTranslations(lang) {
+            const langTranslations = translations[lang];
+            if (!langTranslations) {
+                console.error('Language not found:', lang);
+                return;
+            }
+
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (langTranslations[key]) {
+                    // Handle different element types
+                    if (element.tagName === 'TITLE') {
+                        element.textContent = langTranslations[key];
+                        document.title = langTranslations[key];
+                    } else if (element.tagName === 'IMG') {
+                        element.alt = langTranslations[key];
+                    } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = langTranslations[key];
+                    } else {
+                        element.textContent = langTranslations[key];
+                    }
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang.toLowerCase();
+
+            // Handle RTL for Arabic
+            if (lang === 'AR') {
+                document.documentElement.dir = 'rtl';
+                document.body.style.direction = 'rtl';
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.body.style.direction = 'ltr';
+            }
+
+            console.log(`Translations applied for: ${lang}`);
+        }
+
+        // Initialize translations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'EN';
+            applyTranslations(savedLanguage);
+        });
+
+        // Listen for language changes from the language toggle
+        window.addEventListener('languageChanged', function(e) {
+            applyTranslations(e.detail.language);
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 

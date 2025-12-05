@@ -827,6 +827,129 @@ document.addEventListener('DOMContentLoaded', function() {
 
     console.log('Dimple Premium Interactive Features Loaded ✨');
     
+    // ===== LANGUAGE TOGGLE FUNCTIONALITY =====
+    // Initialize language toggle with slide-up menu
+    function initLanguageToggle() {
+        const languageToggleButton = document.querySelector('.language-toggle-button');
+        const languageMenu = document.querySelector('.language-menu');
+        const languageOptions = document.querySelectorAll('.language-option');
+        const currentLanguageDisplay = document.querySelector('.current-language');
+        
+        if (!languageToggleButton || !languageMenu) {
+            console.log('Language toggle elements not found on this page');
+            return;
+        }
+        
+        // Get current language from localStorage or default to 'EN'
+        let currentLanguage = localStorage.getItem('selectedLanguage') || 'EN';
+        
+        // Update current language display
+        function updateCurrentLanguage(langCode) {
+            if (currentLanguageDisplay) {
+                currentLanguageDisplay.textContent = langCode;
+            }
+            
+            // Update active state on language options
+            languageOptions.forEach(option => {
+                if (option.dataset.lang === langCode) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+            
+            // Save to localStorage
+            localStorage.setItem('selectedLanguage', langCode);
+            currentLanguage = langCode;
+        }
+        
+        // Initialize with current language
+        updateCurrentLanguage(currentLanguage);
+        
+        // Dispatch initial language event for translation system
+        setTimeout(() => {
+            const languageChangedEvent = new CustomEvent('languageChanged', {
+                detail: { language: currentLanguage }
+            });
+            window.dispatchEvent(languageChangedEvent);
+        }, 100);
+        
+        // Toggle language menu
+        function toggleLanguageMenu() {
+            const isActive = languageMenu.classList.contains('active');
+            
+            if (isActive) {
+                languageMenu.classList.remove('active');
+                languageToggleButton.classList.remove('active');
+            } else {
+                languageMenu.classList.add('active');
+                languageToggleButton.classList.add('active');
+            }
+        }
+        
+        // Close language menu
+        function closeLanguageMenu() {
+            languageMenu.classList.remove('active');
+            languageToggleButton.classList.remove('active');
+        }
+        
+        // Toggle button click
+        languageToggleButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleLanguageMenu();
+        });
+        
+        // Language option selection
+        languageOptions.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const selectedLang = this.dataset.lang;
+                
+                // Add changing animation
+                languageToggleButton.classList.add('changing');
+                
+                // Update language
+                updateCurrentLanguage(selectedLang);
+                
+                // Dispatch custom event for translation system
+                const languageChangedEvent = new CustomEvent('languageChanged', {
+                    detail: { language: selectedLang }
+                });
+                window.dispatchEvent(languageChangedEvent);
+                
+                // Close menu after selection
+                setTimeout(() => {
+                    closeLanguageMenu();
+                    languageToggleButton.classList.remove('changing');
+                }, 400);
+                
+                // Log language change
+                console.log(`Language changed to: ${selectedLang}`);
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.language-toggle-container')) {
+                closeLanguageMenu();
+            }
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && languageMenu.classList.contains('active')) {
+                closeLanguageMenu();
+            }
+        });
+        
+        console.log('Language toggle initialized successfully');
+    }
+    
+    // Initialize language toggle
+    initLanguageToggle();
+    
     // ===== BACK TO TOP BUTTON FUNCTIONALITY =====
     // Enhanced back-to-top button with smooth animations and scroll detection
     

@@ -1862,11 +1862,11 @@
         <div class="container">
             <div class="machines-header">
                 <h2 class="machines-title">
-                    <span class="title-line">Trusted By</span>
-                    <span class="title-main">Our Machines</span>
-                    <span class="title-subtitle">Industry Leaders Worldwide</span>
+                    <span class="title-line" data-translate data-key="machinesLine">Trusted By</span>
+                    <span class="title-main" data-translate data-key="machinesMain">Our Machines</span>
+                    <span class="title-subtitle" data-translate data-key="machinesSubtitle">Industry Leaders Worldwide</span>
                 </h2>
-                <p class="machines-description">
+                <p class="machines-description" data-translate data-key="machinesDescription">
                     Our products are used on heatset, coldset, sheetfed and digital printers.
                 </p>
             </div>
@@ -1959,21 +1959,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="machines-cta-section">
-                    <div class="cta-content">
-                        <h3 class="cta-heading">A new concept, designed for you</h3>
-                        <p class="cta-description">
-                            Discover how our innovative machinery solutions can transform your production process and elevate your business to new heights.
-                        </p>
-                    </div>
-                    <div class="cta-button-wrapper">
-                        <button class="machines-cta-button" data-action="get-more-info">
-                            <span class="cta-text">Get More Information</span>
-                            <span class="cta-icon">→</span>
-                        </button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -2039,5 +2024,251 @@
     </a>
 
     <script src="script.js"></script>
+    <script src="wash-cloth-translations.js"></script>
+    <script>
+    // Translation System for Wash Cloth Page
+    function applyWashClothTranslations(lang) {
+        const translations = washClothTranslations[lang];
+        if (!translations) {
+            console.error('Language not found:', lang);
+            return;
+        }
+        
+        // Update document title
+        document.title = translations.pageTitle;
+        
+        // Navigation - Same as other pages
+        const navSelectors = {
+            '.nav-link[href="home.html"], .mobile-menu-link[href="home.html"]': translations.navHome,
+            '.nav-link[href="about.html"], .mobile-menu-link[href="about.html"]': translations.navAbout,
+            '.nav-link[href="graphical-cleaning.html"], .mobile-menu-dropdown-toggle span:first-child, .mobile-menu-sublink[href="graphical-cleaning.html"]': translations.navGraphical,
+            '.dropdown-link[href="wash-cloth.html"], .mobile-menu-sublink[href="wash-cloth.html"]': translations.navWashCloth,
+            '.dropdown-link[href="cassette-rolls.html"], .mobile-menu-sublink[href="cassette-rolls.html"]': translations.navCassetteRolls,
+            '.dropdown-link[href="winding-device.html"], .mobile-menu-sublink[href="winding-device.html"]': translations.navWindingDevice,
+            '.dropdown-link[href="manual-wiping.html"], .mobile-menu-sublink[href="manual-wiping.html"]': translations.navManualWiping,
+            '.nav-link[href="formula1.html"], .mobile-menu-link[href="formula1.html"]': translations.navFormula1,
+            '.nav-link[href="pricing.html"], .mobile-menu-link[href="pricing.html"]': translations.navPricing,
+            '.nav-link[href="customer-service.html"], .mobile-menu-link[href="customer-service.html"]': translations.navCustomerService,
+            '.nav-link[href="brochures.html"], .mobile-menu-link[href="brochures.html"]': translations.navBrochures,
+            '.nav-contact-button': translations.navContact,
+            '.mobile-menu-contact': translations.navContactUs
+        };
+        
+        // Apply navigation translations
+        Object.entries(navSelectors).forEach(([selector, text]) => {
+            document.querySelectorAll(selector).forEach(el => {
+                if (el) el.textContent = text;
+            });
+        });
+        
+        // Hero Section
+        const heroLine = document.querySelector('.hero-title .title-line');
+        const heroMain = document.querySelector('.hero-title .title-main');
+        const heroSubtitle = document.querySelector('.hero-title .title-subtitle');
+        const heroDescription = document.querySelector('.hero-description');
+        const heroExplore = document.querySelector('.cta-secondary .cta-text');
+        
+        if (heroLine) heroLine.textContent = translations.heroLine;
+        if (heroMain) heroMain.textContent = translations.heroMain;
+        if (heroSubtitle) heroSubtitle.textContent = translations.heroSubtitle;
+        if (heroDescription) heroDescription.textContent = translations.heroDescription;
+        if (heroExplore) heroExplore.textContent = translations.heroExplore;
+        
+        // Features Section
+        const featuresTitles = document.querySelectorAll('.machines-title');
+        if (featuresTitles[0]) {
+            const line = featuresTitles[0].querySelector('.title-line');
+            const main = featuresTitles[0].querySelector('.title-main');
+            const subtitle = featuresTitles[0].querySelector('.title-subtitle');
+            if (line) line.textContent = translations.featuresLine;
+            if (main) main.textContent = translations.featuresMain;
+            if (subtitle) subtitle.textContent = translations.featuresSubtitle;
+        }
+        
+        const sectionDescriptions = document.querySelectorAll('.section-description');
+        if (sectionDescriptions[0]) sectionDescriptions[0].textContent = translations.featuresDescription;
+        
+        // Feature Cards
+        const featureCards = document.querySelectorAll('.feature-card');
+        if (featureCards[0]) {
+            const h3 = featureCards[0].querySelector('h3');
+            const p = featureCards[0].querySelector('p');
+            if (h3) h3.textContent = translations.feature1Title;
+            if (p) p.textContent = translations.feature1Text;
+        }
+        if (featureCards[1]) {
+            const h3 = featureCards[1].querySelector('h3');
+            const p = featureCards[1].querySelector('p');
+            if (h3) h3.textContent = translations.feature2Title;
+            if (p) p.textContent = translations.feature2Text;
+        }
+        if (featureCards[2]) {
+            const h3 = featureCards[2].querySelector('h3');
+            const p = featureCards[2].querySelector('p');
+            if (h3) h3.textContent = translations.feature3Title;
+            if (p) p.textContent = translations.feature3Text;
+        }
+        if (featureCards[3]) {
+            const h3 = featureCards[3].querySelector('h3');
+            const p = featureCards[3].querySelector('p');
+            if (h3) h3.textContent = translations.feature4Title;
+            if (p) p.textContent = translations.feature4Text;
+        }
+        
+        // Products Section
+        if (featuresTitles[1]) {
+            const line = featuresTitles[1].querySelector('.title-line');
+            const main = featuresTitles[1].querySelector('.title-main');
+            const subtitle = featuresTitles[1].querySelector('.title-subtitle');
+            if (line) line.textContent = translations.productsLine;
+            if (main) main.textContent = translations.productsMain;
+            if (subtitle) subtitle.textContent = translations.productsSubtitle;
+        }
+        if (sectionDescriptions[1]) sectionDescriptions[1].textContent = translations.productsDescription;
+        
+        // Product Cards
+        const productCards = document.querySelectorAll('.product-card');
+        if (productCards[0]) {
+            const badge = productCards[0].querySelector('.product-badge');
+            const title = productCards[0].querySelector('.product-title');
+            const desc = productCards[0].querySelector('.product-description');
+            const tags = productCards[0].querySelectorAll('.feature-tag');
+            const download = productCards[0].querySelector('.button-text');
+            
+            if (badge) badge.textContent = translations.productBadge1;
+            if (title) title.textContent = translations.product1Title;
+            if (desc) desc.textContent = translations.product1Description;
+            if (tags[0]) tags[0].textContent = translations.product1Tag1;
+            if (tags[1]) tags[1].textContent = translations.product1Tag2;
+            if (tags[2]) tags[2].textContent = translations.product1Tag3;
+            if (download) download.textContent = translations.downloadBrochure;
+        }
+        if (productCards[1]) {
+            const badge = productCards[1].querySelector('.product-badge');
+            const title = productCards[1].querySelector('.product-title');
+            const desc = productCards[1].querySelector('.product-description');
+            const tags = productCards[1].querySelectorAll('.feature-tag');
+            const download = productCards[1].querySelector('.button-text');
+            
+            if (badge) badge.textContent = translations.productBadge2;
+            if (title) title.textContent = translations.product2Title;
+            if (desc) desc.textContent = translations.product2Description;
+            if (tags[0]) tags[0].textContent = translations.product2Tag1;
+            if (tags[1]) tags[1].textContent = translations.product2Tag2;
+            if (tags[2]) tags[2].textContent = translations.product2Tag3;
+            if (download) download.textContent = translations.downloadBrochure;
+        }
+        if (productCards[2]) {
+            const badge = productCards[2].querySelector('.product-badge');
+            const title = productCards[2].querySelector('.product-title');
+            const desc = productCards[2].querySelector('.product-description');
+            const tags = productCards[2].querySelectorAll('.feature-tag');
+            const download = productCards[2].querySelector('.button-text');
+            
+            if (badge) badge.textContent = translations.productBadge3;
+            if (title) title.textContent = translations.product3Title;
+            if (desc) desc.textContent = translations.product3Description;
+            if (tags[0]) tags[0].textContent = translations.product3Tag1;
+            if (tags[1]) tags[1].textContent = translations.product3Tag2;
+            if (tags[2]) tags[2].textContent = translations.product3Tag3;
+            if (download) download.textContent = translations.downloadBrochure;
+        }
+        if (productCards[3]) {
+            const badge = productCards[3].querySelector('.product-badge');
+            const title = productCards[3].querySelector('.product-title');
+            const desc = productCards[3].querySelector('.product-description');
+            const tags = productCards[3].querySelectorAll('.feature-tag');
+            const download = productCards[3].querySelector('.button-text');
+            
+            if (badge) badge.textContent = translations.productBadge4;
+            if (title) title.textContent = translations.product4Title;
+            if (desc) desc.textContent = translations.product4Description;
+            if (tags[0]) tags[0].textContent = translations.product4Tag1;
+            if (tags[1]) tags[1].textContent = translations.product4Tag2;
+            if (tags[2]) tags[2].textContent = translations.product4Tag3;
+            if (download) download.textContent = translations.downloadBrochure;
+        }
+        
+        // Machines Section (target specifically the #machines section)
+        const machinesSection = document.querySelector('#machines');
+        if (machinesSection) {
+            const machinesLine = machinesSection.querySelector('.title-line');
+            const machinesMain = machinesSection.querySelector('.title-main');
+            const machinesSubtitle = machinesSection.querySelector('.title-subtitle');
+            const machinesDescription = machinesSection.querySelector('.machines-description');
+            
+            if (machinesLine) machinesLine.textContent = translations.machinesLine;
+            if (machinesMain) machinesMain.textContent = translations.machinesMain;
+            if (machinesSubtitle) machinesSubtitle.textContent = translations.machinesSubtitle;
+            if (machinesDescription) machinesDescription.textContent = translations.machinesDescription;
+        }
+        
+        // Footer
+        const footerDescription = document.querySelector('.footer-description');
+        const footerContactHeading = document.querySelector('.footer-contact h4');
+        const footerCopyright = document.querySelector('.footer-copyright p');
+        const socialLinks = document.querySelectorAll('.social-link span');
+        
+        if (footerDescription) footerDescription.textContent = translations.footerDescription;
+        if (footerContactHeading) footerContactHeading.textContent = translations.footerContactHeading;
+        if (footerCopyright) footerCopyright.textContent = translations.footerCopyright;
+        if (socialLinks[0]) socialLinks[0].textContent = translations.footerLinkedIn;
+        if (socialLinks[1]) socialLinks[1].textContent = translations.footerContactLink;
+        
+        // Update image alt texts
+        const logoImgs = document.querySelectorAll('img[alt*="Dimple Logo"]');
+        logoImgs.forEach(img => img.alt = translations.logoAlt);
+        
+        // Update back-to-top button attributes (keep arrow icon)
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.setAttribute('aria-label', translations.backToTop);
+            backToTopBtn.setAttribute('title', translations.backToTop);
+        }
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang.toLowerCase();
+        
+        // Handle RTL for Arabic
+        if (lang === 'AR') {
+            document.documentElement.dir = 'rtl';
+            document.body.style.direction = 'rtl';
+        } else {
+            document.documentElement.dir = 'ltr';
+            document.body.style.direction = 'ltr';
+        }
+        
+        console.log(`Wash Cloth page translations applied for: ${lang}`);
+    }
+    
+    // Listen for language changes
+    window.addEventListener('languageChanged', function(e) {
+        applyWashClothTranslations(e.detail.language);
+    });
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'EN';
+        applyWashClothTranslations(savedLanguage);
+    });
+    </script>
+
+    <!-- Language Toggle Component -->
+    <div class="language-toggle-container">
+        <!-- Language Menu (slides up) -->
+        <div class="language-menu">
+            <a href="#" class="language-option" data-lang="EN">EN</a>
+            <a href="#" class="language-option" data-lang="DE">DE</a>
+            <a href="#" class="language-option" data-lang="FR">FR</a>
+            <a href="#" class="language-option" data-lang="ES">ES</a>
+            <a href="#" class="language-option" data-lang="AR">AR</a>
+            <a href="#" class="language-option" data-lang="ZH">ZH</a>
+        </div>
+        
+        <!-- Toggle Button -->
+        <button class="language-toggle-button" aria-label="Change language">
+            <span class="current-language">EN</span>
+        </button>
+    </div>
 </body>
 </html> 

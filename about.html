@@ -1616,5 +1616,197 @@
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+    <script src="about-translations.js"></script>
+    <script>
+    // Translation System for About Page
+    function applyAboutTranslations(lang) {
+        const translations = aboutTranslations[lang];
+        if (!translations) {
+            console.error('Language not found:', lang);
+            return;
+        }
+        
+        // Update document title
+        document.title = translations.pageTitle;
+        
+        // Navigation - Same as home page
+        const navSelectors = {
+            '.nav-link.active, .mobile-menu-link.active': translations.navHome,
+            '.nav-link[href="about.html"], .mobile-menu-link[href="about.html"]': translations.navAbout,
+            '.nav-link[href="graphical-cleaning.html"], .mobile-menu-dropdown-toggle span:first-child': translations.navGraphical,
+            '.dropdown-link[href="wash-cloth.html"], .mobile-menu-sublink[href="wash-cloth.html"]': translations.navWashCloth,
+            '.dropdown-link[href="cassette-rolls.html"], .mobile-menu-sublink[href="cassette-rolls.html"]': translations.navCassetteRolls,
+            '.dropdown-link[href="winding-device.html"], .mobile-menu-sublink[href="winding-device.html"]': translations.navWindingDevice,
+            '.dropdown-link[href="manual-wiping.html"], .mobile-menu-sublink[href="manual-wiping.html"]': translations.navManualWiping,
+            '.nav-link[href="formula1.html"], .mobile-menu-link[href="formula1.html"]': translations.navFormula1,
+            '.nav-link[href="pricing.html"], .mobile-menu-link[href="pricing.html"]': translations.navPricing,
+            '.nav-link[href="customer-service.html"], .mobile-menu-link[href="customer-service.html"]': translations.navCustomerService,
+            '.nav-link[href="brochures.html"], .mobile-menu-link[href="brochures.html"]': translations.navBrochures,
+            '.nav-contact-button': translations.navContact,
+            '.mobile-menu-contact': translations.navContactUs
+        };
+        
+        // Apply navigation translations
+        Object.entries(navSelectors).forEach(([selector, text]) => {
+            document.querySelectorAll(selector).forEach(el => {
+                if (el) el.textContent = text;
+            });
+        });
+        
+        // Hero Section
+        const heroLine = document.querySelector('.hero-title .title-line');
+        const heroMain = document.querySelector('.hero-title .title-main');
+        const heroSubtitle = document.querySelector('.hero-title .title-subtitle');
+        const heroDescription = document.querySelector('.hero-description');
+        const heroExplore = document.querySelector('.cta-secondary .cta-text');
+        
+        if (heroLine) heroLine.textContent = translations.heroLine;
+        if (heroMain) heroMain.textContent = translations.heroMain;
+        if (heroSubtitle) heroSubtitle.textContent = translations.heroSubtitle;
+        if (heroDescription) heroDescription.textContent = translations.heroDescription;
+        if (heroExplore) heroExplore.textContent = translations.heroExplore;
+        
+        // CEO Section
+        const ceoSectionTitle = document.querySelector('.ceo-section-title');
+        const ceoTitle = document.querySelector('.ceo-title');
+        const ceoName = document.querySelector('.ceo-name');
+        const ceoBio = document.querySelector('.ceo-bio');
+        const ceoLinkedInText = document.querySelector('.linkedin-text');
+        
+        if (ceoSectionTitle) ceoSectionTitle.textContent = translations.ceoSectionTitle;
+        if (ceoTitle) ceoTitle.textContent = translations.ceoName;
+        if (ceoName) ceoName.textContent = translations.ceoTitle;
+        if (ceoBio) {
+            // Replace \n\n with <br><br> for proper line breaks
+            ceoBio.innerHTML = translations.ceoBio.replace(/\n\n/g, '<br><br>');
+        }
+        if (ceoLinkedInText) ceoLinkedInText.textContent = translations.ceoLinkedInBtn;
+        
+        // Quote Section
+        const quoteText = document.querySelector('.quote-text');
+        const quoteAuthor = document.querySelector('.quote-author');
+        const quoteCtaText = document.querySelector('.quote-cta .cta-text');
+        
+        if (quoteText) quoteText.textContent = translations.quoteText;
+        if (quoteAuthor) quoteAuthor.textContent = translations.quoteAuthor;
+        if (quoteCtaText) quoteCtaText.textContent = translations.quoteCtaText;
+        
+        // Services Section
+        const servicesLine = document.querySelector('.services-title .title-line');
+        const servicesMain = document.querySelector('.services-title .title-main');
+        const servicesSubtitle = document.querySelector('.services-title .title-subtitle');
+        
+        if (servicesLine) servicesLine.textContent = translations.servicesLine;
+        if (servicesMain) servicesMain.textContent = translations.servicesMain;
+        if (servicesSubtitle) servicesSubtitle.textContent = translations.servicesSubtitle;
+        
+        // Service Cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        if (serviceCards[0]) {
+            const h3 = serviceCards[0].querySelector('h3');
+            const p = serviceCards[0].querySelector('p');
+            if (h3) h3.textContent = translations.card1Title;
+            if (p) p.textContent = translations.card1Text;
+        }
+        if (serviceCards[1]) {
+            const h3 = serviceCards[1].querySelector('h3');
+            const p = serviceCards[1].querySelector('p');
+            if (h3) h3.textContent = translations.card2Title;
+            if (p) p.textContent = translations.card2Text;
+        }
+        if (serviceCards[2]) {
+            const h3 = serviceCards[2].querySelector('h3');
+            const p = serviceCards[2].querySelector('p');
+            if (h3) h3.textContent = translations.card3Title;
+            if (p) p.textContent = translations.card3Text;
+        }
+        if (serviceCards[3]) {
+            const h3 = serviceCards[3].querySelector('h3');
+            const p = serviceCards[3].querySelector('p');
+            if (h3) h3.textContent = translations.card4Title;
+            if (p) p.textContent = translations.card4Text;
+        }
+        
+        // Machines Section
+        const machinesLine = document.querySelector('.machines-title .title-line');
+        const machinesMain = document.querySelector('.machines-title .title-main');
+        const machinesSubtitle = document.querySelector('.machines-title .title-subtitle');
+        const machinesDescription = document.querySelector('.machines-description');
+        
+        if (machinesLine) machinesLine.textContent = translations.machinesLine;
+        if (machinesMain) machinesMain.textContent = translations.machinesMain;
+        if (machinesSubtitle) machinesSubtitle.textContent = translations.machinesSubtitle;
+        if (machinesDescription) machinesDescription.textContent = translations.machinesDescription;
+        
+        // Footer
+        const footerDescription = document.querySelector('.footer-description');
+        const footerContactHeading = document.querySelector('.footer-contact h4');
+        const footerCopyright = document.querySelector('.footer-copyright p');
+        const socialLinks = document.querySelectorAll('.social-link span');
+        
+        if (footerDescription) footerDescription.textContent = translations.footerDescription;
+        if (footerContactHeading) footerContactHeading.textContent = translations.footerContactHeading;
+        if (footerCopyright) footerCopyright.textContent = translations.footerCopyright;
+        if (socialLinks[0]) socialLinks[0].textContent = translations.footerLinkedIn;
+        if (socialLinks[1]) socialLinks[1].textContent = translations.footerContactLink;
+        
+        // Update image alt texts
+        const logoImgs = document.querySelectorAll('img[alt*="Dimple Logo"]');
+        logoImgs.forEach(img => img.alt = translations.logoAlt);
+        
+        const ceoImg = document.querySelector('.ceo-image');
+        if (ceoImg) ceoImg.alt = translations.ceoImageAlt;
+        
+        // Update back-to-top button attributes (keep arrow icon)
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.setAttribute('aria-label', translations.backToTop);
+            backToTopBtn.setAttribute('title', translations.backToTop);
+        }
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang.toLowerCase();
+        
+        // Handle RTL for Arabic
+        if (lang === 'AR') {
+            document.documentElement.dir = 'rtl';
+            document.body.style.direction = 'rtl';
+        } else {
+            document.documentElement.dir = 'ltr';
+            document.body.style.direction = 'ltr';
+        }
+        
+        console.log(`About page translations applied for: ${lang}`);
+    }
+    
+    // Listen for language changes
+    window.addEventListener('languageChanged', function(e) {
+        applyAboutTranslations(e.detail.language);
+    });
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'EN';
+        applyAboutTranslations(savedLanguage);
+    });
+    </script>
+
+    <!-- Language Toggle Component -->
+    <div class="language-toggle-container">
+        <!-- Language Menu (slides up) -->
+        <div class="language-menu">
+            <a href="#" class="language-option" data-lang="EN">EN</a>
+            <a href="#" class="language-option" data-lang="DE">DE</a>
+            <a href="#" class="language-option" data-lang="FR">FR</a>
+            <a href="#" class="language-option" data-lang="ES">ES</a>
+            <a href="#" class="language-option" data-lang="AR">AR</a>
+            <a href="#" class="language-option" data-lang="ZH">ZH</a>
+        </div>
+        
+        <!-- Toggle Button -->
+        <button class="language-toggle-button" aria-label="Change language">
+            <span class="current-language">EN</span>
+        </button>
+    </div>
 </body>
 </html> 

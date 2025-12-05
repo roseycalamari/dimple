@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Dimple - Industrial Non-Woven Fabric Specialists | Est. 1991</title>
+    <title data-translate="pageTitle">Dimple - Industrial Non-Woven Fabric Specialists | Est. 1991</title>
     <link rel="icon" type="image/png" href="images/logo-wit@2x.png" sizes="32x32">
     <link rel="icon" type="image/png" href="images/logo-wit@2x.png" sizes="16x16">
     <link rel="apple-touch-icon" href="images/logo-wit@2x.png" sizes="180x180">
@@ -555,6 +555,7 @@
     </a>
 
     <script src="script.js"></script>
+    <script src="home-translations.js"></script>
     <script>
     // Scroll to Formula 1 section functionality
     const scrollToFormula1Btn = document.querySelector('[data-action="scroll-to-formula1"]');
@@ -566,6 +567,145 @@
             }
         });
     }
+    
+    // Translation System for Home Page
+    function applyHomeTranslations(lang) {
+        const translations = homeTranslations[lang];
+        if (!translations) {
+            console.error('Language not found:', lang);
+            return;
+        }
+        
+        // Update document title
+        document.title = translations.pageTitle;
+        
+        // Update all translatable text elements
+        const textMappings = {
+            // Navigation
+            '.nav-link.active, .mobile-menu-link.active': translations.navHome,
+            '.nav-link[href="about.html"], .mobile-menu-link[href="about.html"]': translations.navAbout,
+            '.nav-link[href="graphical-cleaning.html"], .mobile-menu-dropdown-toggle span:first-child': translations.navGraphical,
+            '.dropdown-link[href="wash-cloth.html"], .mobile-menu-sublink[href="wash-cloth.html"]': translations.navWashCloth,
+            '.dropdown-link[href="cassette-rolls.html"], .mobile-menu-sublink[href="cassette-rolls.html"]': translations.navCassetteRolls,
+            '.dropdown-link[href="winding-device.html"], .mobile-menu-sublink[href="winding-device.html"]': translations.navWindingDevice,
+            '.dropdown-link[href="manual-wiping.html"], .mobile-menu-sublink[href="manual-wiping.html"]': translations.navManualWiping,
+            '.nav-link[href="formula1.html"], .mobile-menu-link[href="formula1.html"]': translations.navFormula1,
+            '.nav-link[href="pricing.html"], .mobile-menu-link[href="pricing.html"]': translations.navPricing,
+            '.nav-link[href="customer-service.html"], .mobile-menu-link[href="customer-service.html"]': translations.navCustomerService,
+            '.nav-link[href="brochures.html"], .mobile-menu-link[href="brochures.html"]': translations.navBrochures,
+            '.nav-contact-button': translations.navContact,
+            '.mobile-menu-contact': translations.navContactUs,
+            
+            // Hero Section
+            '.hero-title .title-line': translations.heroLine,
+            '.hero-title .title-main': translations.heroMain,
+            '.hero-title .title-subtitle': translations.heroSubtitle,
+            '.hero-description': translations.heroDescription,
+            '.cta-secondary .cta-text': translations.heroExplore,
+            '.video-cta-btn .cta-text': translations.heroBackHome,
+            
+            // Formula 1 Section
+            '.f1-badge span': translations.f1Badge,
+            '.formula1-title .title-highlight': translations.f1TitleHighlight,
+            '.formula1-title .title-main': translations.f1TitleMain,
+            '.formula1-subtitle': translations.f1Subtitle,
+            '.text-card h3:first-of-type': translations.f1ChallengeTitle,
+            '.text-card:nth-of-type(2) h3': translations.f1VictoryTitle,
+            '.f1-cta-button .cta-text': translations.f1CtaButton,
+            '.formula1-cta .cta-subtitle': translations.f1CtaSubtitle,
+            
+            // Machines Section
+            '.machines-title .title-line': translations.machinesLine,
+            '.machines-title .title-main': translations.machinesMain,
+            '.machines-title .title-subtitle': translations.machinesSubtitle,
+            '.machines-description': translations.machinesDescription,
+            '.cta-heading': translations.machinesCtaHeading,
+            '.cta-description': translations.machinesCtaDescription,
+            '.machines-cta-button .cta-text': translations.machinesCtaButton,
+            
+            // Footer
+            '.footer-description': translations.footerDescription,
+            '.footer-contact h4': translations.footerContactHeading,
+            '.footer-copyright p': translations.footerCopyright,
+            '.social-link span:first-of-type': translations.footerLinkedIn,
+            '.social-link:last-child span': translations.footerContactLink
+        };
+        
+        // Apply translations to single elements
+        Object.entries(textMappings).forEach(([selector, text]) => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(el => {
+                if (el) el.textContent = text;
+            });
+        });
+        
+        // Update specific Formula 1 descriptions
+        const f1ChallengeDesc = document.querySelector('.text-card:first-of-type .formula1-description');
+        if (f1ChallengeDesc) f1ChallengeDesc.textContent = translations.f1ChallengeText;
+        
+        const f1VictoryDesc = document.querySelector('.text-card:nth-of-type(2) .formula1-description');
+        if (f1VictoryDesc) f1VictoryDesc.textContent = translations.f1VictoryText;
+        
+        // Update Formula 1 stats
+        const statLabels = document.querySelectorAll('.stat-label');
+        if (statLabels[0]) statLabels[0].textContent = translations.f1Stat1Label;
+        if (statLabels[1]) statLabels[1].textContent = translations.f1Stat2Label;
+        if (statLabels[2]) statLabels[2].textContent = translations.f1Stat3Label;
+        
+        // Update image alt texts
+        const logoImgs = document.querySelectorAll('img[alt="Dimple Logo"]');
+        logoImgs.forEach(img => img.alt = translations.logoAlt);
+        
+        // Update back-to-top button attributes (keep arrow icon)
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.setAttribute('aria-label', translations.backToTop);
+            backToTopBtn.setAttribute('title', translations.backToTop);
+        }
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang.toLowerCase();
+        
+        // Handle RTL for Arabic
+        if (lang === 'AR') {
+            document.documentElement.dir = 'rtl';
+            document.body.style.direction = 'rtl';
+        } else {
+            document.documentElement.dir = 'ltr';
+            document.body.style.direction = 'ltr';
+        }
+        
+        console.log(`Home page translations applied for: ${lang}`);
+    }
+    
+    // Listen for language changes
+    window.addEventListener('languageChanged', function(e) {
+        applyHomeTranslations(e.detail.language);
+    });
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'EN';
+        applyHomeTranslations(savedLanguage);
+    });
     </script>
+
+    <!-- Language Toggle Component -->
+    <div class="language-toggle-container">
+        <!-- Language Menu (slides up) -->
+        <div class="language-menu">
+            <a href="#" class="language-option" data-lang="EN">EN</a>
+            <a href="#" class="language-option" data-lang="DE">DE</a>
+            <a href="#" class="language-option" data-lang="FR">FR</a>
+            <a href="#" class="language-option" data-lang="ES">ES</a>
+            <a href="#" class="language-option" data-lang="AR">AR</a>
+            <a href="#" class="language-option" data-lang="ZH">ZH</a>
+        </div>
+        
+        <!-- Toggle Button -->
+        <button class="language-toggle-button" aria-label="Change language">
+            <span class="current-language">EN</span>
+        </button>
+    </div>
 </body>
 </html>

@@ -1840,5 +1840,192 @@
     </a>
 
     <script src="script.js"></script>
+    <script src="graphical-cleaning-translations.js"></script>
+    <script>
+    // Translation System for Graphical Cleaning Page
+    function applyGraphicalCleaningTranslations(lang) {
+        const translations = graphicalCleaningTranslations[lang];
+        if (!translations) {
+            console.error('Language not found:', lang);
+            return;
+        }
+        
+        // Update document title
+        document.title = translations.pageTitle;
+        
+        // Navigation - Same as other pages
+        const navSelectors = {
+            '.nav-link[href="home.html"], .mobile-menu-link[href="home.html"]': translations.navHome,
+            '.nav-link[href="about.html"], .mobile-menu-link[href="about.html"]': translations.navAbout,
+            '.nav-link[href="graphical-cleaning.html"], .mobile-menu-dropdown-toggle span:first-child, .mobile-menu-sublink[href="graphical-cleaning.html"]': translations.navGraphical,
+            '.dropdown-link[href="wash-cloth.html"], .mobile-menu-sublink[href="wash-cloth.html"]': translations.navWashCloth,
+            '.dropdown-link[href="cassette-rolls.html"], .mobile-menu-sublink[href="cassette-rolls.html"]': translations.navCassetteRolls,
+            '.dropdown-link[href="winding-device.html"], .mobile-menu-sublink[href="winding-device.html"]': translations.navWindingDevice,
+            '.dropdown-link[href="manual-wiping.html"], .mobile-menu-sublink[href="manual-wiping.html"]': translations.navManualWiping,
+            '.nav-link[href="formula1.html"], .mobile-menu-link[href="formula1.html"]': translations.navFormula1,
+            '.nav-link[href="pricing.html"], .mobile-menu-link[href="pricing.html"]': translations.navPricing,
+            '.nav-link[href="customer-service.html"], .mobile-menu-link[href="customer-service.html"]': translations.navCustomerService,
+            '.nav-link[href="brochures.html"], .mobile-menu-link[href="brochures.html"]': translations.navBrochures,
+            '.nav-contact-button': translations.navContact,
+            '.mobile-menu-contact': translations.navContactUs
+        };
+        
+        // Apply navigation translations
+        Object.entries(navSelectors).forEach(([selector, text]) => {
+            document.querySelectorAll(selector).forEach(el => {
+                if (el) el.textContent = text;
+            });
+        });
+        
+        // Hero Section
+        const heroLine = document.querySelector('.hero-title .title-line');
+        const heroMain = document.querySelector('.hero-title .title-main');
+        const heroSubtitle = document.querySelector('.hero-title .title-subtitle');
+        const heroDescription = document.querySelector('.hero-description');
+        const heroExplore = document.querySelector('.cta-secondary .cta-text');
+        
+        if (heroLine) heroLine.textContent = translations.heroLine;
+        if (heroMain) heroMain.textContent = translations.heroMain;
+        if (heroSubtitle) heroSubtitle.textContent = translations.heroSubtitle;
+        if (heroDescription) heroDescription.textContent = translations.heroDescription;
+        if (heroExplore) heroExplore.textContent = translations.heroExplore;
+        
+        // Solutions Section
+        const solutionsLine = document.querySelector('.solutions-title .title-line');
+        const solutionsMain = document.querySelector('.solutions-title .title-main');
+        const solutionsSubtitle = document.querySelector('.solutions-title .title-subtitle');
+        const solutionsDescription = document.querySelector('.solutions-description');
+        
+        if (solutionsLine) solutionsLine.textContent = translations.solutionsLine;
+        if (solutionsMain) solutionsMain.textContent = translations.solutionsMain;
+        if (solutionsSubtitle) solutionsSubtitle.textContent = translations.solutionsSubtitle;
+        if (solutionsDescription) solutionsDescription.textContent = translations.solutionsDescription;
+        
+        // Solution Cards
+        const solutionCards = document.querySelectorAll('.solution-card');
+        if (solutionCards[0]) {
+            const h3 = solutionCards[0].querySelector('h3');
+            const p = solutionCards[0].querySelector('p');
+            const link = solutionCards[0].querySelector('.solution-card-cta');
+            if (h3) h3.textContent = translations.card1Title;
+            if (p) p.textContent = translations.card1Text;
+            if (link) link.textContent = translations.card1Link;
+        }
+        if (solutionCards[1]) {
+            const h3 = solutionCards[1].querySelector('h3');
+            const p = solutionCards[1].querySelector('p');
+            const link = solutionCards[1].querySelector('.solution-card-cta');
+            if (h3) h3.textContent = translations.card2Title;
+            if (p) p.textContent = translations.card2Text;
+            if (link) link.textContent = translations.card2Link;
+        }
+        if (solutionCards[2]) {
+            const h3 = solutionCards[2].querySelector('h3');
+            const p = solutionCards[2].querySelector('p');
+            const link = solutionCards[2].querySelector('.solution-card-cta');
+            if (h3) h3.textContent = translations.card3Title;
+            if (p) p.textContent = translations.card3Text;
+            if (link) link.textContent = translations.card3Link;
+        }
+        if (solutionCards[3]) {
+            const h3 = solutionCards[3].querySelector('h3');
+            const p = solutionCards[3].querySelector('p');
+            const link = solutionCards[3].querySelector('.solution-card-cta');
+            if (h3) h3.textContent = translations.card4Title;
+            if (p) p.textContent = translations.card4Text;
+            if (link) link.textContent = translations.card4Link;
+        }
+        
+        // Production Centre Section
+        const productionTitle = document.querySelector('.production-centre-title');
+        const productionDescription = document.querySelector('.production-centre-description');
+        
+        if (productionTitle) productionTitle.textContent = translations.productionTitle;
+        if (productionDescription) productionDescription.textContent = translations.productionDescription;
+        
+        // Machines Section
+        const machinesLine = document.querySelector('.machines-title .title-line');
+        const machinesMain = document.querySelector('.machines-title .title-main');
+        const machinesSubtitle = document.querySelector('.machines-title .title-subtitle');
+        const machinesDescription = document.querySelector('.machines-description');
+        const machinesCtaHeading = document.querySelector('.cta-heading');
+        const machinesCtaDescription = document.querySelector('.cta-description');
+        const machinesCtaButton = document.querySelector('.machines-cta-button .cta-text');
+        
+        if (machinesLine) machinesLine.textContent = translations.machinesLine;
+        if (machinesMain) machinesMain.textContent = translations.machinesMain;
+        if (machinesSubtitle) machinesSubtitle.textContent = translations.machinesSubtitle;
+        if (machinesDescription) machinesDescription.textContent = translations.machinesDescription;
+        if (machinesCtaHeading) machinesCtaHeading.textContent = translations.machinesCtaHeading;
+        if (machinesCtaDescription) machinesCtaDescription.textContent = translations.machinesCtaDescription;
+        if (machinesCtaButton) machinesCtaButton.textContent = translations.machinesCtaButton;
+        
+        // Footer
+        const footerDescription = document.querySelector('.footer-description');
+        const footerContactHeading = document.querySelector('.footer-contact h4');
+        const footerCopyright = document.querySelector('.footer-copyright p');
+        const socialLinks = document.querySelectorAll('.social-link span');
+        
+        if (footerDescription) footerDescription.textContent = translations.footerDescription;
+        if (footerContactHeading) footerContactHeading.textContent = translations.footerContactHeading;
+        if (footerCopyright) footerCopyright.textContent = translations.footerCopyright;
+        if (socialLinks[0]) socialLinks[0].textContent = translations.footerLinkedIn;
+        if (socialLinks[1]) socialLinks[1].textContent = translations.footerContactLink;
+        
+        // Update image alt texts
+        const logoImgs = document.querySelectorAll('img[alt*="Dimple Logo"]');
+        logoImgs.forEach(img => img.alt = translations.logoAlt);
+        
+        // Update back-to-top button attributes (keep arrow icon)
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.setAttribute('aria-label', translations.backToTop);
+            backToTopBtn.setAttribute('title', translations.backToTop);
+        }
+        
+        // Update HTML lang attribute
+        document.documentElement.lang = lang.toLowerCase();
+        
+        // Handle RTL for Arabic
+        if (lang === 'AR') {
+            document.documentElement.dir = 'rtl';
+            document.body.style.direction = 'rtl';
+        } else {
+            document.documentElement.dir = 'ltr';
+            document.body.style.direction = 'ltr';
+        }
+        
+        console.log(`Graphical Cleaning page translations applied for: ${lang}`);
+    }
+    
+    // Listen for language changes
+    window.addEventListener('languageChanged', function(e) {
+        applyGraphicalCleaningTranslations(e.detail.language);
+    });
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'EN';
+        applyGraphicalCleaningTranslations(savedLanguage);
+    });
+    </script>
+
+    <!-- Language Toggle Component -->
+    <div class="language-toggle-container">
+        <!-- Language Menu (slides up) -->
+        <div class="language-menu">
+            <a href="#" class="language-option" data-lang="EN">EN</a>
+            <a href="#" class="language-option" data-lang="DE">DE</a>
+            <a href="#" class="language-option" data-lang="FR">FR</a>
+            <a href="#" class="language-option" data-lang="ES">ES</a>
+            <a href="#" class="language-option" data-lang="AR">AR</a>
+            <a href="#" class="language-option" data-lang="ZH">ZH</a>
+        </div>
+        
+        <!-- Toggle Button -->
+        <button class="language-toggle-button" aria-label="Change language">
+            <span class="current-language">EN</span>
+        </button>
+    </div>
 </body>
 </html> 
