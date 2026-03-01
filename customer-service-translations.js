@@ -38,7 +38,7 @@ const customerServiceTranslations = {
         feature2Description: 'Our service team works closely with production, expedition, and export departments to ensure you get comprehensive and accurate information.',
         
         feature3Title: 'Multiple Contact Options',
-        feature3Description: 'Reach us via phone at +31 251 316302 or email at info@dimple.nl. We\'re available Monday through Friday from 08:00 to 18:00.',
+        feature3Description: 'Reach us via phone at +31 251 316302 or email at cs@dimple.nl. We\'re available Monday through Friday from 08:00 to 18:00.',
         
         feature4Title: 'Complete Support',
         feature4Description: 'From pricing and samples to track & trace and order placement - we handle all your inquiries with professional care and attention to detail.',
@@ -156,7 +156,7 @@ const customerServiceTranslations = {
         feature2Description: 'Unser Service-Team arbeitet eng mit den Produktions-, Versand- und Exportabteilungen zusammen, um sicherzustellen, dass Sie umfassende und genaue Informationen erhalten.',
         
         feature3Title: 'Mehrere Kontaktoptionen',
-        feature3Description: 'Erreichen Sie uns telefonisch unter +31 251 316302 oder per E-Mail an info@dimple.nl. Wir sind Montag bis Freitag von 08:00 bis 18:00 Uhr erreichbar.',
+        feature3Description: 'Erreichen Sie uns telefonisch unter +31 251 316302 oder per E-Mail an cs@dimple.nl. Wir sind Montag bis Freitag von 08:00 bis 18:00 Uhr erreichbar.',
         
         feature4Title: 'Vollständige Unterstützung',
         feature4Description: 'Von Preisen und Mustern bis hin zu Sendungsverfolgung und Bestellaufgabe - wir bearbeiten alle Ihre Anfragen mit professioneller Sorgfalt und Liebe zum Detail.',
@@ -274,7 +274,7 @@ const customerServiceTranslations = {
         feature2Description: 'Notre équipe de service travaille en étroite collaboration avec les départements de production, d\'expédition et d\'exportation pour garantir que vous recevez des informations complètes et précises.',
         
         feature3Title: 'Options de contact multiples',
-        feature3Description: 'Contactez-nous par téléphone au +31 251 316302 ou par e-mail à info@dimple.nl. Nous sommes disponibles du lundi au vendredi de 08h00 à 18h00.',
+        feature3Description: 'Contactez-nous par téléphone au +31 251 316302 ou par e-mail à cs@dimple.nl. Nous sommes disponibles du lundi au vendredi de 08h00 à 18h00.',
         
         feature4Title: 'Support complet',
         feature4Description: 'Des tarifs et échantillons au suivi des commandes et à la passation de commandes - nous traitons toutes vos demandes avec soin professionnel et attention aux détails.',
@@ -392,7 +392,7 @@ const customerServiceTranslations = {
         feature2Description: 'Nuestro equipo de servicio trabaja en estrecha colaboración con los departamentos de producción, expedición y exportación para garantizar que obtenga información completa y precisa.',
         
         feature3Title: 'Múltiples opciones de contacto',
-        feature3Description: 'Comuníquese con nosotros por teléfono al +31 251 316302 o por correo electrónico a info@dimple.nl. Estamos disponibles de lunes a viernes de 08:00 a 18:00.',
+        feature3Description: 'Comuníquese con nosotros por teléfono al +31 251 316302 o por correo electrónico a cs@dimple.nl. Estamos disponibles de lunes a viernes de 08:00 a 18:00.',
         
         feature4Title: 'Soporte completo',
         feature4Description: 'Desde precios y muestras hasta seguimiento y realización de pedidos: manejamos todas sus consultas con cuidado profesional y atención al detalle.',
@@ -510,7 +510,7 @@ const customerServiceTranslations = {
         feature2Description: 'يعمل فريق الخدمة لدينا عن كثب مع أقسام الإنتاج والشحن والتصدير لضمان حصولك على معلومات شاملة ودقيقة.',
         
         feature3Title: 'خيارات اتصال متعددة',
-        feature3Description: 'تواصل معنا عبر الهاتف على +31 251 316302 أو عبر البريد الإلكتروني على info@dimple.nl. نحن متاحون من الاثنين إلى الجمعة من 08:00 إلى 18:00.',
+        feature3Description: 'تواصل معنا عبر الهاتف على +31 251 316302 أو عبر البريد الإلكتروني على cs@dimple.nl. نحن متاحون من الاثنين إلى الجمعة من 08:00 إلى 18:00.',
         
         feature4Title: 'دعم كامل',
         feature4Description: 'من التسعير والعينات إلى التتبع وتقديم الطلبات - نتعامل مع جميع استفساراتك بعناية احترافية واهتمام بالتفاصيل.',
@@ -628,7 +628,7 @@ const customerServiceTranslations = {
         feature2Description: '我们的服务团队与生产、运输和出口部门紧密合作，确保您获得全面准确的信息。',
         
         feature3Title: '多种联系方式',
-        feature3Description: '通过电话+31 251 316302或电子邮件info@dimple.nl与我们联系。我们周一至周五08:00至18:00提供服务。',
+        feature3Description: '通过电话+31 251 316302或电子邮件cs@dimple.nl与我们联系。我们周一至周五08:00至18:00提供服务。',
         
         feature4Title: '完整支持',
         feature4Description: '从定价和样品到追踪和订单下达 - 我们以专业的关怀和对细节的关注处理您的所有询问。',
